@@ -1,18 +1,20 @@
-/*******************************************************************************
- * Copyright (c) 2011 Intalio, Inc.
- * ======================================================================
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * and Apache License v2.0 which accompanies this distribution.
+/*
+ *  ========================================================================
+ *  Copyright (c) 1995-2016 Mort Bay Consulting Pty. Ltd.
+ *  ------------------------------------------------------------------------
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  and Apache License v2.0 which accompanies this distribution.
  *
- *   The Eclipse Public License is available at
- *   http://www.eclipse.org/legal/epl-v10.html
+ *      The Eclipse Public License is available at
+ *      http://www.eclipse.org/legal/epl-v10.html
  *
- *   The Apache License v2.0 is available at
- *   http://www.opensource.org/licenses/apache2.0.php
+ *      The Apache License v2.0 is available at
+ *      http://www.opensource.org/licenses/apache2.0.php
  *
- * You may elect to redistribute this code under either of these licenses.
- *******************************************************************************/
+ *  You may elect to redistribute this code under either of these licenses.
+ *  ========================================================================
+ */
 package org.eclipse.jetty.toolchain.version;
 
 import java.io.File;
@@ -26,7 +28,7 @@ import org.eclipse.jetty.toolchain.version.git.GitCommand;
 
 /**
  * Update the active version entry in the VERSION.txt file from information present in the git logs.
- * 
+ *
  * @goal update-version-text
  * @requiresProject true
  * @phase package
@@ -35,7 +37,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
 {
     /**
      * The maven project version.
-     * 
+     *
      * @parameter expression="${version.section}" default-value="${project.version}"
      * @required
      */
@@ -43,7 +45,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
 
     /**
      * The version key to use in the VERSION.txt file.
-     * 
+     *
      * @parameter expression="${version.text.key}" default-value="jetty-VERSION"
      * @required
      */
@@ -51,7 +53,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
 
     /**
      * The version key to use when looking up a git tag ref.
-     * 
+     *
      * @parameter expression="${version.tag.key}" default-value="jetty-VERSION"
      * @required
      */
@@ -59,35 +61,35 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
 
     /**
      * Allow the existing issues to be sorted alphabetically.
-     * 
+     *
      * @parameter expression="${version.sort.existing}" default-value="false"
      */
     private boolean sortExisting = false;
 
     /**
      * Allow the plugin to issue a 'git fetch --tags' to update the local tags from.
-     * 
+     *
      * @parameter expression="${version.refresh.tags}" default-value="false"
      */
     private boolean refreshTags = false;
 
     /**
      * Allow the plugin to update the release date for an issue (if none is provided)
-     * 
+     *
      * @parameter expression="${version.update.date}" default-value="false"
      */
     private boolean updateDate = false;
 
     /**
      * Allow the plugin to replace the input VERSION.txt file
-     * 
+     *
      * @parameter expression="${version.copy.generated}" default-value="false"
      */
     private boolean copyGenerated;
 
     /**
      * Allow the plugin to attach the generated VERSION.txt file to the project
-     * 
+     *
      * @parameter expression="${version.attach}" default-value="false"
      */
     private boolean attachArtifact;
@@ -95,7 +97,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     /**
      * The generated VERSION.txt file.
      * <p>
-     * 
+     *
      * @parameter expression="${version.text.output.file}" default-value="${project.build.directory}/VERSION.txt"
      */
     private File versionTextOuputFile;
