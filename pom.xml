@@ -10,6 +10,22 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  <url>http://www.eclipse.org/jetty/</url>
+  <inceptionYear>1995</inceptionYear>
+  <organization>
+    <name>Mort Bay Consulting</name>
+    <url>http://www.mortbay.com</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Eclipse Public License - Version 1.0</name>
+      <url>http://www.eclipse.org/org/documents/epl-v10.php</url>
+    </license>
+    <license>
+      <name>Apache Software License - Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
   <dependencies>
     <dependency>
       <groupId>org.apache.maven</groupId>
@@ -80,4 +96,20 @@
     <developerConnection>scm:git:ssh://github.com/jetty-project/jetty-version-maven-plugin.git</developerConnection>
     <url>https://github.com/jetty-project/jetty-version-maven-plugin</url>
   </scm>
+  <issueManagement>
+    <system>github</system>
+    <url>https://github.com/jetty-project/jetty-version-maven-plugin/issues</url>
+  </issueManagement>
+  <distributionManagement>
+    <repository>
+      <id>oss.sonatype.org</id>
+      <name>Jetty Staging Repository</name>
+      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>oss.sonatype.org</id>
+      <name>Jetty Snapshot Repository</name>
+      <url>http://oss.sonatype.org/content/repositories/jetty-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
