@@ -60,6 +60,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
@@ -83,10 +84,10 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.1</version>
         <configuration>
-          <useReleaseProfile>false</useReleaseProfile>
-          <goals>deploy</goals>
+          <useReleaseProfile>true</useReleaseProfile>
           <arguments>-Peclipse-release</arguments>
           <preparationGoals>clean install</preparationGoals>
+          <mavenExecutorId>forked-path</mavenExecutorId>
         </configuration>
       </plugin>
     </plugins>
@@ -179,10 +180,49 @@
             </header>
           </configuration>
         </plugin>
-
       </plugins>
     </pluginManagement>
   </build>
+  <developers>
+    <developer>
+      <id>gregw</id>
+      <name>Greg Wilkins</name>
+      <email>gregw@webtide.com</email>
+      <organization>Webtide, LLC</organization>
+      <organizationUrl>http://www.webtide.com</organizationUrl>
+      <timezone>10</timezone>
+    </developer>
+    <developer>
+      <id>janb</id>
+      <name>Jan Bartel</name>
+      <email>janb@webtide.com</email>
+      <organization>Webtide, LLC</organization>
+      <organizationUrl>http://www.webtide.com</organizationUrl>
+      <timezone>10</timezone>
+    </developer>
+    <developer>
+      <id>sbordet</id>
+      <name>Simone Bordet</name>
+      <email>simone.bordet@gmail.com</email>
+      <timezone>1</timezone>
+    </developer>
+    <developer>
+      <id>jesse</id>
+      <name>Jesse McConnell</name>
+      <email>jesse.mcconnell@gmail.com</email>
+      <organization>Webtide, LLC</organization>
+      <organizationUrl>http://www.webtide.com</organizationUrl>
+      <timezone>-6</timezone>
+    </developer>
+    <developer>
+      <id>joakime</id>
+      <name>Joakim Erdfelt</name>
+      <email>joakim.erdfelt@gmail.com</email>
+      <organization>Webtide, LLC</organization>
+      <organizationUrl>http://www.webtide.com</organizationUrl>
+      <timezone>-7</timezone>
+    </developer>
+  </developers>
   <scm>
     <connection>scm:git:https://github.com/jetty-project/jetty-version-maven-plugin.git</connection>
     <developerConnection>scm:git:ssh://github.com/jetty-project/jetty-version-maven-plugin.git</developerConnection>
