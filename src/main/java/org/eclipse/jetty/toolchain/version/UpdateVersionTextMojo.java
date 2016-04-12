@@ -25,6 +25,9 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.codehaus.plexus.util.FileUtils;
 import org.eclipse.jetty.toolchain.version.git.GitCommand;
+import org.eclipse.jetty.toolchain.version.issues.GitHubIssueResolver;
+import org.eclipse.jetty.toolchain.version.issues.Issue;
+import org.eclipse.jetty.toolchain.version.issues.IssueResolver;
 
 /**
  * Update the active version entry in the VERSION.txt file from information present in the git logs.
@@ -96,7 +99,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
 
     /**
      * The generated VERSION.txt file.
-     * <p>
+     * <p/>
      *
      * @parameter expression="${version.text.output.file}" default-value="${project.build.directory}/VERSION.txt"
      */
@@ -202,7 +205,10 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             }
             getLog().debug("Commit ID to [" + updateVersionText + "]: " + currentCommitId);
 
-            git.populateIssuesForRange(priorCommitId,currentCommitId,rel);
+            git.populateIssuesForRange(priorCommitId, currentCommitId, rel);
+
+            resolveIssueSubjects(rel);
+
             if ((rel.getReleasedOn() == null) && updateDate)
             {
                 rel.setReleasedOn(new Date()); // now
@@ -215,7 +221,40 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
         }
         catch (IOException e)
         {
-            throw new MojoFailureException("Unable to generate replacement VERSION.txt",e);
+            throw new MojoFailureException("Unable to generate replacement VERSION.txt", e);
+        }
+    }
+
+    /**
+     * Attempt to resolve the issue subject lines against the issue
+     * tracking system.
+     *
+     * @param rel the release
+     */
+    protected void resolveIssueSubjects(Release rel)
+    {
+        IssueResolver issueResolver = new GitHubIssueResolver();
+
+        try
+        {
+            issueResolver.init(getLog());
+
+            for (Issue issue : rel.getIssues())
+            {
+                String issueRef = issue.getId();
+                getLog().info("Resolving Subject for Issue " + issueRef);
+                String subject = issueResolver.getIssueSubject(issueRef);
+                if (subject != null)
+                    issue.setText(subject);
+            }
+        }
+        catch (IOException e)
+        {
+            getLog().warn(e);
+        }
+        finally
+        {
+            issueResolver.destroy();
         }
     }
 
@@ -230,13 +269,13 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             getLog().info("Attaching generated VERSION.txt");
             getLog().debug("Classifier = " + classifier);
             getLog().debug("Type = " + type);
-            projectHelper.attachArtifact(project,type,classifier,versionTextOuputFile);
+            projectHelper.attachArtifact(project, type, classifier, versionTextOuputFile);
         }
 
         if (copyGenerated)
         {
             getLog().info("Copying generated VERSION.txt over input VERSION.txt");
-            FileUtils.copyFile(versionTextOuputFile,versionTextInputFile);
+            FileUtils.copyFile(versionTextOuputFile, versionTextInputFile);
         }
     }
 }

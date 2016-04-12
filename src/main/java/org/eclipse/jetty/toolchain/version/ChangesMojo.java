@@ -111,6 +111,8 @@ public class ChangesMojo extends UpdateVersionTextMojo
 
             git.populateIssuesForRange(priorCommitId,currentCommitId,rel);
 
+            resolveIssueSubjects(rel);
+
             // List issues
             List<Issue> issues = new ArrayList<>();
             issues.addAll(rel.getIssues());
