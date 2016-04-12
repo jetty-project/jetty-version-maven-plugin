@@ -17,12 +17,12 @@
  */
 package org.eclipse.jetty.toolchain.version.issues;
 
-import org.codehaus.plexus.util.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.codehaus.plexus.util.StringUtils;
 
 public class IssueParser
 {
@@ -36,7 +36,15 @@ public class IssueParser
 
         issue_id_patterns = new ArrayList<Pattern>();
         // Github Based
-        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[I]ssue #([0-9]{2,})" + DELIM));
+        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[Ii]ssue #([0-9]{2,})" + DELIM));
+        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*#([0-9]{2,})" + DELIM));
+        // Github recommended - https://help.github.com/articles/closing-issues-via-commit-messages/
+        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[Cc]lose #([0-9]{2,})" + DELIM));
+        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[Cc]lose[sd]* #([0-9]{2,})" + DELIM));
+        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[Ff]ix #([0-9]{2,})" + DELIM));
+        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[Ff]ixe[sd]* #([0-9]{2,})" + DELIM));
+        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[Rr]esolve #([0-9]{2,})" + DELIM));
+        issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[Rr]esolve[sd]* #([0-9]{2,})" + DELIM));
         // Bugzilla Based
         issue_id_patterns.add(Pattern.compile("^[\\[\\s]*[Bb]ug ([0-9]{6,})" + DELIM));
         issue_id_patterns.add(Pattern.compile("^([0-9]{6,})" + DELIM));
