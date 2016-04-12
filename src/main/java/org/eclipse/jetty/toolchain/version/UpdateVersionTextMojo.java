@@ -41,7 +41,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * @parameter expression="${version.section}" default-value="${project.version}"
      * @required
      */
-    private String version;
+    protected String version;
 
     /**
      * The version key to use in the VERSION.txt file.
@@ -49,7 +49,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * @parameter expression="${version.text.key}" default-value="jetty-VERSION"
      * @required
      */
-    private String versionTextKey;
+    protected String versionTextKey;
 
     /**
      * The version key to use when looking up a git tag ref.
@@ -57,7 +57,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * @parameter expression="${version.tag.key}" default-value="jetty-VERSION"
      * @required
      */
-    private String versionTagKey;
+    protected String versionTagKey;
 
     /**
      * Allow the existing issues to be sorted alphabetically.
@@ -71,7 +71,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      *
      * @parameter expression="${version.refresh.tags}" default-value="false"
      */
-    private boolean refreshTags = false;
+    protected boolean refreshTags = false;
 
     /**
      * Allow the plugin to update the release date for an issue (if none is provided)

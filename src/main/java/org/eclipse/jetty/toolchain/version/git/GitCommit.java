@@ -33,10 +33,12 @@ public class GitCommit
     private String committerName;
     private String subject;
 
-    public void appendBody(String trim)
+    public void appendBody(String line)
     {
-        // TODO Auto-generated method stub
-
+        if (body == null)
+            body = line;
+        else
+            body += System.lineSeparator() + line;
     }
 
     public Date getAuthorDate()

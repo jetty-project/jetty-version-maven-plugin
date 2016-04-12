@@ -61,7 +61,7 @@ public class GitLogParserTest extends AbstractGitTestCase
         parseSampleFile(parser,sampleFile);
 
         List<Issue> issues = parser.getIssues();
-        Assert.assertEquals("Commit entries with Issue IDs",110,issues.size());
+        Assert.assertEquals("Commit entries with Issue IDs",115,issues.size());
 
         Release rel = new Release("TEST-VERSION");
         rel.setExisting(false);
