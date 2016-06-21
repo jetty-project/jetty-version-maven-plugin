@@ -22,6 +22,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.OkUrlFactory;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -68,13 +69,25 @@ public class GitHubIssueResolver implements IssueResolver
     {
         int issueNum = Integer.parseInt(issueRef);
 
-        GHIssue issue = github.getRepository(repoName).getIssue(issueNum);
-        if (issue == null)
+        try
         {
+            GHIssue issue = github.getRepository(repoName).getIssue(issueNum);
+
+            if (issue == null)
+            {
+                return null;
+            }
+            else
+            {
+                return issue.getTitle();
+            }
+
+        }
+        catch (FileNotFoundException fnfe )
+        {
+            fnfe.printStackTrace();
             return null;
         }
-
-        return issue.getTitle();
     }
 
     @Override
