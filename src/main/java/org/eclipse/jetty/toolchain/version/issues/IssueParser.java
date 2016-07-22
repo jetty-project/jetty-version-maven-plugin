@@ -74,10 +74,11 @@ public class IssueParser
         }
 
         raw = raw.trim();
-        // Special "zz-" format is to indicate that this Issue object has no issue.id
-        // But we declare one anyway so for equals/hashcode/sorting reasons.
-        String specialId = "zz-" + raw.substring(0,Math.min(raw.length(),70)).toLowerCase();
-        return new Issue(specialId,raw);
+        
+        String badId = raw.substring(0,Math.min(raw.length(),70)).toLowerCase();
+        issue = new Issue(badId,raw);
+        issue.setBad(true);
+        return issue;
     }
 
     /**

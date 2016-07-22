@@ -224,7 +224,75 @@ public class GitLogParserTest extends AbstractGitTestCase
 
         Assert.assertEquals("Issue count", 48, parser.getIssues().size());
     }
-
+    
+    @Test
+    public void testParseJetty9_3_11_GitHubLog() throws IOException, ParseException
+    {
+        File sampleFile = MavenTestingUtils.getTestResourceFile("git-log-9.3.11.M0..9.3.11.txt");
+        GitLogParser parser = new GitLogParser();
+        parseSampleFile(parser,sampleFile);
+        
+        Assert.assertNotNull("parser.gitCommitLogs",parser.getGitCommitLogs());
+        Assert.assertEquals("parser.gitCommitLogs.size",137,parser.getGitCommitLogs().size());
+        
+        int joakimCount = 0;
+        int simoneCount = 0;
+        int gregCount = 0;
+        for (GitCommit commit : parser.getGitCommitLogs())
+        {
+            if (commit.getAuthorName().contains("Joakim"))
+            {
+                joakimCount++;
+            } else if (commit.getAuthorName().contains("Simone"))
+            {
+                simoneCount++;
+            } else if (commit.getAuthorName().contains("Greg"))
+            {
+                gregCount++;
+            }
+        }
+        
+        // The expected values were hand counted in the raw file
+        Assert.assertEquals("Commits by Joakim",33,joakimCount);
+        Assert.assertEquals("Commits by Simone",20,simoneCount);
+        Assert.assertEquals("Commits by Greg",33,gregCount);
+        
+        // Test for some known issues (not all)
+        List<String> issueIds = new ArrayList<String>();
+        
+        // Github Issues
+        issueIds.add("592");
+//        issueIds.add("737");
+//        issueIds.add("742");
+//        issueIds.add("230");
+//        issueIds.add("734");
+//        issueIds.add("726");
+        
+        for(Issue issue: parser.getIssues()) {
+            if(issueIds.contains(issue.getId())) {
+                issueIds.remove(issue.getId());
+            }
+            // System.out.printf("Issue[%s] %s%n", issue.getId(), issue.getText());
+        }
+        
+        if(issueIds.size()>0) {
+            StringBuilder err = new StringBuilder();
+            err.append("Issue parser failed to find issue id");
+            if(issueIds.size()>1) {
+                err.append("s");
+            }
+            err.append(":");
+            for(String id: issueIds) {
+                err.append(" ").append(id);
+            }
+            err.append(".");
+            Assert.assertEquals(err.toString(), 0, issueIds.size());
+        }
+        
+        Assert.assertEquals("Issue count", 50, parser.getIssues().size());
+    }
+    
+    
     @Test
     public void testParseSingleGitLog() throws IOException, ParseException
     {

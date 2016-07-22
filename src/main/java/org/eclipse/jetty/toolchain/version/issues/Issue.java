@@ -24,6 +24,7 @@ import org.apache.commons.lang3.text.WordUtils;
  */
 public class Issue
 {
+    private boolean bad = false;
     private String id;
     private String text;
     private int wrapColumn = 76;
@@ -97,12 +98,17 @@ public class Issue
         result = prime * result + ((id == null)?0:id.hashCode());
         return result;
     }
-
-    public boolean hasId()
+    
+    public void setBad(boolean bad)
     {
-        return !id.startsWith("zz-");
+        this.bad = bad;
     }
-
+    
+    public boolean isBad()
+    {
+        return bad;
+    }
+    
     public void setId(String id)
     {
         this.id = id;
@@ -118,13 +124,13 @@ public class Issue
     {
         StringBuilder line = new StringBuilder();
         line.append(" + ");
-        if (hasId())
+        if (isBad())
         {
-            line.append(WordUtils.wrap(id + " " + text,wrapColumn,"\n   ",false));
+            line.append(WordUtils.wrap(text,wrapColumn,"\n   ",false));
         }
         else
         {
-            line.append(WordUtils.wrap(text,wrapColumn,"\n   ",false));
+            line.append(WordUtils.wrap(id + " " + text,wrapColumn,"\n   ",false));
         }
         return line.toString();
     }

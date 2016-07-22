@@ -241,11 +241,25 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
 
             for (Issue issue : rel.getIssues())
             {
-                String issueRef = issue.getId();
-                getLog().info("Resolving Subject for Issue " + issueRef);
-                String subject = issueResolver.getIssueSubject(issueRef);
-                if (subject != null)
-                    issue.setText(subject);
+                if (issue.isBad())
+                {
+                    getLog().info("Skipping bad issue: " + issue.getId());
+                    continue;
+                } else
+                {
+                    String issueRef = issue.getId();
+                    try
+                    {
+                        getLog().info("Resolving Subject for Issue " + issueRef);
+                        String subject = issueResolver.getIssueSubject(issueRef);
+                        if (subject != null)
+                            issue.setText(subject);
+                    }
+                    catch (IOException e)
+                    {
+                        getLog().warn("Unable to obtain Subject for Issue " + issueRef, e);
+                    }
+                }
             }
         }
         catch (IOException e)
