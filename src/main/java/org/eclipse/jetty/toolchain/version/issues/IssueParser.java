@@ -55,6 +55,8 @@ public class IssueParser
     
     /**
      * Parse a known issue (such as " + 341235 Bug Text Goes Here")
+     * @param rawissue the raw issue to parse
+     * @return the issue (or null if raw issue is blank)
      */
     public Issue parseKnownIssue(String rawissue)
     {
@@ -82,6 +84,8 @@ public class IssueParser
     
     /**
      * Parse a possible issue, if provided line has no Issue ID pattern match, a null is returned.
+     * @param rawissue the raw issue text to parse
+     * @return the parsed issue (or null if blank, or not matching a known issue pattern)
      */
     public Issue parsePossibleIssue(String rawissue)
     {

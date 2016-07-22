@@ -40,6 +40,8 @@ public final class DateUtil
 
     /**
      * Format a date to in ISO 8601 format (as used by GIT) adjusted to UTC timezone.
+     * @param date the date to format
+     * @return the formatted date
      */
     public static String formatIso8601(Date date)
     {
@@ -50,6 +52,8 @@ public final class DateUtil
 
     /**
      * Format a date to in RFC 2822 format (as used by GIT) adjusted to UTC timezone.
+     * @param date the date to format
+     * @return the formatted date
      */
     public static String formatRfc2822(Date date)
     {

@@ -29,7 +29,7 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     /**
      * The project basedir.
      *
-     * @parameter expression="${project.basedir}"
+     * @parameter property="project.basedir"
      * @required
      */
     protected File basedir;
@@ -38,21 +38,21 @@ public abstract class AbstractVersionMojo extends AbstractMojo
      * The existing VERSION.txt file.
      * <p>
      *
-     * @parameter expression="${version.text.file}" default-value="${project.basedir}/VERSION.txt"
+     * @parameter property="version.text.file" default-value="${project.basedir}/VERSION.txt"
      */
     protected File versionTextInputFile;
 
     /**
      * The classifier to use for attaching the generated VERSION.txt artifact
      *
-     * @parameter expression=${version.text.output.classifier}" default-value="version"
+     * @parameter property="version.text.output.classifier" default-value="version"
      */
     protected String classifier = "version";
 
     /**
      * The type to use for the attaching the generated VERSION.txt artifact
      *
-     * @parameter expression=${version.text.output.type}" default-value="txt"
+     * @parameter property="version.text.output.type" default-value="txt"
      */
     protected String type = "txt";
 
@@ -68,7 +68,7 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     /**
      * Maven Project.
      *
-     * @parameter expression="${project}"
+     * @parameter property="project"
      * @readonly
      * @required
      */

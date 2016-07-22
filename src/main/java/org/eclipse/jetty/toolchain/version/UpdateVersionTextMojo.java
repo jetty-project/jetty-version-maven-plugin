@@ -44,7 +44,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     /**
      * The maven project version.
      *
-     * @parameter expression="${version.section}" default-value="${project.version}"
+     * @parameter property="version.section" default-value="${project.version}"
      * @required
      */
     protected String version;
@@ -52,7 +52,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     /**
      * The version key to use in the VERSION.txt file.
      *
-     * @parameter expression="${version.text.key}" default-value="jetty-VERSION"
+     * @parameter property="version.text.key" default-value="jetty-VERSION"
      * @required
      */
     protected String versionTextKey;
@@ -60,7 +60,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     /**
      * The version key to use when looking up a git tag ref.
      *
-     * @parameter expression="${version.tag.key}" default-value="jetty-VERSION"
+     * @parameter property="version.tag.key" default-value="jetty-VERSION"
      * @required
      */
     protected String versionTagKey;
@@ -68,35 +68,35 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     /**
      * Allow the existing issues to be sorted alphabetically.
      *
-     * @parameter expression="${version.sort.existing}" default-value="false"
+     * @parameter property="version.sort.existing" default-value="false"
      */
     private boolean sortExisting = false;
     
     /**
      * Allow the plugin to issue a 'git fetch --tags' to update the local tags from.
      *
-     * @parameter expression="${version.refresh.tags}" default-value="false"
+     * @parameter property="version.refresh.tags" default-value="false"
      */
     protected boolean refreshTags = false;
     
     /**
      * Allow the plugin to update the release date for an issue (if none is provided)
      *
-     * @parameter expression="${version.update.date}" default-value="false"
+     * @parameter property="version.update.date" default-value="false"
      */
     private boolean updateDate = false;
     
     /**
      * Allow the plugin to replace the input VERSION.txt file
      *
-     * @parameter expression="${version.copy.generated}" default-value="false"
+     * @parameter property="version.copy.generated" default-value="false"
      */
     private boolean copyGenerated;
     
     /**
      * Allow the plugin to attach the generated VERSION.txt file to the project
      *
-     * @parameter expression="${version.attach}" default-value="false"
+     * @parameter property="version.attach" default-value="false"
      */
     private boolean attachArtifact;
     
@@ -104,7 +104,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * The generated VERSION.txt file.
      * <p/>
      *
-     * @parameter expression="${version.text.output.file}" default-value="${project.build.directory}/VERSION.txt"
+     * @parameter property="version.text.output.file" default-value="${project.build.directory}/VERSION.txt"
      */
     private File versionTextOuputFile;
     
@@ -239,6 +239,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * tracking system.
      *
      * @param rel the release
+     * @return the count of problems when attempting to resolve github issues
      */
     protected int resolveIssueSubjects(Release rel)
     {
