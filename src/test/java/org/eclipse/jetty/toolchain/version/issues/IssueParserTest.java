@@ -17,13 +17,13 @@
  */
 package org.eclipse.jetty.toolchain.version.issues;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @RunWith(Parameterized.class)
 public class IssueParserTest
@@ -36,7 +36,7 @@ public class IssueParserTest
         }
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name="{0}")
     public static List<String[]> data() {
         DataList data = new DataList();
         data.addCase(" + Fixed client abort",null,"Fixed client abort");
@@ -58,6 +58,8 @@ public class IssueParserTest
         // Bad git subject line issue
         data.addCase("Issue #123: foo Issue #124: bar",
                 "123", "foo Issue #124: bar");
+        // Empty git subject line issue
+        data.addCase("fix #592", "592", "");
 
         return data;
     }
@@ -79,12 +81,12 @@ public class IssueParserTest
         Assert.assertNotNull("Should always result in a issue",issue);
         if (expectedID == null)
         {
-            Assert.assertFalse("Should not have an issue.id",issue.hasId());
+            Assert.assertTrue("issue.bad",issue.isBad());
+            Assert.assertEquals("issue.id",expectedID,issue.getId());
         }
         else
         {
-            Assert.assertTrue("Should have an issue.id",issue.hasId());
-            Assert.assertEquals("issue.id",expectedID,issue.getId());
+            Assert.assertFalse("issue.bad",issue.isBad());
         }
         Assert.assertEquals("issue.text",expectedText,issue.getText());
     }

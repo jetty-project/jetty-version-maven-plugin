@@ -1,0 +1,1156 @@
+#COMMIT_ID#:088dc036b4d4bae1ebfccb43d6c5e4677047bdcf
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-21 19:12:10 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-21 19:12:10 +0200
+#SUBJECT#:Fixes #752 - Implement support for HTTP2 SETTINGS_MAX_HEADER_LIST_SIZE.
+#BODY#:
+####
+#COMMIT_ID#:71eaacf855e8fae05b0aed8669b606d254c2830e
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-21 18:48:44 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-21 18:48:44 +0200
+#SUBJECT#:Fixed Javadocs.
+#BODY#:
+####
+#COMMIT_ID#:6a15bbfb2bbb704215902172579a5d6c02413fdc
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-21 17:55:48 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-21 17:55:48 +0200
+#SUBJECT#:Issue #751 - Remove usages of ArrayQueue.
+#BODY#:
+####
+#COMMIT_ID#:42b16e97851863457d0d6913e1e62d7c7b3183e3
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-21 17:49:37 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-21 17:49:37 +0200
+#SUBJECT#:Merged branch 'jetty-9.2.x' into 'jetty-9-3-x'.
+#BODY#:
+####
+#COMMIT_ID#:78d27c9a28cfd1c6ee2b6dff666894d547bae366
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-21 16:36:28 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-21 17:43:14 +0200
+#SUBJECT#:Fixes #755 - NPE in HttpChannelOverHTTP2.requestContent().
+#BODY#:Fixed by recycling only channels that have completed normally by
+having read the request content and responded.
+
+Channels that don't read the request content won't be recycled, thus
+avoiding the NPE.
+
+####
+#COMMIT_ID#:ccff4b834627dcb05dfaffd0f3ac1bd37bf85ce6
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-21 16:48:49 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-21 17:42:48 +0200
+#SUBJECT#:Fixes #756 - Filter out headers.
+#BODY#:
+####
+#COMMIT_ID#:76a362d9ad1cdf9a8688e39c04aeeae06e2b81d9
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-21 16:39:43 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-21 17:42:48 +0200
+#SUBJECT#:Code cleanups.
+#BODY#:
+####
+#COMMIT_ID#:f8d81e9eeb0f200f9d56e3ad481f586707b3d229
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-07-21 10:15:08 -0500
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-21 10:15:08 -0500
+#SUBJECT#:Merge pull request #750 from WalkerWatch/jetty-9.3.x
+#BODY#:Resolves #747.
+####
+#COMMIT_ID#:d9d20670fb59def6b4a4c361f4e3824d5e89d70f
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-06-17 18:56:41 -0500
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-21 08:14:07 -0700
+#SUBJECT#:Resolve Issue #649 by checking for null password on a binding ldap authentication
+#BODY#:
+####
+#COMMIT_ID#:3c0859d034604e2235924301b47c7405c5f22067
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-21 15:59:27 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-21 15:59:27 +1000
+#SUBJECT#:improve commit debug
+#BODY#:
+####
+#COMMIT_ID#:5718726a8c7ed7cf85d65d4d199ffb46eaa12131
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-21 13:01:25 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-21 13:01:25 +1000
+#SUBJECT#:Incorrect default ALPN protocol #671
+#BODY#:Correctly handle protocol aliases
+
+####
+#COMMIT_ID#:21a618e6a863e13c11a1c776e995ec29d25967f7
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-21 12:39:07 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-21 12:39:07 +1000
+#SUBJECT#:SLOTH protection #631
+#BODY#:Exclude all MD5 and SHA1 ciperhs, not just RSA based ones.
+
+####
+#COMMIT_ID#:2db91a88cf41ca022010f0f1d0ef6958a7841891
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-21 12:28:32 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-21 12:28:32 +1000
+#SUBJECT#:HTTP2 SETTINGS_MAX_HEADER_LIST_SIZE #752
+#BODY#:
+####
+#COMMIT_ID#:2f4a6f29b7762a703b95b84d22d56ec642a71be3
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-21 11:07:32 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-21 11:07:55 +1000
+#SUBJECT#:Do not use ArrayQueue for HPACK #751
+#BODY#:
+####
+#COMMIT_ID#:fa24eb3541cc330b43dc28e1ce1ec3b27fd1130d
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-20 18:14:47 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-20 18:14:47 -0400
+#SUBJECT#:Resolves #747.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:82943630dd95a3627de5e347176570fa2b9c5745
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-07-20 15:17:27 -0500
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-20 15:17:27 -0500
+#SUBJECT#:Merge pull request #748 from WalkerWatch/docupdates/jmx
+#BODY#:Updates for Chapter 14.
+####
+#COMMIT_ID#:77a8556ffed0bdeecf226ea7e831dfbce7779753
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-20 16:11:49 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-20 16:11:49 -0400
+#SUBJECT#:Updates images for chapter 14.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:92af8eb8fca3cac5efe5c321a1a65c4bccb9a73a
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-20 16:09:01 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-20 16:09:01 -0400
+#SUBJECT#:Updates for Chapter 14.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:e82ed5afb960b03b0347094f137fc6b93890213c
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-20 23:16:50 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-20 23:16:50 +1000
+#SUBJECT#:Fix #671 Incorrect default ALPN protocol
+#BODY#:
+####
+#COMMIT_ID#:c09251fbaf41efaff401b3175d06711723a91096
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-20 13:17:31 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-20 13:17:31 +0200
+#SUBJECT#:Updated ALPN version for JDK 8u101 and 8u102.
+#BODY#:
+####
+#COMMIT_ID#:0d74c3ec2c9019ab17dc54ed13e5cb130151a1aa
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-20 13:05:43 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-20 13:05:43 +0200
+#SUBJECT#:Updated ALPN version for JDK 8u101 and 8u102.
+#BODY#:
+####
+#COMMIT_ID#:7e16731b9dac0d5b6ae5424a13c83fd4ef46dc4f
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-20 16:59:28 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-20 16:59:28 +1000
+#SUBJECT#:fix #592
+#BODY#:
+####
+#COMMIT_ID#:d6c73118be489b3b0025c08db4721e54fe2f071a
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-20 14:19:13 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-20 14:19:13 +1000
+#SUBJECT#:less verbose #723
+#BODY#:
+####
+#COMMIT_ID#:b58cd5870befc8d49a1df1e3c474b58b8abd7e78
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-19 21:08:44 -0700
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-20 14:08:44 +1000
+#SUBJECT#:Fixes #723 - improves MimeType resource loading and error reporting (#724)
+#BODY#:Signed-off-by: Joakim Erdfelt <joakim.erdfelt@gmail.com>
+####
+#COMMIT_ID#:11ca0079e9270895e7abab684b6f43c4ac8703f9
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-20 14:02:13 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-20 14:02:13 +1000
+#SUBJECT#:Only README.md #745
+#BODY#:
+####
+#COMMIT_ID#:9f825dadef0c31b8653553d926840501bd00827c
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-20 12:26:41 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-20 12:26:41 +1000
+#SUBJECT#:Issue  #737
+#BODY#:
+####
+#COMMIT_ID#:5afbcd4c6a3c44daf1093a348c9171c3d9710cde
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-20 09:56:25 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-20 09:56:25 +1000
+#SUBJECT#:Allow setCharacterEncoding after getOutputStream #733
+#BODY#:
+####
+#COMMIT_ID#:ecdf8ed220f676c9f00426094007625bb1dbd791
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-20 09:31:20 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-20 09:31:20 +1000
+#SUBJECT#:Fix link for #742
+#BODY#:
+####
+#COMMIT_ID#:025d5eda2a188a3ffa31c6fbe3cd754ef1587818
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-07-19 14:31:05 -0500
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-19 14:31:05 -0500
+#SUBJECT#:Merge pull request #743 from WalkerWatch/jetty-9.3.x
+#BODY#:Chapter 12 and 13 changes and a merge.
+####
+#COMMIT_ID#:fad6776424fb611d771ec50f557a94948960eb40
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-19 15:23:33 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-19 15:23:33 -0400
+#SUBJECT#:Merged from Eclipse 9.3.x.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:45d4415781f23cd6b0d2a222c4cbc6916a3ace98
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-19 15:02:33 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-19 15:02:33 -0400
+#SUBJECT#:Chapter 13 clean up and addition of {MVNCENTRAL} attribute.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:766e5ab2ae63fae41fbdf2590c3c658f84109c5c
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-19 10:33:22 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-19 10:33:43 +0200
+#SUBJECT#:Fixes #739 - Illegal WindowUpdate frame with delta=0.
+#BODY#:Using compareAndSet() rather than getAndSet().
+
+####
+#COMMIT_ID#:554d0ab4c175fa8483b4510acca880a8e702ed4c
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-18 18:42:52 -0400
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-19 08:42:52 +1000
+#SUBJECT#:Chapter 12 Updates (#738)
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+####
+#COMMIT_ID#:087fd07007ed61f54cd6d5b95966dd154fbb3b94
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-18 16:37:37 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-18 16:37:37 -0400
+#SUBJECT#:Chapter 12 Updates
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:35bb6620a11171d74fc371769bdd5dc07569754a
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-18 21:12:48 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-18 21:12:48 +1000
+#SUBJECT#:Extensible ErrorHandler for different mimetypes #230
+#BODY#:
+####
+#COMMIT_ID#:3765efad2b7033bc78f8ee05ec730a5d5fae6b79
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-18 11:38:10 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-18 11:38:10 +1000
+#SUBJECT#:Extensible ErrorHandler for different mimetpyes #727
+#BODY#:
+####
+#COMMIT_ID#:1e3cef80ee88ce1c1c8d3df1b093c2b0fe18a65d
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-07-15 14:32:03 -0500
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-15 14:32:03 -0500
+#SUBJECT#:Merge pull request #735 from WalkerWatch/jetty-9.3.x
+#BODY#:Updated RequestLog xml/module/documentation. Resolves #734
+####
+#COMMIT_ID#:7ba4e9c8d2aa77be148440ba883ba50f6403e6da
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-15 13:29:22 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-15 13:29:22 -0400
+#SUBJECT#:Minor edits to RequestLog documentation.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:00b3738536306abf0c4100d6e6bd83c986075fde
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-15 13:08:30 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-15 13:08:30 -0400
+#SUBJECT#:Updated RequestLog xml/module/documentation. Resolves #734
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:0433a8ca73f3178713c446bc0e8e9eeccc90e9f0
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-15 18:11:28 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-15 18:11:28 +0200
+#SUBJECT#:Issue #730 - "Slow" client causes IllegalStateException.
+#BODY#:Fixed by allowing state ASYNC to call onWritePossible().
+
+####
+#COMMIT_ID#:a38e819907abcb78bcca6ebd4f6dce27ccc8bf50
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-15 18:09:44 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-15 18:09:44 +0200
+#SUBJECT#:Code cleanups.
+#BODY#:
+####
+#COMMIT_ID#:a3b5e7ebb7ff37a7d10711f1d43847d6fba39f1d
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-15 15:45:33 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-15 15:45:50 +0200
+#SUBJECT#:Added guards against NPE in case HttpField.getValue() returns null.
+#BODY#:
+####
+#COMMIT_ID#:389eb68c3c670bd5954df322728c29e0d42eb146
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-15 15:39:26 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-15 15:45:50 +0200
+#SUBJECT#:Code cleanups.
+#BODY#:
+####
+#COMMIT_ID#:45ead1bb29394871010bf70977426cf319a529a5
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-15 13:46:08 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-15 13:47:41 +1000
+#SUBJECT#:jetty http2 client parse error #726
+#BODY#:
+####
+#COMMIT_ID#:37d0caedee712e317b1b65e7f86fc321437c8208
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-07-14 11:28:47 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-14 11:28:47 -0700
+#SUBJECT#:Merge pull request #728 from WalkerWatch/jetty-9.3.x
+#BODY#:Fixing SRCDIR references.
+####
+#COMMIT_ID#:ff200043de185f967685fa9b2d07f6f9e54269b3
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-14 14:25:20 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-14 14:25:20 -0400
+#SUBJECT#:Fixing SRCDIR references.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:312028df15356714fff0f3db1970b2780de050d0
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-07-14 13:17:10 -0500
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-14 13:17:10 -0500
+#SUBJECT#:Update pom.xml
+#BODY#:
+####
+#COMMIT_ID#:1000ba52e0f81774237663d18f086fb3408b060a
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-07-14 10:45:48 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-14 10:45:48 -0700
+#SUBJECT#:Merge pull request #719 from WalkerWatch/jetty-9.3.x
+#BODY#:Chapter 9 cleanup and removed doc reference to disablejsr for #706.
+####
+#COMMIT_ID#:7172127236112d80b1d2d959f45d24577fb7112a
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-14 16:18:55 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-14 16:18:55 +0200
+#SUBJECT#:Fixes #694 - http2.client.StreamResetTest.testServerExceptionConsumesQueuedData stack not suppressed in test
+#BODY#:
+####
+#COMMIT_ID#:49f55cf5fccb7389c0087c73f33a2b0f553c4203
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-14 08:12:10 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-14 08:12:10 -0400
+#SUBJECT#:Removed references to Glassfish, updated Java versions.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:2387d973ec4db6baa48cc0f2f7f4bd587c6acf0d
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-14 12:41:08 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-14 12:43:33 +0200
+#SUBJECT#:Made test more robust on slower machines.
+#BODY#:
+####
+#COMMIT_ID#:f6071ca7fc662d11c917da6bdbf683c9dd3e6075
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-14 18:26:51 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-14 18:26:51 +1000
+#SUBJECT#:Fix #708 SslContextFactory: newSslServerSocket/newSslSocket are not customized
+#BODY#:
+####
+#COMMIT_ID#:35a64828fb0967baabb3280ca1e046ce828999a6
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-14 15:17:42 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-14 15:17:50 +1000
+#SUBJECT#:Fix #708 SslContextFactory: newSslServerSocket/newSslSocket are not customized
+#BODY#:
+####
+#COMMIT_ID#:34a9e43c505da3be0f024a03af4b0d924da76702
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-14 15:17:20 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-14 15:17:50 +1000
+#SUBJECT#:restored long test timer
+#BODY#:
+####
+#COMMIT_ID#:c7b80bee8f9abf828d8da37d23a8aa22e04e9daf
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-14 14:10:40 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-14 14:10:57 +1000
+#SUBJECT#:Issue  #704
+#BODY#:
+####
+#COMMIT_ID#:112244d6ef8d19cd462912be15128c22995177a1
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-14 13:44:49 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-14 13:44:49 +1000
+#SUBJECT#:Fix #708 SslContextFactory: newSslServerSocket/newSslSocket are not customized
+#BODY#:
+####
+#COMMIT_ID#:45bbde408faf0a2b1fcd9f847f591c1c312f502c
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-14 12:17:52 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-14 12:17:52 +1000
+#SUBJECT#:Fix #708 SslContextFactory: newSslServerSocket/newSslSocket/doStart are not customized
+#BODY#:
+####
+#COMMIT_ID#:a17dd2775c948c898fe9cd10c954fad42aef224e
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-13 15:45:13 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-13 15:45:13 -0400
+#SUBJECT#:Chapter 9 part II
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:99094b07e84379732c87fa45c1e740c2f7813eb3
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-13 12:29:27 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-13 12:29:27 -0700
+#SUBJECT#:Merge branch 'jetty-9.3.x' of github.com:eclipse/jetty.project into jetty-9.3.x
+#BODY#:
+####
+#COMMIT_ID#:241ef907691a41af8b26d99551058565a7771264
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-13 12:29:02 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-13 12:29:02 -0700
+#SUBJECT#:Issue #721 - Enhancing multi-line response header testcase
+#BODY#:
+####
+#COMMIT_ID#:811549a06bd793b172b3b202b66aa515e0e8dd78
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-13 20:06:08 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-13 20:06:42 +0200
+#SUBJECT#:Made test more robust on slower machines.
+#BODY#:
+####
+#COMMIT_ID#:e4249fdd9b2ee9aebd3d597c46eea7e59bb4063e
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-13 09:33:30 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-13 09:33:30 -0700
+#SUBJECT#:Issue #721 - Adding testcase for multi-line response values
+#BODY#:
+####
+#COMMIT_ID#:b28064c2c8bc1bfcdde6b80e1e90746c626bfc27
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-13 09:20:34 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-13 09:20:34 -0700
+#SUBJECT#:Using LocalConnector in test
+#BODY#:
+####
+#COMMIT_ID#:22c78d79f03bb9bde85e7e85cb861b9514df421c
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-13 12:35:03 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-13 12:35:12 +0200
+#SUBJECT#:Fixes #718 - Document HttpClient transports.
+#BODY#:
+####
+#COMMIT_ID#:37cda79f7bce39905127a7a67f77b12088d6910d
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-13 15:28:10 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-13 15:28:33 +1000
+#SUBJECT#:Issue #720
+#BODY#:
+####
+#COMMIT_ID#:cb42ffc706cb183d7958a9c3fdea63310d0dbedf
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-13 15:23:46 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-13 15:23:46 +1000
+#SUBJECT#:improved test timeouts
+#BODY#:
+####
+#COMMIT_ID#:b041ecbe766e475a345eeadc52899074eb3c9910
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-12 21:12:52 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-12 21:12:52 -0400
+#SUBJECT#:Removing doc reference to disablejsr for #706.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:4055146dcdd954c62f482c70fa16c2bc0aec03fd
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-13 11:09:33 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-13 11:09:53 +1000
+#SUBJECT#:Fix #671 Incorrect default SLPN protocol
+#BODY#:
+####
+#COMMIT_ID#:14b71eaff4d3872c2ac280babf8a5eca0dba79a3
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-12 17:49:36 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-12 17:49:36 -0700
+#SUBJECT#:Merge branch 'jetty-9.3.x' of github.com:eclipse/jetty.project into jetty-9.3.x
+#BODY#:
+####
+#COMMIT_ID#:35de3899b6599edfc5eb7ed75807a24ad2a1a74f
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-12 17:49:11 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-12 17:49:11 -0700
+#SUBJECT#:Issue #706 - Removing org.apache.jasper.compiler.disablejsr199 references
+#BODY#:
+####
+#COMMIT_ID#:30f8f32594cd7bc575b57a2e7ad04f68d4cb2657
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-12 17:47:53 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-12 17:47:53 -0700
+#SUBJECT#:Issue #717 - Adding Transfer-Encoding: chunked testcase
+#BODY#:
+####
+#COMMIT_ID#:27195a3b04348b0cecf887e85b076387c3f8137f
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-12 16:32:35 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-12 16:32:35 -0700
+#SUBJECT#:Merge pull request #712 from WalkerWatch/jetty-9.3.x
+#BODY#:Chapter 8 and 9 cleanup.
+####
+#COMMIT_ID#:00551d73b2be5f383a2f98553bd2af4310c1ef57
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-12 19:12:15 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-12 19:12:15 -0400
+#SUBJECT#:Chapter 9 clean up and fixes Part I
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:c77562bc958cdbd7443f74475316043d7e352bed
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-07-12 23:22:24 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-07-12 23:22:43 +0200
+#SUBJECT#:Issue #684 - HttpClient proxies (HttpProxy and Socks4Proxy) do not support authentication.
+#BODY#:The feature was already present, improved documentation.
+
+####
+#COMMIT_ID#:d08d5b949c521bd1aaf0ec95d1a2a0a0f5df463b
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-12 12:04:49 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-12 12:04:49 -0700
+#SUBJECT#:Issue #717 - Adding testcase for GzipHandler.minGzipSize
+#BODY#:
+####
+#COMMIT_ID#:4cce4846c2f12f3901913c58d049626be6d35146
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-12 11:40:32 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-12 11:40:32 -0700
+#SUBJECT#:Merge branch 'jetty-9.3.x' of github.com:eclipse/jetty.project into jetty-9.3.x
+#BODY#:
+####
+#COMMIT_ID#:0e6833b7707d677c9991e5b30dad4f0a68bab8dd
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-12 11:39:58 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-12 11:39:58 -0700
+#SUBJECT#:Issue #687 - Simplifying AllowSymLinkAliasChecker logic
+#BODY#:
+####
+#COMMIT_ID#:83d99159f6b0270466545ce71ae73fe46f2d7c34
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-11 17:49:59 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-11 17:49:59 -0400
+#SUBJECT#:First pass of Chapter 8 cleanup.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:c55c78d6588ad38863e377e0b6999ec33f56fb23
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-11 14:28:19 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-11 14:28:19 -0700
+#SUBJECT#:Merge pull request #711 from WalkerWatch/jetty-9.3.x
+#BODY#:Chapter 7 clean up, prose fix.
+####
+#COMMIT_ID#:aa6685e1f85c5d7c708a124bf32cb3f9b90bfe31
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-11 16:45:23 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-11 16:45:23 -0400
+#SUBJECT#:Chapter 7 clean up, prose fix.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:8efc07ae1d870d7798dbd09891cc1403e40fd28e
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-11 10:32:11 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-11 10:32:11 -0700
+#SUBJECT#:Merge branch 'jetty-9.3.x' of github.com:eclipse/jetty.project into jetty-9.3.x
+#BODY#:
+####
+#COMMIT_ID#:596e372c7a412f4a64e9b6c563292527531fcbc5
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-11 10:31:07 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-11 10:31:07 -0700
+#SUBJECT#:Fixes #687 - Normalizing resolved symlinks
+#BODY#:
+####
+#COMMIT_ID#:7f5213e6687b753a27ba2d9d433d3ef501081a92
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-08 13:56:20 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-08 13:56:20 -0700
+#SUBJECT#:Merge pull request #707 from WalkerWatch/jetty-9.3.x
+#BODY#:Chapter 6 fixes, removal of Quickstart pieces for #679.
+####
+#COMMIT_ID#:ced94f0eb8b923095d9e41ca774978799590581b
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-08 16:37:54 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-08 16:37:54 -0400
+#SUBJECT#:Chapter 6 fixes, removal of Quickstart pieces for #679.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:8c918526cb432190455365f9b29f9f12141cf3a7
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-08 08:45:26 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-08 08:45:26 -0700
+#SUBJECT#:Adding logos
+#BODY#:
+####
+#COMMIT_ID#:8ff7bdfda6ac7a8ec11fa8f45490b0d0e1b99dae
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-08 08:12:10 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-08 08:12:10 -0700
+#SUBJECT#:Merge pull request #703 from WalkerWatch/jetty-9.3.x
+#BODY#:Resolves #701
+####
+#COMMIT_ID#:e4807076b2094a3658afad7fc00d746a228a1dcd
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-08 10:47:49 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-08 10:47:49 -0400
+#SUBJECT#:Resolves #701
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:adf3281ba8f916437e2336636567b0dbc0fff04e
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-08 21:15:36 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-08 21:15:36 +1000
+#SUBJECT#:Issue #696 Improve testing of LocalConnector
+#BODY#:Fixed some races in the implementation
+
+####
+#COMMIT_ID#:0d74658ab6af7371f9458d37b401743f6abadea4
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-08 13:37:41 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-08 13:37:41 +1000
+#SUBJECT#:fixed bad tests
+#BODY#:
+####
+#COMMIT_ID#:461adb8dd358581c26c8ce164187e4f950554452
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-07 15:18:38 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-07 15:18:38 -0700
+#SUBJECT#:Merge pull request #699 from WalkerWatch/jetty-9.3.x
+#BODY#:Updates to Intro, Chapter 5 and ResourceHandler example for #687.
+####
+#COMMIT_ID#:db9a8dc9626d5b6b057295552783f2a7d5e946a0
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-07 16:34:58 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-07 16:34:58 -0400
+#SUBJECT#:Updates to Intro, Chapter 5 and ResourceHandler example for #687.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:172ee4266ccb8bf72331ad14f1fb875caba8716e
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-07 09:49:42 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-07 09:49:42 -0700
+#SUBJECT#:Merge pull request #697 from WalkerWatch/jetty-9.3.x
+#BODY#:Chapter 4 updates and corrections.
+####
+#COMMIT_ID#:f73423be9cff52845df116e5c25b4c58f9ba0cb6
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-07 12:41:14 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-07 12:41:14 -0400
+#SUBJECT#:Chapter 4 updates and corrections.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:602222182ced6d6435572b47de404d41c787c558
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-07 09:12:09 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-07 09:12:09 -0700
+#SUBJECT#:Merge branch 'jetty-9.3.x' of github.com:eclipse/jetty.project into jetty-9.3.x
+#BODY#:
+####
+#COMMIT_ID#:a6276c30177c61965a4bcf6daa86e0e3cbbef9f1
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-07 09:11:19 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-07 09:11:19 -0700
+#SUBJECT#:Issue #687 - Adding AllowSymLinkAliasCheckerTest
+#BODY#:+ Replicated, in test case form, the example present in the
+  filed issue.  All tests pass.
+
+####
+#COMMIT_ID#:183e3acabb828af8ed370b8a5eeaacbd6a5bf91b
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-07 16:36:22 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-07 16:36:46 +1000
+#SUBJECT#:Issue #695 improve getResponse methods
+#BODY#:
+####
+#COMMIT_ID#:7afc36064bdb74dceb2f98682e1970f8543cdef5
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-07 15:12:32 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-07 15:12:32 +1000
+#SUBJECT#:Issue #678
+#BODY#:
+####
+#COMMIT_ID#:008912fd5ea5d6d0c5342be978546618ed689085
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-07 14:04:17 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-07 14:04:51 +1000
+#SUBJECT#:Issue  #658
+#BODY#:Add setter to control using memcached heartbeats.
+
+####
+#COMMIT_ID#:650db59e69e9068635c372631c11deec2435b7e0
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-06 16:27:31 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-06 16:27:31 -0700
+#SUBJECT#:Fixes #693 - QoSFilterTest failures are not capture by junit
+#BODY#:+ Switching from Workers from Runnables to Callables
++ Using ExecutorService to execute Workers
++ Using Futures to report exceptions in Workers to the junit
+  Test Runner
+
+####
+#COMMIT_ID#:322fe73869304dd0e6143e811b95a6ae99ee352a
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-07 08:32:36 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-07 08:32:36 +1000
+#SUBJECT#:Suppress stacks during sweeper test
+#BODY#:
+####
+#COMMIT_ID#:8a12915dacf03e039c470fa0e015096808edf9a1
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-06 11:26:54 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-07-06 11:26:54 -0700
+#SUBJECT#:Fixing surefire random run definition
+#BODY#:
+####
+#COMMIT_ID#:d616f43ceae1100976136169c918e2be580b6052
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-06 11:16:38 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-06 11:16:38 -0700
+#SUBJECT#:Merge pull request #691 from WalkerWatch/jetty-9.3.x
+#BODY#:Chapter 2 and 3 updates.
+####
+#COMMIT_ID#:c96e58fa371879ddadb02c2f14722ef3faf279f7
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-06 14:00:50 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-06 14:00:50 -0400
+#SUBJECT#:Chapter 2 and 3 updates.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:fc36e457950e9269b931ecd6404c357b397ba2ca
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-06 16:45:26 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-06 16:46:22 +1000
+#SUBJECT#:Support UNC paths in PathResource #669
+#BODY#:Also-by: Marco Signorini <m.signorini@iontrading.com>
+Signed-off-by: Greg Wilkins <gregw@webtide.com>
+
+####
+#COMMIT_ID#:5b50e41e7e4af09df68ac4fec28197d36a06a80e
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-06 15:30:39 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-06 16:46:22 +1000
+#SUBJECT#:Issue #687
+#BODY#:Alias should be absolute not relative
+
+####
+#COMMIT_ID#:c913bc7150a0d227dbe8ff8601b25f429af26ba1
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-06 13:41:59 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-06 13:41:59 +1000
+#SUBJECT#:Issue #690
+#BODY#:
+####
+#COMMIT_ID#:0d0b1ace5c0859d8cf680f994280e481033be514
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-06 12:05:03 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-06 12:05:32 +1000
+#SUBJECT#:Issue #658
+#BODY#:Print out the memcached host and port being used.
+
+####
+#COMMIT_ID#:5af61cfc389987ac420e8b5af1b4cbafa4de0b1e
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-06 11:55:41 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-06 11:55:41 +1000
+#SUBJECT#:fix #685 SecureRequestCustomizer SslSession attribute
+#BODY#:
+####
+#COMMIT_ID#:afcec96a2357f591c7a60bdbffb902ae2869550e
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-05 17:55:49 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-05 17:56:12 +1000
+#SUBJECT#:Issue #663
+#BODY#:Fix javadoc.
+
+####
+#COMMIT_ID#:173a5d8724d988e4d2c06ef345f7f6e8d05e4a7f
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-07-01 08:52:48 -0700
+#COMMITTER_NAME#:GitHub
+#COMMITTER_DATE#:2016-07-01 08:52:48 -0700
+#SUBJECT#:Merge pull request #683 from WalkerWatch/jetty-9.3.x
+#BODY#:Updated Chapter listing & misc changes
+####
+#COMMIT_ID#:2214dda719575fc145d21bd99edf08c00bc0b893
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-01 11:25:55 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-01 11:25:55 -0400
+#SUBJECT#:Merge branch 'jetty-9.3.x' of https://github.com/WalkerWatch/jetty.project into jetty-9.3.x
+#BODY#:
+####
+#COMMIT_ID#:f830bb35d5239852547fc5da4accedc12f4a11d2
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-07-01 11:23:43 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-07-01 11:23:43 -0400
+#SUBJECT#:Updated chapter listing
+#BODY#:Signed-off-by: WalkerWatch <chris@webtide.com>
+
+####
+#COMMIT_ID#:29e6c6c4a487e99d8f1fa1474b2a1cfe96eefb21
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-07-01 17:48:32 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-07-01 17:48:32 +1000
+#SUBJECT#:Issue #682
+#BODY#:
+####
+#COMMIT_ID#:3a52b461154042e194d2543e1448328076079434
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-07-01 15:05:27 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-07-01 15:05:27 +1000
+#SUBJECT#:Provisional fix for #681
+#BODY#:
+####
+#COMMIT_ID#:77b91038dbcf770af2cbec2745c0c00c792a6c65
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-06-30 18:58:46 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-06-30 18:58:46 +1000
+#SUBJECT#:Issue #663
+#BODY#:Add automatic deployment of GCloudSessionManager/GCloudMemcachedSessionManager
+
+####
+#COMMIT_ID#:ba4539b594df7b08c34321f560740f9621e0a1d5
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-06-29 15:12:21 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-06-29 15:12:21 -0700
+#SUBJECT#:Merge branch 'jetty-9.3.x' of github.com:eclipse/jetty.project into jetty-9.3.x
+#BODY#:
+####
+#COMMIT_ID#:d13d3cc3f529a3ec060db2368d160cdbb772cfdc
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-06-29 15:10:01 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-06-29 15:11:46 -0700
+#SUBJECT#:Fixes #675 - Slf4jLog.ignore() now logs at DEBUG level
+#BODY#:
+####
+#COMMIT_ID#:2dfb5f463a10d4dc88ba783e1084aa1f941b0eb7
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-06-29 15:08:44 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-06-29 15:11:37 -0700
+#SUBJECT#:Fixes #677 - Logging of ignore() events now show as "Ignored Exception"
+#BODY#:
+####
+#COMMIT_ID#:a5dc01bbb1f5b4e8a195878d283ee94aa874d867
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-06-29 15:07:43 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-06-29 15:11:28 -0700
+#SUBJECT#:Fixes #676 - JavaUtilLog.ignore() logs at FINEST level now
+#BODY#:
+####
+#COMMIT_ID#:ae4472ca281dfb16966bf0d761574cf22a8152c1
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-06-29 15:45:46 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-06-29 15:46:15 +1000
+#SUBJECT#:Issue  #658
+#BODY#:Added documentation.
+
+####
+#COMMIT_ID#:2b8416eb8a62fd26d47cfa62ede422c7d6d8142c
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-06-29 14:06:27 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-06-29 14:06:27 +1000
+#SUBJECT#:Fixes #673 match all classpath pattern
+#BODY#:
+####
+#COMMIT_ID#:1f74d1035846dec1b304de542708d4e5ed4c228f
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-06-28 19:35:04 -0400
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-06-29 09:35:04 +1000
+#SUBJECT#:Fixing link and grammatical changes for JMX Dump; added updated diagram for configuration. (#666)
+#BODY#:* Fixing link and grammatical changes.
+
+Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+* Updating diagram of configuration elements.
+
+Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:bba1c19875c0a2d653157a8a85089564e3c39da2
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-06-28 13:44:36 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-06-28 13:44:36 -0700
+#SUBJECT#:Fixes #668 - Introduce optional `jetty.deploy.defaultsDescriptorPath` for jetty-deploy defaults descriptor outside of ${jetty.home}
+#BODY#:
+####
+#COMMIT_ID#:1ac16733961fb16a2bf23c40552d9c8bb338d47b
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-06-28 13:39:28 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-06-28 13:39:28 -0700
+#SUBJECT#:Fixes #667 - Alternate `jetty.deploy.monitoredDirPath` for jetty-deploy outside of ${jetty.base}
+#BODY#:
+####
+#COMMIT_ID#:b20e2ddf18cd2ddbfa6a6e531cb44c01daab24c3
+#AUTHOR_NAME#:Joakim Erdfelt
+#AUTHOR_DATE#:2016-06-28 13:01:16 -0700
+#COMMITTER_NAME#:Joakim Erdfelt
+#COMMITTER_DATE#:2016-06-28 13:01:16 -0700
+#SUBJECT#:Fixes #672 - Allow logging configuration announcement to be programmatically disabled
+#BODY#:
+####
+#COMMIT_ID#:9ce27beb3b22a22fbd87b7f3a6e1eb6471d2803b
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-06-25 20:55:41 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-06-25 20:55:41 -0400
+#SUBJECT#:Updating diagram of configuration elements.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:aa054c85afafc97d67aa793d1cbe705598040a46
+#AUTHOR_NAME#:WalkerWatch
+#AUTHOR_DATE#:2016-06-25 20:44:22 -0400
+#COMMITTER_NAME#:WalkerWatch
+#COMMITTER_DATE#:2016-06-25 20:44:22 -0400
+#SUBJECT#:Fixing link and grammatical changes.
+#BODY#:Signed-off-by: WalkerWatch <ctwalker@gmail.com>
+
+####
+#COMMIT_ID#:225c6a808659aedb0a7f522f4d043dd16f228b2d
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-06-24 14:18:02 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-06-24 15:38:25 +1000
+#SUBJECT#:Issue #663
+#BODY#:Also fix javadoc; fix memcached module
+
+####
+#COMMIT_ID#:cfe5abf8e65c8f5b9ce5228fc2f76c1a6d3a3db0
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-06-24 13:35:04 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-06-24 14:33:18 +1000
+#SUBJECT#:Issue #660 NPE in Request
+#BODY#:Made request more robust for calls after reset.
+
+####
+#COMMIT_ID#:0e0fc77771598d11addba5c6e35236ec0ac7386f
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-06-24 13:05:54 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-06-24 14:33:18 +1000
+#SUBJECT#:skip symlink test on windows
+#BODY#:
+####
+#COMMIT_ID#:9d9df416af62b6864297f3a2215dca29a520b3dc
+#AUTHOR_NAME#:Simone Bordet
+#AUTHOR_DATE#:2016-06-23 12:59:24 +0200
+#COMMITTER_NAME#:Simone Bordet
+#COMMITTER_DATE#:2016-06-23 13:00:04 +0200
+#SUBJECT#:Fixes #643 - NPE in passing websocket client test.
+#BODY#:
+####
+#COMMIT_ID#:0879b44d37e15f16769b9b8ad2ae6ddce4964489
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-06-23 14:48:47 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-06-23 14:48:47 +1000
+#SUBJECT#:Issue #658
+#BODY#:Add backoff retries for gcloud session save.
+
+####
+#COMMIT_ID#:c3173932f01fef85c88e81b6f696007d304199b3
+#AUTHOR_NAME#:Greg Wilkins
+#AUTHOR_DATE#:2016-06-23 12:43:29 +1000
+#COMMITTER_NAME#:Greg Wilkins
+#COMMITTER_DATE#:2016-06-23 12:43:29 +1000
+#SUBJECT#:Revert "Issue #660 - simplifying parameter extraction to prevent NPE"
+#BODY#:This reverts commit ecea486d0795299a3ef04538a62c64e71f5d66c3.
+
+####
+#COMMIT_ID#:67f8a96eee91b4786808d9ad77d0f8fd03cf7df3
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-06-23 11:23:44 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-06-23 11:23:44 +1000
+#SUBJECT#: Issue  #658
+#BODY#:Add unit tests for memcached with gcloud.
+
+####
+#COMMIT_ID#:0ca191edff82de8e1e0242a3de5efb54e7d3b9b3
+#AUTHOR_NAME#:Jan Bartel
+#AUTHOR_DATE#:2016-06-22 18:54:27 +1000
+#COMMITTER_NAME#:Jan Bartel
+#COMMITTER_DATE#:2016-06-23 07:49:11 +1000
+#SUBJECT#:Issue  #658
+#BODY#:
+####
+#COMMIT_ID#:0c66b9d25b050c503c12c9f9d01efafa92709db7
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-06-22 15:04:12 -0500
+#COMMITTER_NAME#:Jesse McConnell
+#COMMITTER_DATE#:2016-06-22 15:04:12 -0500
+#SUBJECT#:Merge branch 'release-9.3.10' into jetty-9.3.x
+#BODY#:
+####
+#COMMIT_ID#:ae931538ab4b803e2e3dd96d786df124144eec87
+#AUTHOR_NAME#:Jesse McConnell
+#AUTHOR_DATE#:2016-06-22 13:59:10 -0500
+#COMMITTER_NAME#:Jesse McConnell
+#COMMITTER_DATE#:2016-06-22 13:59:10 -0500
+#SUBJECT#:[maven-release-plugin] prepare for next development iteration
+#BODY#:
+####
