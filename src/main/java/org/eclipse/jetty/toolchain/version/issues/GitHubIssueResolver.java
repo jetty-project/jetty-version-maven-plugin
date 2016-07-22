@@ -33,7 +33,7 @@ import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
 import org.kohsuke.github.extras.OkHttpConnector;
 
-public class GitHubIssueResolver implements IssueResolver
+public class GitHubIssueResolver
 {
     private Log log;
     // TODO: make repo name configurable
@@ -64,24 +64,13 @@ public class GitHubIssueResolver implements IssueResolver
         }
     }
 
-    @Override
-    public String getIssueSubject(String issueRef) throws IOException
+    public GHIssue getIssue(String issueRef) throws IOException
     {
         int issueNum = Integer.parseInt(issueRef);
 
         try
         {
-            GHIssue issue = github.getRepository(repoName).getIssue(issueNum);
-
-            if (issue == null)
-            {
-                return null;
-            }
-            else
-            {
-                return issue.getTitle();
-            }
-
+            return github.getRepository(repoName).getIssue(issueNum);
         }
         catch (FileNotFoundException fnfe )
         {
@@ -90,7 +79,6 @@ public class GitHubIssueResolver implements IssueResolver
         }
     }
 
-    @Override
     public void destroy()
     {
         try

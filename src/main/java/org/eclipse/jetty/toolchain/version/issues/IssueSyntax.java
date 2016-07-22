@@ -17,15 +17,11 @@
  */
 package org.eclipse.jetty.toolchain.version.issues;
 
-import java.io.IOException;
-
-import org.apache.maven.plugin.logging.Log;
-
-public interface IssueResolver
+public enum IssueSyntax
 {
-    void init(Log log) throws IOException;
-
-    String getIssueSubject(String issueRef) throws IOException;
-
-    void destroy();
+    BAD,
+    GITHUB,
+    GITHUB_RECOMMENDED,
+    BUGZILLA,
+    JIRA;
 }

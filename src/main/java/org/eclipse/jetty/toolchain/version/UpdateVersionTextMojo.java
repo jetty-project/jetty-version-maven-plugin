@@ -19,6 +19,7 @@ package org.eclipse.jetty.toolchain.version;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Date;
 
 import org.apache.maven.plugin.MojoExecutionException;
@@ -27,7 +28,9 @@ import org.codehaus.plexus.util.FileUtils;
 import org.eclipse.jetty.toolchain.version.git.GitCommand;
 import org.eclipse.jetty.toolchain.version.issues.GitHubIssueResolver;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
-import org.eclipse.jetty.toolchain.version.issues.IssueResolver;
+import org.eclipse.jetty.toolchain.version.issues.IssueSyntax;
+import org.kohsuke.github.GHIssue;
+import org.kohsuke.github.GHLabel;
 
 /**
  * Update the active version entry in the VERSION.txt file from information present in the git logs.
@@ -45,7 +48,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * @required
      */
     protected String version;
-
+    
     /**
      * The version key to use in the VERSION.txt file.
      *
@@ -53,7 +56,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * @required
      */
     protected String versionTextKey;
-
+    
     /**
      * The version key to use when looking up a git tag ref.
      *
@@ -61,42 +64,42 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * @required
      */
     protected String versionTagKey;
-
+    
     /**
      * Allow the existing issues to be sorted alphabetically.
      *
      * @parameter expression="${version.sort.existing}" default-value="false"
      */
     private boolean sortExisting = false;
-
+    
     /**
      * Allow the plugin to issue a 'git fetch --tags' to update the local tags from.
      *
      * @parameter expression="${version.refresh.tags}" default-value="false"
      */
     protected boolean refreshTags = false;
-
+    
     /**
      * Allow the plugin to update the release date for an issue (if none is provided)
      *
      * @parameter expression="${version.update.date}" default-value="false"
      */
     private boolean updateDate = false;
-
+    
     /**
      * Allow the plugin to replace the input VERSION.txt file
      *
      * @parameter expression="${version.copy.generated}" default-value="false"
      */
     private boolean copyGenerated;
-
+    
     /**
      * Allow the plugin to attach the generated VERSION.txt file to the project
      *
      * @parameter expression="${version.attach}" default-value="false"
      */
     private boolean attachArtifact;
-
+    
     /**
      * The generated VERSION.txt file.
      * <p/>
@@ -104,33 +107,33 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      * @parameter expression="${version.text.output.file}" default-value="${project.build.directory}/VERSION.txt"
      */
     private File versionTextOuputFile;
-
+    
     public void execute() throws MojoExecutionException, MojoFailureException
     {
         if (!hasVersionTextFile("gen-version-text"))
         {
             return; // skip
         }
-
+        
         try
         {
             String commitMessage = "Updating VERSION.txt";
-
+            
             // Pattern used in VERSION.txt
             VersionPattern verTextPattern = new VersionPattern(versionTextKey);
             // Pattern used in Git Tags
             VersionPattern verTagPattern = new VersionPattern(versionTagKey);
-
+            
             VersionText versionText = new VersionText(verTextPattern);
             versionText.read(versionTextInputFile);
             versionText.setSortExisting(sortExisting);
-
+            
             String updateVersionText = verTextPattern.toVersionId(version);
             String updateVersionGit = verTagPattern.toVersionId(version);
             getLog().debug("raw version = " + version);
             getLog().debug("updateVersionText (as it appears in VERSION.txt) = " + updateVersionText);
             getLog().debug("updateVersionGit (as it appears to git tags) = " + updateVersionGit);
-
+            
             Release rel = versionText.findRelease(updateVersionText);
             if (rel == null)
             {
@@ -144,7 +147,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 getLog().debug("Using existing rel = " + rel);
                 commitMessage = "Updating version " + updateVersionText + " in VERSION.txt";
             }
-
+            
             getLog().info("Updating version section: " + version);
             String priorTextVersion = versionText.getPriorVersion(updateVersionText);
             if (priorTextVersion == null)
@@ -153,11 +156,11 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 priorTextVersion = versionText.getReleases().get(0).getVersion();
             }
             getLog().debug("Prior version in VERSION.txt is " + priorTextVersion);
-
+            
             GitCommand git = new GitCommand();
             git.setWorkDir(basedir);
             git.setLog(getLog());
-
+            
             if (refreshTags)
             {
                 getLog().info("Fetching git tags from remote ...");
@@ -166,7 +169,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                     throw new MojoFailureException("Unable to fetch git tags?");
                 }
             }
-
+            
             // Make sure its an expected version identifier
             if (!verTextPattern.isMatch(priorTextVersion))
             {
@@ -177,7 +180,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 err.append(versionTextKey).append("]");
                 throw new MojoExecutionException(err.toString());
             }
-
+            
             // Make it conform to git tag version identifiers
             String priorGitVersion = verTextPattern.getLastVersion(versionTagKey);
             String priorTagId = git.findTagMatching(priorGitVersion);
@@ -190,10 +193,10 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 return;
             }
             getLog().debug("Tag for prior version [" + priorGitVersion + "] is " + priorTagId);
-
+            
             String priorCommitId = git.getTagCommitId(priorTagId);
             getLog().debug("Commit ID from [" + priorTagId + "]: " + priorCommitId);
-
+            
             String currentCommitId = "HEAD";
             if (refreshTags)
             {
@@ -204,19 +207,25 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 }
             }
             getLog().debug("Commit ID to [" + updateVersionText + "]: " + currentCommitId);
-
+            
             git.populateIssuesForRange(priorCommitId, currentCommitId, rel);
-
-            resolveIssueSubjects(rel);
-
+            
+            int problemCount = resolveIssueSubjects(rel);
+            if (problemCount > 0)
+            {
+                getLog().warn("Encounter [" + problemCount + "] issue(s) with potential problems." +
+                        " A manual review of the changes to " + versionTextOuputFile +
+                        " is strongly recommended!");
+            }
+            
             if ((rel.getReleasedOn() == null) && updateDate)
             {
                 rel.setReleasedOn(new Date()); // now
             }
             versionText.replaceOrPrepend(rel);
-
+            
             generateVersion(versionText);
-
+            
             getLog().info("Update complete. Here's your git command. (Copy/Paste)\ngit commit -m \"" + commitMessage + "\" " + versionTextInputFile.getName());
         }
         catch (IOException e)
@@ -224,41 +233,53 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             throw new MojoFailureException("Unable to generate replacement VERSION.txt", e);
         }
     }
-
+    
     /**
      * Attempt to resolve the issue subject lines against the issue
      * tracking system.
      *
      * @param rel the release
      */
-    protected void resolveIssueSubjects(Release rel)
+    protected int resolveIssueSubjects(Release rel)
     {
-        IssueResolver issueResolver = new GitHubIssueResolver();
-
+        GitHubIssueResolver issueResolver = new GitHubIssueResolver();
+        
+        int problemCount = 0;
+        
         try
         {
             issueResolver.init(getLog());
-
+            
             for (Issue issue : rel.getIssues())
             {
-                if (issue.isBad())
+                if (issue.getSyntax() == IssueSyntax.BAD)
                 {
-                    getLog().info("Skipping bad issue: " + issue.getId());
-                    continue;
-                } else
+                    getLog().warn("Issue with bad syntax needs review: " + issue.getId());
+                    problemCount++;
+                }
+                String issueRef = issue.getId();
+                try
                 {
-                    String issueRef = issue.getId();
-                    try
+                    getLog().info("Resolving Subject for Issue " + issueRef);
+                    GHIssue ghissue = issueResolver.getIssue(issueRef);
+                    if (ghissue == null)
                     {
-                        getLog().info("Resolving Subject for Issue " + issueRef);
-                        String subject = issueResolver.getIssueSubject(issueRef);
-                        if (subject != null)
-                            issue.setText(subject);
+                        getLog().warn("Unable to find GitHub Issue " + issueRef);
+                        problemCount++;
+                        continue;
                     }
-                    catch (IOException e)
+                    
+                    if (hasLabel(ghissue, "Documentation"))
                     {
-                        getLog().warn("Unable to obtain Subject for Issue " + issueRef, e);
+                        getLog().warn("Found potential Documentation commit: " + ghissue);
+                        problemCount++;
                     }
+                    
+                    issue.setText(ghissue.getTitle());
+                }
+                catch (IOException e)
+                {
+                    getLog().warn("Unable to obtain Subject for Issue " + issueRef, e);
                 }
             }
         }
@@ -270,14 +291,41 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
         {
             issueResolver.destroy();
         }
+        
+        return problemCount;
     }
-
+    
+    private boolean hasLabel(GHIssue ghissue, String labelText)
+    {
+        try
+        {
+            Collection<GHLabel> labels = ghissue.getLabels();
+            if (labels == null)
+            {
+                return false;
+            }
+            
+            for (GHLabel ghlabel : labels)
+            {
+                if (ghlabel.getName().equalsIgnoreCase(labelText))
+                {
+                    return true;
+                }
+            }
+        }
+        catch (IOException ignore)
+        {
+            // ignore
+        }
+        return false;
+    }
+    
     private void generateVersion(VersionText versionText) throws MojoFailureException, IOException
     {
         ensureDirectoryExists(versionTextOuputFile.getCanonicalFile().getParentFile());
         versionText.write(versionTextOuputFile);
         getLog().debug("New VERSION.txt written at " + versionTextOuputFile.getAbsolutePath());
-
+        
         if (attachArtifact)
         {
             getLog().info("Attaching generated VERSION.txt");
@@ -285,7 +333,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             getLog().debug("Type = " + type);
             projectHelper.attachArtifact(project, type, classifier, versionTextOuputFile);
         }
-
+        
         if (copyGenerated)
         {
             getLog().info("Copying generated VERSION.txt over input VERSION.txt");
