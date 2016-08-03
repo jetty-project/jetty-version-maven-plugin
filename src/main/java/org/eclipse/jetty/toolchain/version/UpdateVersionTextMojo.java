@@ -291,11 +291,13 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                         if ( ghissue.getLabels().size() == 1)
                         {
                             filtered.add(issue);
-                            getLog().info("Tagging Issue '" + ghissue.getTitle() + "' as Documentation only" );
+                            getLog().info("Filtering Documentation only Issue: " + ghissue.getTitle());
                         }
-
-                        getLog().warn("Found potential Documentation commit: (" + ghissue.getId() + ") " + ghissue.getTitle());
-                        problemCount++;
+                        else
+                        {
+                            getLog().warn("Found potential Documentation commit: (" + ghissue.getId() + ") " + ghissue.getTitle());
+                            problemCount++;
+                        }
                     }
                     
                     issue.setText(ghissue.getTitle());
