@@ -140,12 +140,10 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 // Not found, create a new one
                 rel = new Release(updateVersionText);
                 getLog().debug("Not Found, creating new rel = " + rel);
-                commitMessage = "Creating new version " + updateVersionText + " in VERSION.txt";
             }
             else
             {
                 getLog().debug("Using existing rel = " + rel);
-                commitMessage = "Updating version " + updateVersionText + " in VERSION.txt";
             }
             
             getLog().info("Updating version section: " + version);
@@ -184,12 +182,12 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             // Make it conform to git tag version identifiers
             String priorGitVersion = verTextPattern.getLastVersion(versionTagKey);
             String priorTagId = git.findTagMatching(priorGitVersion);
+            String currentCommitId = "HEAD";
             if (priorTagId == null)
             {
                 getLog().warn("Unable to find git tag id for prior version id [" + priorGitVersion + "] (defined in VERSION.txt as [" + priorTextVersion + "])");
                 getLog().info("Adding empty version section to top for version id [" + updateVersionText + "]");
-                versionText.replaceOrPrepend(rel);
-                generateVersion(versionText);
+                updateVersionText(versionText, rel, updateVersionText, priorTagId, currentCommitId, currentCommitId);
                 return;
             }
             getLog().debug("Tag for prior version [" + priorGitVersion + "] is " + priorTagId);
@@ -197,7 +195,6 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             String priorCommitId = git.getTagCommitId(priorTagId);
             getLog().debug("Commit ID from [" + priorTagId + "]: " + priorCommitId);
             
-            String currentCommitId = "HEAD";
             if (refreshTags)
             {
                 String currentTagId = git.findTagMatching(updateVersionText);
@@ -222,16 +219,21 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             {
                 rel.setReleasedOn(new Date()); // now
             }
-            versionText.replaceOrPrepend(rel);
             
-            generateVersion(versionText);
-            
-            getLog().info("Update complete. Here's your git command. (Copy/Paste)\ngit commit -m \"" + commitMessage + "\" " + versionTextInputFile.getName());
+            updateVersionText(versionText, rel, updateVersionText, priorTagId, currentCommitId, currentCommitId);
         }
         catch (IOException e)
         {
             throw new MojoFailureException("Unable to generate replacement VERSION.txt", e);
         }
+    }
+    
+    protected void updateVersionText(VersionText versionText, Release rel, String updateVersionText, String priorTagId, String priorCommitId, String currentCommitId) throws MojoFailureException, IOException
+    {
+        versionText.replaceOrPrepend(rel);
+        generateVersion(versionText);
+        String commitMessage = "Updating version " + updateVersionText + " in VERSION.txt";
+        getLog().info("Update complete. Here's your git command. (Copy/Paste)\ngit commit -m \"" + commitMessage + "\" " + versionTextInputFile.getName());
     }
     
     /**
