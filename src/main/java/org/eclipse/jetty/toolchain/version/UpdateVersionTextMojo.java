@@ -270,6 +270,11 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                         continue;
                     }
                     
+                    // TODO: Idea, have includes/excludes of paths in the commit
+                    //       should the commit have no files (of interest) changed
+                    //       then skip this commit.
+                    
+                    // TODO: If *ONLY* Documentation label exists, skip
                     if (hasLabel(ghissue, "Documentation"))
                     {
                         getLog().warn("Found potential Documentation commit: " + ghissue);
