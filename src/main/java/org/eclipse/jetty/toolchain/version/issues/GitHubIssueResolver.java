@@ -62,6 +62,10 @@ public class GitHubIssueResolver
             this.github = null;
             throw new IOException("Unable to access github, invalid credentials in ~/.github ?");
         }
+
+        // list current rate limits
+        log.info("Github API Rate Limits: " + this.github.getRateLimit().toString());
+
     }
 
     public GHIssue getIssue(String issueRef) throws IOException

@@ -19,8 +19,10 @@ package org.eclipse.jetty.toolchain.version;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -251,7 +253,9 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     protected int resolveIssueSubjects(Release rel)
     {
         GitHubIssueResolver issueResolver = new GitHubIssueResolver();
-        
+
+        List<Issue> filtered = new ArrayList<Issue>();
+
         int problemCount = 0;
         
         try
@@ -272,7 +276,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                     GHIssue ghissue = issueResolver.getIssue(issueRef);
                     if (ghissue == null)
                     {
-                        getLog().warn("Unable to find GitHub Issue " + issueRef);
+                        getLog().info("Unable to find GitHub Issue " + issueRef);
                         problemCount++;
                         continue;
                     }
@@ -284,7 +288,13 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                     // TODO: If *ONLY* Documentation label exists, skip
                     if (hasLabel(ghissue, "Documentation"))
                     {
-                        getLog().warn("Found potential Documentation commit: " + ghissue);
+                        if ( ghissue.getLabels().size() == 1)
+                        {
+                            filtered.add(issue);
+                            getLog().info("Tagging Issue '" + ghissue.getTitle() + "' as Documentation only" );
+                        }
+
+                        getLog().warn("Found potential Documentation commit: (" + ghissue.getId() + ") " + ghissue.getTitle());
                         problemCount++;
                     }
                     
@@ -294,7 +304,16 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 {
                     getLog().warn("Unable to obtain Subject for Issue " + issueRef, e);
                 }
+                catch (NumberFormatException e)
+                {
+                    getLog().warn("Bad Issue # crept in: " + e.getMessage() );
+                    //e.printStackTrace();
+                }
             }
+
+            // Drop filtered issues
+            rel.dropIssues(filtered);
+
         }
         catch (IOException e)
         {

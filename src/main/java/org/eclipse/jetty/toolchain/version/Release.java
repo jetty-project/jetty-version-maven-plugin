@@ -81,6 +81,20 @@ public class Release
         }
     }
 
+    public void dropIssue( Issue issue )
+    {
+        this.issues.remove(issue);
+    }
+
+    public void dropIssues( List<Issue> dropIssues)
+    {
+        for (Issue issue : dropIssues )
+        {
+            dropIssue(issue);
+        }
+    }
+
+
     @Override
     public boolean equals(Object obj)
     {
