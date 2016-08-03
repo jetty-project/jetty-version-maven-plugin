@@ -114,6 +114,11 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
         {
             return; // skip
         }
+
+        if (!hasCredentialsFile("gen-version-text"))
+        {
+            return; //skip
+        }
         
         try
         {

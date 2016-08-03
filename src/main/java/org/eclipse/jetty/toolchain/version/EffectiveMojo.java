@@ -22,6 +22,11 @@ public class EffectiveMojo extends UpdateVersionTextMojo
     @Override
     protected void updateVersionText(VersionText versionText, Release rel, String updateVersionText, String priorTagId, String priorCommitId, String currentCommitId) throws MojoFailureException, IOException
     {
+        if (!hasCredentialsFile("effective"))
+        {
+            return; // skip
+        }
+
         // List issues
         List<Issue> issues = new ArrayList<>();
         issues.addAll(rel.getIssues());

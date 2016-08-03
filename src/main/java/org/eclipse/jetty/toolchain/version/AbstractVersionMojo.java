@@ -50,6 +50,13 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     protected String classifier = "version";
 
     /**
+     * Credentials directory for github issue resolver
+     *
+     * @parameter property="version.text.credential.file" default-value="${user.home}/.github"
+     */
+    protected File credentialsFile;
+
+    /**
      * The type to use for the attaching the generated VERSION.txt artifact
      *
      * @parameter property="version.text.output.type" default-value="txt"
@@ -99,6 +106,23 @@ public abstract class AbstractVersionMojo extends AbstractMojo
         {
             getLog().debug("Skipping :" + goal + " - file not found: " + versionTextInputFile.getAbsolutePath());
             return false; // skipping build,
+        }
+
+        return true;
+    }
+
+    protected boolean hasCredentialsFile(String goal)
+    {
+        if (credentialsFile == null)
+        {
+            getLog().debug("Skipping :" + goal + " - the ${user.home}/.github file was not specified.");
+            return false; // skipping build
+        }
+
+        if (!credentialsFile.exists())
+        {
+            getLog().debug("Skipping :" + goal + " - file not found: " + credentialsFile.getAbsolutePath());
+            return false; // skipping build
         }
 
         return true;
