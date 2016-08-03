@@ -34,8 +34,8 @@ public class IssueParser
         
         issue_id_patterns = new IssuePatterns();
         // Github Based
-        issue_id_patterns.add(IssueSyntax.GITHUB, "^[\\[\\s]*Issue #??([0-9]{2,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.GITHUB, "^[\\[\\s]*#??([0-9]{2,})" + DELIM);
+        issue_id_patterns.add(IssueSyntax.GITHUB, "^[\\[\\s]*Issue #?([0-9]{2,})" + DELIM);
+        issue_id_patterns.add(IssueSyntax.GITHUB, "^[\\[\\s]*#?([0-9]{2,})" + DELIM);
         // Github recommended - https://help.github.com/articles/closing-issues-via-commit-messages/
         issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Close #([0-9]{2,})" + DELIM);
         issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Close[sd]* #([0-9]{2,})" + DELIM);
