@@ -264,22 +264,11 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
 
             for (Issue issue : rel.getIssues())
             {
-                 System.out.println("issue list - " + issue.getId());
-            }
 
-            for (Issue issue : rel.getIssues())
-            {
-
-
-                if (issue.getSyntax() == IssueSyntax.BAD)
-                {
-                    getLog().warn("Issue with bad syntax needs review: " + issue.getId());
-                    problemCount++;
-                }
                 String issueRef = issue.getId();
                 try
                 {
-                    getLog().info("Resolving Subject for Issue " + issueRef);
+                    getLog().debug("Resolving Subject for Issue " + issueRef);
                     GHIssue ghissue = issueResolver.getIssue(issueRef);
                     if (ghissue == null)
                     {
@@ -300,20 +289,16 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                     //       should the commit have no files (of interest) changed
                     //       then skip this commit.
 
+                    // If the issue only has the Documentation tag we can filter it out
                     if (hasLabel(ghissue, "Documentation"))
                     {
-                        if ( ghissue.getLabels().size() == 1)
+                        if (ghissue.getLabels().size() == 1)
                         {
-                            filtered.add(issue);
                             getLog().info("Filtering Documentation only Issue: " + ghissue.getTitle());
-                        }
-                        else
-                        {
-                            getLog().warn("Found potential Documentation commit: (" + ghissue.getId() + ") " + ghissue.getTitle());
-                            problemCount++;
+                            filtered.add(issue);
+                            continue;
                         }
                     }
-
 
                     issue.setText(ghissue.getTitle());
                 }
@@ -324,6 +309,12 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 catch (NumberFormatException e)
                 {
                     getLog().warn("Bad Issue # crept in: " + e.getMessage() );
+                }
+
+                if (issue.getSyntax() == IssueSyntax.BAD)
+                {
+                    getLog().warn("Issue with bad syntax needs review: " + issue.getId());
+                    problemCount++;
                 }
             }
 
