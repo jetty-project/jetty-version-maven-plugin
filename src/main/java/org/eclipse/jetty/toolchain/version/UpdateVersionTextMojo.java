@@ -261,9 +261,16 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
         try
         {
             issueResolver.init(getLog());
-            
+
             for (Issue issue : rel.getIssues())
             {
+                 System.out.println("issue list - " + issue.getId());
+            }
+
+            for (Issue issue : rel.getIssues())
+            {
+
+
                 if (issue.getSyntax() == IssueSyntax.BAD)
                 {
                     getLog().warn("Issue with bad syntax needs review: " + issue.getId());
@@ -280,12 +287,19 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                         problemCount++;
                         continue;
                     }
-                    
+
+                    // Filter out pull requests, properly formatted commits should show up under the actual issue ID
+                    if (ghissue.isPullRequest())
+                    {
+                        getLog().info("Filtering Pull Request: " + issue.getId());
+                        filtered.add(issue);
+                        continue;
+                    }
+
                     // TODO: Idea, have includes/excludes of paths in the commit
                     //       should the commit have no files (of interest) changed
                     //       then skip this commit.
-                    
-                    // TODO: If *ONLY* Documentation label exists, skip
+
                     if (hasLabel(ghissue, "Documentation"))
                     {
                         if ( ghissue.getLabels().size() == 1)
@@ -299,7 +313,8 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                             problemCount++;
                         }
                     }
-                    
+
+
                     issue.setText(ghissue.getTitle());
                 }
                 catch (IOException e)
@@ -309,7 +324,6 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 catch (NumberFormatException e)
                 {
                     getLog().warn("Bad Issue # crept in: " + e.getMessage() );
-                    //e.printStackTrace();
                 }
             }
 

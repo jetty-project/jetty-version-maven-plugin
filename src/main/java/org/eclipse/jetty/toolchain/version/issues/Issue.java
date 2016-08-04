@@ -122,7 +122,7 @@ public class Issue
         line.append(" + ");
         if (syntax == IssueSyntax.BAD)
         {
-            line.append(WordUtils.wrap(text, wrapColumn, "\n   ", false));
+            line.append(WordUtils.wrap(id + " " + text, wrapColumn, "\n   ", false));
         }
         else
         {
