@@ -33,7 +33,7 @@ public class VersionPattern
     public VersionPattern(String key)
     {
         this.key = key;
-        String regex = key.replace("-","[- ]").replace("VERSION","([1-9]\\.[0-9]{1,}[^ ]*)");
+        String regex = key.replace("-","[- ]").replace("VERSION","([1-9]{1,2}\\.[0-9]{1,}[^ ]*)");
         this.pat = Pattern.compile("^" + regex,Pattern.CASE_INSENSITIVE);
     }
 

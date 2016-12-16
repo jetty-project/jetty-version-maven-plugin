@@ -38,19 +38,20 @@ public class IssueComparator implements Comparator<Issue>
         {
             return collator.getCollationKey("");
         }
+        
+        String id = issue.getId();
+    
         if (issue.getId().startsWith("JETTY-"))
         {
-            try
-            {
-                Integer num = Integer.parseInt(issue.getId().substring(6));
-                return collator.getCollationKey(String.format("JETTY-%06d",num));
-            }
-            catch (NumberFormatException e)
-            {
-                return collator.getCollationKey(issue.getId());
-            }
+            id = issue.getId().substring("JETTY-".length());
         }
-        else
+    
+        try
+        {
+            Long numId = Long.parseLong(id);
+            return collator.getCollationKey(String.format("%010d", numId));
+        }
+        catch (NumberFormatException e)
         {
             return collator.getCollationKey(issue.getId());
         }

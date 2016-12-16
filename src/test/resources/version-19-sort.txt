@@ -1,0 +1,28 @@
+jetty-19.0.999.v20170101 - 01 January 2017
+ + 1112 How config async support in jsp tag?
+ + 1124 Allow configuration of WebSocket mappings from Spring
+ + 1139 Support configuration of properties during --add-to-start
+ + 480764 Suppress stacks in multipart filter tests
+ + 1146 jetty.server.HttpInput deadlock
+ + 1148 Support HTTP/2 HEADERS trailer
+ + 1151 NPE in ClasspathPattern.match()
+ + 1153 Make SessionData easier to subclass
+ + 123 AbstractSessionIdManager can't atomically check for uniqueness of new
+   session ID
+ + 117 Support proxies with WebSocketClient
+ + 572 Don't reject HTTP/2 requests without body in low threads mode
+ + 877 Programmatic servlet mappings cannot override mappings from
+   webdefault.xml using quickstart
+ + 479903 improve async onError handling
+ + 480 jetty-osgi] org.eclipse.jetty.annotations should be optional
+ + 480162 Continuations behavior differences due to HttpURI behavior
+ + 85 Expose TLS protocol used for connection in SecureRequestCustomizer
+ + JETTY-1533 handle URL with no path
+ + Alternate look and feel for Jetty
+ + Better Debug configuration
+ + DebugServlet
+ + Improved documentation
+
+
+
+
