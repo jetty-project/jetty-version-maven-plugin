@@ -115,13 +115,13 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     {
         if (credentialsFile == null)
         {
-            getLog().debug("Skipping :" + goal + " - the ${user.home}/.github file was not specified.");
+            getLog().warn("Skipping :" + goal + " - the ${user.home}/.github file was not specified.");
             return false; // skipping build
         }
 
         if (!credentialsFile.exists())
         {
-            getLog().debug("Skipping :" + goal + " - file not found: " + credentialsFile.getAbsolutePath());
+            getLog().warn("Skipping :" + goal + " - file not found: " + credentialsFile.getAbsolutePath());
             return false; // skipping build
         }
 
