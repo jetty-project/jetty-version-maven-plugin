@@ -1,6 +1,9 @@
 package org.eclipse.jetty.toolchain.version;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,8 +20,17 @@ import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
  * @requiresProject true
  * @phase process-resources
  */
+@SuppressWarnings("unused")
 public class EffectiveMojo extends UpdateVersionTextMojo
 {
+    /**
+     * The generated version-tag.txt file.
+     * <p/>
+     *
+     * @parameter property="version.tag.output.file"
+     */
+    private File versionTagOutputFile;
+    
     @Override
     protected void updateVersionText(VersionText versionText, Release rel, String updateVersionText, String priorTagId, String priorCommitId, String currentCommitId) throws MojoFailureException, IOException
     {
@@ -40,6 +52,18 @@ public class EffectiveMojo extends UpdateVersionTextMojo
         for (Issue issue : issues)
         {
             System.out.println(issue);
+        }
+    
+        if (versionTagOutputFile != null)
+        {
+            try (FileWriter writer = new FileWriter(versionTagOutputFile);
+                 PrintWriter out = new PrintWriter(writer))
+            {
+                for (Issue issue : issues)
+                {
+                    out.println(issue);
+                }
+            }
         }
     }
 }

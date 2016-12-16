@@ -41,6 +41,7 @@ import org.kohsuke.github.GHLabel;
  * @requiresProject true
  * @phase package
  */
+@SuppressWarnings("unused")
 public class UpdateVersionTextMojo extends AbstractVersionMojo
 {
     /**

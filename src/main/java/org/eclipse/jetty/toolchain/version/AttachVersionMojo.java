@@ -29,6 +29,7 @@ import org.apache.maven.plugin.MojoFailureException;
  * @requiresProject true
  * @phase process-resources
  */
+@SuppressWarnings("unused")
 public class AttachVersionMojo extends AbstractVersionMojo
 {
     public void execute() throws MojoExecutionException, MojoFailureException
