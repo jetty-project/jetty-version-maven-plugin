@@ -17,7 +17,10 @@
  */
 package org.eclipse.jetty.toolchain.version;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -31,6 +34,7 @@ import org.eclipse.jetty.toolchain.test.IO;
 import org.eclipse.jetty.toolchain.test.MavenTestingUtils;
 import org.eclipse.jetty.toolchain.test.PathAssert;
 import org.eclipse.jetty.toolchain.test.TestingDir;
+import org.eclipse.jetty.toolchain.version.issues.Issue;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -84,7 +88,7 @@ public class VersionTextTest
                 err.append(", actual.length=").append(actualVersions.size());
                 err.append(")");
             }
-            Assert.assertThat(err.toString(),mismatchIdx,lessThanOrEqualTo(0));
+            assertThat(err.toString(),mismatchIdx,lessThanOrEqualTo(0));
         }
     }
 
@@ -236,8 +240,22 @@ public class VersionTextTest
         Release rel = vt.findRelease("jetty-7.1.5.v20100705");
         Assert.assertNotNull("Should have found release",rel);
         Assert.assertEquals("[7.1.5].issues.size",21,rel.getIssues().size());
+        
+        // Find the "pdate ecj to 3.6" entry
+        String ecjText = "pdate ecj to 3.6";
+        Issue ecjIssue = null;
+        for (Issue issue: rel.getIssues())
+        {
+            if(issue.getText().contains(ecjText))
+                ecjIssue = issue;
+        }
+        assertThat("ECJ Issue found", ecjIssue, notNullValue());
+        int idx = ecjIssue.getText().indexOf(ecjText);
+        assertTrue("ECJ Issue has first occurrence", idx >= 0);
+        idx = ecjIssue.getText().indexOf(ecjText, idx+ecjText.length());
+        assertTrue("ECJ Issue should not have text twice!", idx < 0);
     }
-
+    
     @Test
     public void testWriteCodehausVersionText() throws IOException
     {
