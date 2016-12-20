@@ -31,6 +31,13 @@ public class EffectiveMojo extends UpdateVersionTextMojo
      */
     private File versionTagOutputFile;
     
+    /**
+     * The genreated version-tag.txt header text
+     *
+     * @parameter property="version.tag.header"
+     */
+    private String versionTagHeader;
+    
     @Override
     protected void updateVersionText(VersionText versionText, Release rel, String updateVersionText, String priorTagId, String priorCommitId, String currentCommitId) throws MojoFailureException, IOException
     {
@@ -38,7 +45,7 @@ public class EffectiveMojo extends UpdateVersionTextMojo
         {
             return; // skip
         }
-
+        
         // List issues
         List<Issue> issues = new ArrayList<>();
         issues.addAll(rel.getIssues());
@@ -53,12 +60,18 @@ public class EffectiveMojo extends UpdateVersionTextMojo
         {
             System.out.println(issue);
         }
-    
+        
         if (versionTagOutputFile != null)
         {
             try (FileWriter writer = new FileWriter(versionTagOutputFile);
                  PrintWriter out = new PrintWriter(writer))
             {
+                if (versionTagHeader != null)
+                {
+                    out.println(versionTagHeader);
+                    out.println();
+                }
+                
                 for (Issue issue : issues)
                 {
                     out.println(issue);
