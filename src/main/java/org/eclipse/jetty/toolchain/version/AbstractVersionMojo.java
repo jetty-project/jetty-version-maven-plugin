@@ -65,6 +65,8 @@ public abstract class AbstractVersionMojo extends AbstractMojo
 
     /**
      * The git commit filename exclusions (regex form)
+     *
+     * @parameter property="version.text.filename.excludes"
      */
     protected String[] filenameExcludes;
 
