@@ -48,14 +48,14 @@ public class TagMojo extends UpdateVersionTextMojo
      *
      * @parameter property="version.tag.output.file" default="${project.build.directory}/version-tag.txt"
      */
-    private File versionTagOutputFile;
+    protected File versionTagOutputFile;
     
     /**
-     * The genreated version-tag.txt header text
+     * The generated version-tag.txt header text
      *
      * @parameter property="version.tag.header" default="Tag for release."
      */
-    private String versionTagHeader;
+    protected String versionTagHeader;
     
     @Override
     protected void updateVersionText(VersionText versionText, Release rel, String updateVersionText, String priorTagId, String priorCommitId, String currentCommitId) throws MojoFailureException, IOException

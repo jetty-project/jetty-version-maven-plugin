@@ -74,7 +74,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      *
      * @parameter property="version.sort.existing" default-value="false"
      */
-    private boolean sortExisting = false;
+    protected boolean sortExisting = false;
     
     /**
      * Allow the plugin to issue a 'git fetch --tags' to update the local tags from.
@@ -88,21 +88,21 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      *
      * @parameter property="version.update.date" default-value="false"
      */
-    private boolean updateDate = false;
+    protected boolean updateDate = false;
     
     /**
      * Allow the plugin to replace the input VERSION.txt file
      *
      * @parameter property="version.copy.generated" default-value="false"
      */
-    private boolean copyGenerated;
+    protected boolean copyGenerated;
     
     /**
      * Allow the plugin to attach the generated VERSION.txt file to the project
      *
      * @parameter property="version.attach" default-value="false"
      */
-    private boolean attachArtifact;
+    protected boolean attachArtifact;
     
     /**
      * The generated VERSION.txt file.
@@ -110,16 +110,16 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      *
      * @parameter property="version.text.output.file" default-value="${project.build.directory}/VERSION.txt"
      */
-    private File versionTextOutputFile;
+    protected File versionTextOutputFile;
     
     public void execute() throws MojoExecutionException, MojoFailureException
     {
-        if (!hasVersionTextFile("gen-version-text"))
+        if (!hasVersionTextFile("update-version-text"))
         {
             return; // skip
         }
 
-        if (!hasCredentialsFile("gen-version-text"))
+        if (!hasCredentialsFile("update-version-text"))
         {
             return; //skip
         }
