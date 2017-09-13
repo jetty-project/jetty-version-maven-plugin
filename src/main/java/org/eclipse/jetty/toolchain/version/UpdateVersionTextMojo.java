@@ -110,7 +110,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      *
      * @parameter property="version.text.output.file" default-value="${project.build.directory}/VERSION.txt"
      */
-    private File versionTextOuputFile;
+    private File versionTextOutputFile;
     
     public void execute() throws MojoExecutionException, MojoFailureException
     {
@@ -227,7 +227,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             if (problemCount > 0)
             {
                 getLog().warn("Encounter [" + problemCount + "] issue(s) with potential problems." +
-                        " A manual review of the changes to " + versionTextOuputFile +
+                        " A manual review of the changes to " + versionTextOutputFile +
                         " is strongly recommended!");
             }
             
@@ -366,22 +366,22 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     
     private void generateVersion(VersionText versionText) throws MojoFailureException, IOException
     {
-        ensureDirectoryExists(versionTextOuputFile.getCanonicalFile().getParentFile());
-        versionText.write(versionTextOuputFile);
-        getLog().debug("New VERSION.txt written at " + versionTextOuputFile.getAbsolutePath());
+        ensureDirectoryExists(versionTextOutputFile.getCanonicalFile().getParentFile());
+        versionText.write(versionTextOutputFile);
+        getLog().debug("New VERSION.txt written at " + versionTextOutputFile.getAbsolutePath());
         
         if (attachArtifact)
         {
             getLog().info("Attaching generated VERSION.txt");
             getLog().debug("Classifier = " + classifier);
             getLog().debug("Type = " + type);
-            projectHelper.attachArtifact(project, type, classifier, versionTextOuputFile);
+            projectHelper.attachArtifact(project, type, classifier, versionTextOutputFile);
         }
         
         if (copyGenerated)
         {
             getLog().info("Copying generated VERSION.txt over input VERSION.txt");
-            FileUtils.copyFile(versionTextOuputFile, versionTextInputFile);
+            FileUtils.copyFile(versionTextOutputFile, versionTextInputFile);
         }
     }
 }
