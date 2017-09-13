@@ -245,6 +245,7 @@ public class VersionText
     {
         FileWriter writer = null;
         PrintWriter out = null;
+        String LN = "\n"; // Always write with UNIX line endings
         try
         {
             writer = new FileWriter(versionTextFile);
@@ -254,9 +255,10 @@ public class VersionText
             {
                 for (String line : headers)
                 {
-                    out.println(line);
+                    out.print(line);
+                    out.print(LN);
                 }
-                out.println();
+                out.print(LN);
             }
 
             for (Release release : releases)
@@ -267,14 +269,15 @@ public class VersionText
                     SimpleDateFormat sdf = new SimpleDateFormat(" - dd MMMM yyyy");
                     out.print(sdf.format(release.getReleasedOn()));
                 }
-                out.println();
+                out.print(LN);
 
                 if (sortExisting)
                 {
                     // All releases are sorted.
                     for (Issue issue : release.getSortedIssues())
                     {
-                        out.println(issue.toString());
+                        out.print(issue.toString());
+                        out.print(LN);
                     }
                 }
                 else
@@ -284,7 +287,8 @@ public class VersionText
                         // Don't sort existing.
                         for (Issue issue : release.getIssues())
                         {
-                            out.println(issue.toString());
+                            out.print(issue.toString());
+                            out.print(LN);
                         }
                     }
                     else
@@ -292,11 +296,12 @@ public class VersionText
                         // Sort new
                         for (Issue issue : release.getSortedIssues())
                         {
-                            out.println(issue.toString());
+                            out.print(issue.toString());
+                            out.print(LN);
                         }
                     }
                 }
-                out.println();
+                out.print(LN);
             }
         }
         finally
