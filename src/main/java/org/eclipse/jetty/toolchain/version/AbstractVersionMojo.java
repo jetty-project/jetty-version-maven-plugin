@@ -18,7 +18,6 @@
 package org.eclipse.jetty.toolchain.version;
 
 import java.io.File;
-import java.util.List;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoFailureException;
@@ -67,7 +66,7 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     /**
      * The git commit filename exclusions (regex form)
      */
-    protected List<String> filenameExcludes;
+    protected String[] filenameExcludes;
 
     /**
      * Maven ProjectHelper. (internal component)
