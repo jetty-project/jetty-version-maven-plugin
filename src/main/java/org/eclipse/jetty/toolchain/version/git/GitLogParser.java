@@ -19,13 +19,22 @@ package org.eclipse.jetty.toolchain.version.git;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import org.eclipse.jetty.toolchain.version.issues.Issue;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.toolchain.version.issues.IssueParser;
 
 public class GitLogParser implements GitOutputParser
 {
+    enum State
+    {
+        HEADERS,
+        BODY,
+        FILES
+    }
+
     private static final String AUTHOR_DATE = "#AUTHOR_DATE#:";
     private static final String AUTHOR_NAME = "#AUTHOR_NAME#:";
     private static final String BODY = "#BODY#:";
@@ -35,6 +44,7 @@ public class GitLogParser implements GitOutputParser
     private static final String END = "####";
     private static final String SUBJECT = "#SUBJECT#:";
 
+    private State state = null;
     private GitCommit activeCommit;
     private final List<GitCommit> commits = new ArrayList<GitCommit>();
 
@@ -63,75 +73,85 @@ public class GitLogParser implements GitOutputParser
         return commits;
     }
 
-    public List<Issue> getIssues()
-    {
-        IssueParser issueparser = new IssueParser();
-        List<Issue> issues = new ArrayList<Issue>();
-
-        Issue issue;
-        for (GitCommit commit : commits)
-        {
-            issue = issueparser.parsePossibleIssue(commit.getSubject());
-            if (issue != null)
-            {
-                issues.add(issue);
-            }
-        }
-
-        return issues;
-    }
-
     public void parseEnd()
     {
-        if (activeCommit != null)
+        // parse the git commit subject and body for issues ids
+        IssueParser issueparser = new IssueParser();
+        for (GitCommit commit : commits)
         {
-            commits.add(activeCommit);
+            Set<String> issueIds = new HashSet<>();
+            issueparser.findPossibleIssueIds(commit.getSubject(), issueIds);
+            for (String line : commit.getBody())
+            {
+                issueparser.findPossibleIssueIds(line, issueIds);
+            }
+            commit.setIssueIds(issueIds);
         }
     }
 
     public void parseLine(int linenum, String line) throws ParseException
     {
-        if (activeCommit == null)
-        {
-            activeCommit = new GitCommit();
-        }
-
         if (line.startsWith(COMMIT_ID))
         {
-            activeCommit.setCommitId(line.substring(COMMIT_ID.length()));
-        }
-        else if (line.startsWith(AUTHOR_NAME))
-        {
-            activeCommit.setAuthorName(line.substring(AUTHOR_NAME.length()));
-        }
-        else if (line.startsWith(AUTHOR_DATE))
-        {
-            activeCommit.parseAuthorDate(line.substring(AUTHOR_DATE.length()));
-        }
-        else if (line.startsWith(COMMITTER_NAME))
-        {
-            activeCommit.setCommitterName(line.substring(COMMITTER_NAME.length()));
-        }
-        else if (line.startsWith(COMMITTER_DATE))
-        {
-            activeCommit.parseCommitterDate(line.substring(COMMITTER_DATE.length()));
-        }
-        else if (line.startsWith(SUBJECT))
-        {
-            activeCommit.setSubject(line.substring(SUBJECT.length()));
-        }
-        else if (line.startsWith(BODY))
-        {
-            activeCommit.setBody(line.substring(BODY.length()));
-        }
-        else if (line.equals(END))
-        {
+            activeCommit = new GitCommit();
             commits.add(activeCommit);
-            activeCommit = null;
+            state = State.HEADERS;
+            activeCommit.setCommitId(line.substring(COMMIT_ID.length()));
+            return;
         }
-        else
+
+        if (activeCommit == null)
         {
-            activeCommit.appendBody(line.trim());
+            throw new ParseException("Unexpected Git Log line: " + line, 0);
+        }
+
+        switch (state)
+        {
+            case HEADERS:
+                if (line.startsWith(AUTHOR_NAME))
+                {
+                    activeCommit.setAuthorName(line.substring(AUTHOR_NAME.length()));
+                }
+                else if (line.startsWith(AUTHOR_DATE))
+                {
+                    activeCommit.parseAuthorDate(line.substring(AUTHOR_DATE.length()));
+                }
+                else if (line.startsWith(COMMITTER_NAME))
+                {
+                    activeCommit.setCommitterName(line.substring(COMMITTER_NAME.length()));
+                }
+                else if (line.startsWith(COMMITTER_DATE))
+                {
+                    activeCommit.parseCommitterDate(line.substring(COMMITTER_DATE.length()));
+                }
+                else if (line.startsWith(SUBJECT))
+                {
+                    activeCommit.setSubject(line.substring(SUBJECT.length()));
+                }
+                else if (line.startsWith(BODY))
+                {
+                    activeCommit.addBodyLine(line.substring(BODY.length()));
+                    state = State.BODY;
+                }
+                else if (line.startsWith(END))
+                {
+                    state = State.FILES;
+                }
+                break;
+            case BODY:
+                if (line.startsWith(END))
+                {
+                    state = State.FILES;
+                }
+                activeCommit.addBodyLine(line.trim());
+                break;
+            case FILES:
+                String filename = line.trim();
+                if (StringUtils.isNotBlank(filename))
+                {
+                    activeCommit.addFilename(filename);
+                }
+                break;
         }
     }
 

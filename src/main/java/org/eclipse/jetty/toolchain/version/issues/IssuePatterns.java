@@ -18,9 +18,14 @@
 package org.eclipse.jetty.toolchain.version.issues;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class IssuePatterns
 {
@@ -28,31 +33,31 @@ public class IssuePatterns
     {
         private Matcher matcher;
         public IssueSyntax syntax;
-        
+
         public String group(int group)
         {
             return matcher.group(group);
         }
-        
+
         public int end()
         {
             return matcher.end();
         }
     }
-    
+
     private class Entry
     {
         IssueSyntax syntax;
         Pattern pattern;
     }
-    
+
     private List<Entry> list;
-    
+
     public IssuePatterns()
     {
         list = new ArrayList<>();
     }
-    
+
     public void add(IssueSyntax type, String regex)
     {
         Entry entry = new Entry();
@@ -60,7 +65,7 @@ public class IssuePatterns
         entry.pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         list.add(entry);
     }
-    
+
     public Match find(String line)
     {
         Matcher mat;
@@ -75,7 +80,31 @@ public class IssuePatterns
                 return ret;
             }
         }
-        
+
         return null;
+    }
+
+    public Set<String> findAllIds(String line)
+    {
+        if (StringUtils.isBlank(line))
+        {
+            return Collections.EMPTY_SET;
+        }
+
+        Set<String> ids = new HashSet<>();
+        Matcher mat;
+
+        for (Entry entry : list)
+        {
+            mat = entry.pattern.matcher(line);
+            int offset = 0;
+            while (mat.find(offset))
+            {
+                ids.add(mat.group(1));
+                offset = mat.end();
+            }
+        }
+
+        return ids;
     }
 }

@@ -286,10 +286,6 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                         continue;
                     }
 
-                    // TODO: Idea, have includes/excludes of paths in the commit
-                    //       should the commit have no files (of interest) changed
-                    //       then skip this commit.
-
                     // If the issue only has the Documentation tag we can filter it out
                     if (hasLabel(ghissue, "Documentation"))
                     {

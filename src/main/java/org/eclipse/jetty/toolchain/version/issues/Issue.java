@@ -28,6 +28,11 @@ public class Issue
     private String id;
     private String text;
     private int wrapColumn = 76;
+
+    public Issue(String id)
+    {
+        this.id = id;
+    }
     
     public Issue(String id, String subject, IssueSyntax syntax)
     {

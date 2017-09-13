@@ -31,7 +31,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.eclipse.jetty.toolchain.test.MavenTestingUtils;
 import org.eclipse.jetty.toolchain.test.TestingDir;
@@ -49,15 +51,14 @@ public class GitLogParserTest extends AbstractGitTestCase
     @Rule
     public TestingDir testdir = new TestingDir();
     
-    private void assertIssuesPresent(GitLogParser parser, List<String> issueIds)
+    private void assertIssuesPresent(List<GitCommit> commits, List<String> issueIds)
     {
-        for (Issue issue : parser.getIssues())
+        for (GitCommit commit: commits)
         {
-            if (issueIds.contains(issue.getId()))
+            for(String commitIssueId: commit.getIssueIds())
             {
-                issueIds.remove(issue.getId());
+                issueIds.remove(commitIssueId);
             }
-            // System.out.printf("Issue[%s] %s%n", issue.getId(), issue.getText());
         }
         
         if (issueIds.size() > 0)
@@ -78,11 +79,11 @@ public class GitLogParserTest extends AbstractGitTestCase
         }
     }
     
-    private Map<String, Integer> calcAuthorshipCounts(GitLogParser parser)
+    private Map<String, Integer> calcAuthorshipCounts(List<GitCommit> commits)
     {
         Map<String, Integer> authorshipCounts = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         
-        for (GitCommit commit : parser.getGitCommitLogs())
+        for (GitCommit commit : commits)
         {
             Integer count = authorshipCounts.get(commit.getAuthorName());
             if (count == null)
@@ -96,12 +97,12 @@ public class GitLogParserTest extends AbstractGitTestCase
         return authorshipCounts;
     }
     
-    private Set<String> getUniqueIssueIds(GitLogParser parser)
+    private Set<String> getUniqueIssueIds(List<GitCommit> commits)
     {
         Set<String> ids = new HashSet<>();
-        for (Issue issue : parser.getIssues())
+        for (GitCommit commit: commits)
         {
-            ids.add(issue.getId());
+            ids.addAll(commit.getIssueIds());
         }
         return ids;
     }
@@ -126,10 +127,18 @@ public class GitLogParserTest extends AbstractGitTestCase
         File sampleFile = MavenTestingUtils.getTestResourceFile("git-log-to-commit.txt");
         GitLogParser parser = new GitLogParser();
         parseSampleFile(parser, sampleFile);
+
+        List<GitCommit> commits = parser.getGitCommitLogs();
+
+        Set<String> uniqueIds = getUniqueIssueIds(commits);
+        assertThat("Unique Issue count", uniqueIds.size(), is(70));
         
-        List<Issue> issues = parser.getIssues();
-        Assert.assertEquals("Commit entries with Issue IDs", 116, issues.size());
-        
+        List<Issue> issues = new ArrayList<>();
+        for(String issueId: uniqueIds)
+        {
+            issues.add(new Issue(issueId));
+        }
+
         Release rel = new Release("TEST-VERSION");
         rel.setExisting(false);
         rel.addIssues(issues);
@@ -140,8 +149,6 @@ public class GitLogParserTest extends AbstractGitTestCase
         testdir.ensureEmpty();
         Path outfile = testdir.getPathFile("test-ver.txt");
         vt.write(outfile.toFile());
-        
-        // TODO: compare output
     }
     
     @Test
@@ -150,11 +157,13 @@ public class GitLogParserTest extends AbstractGitTestCase
         File sampleFile = MavenTestingUtils.getTestResourceFile("git-log-to-commit.txt");
         GitLogParser parser = new GitLogParser();
         parseSampleFile(parser, sampleFile);
+
+        List<GitCommit> commits = parser.getGitCommitLogs();
         
-        assertThat("parser.gitCommitLogs", parser.getGitCommitLogs(), notNullValue());
-        assertThat("parser.gitCommitLogs.size", parser.getGitCommitLogs().size(), is(255));
+        assertThat("parser.gitCommitLogs", commits, notNullValue());
+        assertThat("parser.gitCommitLogs.size", commits.size(), is(255));
         
-        Map<String, Integer> authors = calcAuthorshipCounts(parser);
+        Map<String, Integer> authors = calcAuthorshipCounts(commits);
         assertThat("Commits by Jesse", authors.get("Jesse McConnell"), is(79));
     }
     
@@ -164,11 +173,13 @@ public class GitLogParserTest extends AbstractGitTestCase
         File sampleFile = MavenTestingUtils.getTestResourceFile("git-jetty9-log.txt");
         GitLogParser parser = new GitLogParser();
         parseSampleFile(parser, sampleFile);
+
+        List<GitCommit> commits = parser.getGitCommitLogs();
         
-        assertThat("parser.gitCommitLogs", parser.getGitCommitLogs(), notNullValue());
-        assertThat("parser.gitCommitLogs.size", parser.getGitCommitLogs().size(), is(160));
+        assertThat("parser.gitCommitLogs", commits, notNullValue());
+        assertThat("parser.gitCommitLogs.size", commits.size(), is(160));
         
-        Map<String, Integer> authors = calcAuthorshipCounts(parser);
+        Map<String, Integer> authors = calcAuthorshipCounts(commits);
         assertThat("Commits by Joakim", authors.get("Joakim Erdfelt"), is(10));
         
         // Test for known issues
@@ -178,9 +189,10 @@ public class GitLogParserTest extends AbstractGitTestCase
         issueIds.add("391588");
         issueIds.add("JETTY-1515");
         
-        assertIssuesPresent(parser, issueIds);
-        
-        Assert.assertEquals("Issue count", 42, parser.getIssues().size());
+        assertIssuesPresent(commits, issueIds);
+
+        Set<String> uniqueIds = getUniqueIssueIds(commits);
+        assertThat("Unique Issue count", uniqueIds.size(), is(39));
     }
     
     @Test
@@ -189,11 +201,13 @@ public class GitLogParserTest extends AbstractGitTestCase
         File sampleFile = MavenTestingUtils.getTestResourceFile("git-log-9.3.7..HEAD.txt");
         GitLogParser parser = new GitLogParser();
         parseSampleFile(parser, sampleFile);
+
+        List<GitCommit> commits = parser.getGitCommitLogs();
         
-        assertThat("parser.gitCommitLogs", parser.getGitCommitLogs(), notNullValue());
-        assertThat("parser.gitCommitLogs.size", parser.getGitCommitLogs().size(), is(75));
+        assertThat("parser.gitCommitLogs", commits, notNullValue());
+        assertThat("parser.gitCommitLogs.size", commits.size(), is(75));
         
-        Map<String, Integer> authors = calcAuthorshipCounts(parser);
+        Map<String, Integer> authors = calcAuthorshipCounts(commits);
         assertThat("Commits by Joakim", authors.get("Joakim Erdfelt"), is(18));
         assertThat("Commits by Simone", authors.get("Simone Bordet"), is(25));
         assertThat("Commits by Greg", authors.get("Greg Wilkins"), is(21));
@@ -216,9 +230,10 @@ public class GitLogParserTest extends AbstractGitTestCase
         issueIds.add("80");
         issueIds.add("79");
         
-        assertIssuesPresent(parser, issueIds);
-        
-        Assert.assertEquals("Issue count", 48, parser.getIssues().size());
+        assertIssuesPresent(commits, issueIds);
+
+        Set<String> uniqueIds = getUniqueIssueIds(commits);
+        assertThat("Unique Issue count", uniqueIds.size(), is(37));
     }
     
     @Test
@@ -227,11 +242,13 @@ public class GitLogParserTest extends AbstractGitTestCase
         File sampleFile = MavenTestingUtils.getTestResourceFile("git-log-9.3.11.M0..9.3.11.txt");
         GitLogParser parser = new GitLogParser();
         parseSampleFile(parser, sampleFile);
+
+        List<GitCommit> commits = parser.getGitCommitLogs();
         
-        assertThat("parser.gitCommitLogs", parser.getGitCommitLogs(), notNullValue());
-        assertThat("parser.gitCommitLogs.size", parser.getGitCommitLogs().size(), is(137));
+        assertThat("parser.gitCommitLogs", commits, notNullValue());
+        assertThat("parser.gitCommitLogs.size", commits.size(), is(137));
         
-        Map<String, Integer> authors = calcAuthorshipCounts(parser);
+        Map<String, Integer> authors = calcAuthorshipCounts(commits);
         assertThat("Commits by Joakim", authors.get("Joakim Erdfelt"), is(33));
         assertThat("Commits by Simone", authors.get("Simone Bordet"), is(20));
         assertThat("Commits by Greg", authors.get("Greg Wilkins"), is(33));
@@ -246,26 +263,101 @@ public class GitLogParserTest extends AbstractGitTestCase
         issueIds.add("671"); // "Incorrect default ALPN protocol #671"
         issueIds.add("666"); // "Fixing ... for JMX Dump; added ... configuration. (#666)"
         issueIds.add("723"); // "Fixes #723 - improves ... error reporting (#724)"
+        issueIds.add("724"); // "Fixes #723 - improves ... error reporting (#724)"
         
-        assertIssuesPresent(parser, issueIds);
+        assertIssuesPresent(commits, issueIds);
         
-        Set<String> uniqueIds = getUniqueIssueIds(parser);
+        Set<String> uniqueIds = getUniqueIssueIds(commits);
         
-        assertThat("Unique Issue count", uniqueIds.size(), is(68));
-        
+        assertThat("Unique Issue count", uniqueIds.size(), is(69));
+    }
+
+    @Test
+    public void testParseJetty9_4_7_GitHubLog() throws IOException, ParseException
+    {
+        File sampleFile = MavenTestingUtils.getTestResourceFile("git-log-9.4.6..9.4.7-HEAD.txt");
+        GitLogParser parser = new GitLogParser();
+        parseSampleFile(parser, sampleFile);
+
+        List<GitCommit> commits = parser.getGitCommitLogs();
+
+        assertThat("parser.commits (raw)", commits, notNullValue());
+        assertThat("parser.commits.size", commits.size(), is(323));
+
+        // Filter commits
+        GitFilter gitFilter = new GitFilter();
+        gitFilter.addFilenameExclude("jetty-documentation/.*");
+        gitFilter.addFilenameExclude("examples/.*");
+        gitFilter.addFilenameExclude("aggregates/.*");
+        gitFilter.addFilenameExclude("tests/.*");
+        gitFilter.addFilenameExclude(".*/test-.*");
+        gitFilter.addFilenameExclude(".*/.*-test/.*");
+        gitFilter.addFilenameExclude(".*/.*-tests/.*");
+        gitFilter.addFilenameExclude(".*/src/test/.*");
+        gitFilter.addFilenameExclude("\\.git.*");
+        gitFilter.addFilenameExclude(".*\\.md$");
+        gitFilter.addFilenameExclude("Jenkinsfile");
+        gitFilter.addFilenameExclude(".*\\.txt$");
+
+        List<GitCommit> filteredCommits = gitFilter.filter(commits);
+
+        // dumpUniqueFilenames(filteredCommits);
+
+        assertThat("parser.filtered-commits.size", filteredCommits.size(), is(217));
+
+        Map<String, Integer> authors = calcAuthorshipCounts(filteredCommits);
+        assertThat("Commits by Joakim", authors.get("Joakim Erdfelt"), is(45));
+        assertThat("Commits by Simone", authors.get("Simone Bordet"), is(47));
+        assertThat("Commits by Greg", authors.get("Greg Wilkins"), is(69));
+
+        Set<String> uniqueIds = getUniqueIssueIds(commits);
+
+        assertThat("Unique Issue count", uniqueIds.size(), is(110));
+
+        // Test for known quirky issue syntaxes
+        List<String> issueIds = new ArrayList<>();
+        issueIds.add("475546"); // ClosedChannelException when connecting to HTTPS over HTTP proxy with CONNECT.
+        issueIds.add("1623"); // "simplify code, add more details in junit failure #1623"
+        issueIds.add("1611"); // "HTTP/2 :authority: declaration should omit default ports in jetty-client (#1611)"
+        issueIds.add("1732"); // "Issue #1732 Connection Limit (#1745)"
+        issueIds.add("1745"); // "Issue #1732 Connection Limit (#1745)"
+
+        assertIssuesPresent(commits, issueIds);
+
         // Oddball commit with 2 values should not trigger on second value
         assertFalse("Issue #724 should not be picked up", uniqueIds.contains("724"));
     }
-    
+
+    public void dumpUniqueFilenames(List<GitCommit> commits)
+    {
+        SortedSet<String> uniqueFilenames = new TreeSet<>();
+
+        for(GitCommit commit: commits)
+        {
+            for(String filename: commit.getFilenames())
+            {
+                uniqueFilenames.add(filename);
+            }
+        }
+
+        for(String filename: uniqueFilenames)
+        {
+            System.err.printf("# %s%n", filename);
+        }
+    }
+
+
     @Test
     public void testParseSingleGitLog() throws IOException, ParseException
     {
         File sampleFile = MavenTestingUtils.getTestResourceFile("git-log-specific-commit.txt");
         GitLogParser parser = new GitLogParser();
         parseSampleFile(parser, sampleFile);
+
+        List<GitCommit> commits = parser.getGitCommitLogs();
         
-        assertThat("parser.gitCommitLogs", parser.getGitCommitLogs(), notNullValue());
-        assertThat("parser.gitCommitLogs.size", parser.getGitCommitLogs().size(), is(1));
+        assertThat("parser.gitCommitLogs", commits, notNullValue());
+        assertThat("parser.gitCommitLogs.size", commits.size(), is(1));
         
         GitCommit commit = parser.getGitCommitLog(0);
         Assert.assertNotNull("parser.getGitCommitLog(0)", commit);

@@ -20,7 +20,10 @@ package org.eclipse.jetty.toolchain.version.git;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
@@ -98,7 +101,7 @@ public class GitCommand
     public List<GitCommit> getCommitLog(String fromCommitId) throws IOException
     {
         GitLogParser logs = new GitLogParser();
-        execGitCommand(logs,"git","log",fromCommitId + "..HEAD",logs.getFormat());
+        execGitCommand(logs,"git","log",logs.getFormat(),"--name-only",fromCommitId + "..HEAD");
         return logs.getGitCommitLogs();
     }
 
@@ -114,7 +117,7 @@ public class GitCommand
     public String getTagCommitId(String tagId) throws IOException
     {
         GitLogParser logs = new GitLogParser();
-        execGitCommand(logs,"git","log","-1",tagId,logs.getFormat());
+        execGitCommand(logs, "git", "log", "-1", tagId, logs.getFormat());
         getLog().debug("Captured " + logs.getGitCommitLogs().size() + " log entries");
         GitCommit commit = logs.getGitCommitLog(0);
         return commit.getCommitId();
@@ -123,7 +126,7 @@ public class GitCommand
     public List<String> getTags() throws IOException
     {
         GitTagParser tags = new GitTagParser();
-        execGitCommand(tags,"git","tag","-l");
+        execGitCommand(tags, "git", "tag", "-l");
         return tags.getTagIds();
     }
 
@@ -139,11 +142,23 @@ public class GitCommand
     public void populateIssuesForRange(String fromCommitId, String toCommitId, Release rel) throws IOException
     {
         GitLogParser parser = new GitLogParser();
-        execGitCommand(parser,"git","log",fromCommitId + ".." + toCommitId,parser.getFormat());
-        getLog().debug("Captured " + parser.getGitCommitLogs().size() + " log entries");
+        execGitCommand(parser, "git", "log", parser.getFormat(), "--name-only", fromCommitId + ".." + toCommitId);
 
-        List<Issue> issues = parser.getIssues();
-        getLog().debug("Found " + issues.size() + " issues in git log");
+        List<GitCommit> commits = parser.getGitCommitLogs();
+        getLog().debug("Captured " + commits.size() + " log entries");
+
+        Set<String> uniqueIssueIds = new HashSet<>();
+        for (GitCommit commit: commits)
+        {
+            uniqueIssueIds.addAll(commit.getIssueIds());
+        }
+        getLog().debug("Found " + uniqueIssueIds.size() + " issues in git log");
+
+        List<Issue> issues = new ArrayList<>();
+        for(String issueId: uniqueIssueIds)
+        {
+            issues.add(new Issue(issueId));
+        }
         rel.setExisting(false);
         rel.addIssues(issues);
     }

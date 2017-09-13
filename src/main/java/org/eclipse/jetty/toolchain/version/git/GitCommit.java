@@ -18,7 +18,10 @@
 package org.eclipse.jetty.toolchain.version.git;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import org.codehaus.plexus.util.StringUtils;
 import org.eclipse.jetty.toolchain.version.util.DateUtil;
@@ -27,18 +30,22 @@ public class GitCommit
 {
     private Date authorDate;
     private String authorName;
-    private String body;
+    private List<String> body = new ArrayList<>();
     private String commitId;
     private Date committerDate;
     private String committerName;
     private String subject;
+    private List<String> filenames = new ArrayList<>();
+    private Set<String> issueIds;
 
-    public void appendBody(String line)
+    public void addFilename(String filename)
     {
-        if (body == null)
-            body = line;
-        else
-            body += System.lineSeparator() + line;
+        this.filenames.add(filename);
+    }
+
+    public void addBodyLine(String line)
+    {
+        this.body.add(line);
     }
 
     public Date getAuthorDate()
@@ -51,7 +58,7 @@ public class GitCommit
         return authorName;
     }
 
-    public String getBody()
+    public List<String> getBody()
     {
         return body;
     }
@@ -69,6 +76,16 @@ public class GitCommit
     public String getCommitterName()
     {
         return committerName;
+    }
+
+    public List<String> getFilenames()
+    {
+        return filenames;
+    }
+
+    public Set<String> getIssueIds()
+    {
+        return issueIds;
     }
 
     public String getSubject()
@@ -108,11 +125,6 @@ public class GitCommit
         this.authorName = authorName;
     }
 
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
     public void setCommitId(String commitId)
     {
         this.commitId = commitId;
@@ -126,6 +138,17 @@ public class GitCommit
     public void setCommitterName(String committerName)
     {
         this.committerName = committerName;
+    }
+
+    public void setFilenames(List<String> filteredFilenames)
+    {
+        this.filenames.clear();
+        this.filenames.addAll(filteredFilenames);
+    }
+
+    public void setIssueIds(Set<String> issueIds)
+    {
+        this.issueIds = issueIds;
     }
 
     public void setSubject(String subject)

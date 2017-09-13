@@ -17,6 +17,7 @@
  */
 package org.eclipse.jetty.toolchain.version.issues;
 
+import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -111,6 +112,21 @@ public class IssueParser
         }
         Issue issue = new Issue(id, subject, match.syntax);
         return issue;
+    }
+
+    /**
+     * Parse a line, looking for possible issue ids.
+     * @param line the raw line of text to parse.
+     * @param foundIssueIds the collection to store found issue Ids into.
+     */
+    public void findPossibleIssueIds(String line, Collection<String> foundIssueIds)
+    {
+        if (StringUtils.isBlank(line))
+        {
+            return;
+        }
+
+        foundIssueIds.addAll(issue_id_patterns.findAllIds(line.trim()));
     }
     
     private String cleanSubjectLine(String subject)
