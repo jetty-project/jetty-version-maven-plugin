@@ -106,7 +106,6 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     
     /**
      * The generated VERSION.txt file.
-     * <p/>
      *
      * @parameter property="version.text.output.file" default-value="${project.build.directory}/VERSION.txt"
      */
@@ -299,7 +298,17 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                     {
                         if (ghissue.getLabels().size() == 1)
                         {
-                            getLog().info("Filtering Documentation only Issue: " + ghissue.getTitle());
+                            getLog().info("Filtering 'Documentation' only tagged issue: " + ghissue.getTitle());
+                            filtered.add(issue);
+                            continue;
+                        }
+                    }
+    
+                    if (hasLabel(ghissue, "Invalid"))
+                    {
+                        if (ghissue.getLabels().size() == 1)
+                        {
+                            getLog().info("Filtering 'Invalid' only tagged issue: " + ghissue.getTitle());
                             filtered.add(issue);
                             continue;
                         }

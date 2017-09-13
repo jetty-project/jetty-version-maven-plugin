@@ -44,16 +44,15 @@ public class TagMojo extends UpdateVersionTextMojo
 {
     /**
      * The generated version-tag.txt file.
-     * <p/>
      *
-     * @parameter property="version.tag.output.file" default="${project.build.directory}/version-tag.txt"
+     * @parameter property="version.tag.output.file" default-value="${project.build.directory}/version-tag.txt"
      */
     protected File versionTagOutputFile;
     
     /**
      * The generated version-tag.txt header text
      *
-     * @parameter property="version.tag.header" default="Tag for release."
+     * @parameter property="version.tag.header" default-value="Tag for release."
      */
     protected String versionTagHeader;
     
