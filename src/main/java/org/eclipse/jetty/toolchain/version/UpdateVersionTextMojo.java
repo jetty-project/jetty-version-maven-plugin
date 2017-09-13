@@ -28,6 +28,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.codehaus.plexus.util.FileUtils;
 import org.eclipse.jetty.toolchain.version.git.GitCommand;
+import org.eclipse.jetty.toolchain.version.git.GitFilter;
 import org.eclipse.jetty.toolchain.version.issues.GitHubIssueResolver;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
 import org.eclipse.jetty.toolchain.version.issues.IssueSyntax;
@@ -162,10 +163,17 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
                 priorTextVersion = versionText.getReleases().get(0).getVersion();
             }
             getLog().debug("Prior version in VERSION.txt is " + priorTextVersion);
+
+            GitFilter gitFilter = new GitFilter();
+            for(String filenameExclude: filenameExcludes)
+            {
+                gitFilter.addFilenameExclude(filenameExclude);
+            }
             
             GitCommand git = new GitCommand();
             git.setWorkDir(basedir);
             git.setLog(getLog());
+            git.setFilter(gitFilter);
             
             if (refreshTags)
             {

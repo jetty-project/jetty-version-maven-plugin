@@ -35,6 +35,7 @@ public class GitCommand
 {
     private Log log;
     private File workDir;
+    private GitFilter filter;
 
     private int execGitCommand(GitOutputParser outputParser, String... commands) throws IOException
     {
@@ -105,6 +106,11 @@ public class GitCommand
         return logs.getGitCommitLogs();
     }
 
+    public GitFilter getFilter()
+    {
+        return filter;
+    }
+
     public Log getLog()
     {
         if (log == null)
@@ -144,15 +150,23 @@ public class GitCommand
         GitLogParser parser = new GitLogParser();
         execGitCommand(parser, "git", "log", parser.getFormat(), "--name-only", fromCommitId + ".." + toCommitId);
 
-        List<GitCommit> commits = parser.getGitCommitLogs();
-        getLog().debug("Captured " + commits.size() + " log entries");
+        List<GitCommit> rawcommits = parser.getGitCommitLogs();
+        getLog().info("Captured " + rawcommits.size() + " git log entries");
+
+        List<GitCommit> filtered = new ArrayList<>();
+        if(filter != null)
+        {
+            filtered = filter.filter(rawcommits);
+        }
+
+        getLog().info("Found " + rawcommits.size() + " git log entries (excluded " + (rawcommits.size() - filtered.size()) + " entries)");
 
         Set<String> uniqueIssueIds = new HashSet<>();
-        for (GitCommit commit: commits)
+        for (GitCommit commit: filtered)
         {
             uniqueIssueIds.addAll(commit.getIssueIds());
         }
-        getLog().debug("Found " + uniqueIssueIds.size() + " issues in git log");
+        getLog().info("Found " + uniqueIssueIds.size() + " issues in git log");
 
         List<Issue> issues = new ArrayList<>();
         for(String issueId: uniqueIssueIds)
@@ -161,6 +175,11 @@ public class GitCommand
         }
         rel.setExisting(false);
         rel.addIssues(issues);
+    }
+
+    public void setFilter(GitFilter filter)
+    {
+        this.filter = filter;
     }
 
     public void setLog(Log log)
