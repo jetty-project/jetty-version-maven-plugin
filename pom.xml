@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.jetty.toolchain</groupId>
   <artifactId>jetty-version-maven-plugin</artifactId>
-  <version>2.5-SNAPSHOT</version>
+  <version>2.5</version>
   <name>Jetty:: Version Management Maven Plugin</name>
   <description>Build / Release Plugin for working with versions in jetty maven builds</description>
   <packaging>maven-plugin</packaging>
@@ -221,7 +221,7 @@
             <artifactId>maven-javadoc-plugin</artifactId>
             <configuration>
               <!-- needed for Java 8+ -->
-              <additionalparam>&#45;&#45;allow-script-in-comments</additionalparam>
+              <additionalparam>--allow-script-in-comments</additionalparam>
               <header>
                 <![CDATA[
                   <script type="text/javascript">
@@ -313,7 +313,7 @@
     <connection>scm:git:https://github.com/jetty-project/jetty-version-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jetty-project/jetty-version-maven-plugin.git</developerConnection>
     <url>https://github.com/jetty-project/jetty-version-maven-plugin</url>
-    <tag>HEAD</tag>
+    <tag>jetty-version-maven-plugin-2.5</tag>
   </scm>
   <issueManagement>
     <system>github</system>
