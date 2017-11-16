@@ -25,7 +25,7 @@ import org.codehaus.plexus.util.StringUtils;
 
 public class GitTagParser implements GitOutputParser
 {
-    private final List<String> tagIds = new ArrayList<String>();
+    private final List<String> tagIds = new ArrayList<>();
 
     public List<String> getTagIds()
     {

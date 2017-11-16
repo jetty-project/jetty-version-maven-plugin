@@ -262,7 +262,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     {
         GitHubIssueResolver issueResolver = new GitHubIssueResolver();
 
-        List<Issue> filtered = new ArrayList<Issue>();
+        List<Issue> filtered = new ArrayList<>();
 
         int problemCount = 0;
         

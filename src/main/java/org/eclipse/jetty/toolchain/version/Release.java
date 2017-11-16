@@ -37,7 +37,7 @@ public class Release
 
     static
     {
-        RELEASED_ON_FORMATS = new ArrayList<String>();
+        RELEASED_ON_FORMATS = new ArrayList<>();
         RELEASED_ON_FORMATS.add("M/d/yyyy"); // USA Format (shorthand)
         RELEASED_ON_FORMATS.add("EEE d MMMM yyyy"); // USA Format w/Weekday
         RELEASED_ON_FORMATS.add("d MMMM yyyy"); // USA Format
@@ -46,7 +46,7 @@ public class Release
     }
 
     private boolean existing = false;
-    private List<Issue> issues = new ArrayList<Issue>();
+    private List<Issue> issues = new ArrayList<>();
     private Date releasedOn;
     private String version;
 

@@ -40,8 +40,8 @@ public class VersionText
 {
     private boolean sortExisting = false;
     private VersionPattern versionPattern;
-    private List<String> headers = new ArrayList<String>();
-    private final LinkedList<Release> releases = new LinkedList<Release>();
+    private List<String> headers = new ArrayList<>();
+    private final LinkedList<Release> releases = new LinkedList<>();
 
     public VersionText(VersionPattern pat)
     {
@@ -102,7 +102,7 @@ public class VersionText
 
     public List<String> getVersionList()
     {
-        List<String> versions = new ArrayList<String>();
+        List<String> versions = new ArrayList<>();
         for (Release rel : releases)
         {
             versions.add(rel.getVersion());
