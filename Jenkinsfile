@@ -21,13 +21,16 @@ node {
 
   try
   {
-    stage('Build') {
-      withEnv(mvnEnv) {
-        timeout(time: 15, unit: 'MINUTES') {
-          sh "mvn -B clean install"
-        }
-      }
+    withMaven(maven:'maven3') {
+      sh "mvn -B clean install"
     }
+//    stage('Build') {
+//      withEnv(mvnEnv) {
+//        timeout(time: 15, unit: 'MINUTES') {
+//          sh "mvn -B clean install"
+//        }
+//      }
+//    }
   } catch(Exception e) {
     notifyBuild("Build Failure")
     throw e
