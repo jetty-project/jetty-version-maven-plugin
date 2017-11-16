@@ -36,12 +36,16 @@ import org.kohsuke.github.extras.OkHttpConnector;
 public class GitHubIssueResolver
 {
     private Log log;
-    // TODO: make repo name configurable
-    private String repoName = "eclipse/jetty.project";
+    private final String repoName;
     private Path cacheDirectory;
     private GitHub github;
 
-    public void init(Log log) throws IOException
+    public GitHubIssueResolver( String repoName )
+    {
+        this.repoName = repoName;
+    }
+
+    public void init( Log log) throws IOException
     {
         this.log = log;
         Path userHome = new File(System.getProperty("user.home")).toPath();

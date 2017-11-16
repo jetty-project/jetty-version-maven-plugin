@@ -55,10 +55,7 @@ public class EffectiveMojo extends UpdateVersionTextMojo
         System.out.printf("Changes from %s [%s]%n", priorTagId, priorCommitId);
         System.out.printf("          to %s%n", currentCommitId);
         System.out.println();
-    
-        for (Issue issue : issues)
-        {
-            System.out.println(issue);
-        }
+
+        issues.stream().forEach( issue -> System.out.println(issue) );
     }
 }

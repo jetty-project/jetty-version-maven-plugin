@@ -75,10 +75,7 @@ public class TagMojo extends UpdateVersionTextMojo
             out.println(versionTagHeader);
             out.println();
             
-            for (Issue issue : issues)
-            {
-                out.println(issue);
-            }
+            issues.stream().forEach( issue -> out.println(issue) );
         }
     }
 }

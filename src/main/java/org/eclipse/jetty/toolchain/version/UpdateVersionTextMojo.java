@@ -260,7 +260,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      */
     protected int resolveIssueSubjects(Release rel)
     {
-        GitHubIssueResolver issueResolver = new GitHubIssueResolver();
+        GitHubIssueResolver issueResolver = new GitHubIssueResolver(repoName);
 
         List<Issue> filtered = new ArrayList<>();
 

@@ -17,12 +17,18 @@
  */
 package org.eclipse.jetty.toolchain.version;
 
+import org.codehaus.plexus.util.IOUtil;
+import org.codehaus.plexus.util.StringUtils;
+import org.eclipse.jetty.toolchain.version.issues.Issue;
+import org.eclipse.jetty.toolchain.version.issues.IssueParser;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -30,11 +36,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.codehaus.plexus.util.IOUtil;
-import org.codehaus.plexus.util.StringUtils;
-import org.eclipse.jetty.toolchain.version.issues.Issue;
-import org.eclipse.jetty.toolchain.version.issues.IssueParser;
 
 public class VersionText
 {
@@ -127,13 +128,8 @@ public class VersionText
 
     public void read(File versionTextFile) throws IOException
     {
-        FileReader reader = null;
-        BufferedReader buf = null;
-        try
+        try (BufferedReader buf = Files.newBufferedReader( versionTextFile.toPath() ))
         {
-            reader = new FileReader(versionTextFile);
-            buf = new BufferedReader(reader);
-
             Pattern patBullet = Pattern.compile(IssueParser.REGEX_ISSUE_BULLET);
             Matcher mat;
 
@@ -211,11 +207,6 @@ public class VersionText
                 releases.add(release);
             }
         }
-        finally
-        {
-            IOUtil.close(buf);
-            IOUtil.close(reader);
-        }
     }
 
     public void replaceOrPrepend(Release rel)
@@ -243,14 +234,11 @@ public class VersionText
 
     public void write(File versionTextFile) throws IOException
     {
-        FileWriter writer = null;
-        PrintWriter out = null;
         String LN = "\n"; // Always write with UNIX line endings
-        try
+        // TODO use BufferedWriter
+        //try(BufferedWriter bufferedWriter = Files.newBufferedWriter( versionTextFile.toPath() ))
+        try(FileWriter writer = new FileWriter(versionTextFile); PrintWriter out = new PrintWriter(writer))
         {
-            writer = new FileWriter(versionTextFile);
-            out = new PrintWriter(writer);
-
             if (!headers.isEmpty())
             {
                 for (String line : headers)
@@ -303,11 +291,6 @@ public class VersionText
                 }
                 out.print(LN);
             }
-        }
-        finally
-        {
-            IOUtil.close(out);
-            IOUtil.close(writer);
         }
     }
 }

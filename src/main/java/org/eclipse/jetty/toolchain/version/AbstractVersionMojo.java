@@ -80,6 +80,12 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     protected MavenProjectHelper projectHelper;
 
     /**
+     * @parameter property="version.github.repoName" default-value="eclipse/jetty.project"
+     */
+    protected String repoName;
+
+
+    /**
      * Maven Project.
      *
      * @parameter property="project"
