@@ -40,7 +40,7 @@ public class IssueParser
         // Github recommended - https://help.github.com/articles/closing-issues-via-commit-messages/
         issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Close #([0-9]{2,})" + DELIM);
         issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Close[sd]* #([0-9]{2,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Fix #([0-9]{2,})" + DELIM);
+        issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Fix #([0-9]{1,})" + DELIM);
         issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Fixe[sd]* #([0-9]{2,})" + DELIM);
         issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Resolve #([0-9]{2,})" + DELIM);
         issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Resolve[sd]* #([0-9]{2,})" + DELIM);

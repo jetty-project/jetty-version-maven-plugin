@@ -44,12 +44,8 @@ public class OutputHandler extends Thread
     {
         int linenum = 0;
         parser.parseStart();
-        InputStreamReader reader = null;
-        BufferedReader buf = null;
-        try
+        try(InputStreamReader reader = new InputStreamReader(in);BufferedReader buf = new BufferedReader(reader))
         {
-            reader = new InputStreamReader(in);
-            buf = new BufferedReader(reader);
             String line;
             while ((line = buf.readLine()) != null)
             {
@@ -67,11 +63,6 @@ public class OutputHandler extends Thread
             {
                 log.debug(e);
             }
-        }
-        finally
-        {
-            IOUtil.close(buf);
-            IOUtil.close(reader);
         }
         parser.parseEnd();
         log.debug("Parsed " + linenum + " lines of output");

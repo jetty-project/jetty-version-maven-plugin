@@ -17,21 +17,21 @@
  */
 package org.eclipse.jetty.toolchain.version.issues;
 
-import com.squareup.okhttp.Cache;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.OkUrlFactory;
+
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
+import okhttp3.OkUrlFactory;
+import org.apache.maven.plugin.logging.Log;
+import org.kohsuke.github.GHIssue;
+import org.kohsuke.github.GitHub;
+import org.kohsuke.github.GitHubBuilder;
+import org.kohsuke.github.extras.OkHttp3Connector;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import org.apache.maven.plugin.logging.Log;
-import org.kohsuke.github.GHIssue;
-import org.kohsuke.github.GitHub;
-import org.kohsuke.github.GitHubBuilder;
-import org.kohsuke.github.extras.OkHttpConnector;
 
 public class GitHubIssueResolver
 {
@@ -47,6 +47,7 @@ public class GitHubIssueResolver
 
     public void init( Log log) throws IOException
     {
+
         this.log = log;
         Path userHome = new File(System.getProperty("user.home")).toPath();
         cacheDirectory = userHome.resolve(".cache/github/jetty");
@@ -55,9 +56,10 @@ public class GitHubIssueResolver
             Files.createDirectories(cacheDirectory);
         }
 
-        Cache cache = new Cache(cacheDirectory.toFile(), 10 * 1024 * 1024); // 10MB cache
+        Cache cache = new Cache( cacheDirectory.toFile(), 10 * 1024 * 1024); // 10MB cache
+
         this.github = GitHubBuilder.fromCredentials()
-                .withConnector(new OkHttpConnector(new OkUrlFactory(new OkHttpClient().setCache(cache))))
+                .withConnector(new OkHttp3Connector( new OkUrlFactory( new OkHttpClient.Builder().cache( cache).build())))
                 .build();
 
         // Test access
@@ -72,7 +74,7 @@ public class GitHubIssueResolver
 
     }
 
-    public GHIssue getIssue(String issueRef) throws IOException
+    public GHIssue getIssue( String issueRef) throws IOException
     {
         int issueNum = Integer.parseInt(issueRef);
 
