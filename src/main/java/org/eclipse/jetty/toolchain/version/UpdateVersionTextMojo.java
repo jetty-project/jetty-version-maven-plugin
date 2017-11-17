@@ -26,6 +26,9 @@ import java.util.List;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.codehaus.plexus.util.FileUtils;
 import org.eclipse.jetty.toolchain.version.git.GitCommand;
 import org.eclipse.jetty.toolchain.version.git.GitFilter;
@@ -38,77 +41,53 @@ import org.kohsuke.github.GHLabel;
 /**
  * Update the active version entry in the VERSION.txt file from information present in the git logs.
  *
- * @goal update-version-text
- * @requiresProject true
- * @phase package
  */
 @SuppressWarnings("unused")
+@Mojo( name = "update-version-text", defaultPhase = LifecyclePhase.PACKAGE)
 public class UpdateVersionTextMojo extends AbstractVersionMojo
 {
     /**
      * The maven project version.
-     *
-     * @parameter property="version.section" default-value="${project.version}"
-     * @required
      */
+    @Parameter(property="version.section", defaultValue="${project.version}", required = true)
     protected String version;
     
     /**
-     * The version key to use in the VERSION.txt file.
-     *
-     * @parameter property="version.text.key" default-value="jetty-VERSION"
-     * @required
-     */
-    protected String versionTextKey;
-    
-    /**
-     * The version key to use when looking up a git tag ref.
-     *
-     * @parameter property="version.tag.key" default-value="jetty-VERSION"
-     * @required
-     */
-    protected String versionTagKey;
-    
-    /**
      * Allow the existing issues to be sorted alphabetically.
-     *
-     * @parameter property="version.sort.existing" default-value="false"
      */
+    @Parameter(property="version.sort.existing", defaultValue="false")
     protected boolean sortExisting = false;
     
     /**
      * Allow the plugin to issue a 'git fetch --tags' to update the local tags from.
-     *
-     * @parameter property="version.refresh.tags" default-value="false"
      */
+    @Parameter(property="version.refresh.tags", defaultValue="false")
     protected boolean refreshTags = false;
     
     /**
      * Allow the plugin to update the release date for an issue (if none is provided)
      *
-     * @parameter property="version.update.date" default-value="false"
      */
+    @Parameter(property="version.update.date", defaultValue="false")
     protected boolean updateDate = false;
     
     /**
      * Allow the plugin to replace the input VERSION.txt file
-     *
-     * @parameter property="version.copy.generated" default-value="false"
      */
+    @Parameter(property="version.copy.generated", defaultValue="false")
     protected boolean copyGenerated;
     
     /**
      * Allow the plugin to attach the generated VERSION.txt file to the project
      *
-     * @parameter property="version.attach" default-value="false"
      */
+    @Parameter(property="version.attach", defaultValue="false")
     protected boolean attachArtifact;
     
     /**
      * The generated VERSION.txt file.
-     *
-     * @parameter property="version.text.output.file" default-value="${project.build.directory}/VERSION.txt"
      */
+    @Parameter(property="version.text.output.file", defaultValue="${project.build.directory}/VERSION.txt")
     protected File versionTextOutputFile;
     
     public void execute() throws MojoExecutionException, MojoFailureException

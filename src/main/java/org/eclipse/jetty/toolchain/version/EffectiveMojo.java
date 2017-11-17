@@ -24,18 +24,17 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
 import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
 
 /**
  * Process the commit log to produce output representing the changes
  * that would be applied to the VERSION.txt
- *
- * @goal effective
- * @requiresProject true
- * @phase process-resources
  */
 @SuppressWarnings("unused")
+@Mojo( name = "effective", requiresProject = true, defaultPhase = LifecyclePhase.PROCESS_RESOURCES)
 public class EffectiveMojo extends UpdateVersionTextMojo
 {
     @Override

@@ -27,6 +27,9 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
 import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
 
@@ -34,26 +37,21 @@ import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
  * Produce a target/version-tag.txt which represents the changes
  * for this particular release.  A file suitable to use as the git tag
  * message body, in tagging the release.
- *
- * @goal tag
- * @requiresProject true
- * @phase process-resources
  */
 @SuppressWarnings("unused")
+@Mojo( name = "tag", defaultPhase = LifecyclePhase.PROCESS_RESOURCES)
 public class TagMojo extends UpdateVersionTextMojo
 {
     /**
      * The generated version-tag.txt file.
-     *
-     * @parameter property="version.tag.output.file" default-value="${project.build.directory}/version-tag.txt"
      */
+    @Parameter(property="version.tag.output.file", defaultValue="${project.build.directory}/version-tag.txt")
     protected File versionTagOutputFile;
     
     /**
      * The generated version-tag.txt header text
-     *
-     * @parameter property="version.tag.header" default-value="Tag for release."
      */
+    @Parameter(property="version.tag.header", defaultValue="Tag for release.")
     protected String versionTagHeader;
     
     @Override

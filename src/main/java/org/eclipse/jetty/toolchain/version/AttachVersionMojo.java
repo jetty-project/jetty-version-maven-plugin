@@ -19,17 +19,15 @@ package org.eclipse.jetty.toolchain.version;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
 
 /**
- * Attach the VERSION.txt to the project.
- * <p>
- * Will only attach the VERSION.txt if it exists.
- *
- * @goal attach-version-text
- * @requiresProject true
- * @phase process-resources
+ * <p>Attach the VERSION.txt to the project.</p>
+ * <p>Will only attach the VERSION.txt if it exists.</p>
  */
 @SuppressWarnings("unused")
+@Mojo( name = "attach-version-text", requiresProject = true, defaultPhase = LifecyclePhase.PROCESS_RESOURCES)
 public class AttachVersionMojo extends AbstractVersionMojo
 {
     public void execute() throws MojoExecutionException, MojoFailureException
