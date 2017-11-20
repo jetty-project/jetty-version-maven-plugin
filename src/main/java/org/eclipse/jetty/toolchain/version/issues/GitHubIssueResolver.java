@@ -21,8 +21,12 @@ package org.eclipse.jetty.toolchain.version.issues;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.OkUrlFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.kohsuke.github.GHIssue;
+import org.kohsuke.github.GHIssueState;
+import org.kohsuke.github.GHMilestone;
+import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
 import org.kohsuke.github.extras.OkHttp3Connector;
@@ -32,7 +36,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Optional;
 
+// TODO turn it as a component
 public class GitHubIssueResolver
 {
     private Log log;
@@ -45,7 +52,7 @@ public class GitHubIssueResolver
         this.repoName = repoName;
     }
 
-    public void init( Log log) throws IOException
+    public GitHubIssueResolver init( Log log) throws IOException
     {
 
         this.log = log;
@@ -71,7 +78,7 @@ public class GitHubIssueResolver
 
         // list current rate limits
         log.info("Github API Rate Limits: " + this.github.getRateLimit().toString());
-
+        return this;
     }
 
     public GHIssue getIssue( String issueRef) throws IOException
@@ -84,9 +91,37 @@ public class GitHubIssueResolver
         }
         catch (FileNotFoundException fnfe )
         {
-            fnfe.printStackTrace();
+            log.warn( "error find issue with ref: " + issueRef, fnfe );
             return null;
         }
+    }
+
+    /**
+     *
+     * @param millestone
+     * @return <code>null</code> if the millestone has not been created
+     */
+    public GHMilestone createMillestone(String millestone ) throws IOException
+    {
+        GHRepository ghRepository = github.getRepository( repoName );
+        List<GHMilestone> ghMilestones = ghRepository.listMilestones( GHIssueState.ALL ).asList();
+        Optional<GHMilestone> ghMilestoneOptional = ghMilestones.stream() //
+            .filter( ghMilestone -> StringUtils.equalsIgnoreCase( millestone, ghMilestone.getTitle() ) ) //
+            .findFirst();
+        if(ghMilestoneOptional.isPresent())
+        {
+            return ghMilestoneOptional.get();
+        }
+        GHMilestone ghMilestone = ghRepository
+            .createMilestone( millestone, "Milestone for version " + millestone );
+        return ghMilestone;
+    }
+
+    public void assignMillestone(GHMilestone ghMilestone, GHIssue ghIssue)
+    {
+        // edit("milestone",milestone.getNumber());
+        // new Requester( root)._with( key, value).method( "PATCH").to( getIssuesApiRoute());
+        //github.getConnector().
     }
 
     public void destroy()
