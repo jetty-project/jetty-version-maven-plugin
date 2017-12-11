@@ -17,19 +17,21 @@
  */
 package org.eclipse.jetty.toolchain.version.git;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
 import org.codehaus.plexus.util.IOUtil;
 import org.eclipse.jetty.toolchain.version.Release;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class GitCommand
 {
@@ -134,6 +136,23 @@ public class GitCommand
         GitTagParser tags = new GitTagParser();
         execGitCommand(tags, "git", "tag", "-l");
         return tags.getTagIds();
+    }
+
+    /**
+     *
+     * @param sha1 the commit to get branches
+     * @return branches containing a commit
+     * @throws IOException
+     */
+    public List<String> getCommitBranches(String sha1) throws IOException
+    {
+        if ( StringUtils.isEmpty( sha1 ))
+        {
+            return Collections.emptyList();
+        }
+        GitBranchParser gitBranchParser = new GitBranchParser();
+        execGitCommand( gitBranchParser, "git", "branch", "--contains", sha1 );
+        return gitBranchParser.getBranches();
     }
 
     public File getWorkDir()

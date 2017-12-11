@@ -17,13 +17,13 @@
  */
 package org.eclipse.jetty.toolchain.version;
 
-import org.codehaus.plexus.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
 import org.eclipse.jetty.toolchain.version.issues.IssueParser;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -41,6 +41,7 @@ public class VersionText
     private VersionPattern versionPattern;
     private List<String> headers = new ArrayList<>();
     private final LinkedList<Release> releases = new LinkedList<>();
+    private List<String> knowsContributors = new ArrayList<>( );
 
     public VersionText(VersionPattern pat)
     {
@@ -54,7 +55,7 @@ public class VersionText
 
     public Release findRelease(String version)
     {
-        if (StringUtils.isBlank(version))
+        if ( StringUtils.isBlank( version))
         {
             return null;
         }
@@ -124,11 +125,17 @@ public class VersionText
         releases.add(0,rel);
     }
 
-    public void read(File versionTextFile) throws IOException
+    public void setKnowsContributors( List<String> knowsContributors )
+    {
+        this.knowsContributors = knowsContributors;
+    }
+
+    public void read( File versionTextFile) throws IOException
     {
         try (BufferedReader buf = Files.newBufferedReader( versionTextFile.toPath() ))
         {
             Pattern patBullet = Pattern.compile(IssueParser.REGEX_ISSUE_BULLET);
+            Pattern prBullet = Pattern.compile("^ [\\*\\+ pr \\d+] ");
             Matcher mat;
 
             releases.clear();
@@ -175,6 +182,12 @@ public class VersionText
                     String on = versionPattern.getRemainingText();
                     release.parseReleasedOn(linenum,on);
                     continue;
+                }
+
+                if ( org.apache.commons.lang3.StringUtils.startsWith( line, "+ pr" ))
+                {
+                    // + pr 1824 Ensure that WebAppClassLoader.addJars considers classpath entries in a deterministic order by Foo Beer (gloups)
+
                 }
 
                 mat = patBullet.matcher(line);
@@ -233,9 +246,8 @@ public class VersionText
     public void write(File versionTextFile) throws IOException
     {
         String LN = "\n"; // Always write with UNIX line endings
-        // TODO use BufferedWriter
-        //try(BufferedWriter bufferedWriter = Files.newBufferedWriter( versionTextFile.toPath() ))
-        try(FileWriter writer = new FileWriter(versionTextFile); PrintWriter out = new PrintWriter(writer))
+        try(BufferedWriter writer = Files.newBufferedWriter( versionTextFile.toPath() ); //
+            PrintWriter out = new PrintWriter( writer))
         {
             if (!headers.isEmpty())
             {
@@ -286,6 +298,12 @@ public class VersionText
                             out.print(LN);
                         }
                     }
+
+                    // print pull requests
+                    release.getPullRequests()
+                        .forEach( pullRequest ->
+                                      out.println( pullRequest.asText(
+                                          !knowsContributors.contains( pullRequest.getContributor().getGithubId() )) ) );
                 }
                 out.print(LN);
             }

@@ -20,8 +20,12 @@ package org.eclipse.jetty.toolchain.version;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,6 +53,8 @@ public class Release
     private List<Issue> issues = new ArrayList<>();
     private Date releasedOn;
     private String version;
+    private Set<Contributor> contributors = new TreeSet<>( Comparator.comparing( Contributor::getGithubId ));
+    private Set<PullRequest> pullRequests = new TreeSet<>( Comparator.comparing( PullRequest::getPullRequestId ));
 
     public Release()
     {
@@ -255,5 +261,31 @@ public class Release
         buf.append(",issues.size=").append(issues.size());
         buf.append("]");
         return buf.toString();
+    }
+
+    public Set<Contributor> getContributors()
+    {
+        return contributors;
+    }
+
+    public Release addContributor(Contributor contributor)
+    {
+        contributors.add( contributor );
+        return this;
+    }
+
+    /**
+     *
+     * @return all the pull requests not associated to any issue
+     */
+    public Set<PullRequest> getPullRequests()
+    {
+        return pullRequests;
+    }
+
+    public Release addPullRequest(PullRequest pullRequest)
+    {
+        pullRequests.add( pullRequest );
+        return this;
     }
 }

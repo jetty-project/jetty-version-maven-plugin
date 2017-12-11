@@ -23,10 +23,15 @@ import okhttp3.OkHttpClient;
 import okhttp3.OkUrlFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
+import org.kohsuke.github.GHCommit;
 import org.kohsuke.github.GHIssue;
 import org.kohsuke.github.GHIssueState;
 import org.kohsuke.github.GHMilestone;
+import org.kohsuke.github.GHPullRequest;
+import org.kohsuke.github.GHPullRequestQueryBuilder;
+import org.kohsuke.github.GHRef;
 import org.kohsuke.github.GHRepository;
+import org.kohsuke.github.GHTag;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
 import org.kohsuke.github.extras.OkHttp3Connector;
@@ -36,8 +41,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 // TODO turn it as a component
 public class GitHubIssueResolver
@@ -122,6 +129,25 @@ public class GitHubIssueResolver
         // edit("milestone",milestone.getNumber());
         // new Requester( root)._with( key, value).method( "PATCH").to( getIssuesApiRoute());
         //github.getConnector().
+    }
+
+    public List<GHPullRequest> getPullRequests( String currentSha1, String priorSha1, String branch) throws IOException
+    {
+        GHRepository ghRepository = github.getRepository( repoName );
+
+        Date currentDate = ghRepository.getCommit( currentSha1 ).getCommitDate();
+        Date priorDate = ghRepository.getCommit( priorSha1 ).getCommitDate();
+
+        return ghRepository.queryPullRequests() //
+            .state( GHIssueState.CLOSED ) //
+            .sort( GHPullRequestQueryBuilder.Sort.CREATED ) //
+            .base( branch ) //
+            .list().asList() //
+            .stream().filter( ghPullRequest -> //
+                ghPullRequest.getClosedAt().after( priorDate ) //
+                    && ghPullRequest.getClosedAt().before( currentDate ) //
+            )
+            .collect( Collectors.toList());
     }
 
     public void destroy()

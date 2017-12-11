@@ -17,13 +17,7 @@
  */
 package org.eclipse.jetty.toolchain.version;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -34,9 +28,21 @@ import org.eclipse.jetty.toolchain.version.git.GitCommand;
 import org.eclipse.jetty.toolchain.version.git.GitFilter;
 import org.eclipse.jetty.toolchain.version.issues.GitHubIssueResolver;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
+import org.eclipse.jetty.toolchain.version.issues.IssueParser;
 import org.eclipse.jetty.toolchain.version.issues.IssueSyntax;
 import org.kohsuke.github.GHIssue;
 import org.kohsuke.github.GHLabel;
+import org.kohsuke.github.GHPullRequest;
+import org.kohsuke.github.GHUser;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Update the active version entry in the VERSION.txt file from information present in the git logs.
@@ -89,6 +95,11 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      */
     @Parameter(property="version.text.output.file", defaultValue="${project.build.directory}/VERSION.txt")
     protected File versionTextOutputFile;
+
+    private GitHubIssueResolver issueResolver;
+
+    private List<String> knowsContributors =
+        Arrays.asList( "gregw", "janbartel", "jmcc0nn3ll", "joakime", "olamy", "sbordet", "WalkerWatch" );
     
     public void execute() throws MojoExecutionException, MojoFailureException
     {
@@ -114,6 +125,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             VersionText versionText = new VersionText(verTextPattern);
             versionText.read(versionTextInputFile);
             versionText.setSortExisting(sortExisting);
+            versionText.setKnowsContributors( knowsContributors );
             
             String updateVersionText = verTextPattern.toVersionId(version);
             String updateVersionGit = verTagPattern.toVersionId(version);
@@ -200,7 +212,9 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             getLog().debug("Commit ID to [" + updateVersionText + "]: " + currentCommitId);
             
             git.populateIssuesForRange(priorCommitId, currentCommitId, rel);
-            
+
+            issueResolver = new GitHubIssueResolver(repoName);
+
             int problemCount = resolveIssueSubjects(rel);
             if (problemCount > 0)
             {
@@ -213,13 +227,44 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             {
                 rel.setReleasedOn(new Date()); // now
             }
-            
+
+            List<GHPullRequest> pullRequests = collectPullRequest( updateVersionGit, priorGitVersion, versionText, rel);
+
+            for (GHPullRequest ghPullRequest : pullRequests)
+            {
+                GHUser ghUser = ghPullRequest.getUser();
+                Contributor contributor = new Contributor( ghUser.getLogin(), ghUser.getName() );
+                rel.addPullRequest( new PullRequest( Integer.toString( ghPullRequest.getNumber()), //
+                                                     ghPullRequest.getTitle(), contributor) );
+            }
+
             updateVersionText(versionText, rel, updateVersionText, priorTagId, currentCommitId, currentCommitId);
         }
         catch (IOException e)
         {
             throw new MojoFailureException("Unable to generate replacement VERSION.txt", e);
         }
+    }
+
+    /**
+     * we need to know the branch name to filter pull requests we are reading.
+     * FIXME better configurable (but yeah doesn't change so often :-) )
+     * @return the branch name of the version
+     */
+    protected String getBranchName( )
+    {
+        // branch name is jetty-9.4 or jetty-9.3 depending on version
+        // jetty-10 is master
+
+        if ( StringUtils.startsWith( version, "9.3" ))
+        {
+            return "jetty-9.3.x";
+        }
+        if ( StringUtils.startsWith( version, "9.4" ))
+        {
+            return "jetty-9.4.x";
+        }
+        return "master";
     }
     
     protected void updateVersionText(VersionText versionText, Release rel, String updateVersionText, String priorTagId, String priorCommitId, String currentCommitId) throws MojoFailureException, IOException
@@ -228,6 +273,61 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
         generateVersion(versionText);
         String commitMessage = "Updating version " + updateVersionText + " in VERSION.txt";
         getLog().info("Update complete. Here's your git command. (Copy/Paste)\ngit commit -m \"" + commitMessage + "\" " + versionTextInputFile.getName());
+    }
+
+    /**
+     * collect pull request without any issue id and populate Release with contributors
+     * @param updateVersionGit
+     * @param priorGitVersion
+     * @param versionText
+     * @param release
+     * @return
+     * @throws IOException
+     */
+    protected List<GHPullRequest> collectPullRequest( String updateVersionGit, String priorGitVersion, VersionText versionText, Release release)
+        throws IOException
+    {
+        List<GHPullRequest> ghPullRequests = issueResolver //
+            .getPullRequests( updateVersionGit, priorGitVersion, getBranchName() );
+
+        // collect all contributors except usual suspects
+        ghPullRequests.stream().forEach( ghPullRequest -> {
+            try
+            {
+                GHUser ghUser = ghPullRequest.getUser();
+                if (!knowsContributors.contains( ghUser.getLogin() ))
+                {
+                    release.addContributor( new Contributor( ghUser.getLogin(), ghUser.getName() ) );
+                }
+            }
+            catch ( IOException e )
+            {
+                throw new RuntimeException( e.getMessage(), e );
+            }
+
+        } );
+
+
+        IssueParser issueParser = new IssueParser();
+
+        return ghPullRequests.stream() //
+            // first filter only merged pr
+            .filter( ghPullRequest -> {
+                try
+                {
+                    return ghPullRequest.isMerged();
+                }
+                catch ( IOException e )
+                {
+                    throw new RuntimeException( e.getMessage(), e );
+                }
+            } )
+            // filter pull request not containing issue id in title or comment
+            .filter(  ghPullRequest ->
+                  issueParser.parsePossibleIssue( ghPullRequest.getTitle() ) == null &&
+                    issueParser.parsePossibleIssue( ghPullRequest.getBody() ) == null
+            )
+            .collect( Collectors.toList() );
     }
     
     /**
@@ -239,7 +339,6 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
      */
     protected int resolveIssueSubjects(Release rel)
     {
-        GitHubIssueResolver issueResolver = new GitHubIssueResolver(repoName);
 
         List<Issue> filtered = new ArrayList<>();
 

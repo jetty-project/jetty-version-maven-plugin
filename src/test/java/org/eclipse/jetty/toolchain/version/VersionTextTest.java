@@ -20,8 +20,7 @@ package org.eclipse.jetty.toolchain.version;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,6 +28,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.toolchain.test.IO;
@@ -52,7 +53,7 @@ public class VersionTextTest
         vt.read(sampleVerText);
         
         String prior = vt.getPriorVersion(startVersion);
-        Assert.assertEquals("Prior version", expectedPriorVersion, prior);
+        assertEquals("Prior version", expectedPriorVersion, prior);
     }
     
     private void assertVersionList(List<String> expectedVersions, List<String> actualVersions)
@@ -160,15 +161,15 @@ public class VersionTextTest
         VersionText vt = new VersionText(VersionPattern.CODEHAUS);
         vt.read(sampleVerText);
         
-        Assert.assertEquals("Number of Releases", 30, vt.getReleases().size());
+        assertEquals("Number of Releases", 30, vt.getReleases().size());
         
         Release r740 = vt.findRelease("jetty@codehaus-7.4.0.v20110414");
         Assert.assertNotNull("Should have found release", r740);
-        Assert.assertEquals("[7.4.0.v20110414].issues.size", 2, r740.getIssues().size());
+        assertEquals("[7.4.0.v20110414].issues.size", 2, r740.getIssues().size());
         
         Release r720rc0 = vt.findRelease("jetty@codehaus-7.2.0.RC0");
         Assert.assertNotNull("Should have found release", r720rc0);
-        Assert.assertEquals("[7.2.0.RC0].issues.size", 9, r720rc0.getIssues().size());
+        assertEquals("[7.2.0.RC0].issues.size", 9, r720rc0.getIssues().size());
     }
     
     @Test
@@ -185,11 +186,11 @@ public class VersionTextTest
         
         Release r31rc9 = vt.findRelease("jetty-3.1.rc9");
         Assert.assertNotNull("Should have found release", r31rc9);
-        Assert.assertEquals("[3.1.rc9].issues.size", 10, r31rc9.getIssues().size());
+        assertEquals("[3.1.rc9].issues.size", 10, r31rc9.getIssues().size());
         
         Release r20a2 = vt.findRelease("jetty-2.0Alpha2");
         Assert.assertNotNull("Should have found release", r20a2);
-        Assert.assertEquals("[2.0Alpha1].issues.size", 9, r20a2.getIssues().size());
+        assertEquals("[2.0Alpha1].issues.size", 9, r20a2.getIssues().size());
     }
     
     @Test
@@ -199,11 +200,11 @@ public class VersionTextTest
         VersionText vt = new VersionText(VersionPattern.ECLIPSE);
         vt.read(sampleVerText);
         
-        Assert.assertEquals("Number of Releases", 1, vt.getReleases().size());
+        assertEquals("Number of Releases", 1, vt.getReleases().size());
         
         Release r20a2 = vt.findRelease("jetty-2.0Alpha2");
         Assert.assertNotNull("Should have found release", r20a2);
-        Assert.assertEquals("[2.0Alpha1].issues.size", 9, r20a2.getIssues().size());
+        assertEquals("[2.0Alpha1].issues.size", 9, r20a2.getIssues().size());
     }
     
     /**
@@ -236,11 +237,11 @@ public class VersionTextTest
         vt = new VersionText(VersionPattern.ECLIPSE);
         vt.read(out2);
         
-        Assert.assertEquals("Number of Releases", 1, vt.getReleases().size());
+        assertEquals("Number of Releases", 1, vt.getReleases().size());
         
         Release rel = vt.findRelease("jetty-7.1.5.v20100705");
         Assert.assertNotNull("Should have found release", rel);
-        Assert.assertEquals("[7.1.5].issues.size", 21, rel.getIssues().size());
+        assertEquals("[7.1.5].issues.size", 21, rel.getIssues().size());
         
         // Find the "pdate ecj to 3.6" entry
         String ecjText = "pdate ecj to 3.6";
@@ -302,5 +303,19 @@ public class VersionTextTest
         String expectedVersion = IO.readToString(MavenTestingUtils.getTestResourceFile("version-19-sorted-result.txt"));
     
         assertThat("Output sorted/generation", outputVersion, is(expectedVersion));
+    }
+
+    @Test
+    public void testReadPullRequests() throws Exception
+    {
+        Pattern prBullet = Pattern.compile( "^ [\\*\\+ pr \\d+] ");
+
+        Matcher m = prBullet.matcher( " + pr 1824 Ensure that WebAppClassLoader.addJars considers classpath entries in a deterministic order by Foo Beer (gloups)");
+
+        File sampleVerText = MavenTestingUtils.getTestResourceFile("VERSION.txt");
+        VersionText vt = new VersionText(VersionPattern.ECLIPSE);
+        vt.read( sampleVerText );
+        Release release = vt.findRelease( "jetty-7.5.0-SNAPSHOT" );
+        assertEquals( 3, release.getPullRequests().size() );
     }
 }

@@ -7,6 +7,9 @@ jetty-7.5.0-SNAPSHOT
  + 352421 HttpURI paths beginning with '.'
  + 352684 Implemented spinning thread analyzer
  + 352786 GzipFilter fails to pass parameters to GzipResponseWrapper
+ + pr 1824 Ensure that WebAppClassLoader.addJars considers classpath entries in a deterministic order by Foo Beer (gloups)
+ + pr 1827 fix some Maven artifact coordinates in the bom
+ + pr 1842 correct value of max streams per http2 connection by  (unknown)
  
 jetty-7.4.4.v20110707 July 7th 2011
  + 308851 Converted all jetty-client module tests to JUnit 4
@@ -17,6 +20,9 @@ jetty-7.4.4.v20110707 July 7th 2011
  + 351199 HttpServletResponse.encodeURL() wrongly encodes an url without path when cookies are disabled
  + JETTY-1153 Default charset/encoding of HTTP POST requests
  + JETTY-1380 Jetty Rewrite example does not work in Hightide
+ + pr 1860 Correct groupId of websocket-servlet in jetty-bom by Harry Potter (hpotter)
+ + pr 1939 Fix NPE when stopping with no resesrved threads
+ + pr 1979 HttpParser is not using cached HTTP Field values
 
 jetty-7.4.3.v20110701 01 July 2011
  + 295832 ProxyServlet more extensible and configurable
