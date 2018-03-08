@@ -32,7 +32,7 @@ import java.util.Optional;
  * Add comment in all github issues found in VERSION.txt which says
  * This issue is now available for testing in staged release [jetty-version] available in staging repository [url]
  */
-@Mojo( name = "stage-released" )
+@Mojo( name = "stage-released", threadSafe = true)
 public class StageReleasedMojo
     extends AbstractVersionMojo
 {

@@ -36,7 +36,7 @@ import java.util.Optional;
  * Add comment in all github issues found in VERSION.txt which says
  * This issue is now available for testing in staged release [jetty-version] available in staging repository [url]
  */
-@Mojo( name = "stage-closed" )
+@Mojo( name = "stage-closed", threadSafe = true)
 public class StageClosedMojo
     extends AbstractVersionMojo
 {
