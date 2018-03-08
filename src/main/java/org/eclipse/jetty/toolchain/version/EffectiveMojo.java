@@ -34,7 +34,7 @@ import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
  * that would be applied to the VERSION.txt
  */
 @SuppressWarnings("unused")
-@Mojo( name = "effective", requiresProject = true, defaultPhase = LifecyclePhase.PROCESS_RESOURCES)
+@Mojo( name = "effective", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
 public class EffectiveMojo extends UpdateVersionTextMojo
 {
     @Override

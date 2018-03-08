@@ -43,7 +43,7 @@ import org.kohsuke.github.GHLabel;
  *
  */
 @SuppressWarnings("unused")
-@Mojo( name = "update-version-text", defaultPhase = LifecyclePhase.PACKAGE)
+@Mojo( name = "update-version-text", defaultPhase = LifecyclePhase.PACKAGE, threadSafe = true)
 public class UpdateVersionTextMojo extends AbstractVersionMojo
 {
     /**

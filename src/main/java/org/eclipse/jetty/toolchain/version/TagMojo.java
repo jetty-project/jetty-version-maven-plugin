@@ -39,7 +39,7 @@ import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
  * message body, in tagging the release.
  */
 @SuppressWarnings("unused")
-@Mojo( name = "tag", defaultPhase = LifecyclePhase.PROCESS_RESOURCES)
+@Mojo( name = "tag", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
 public class TagMojo extends UpdateVersionTextMojo
 {
     /**
