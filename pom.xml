@@ -150,7 +150,6 @@
             <docfilessubdirs>true</docfilessubdirs>
             <detectLinks>false</detectLinks>
             <detectJavaApiLink>false</detectJavaApiLink>
-            <additionalJOption>--no-module-directories</additionalJOption>
             <tags>
               <tag>
                 <name>phase</name>
