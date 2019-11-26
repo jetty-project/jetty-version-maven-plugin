@@ -9,6 +9,9 @@
   <packaging>maven-plugin</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <github-api.version>1.99</github-api.version>
+    <okhttp3.version>3.12.3</okhttp3.version>
+    <okio.version>2.4.1</okio.version>
   </properties>
   <url>http://www.eclipse.org/jetty/</url>
   <inceptionYear>1995</inceptionYear>
@@ -57,7 +60,7 @@
     <dependency>
       <groupId>org.kohsuke</groupId>
       <artifactId>github-api</artifactId>
-      <version>1.90</version>
+      <version>${github-api.version}</version>
       <!--exclusions>
         <exclusion>
           <groupId>commons-lang</groupId>
@@ -66,9 +69,25 @@
       </exclusions-->
     </dependency>
     <dependency>
+      <groupId>com.squareup.okio</groupId>
+      <artifactId>okio</artifactId>
+      <version>${okio.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${okhttp3.version}</version>
+    </dependency>
+    <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp-urlconnection</artifactId>
-      <version>3.9.0</version>
+      <version>${okhttp3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>okhttp-urlconnection</artifactId>
+      <version>2.7.5</version>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.eclipse.jetty.toolchain</groupId>
@@ -213,35 +232,6 @@
     </pluginManagement>
   </build>
   <profiles>
-    <profile>
-      <id>site</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <configuration>
-              <!-- needed for Java 8+ -->
-              <additionalparam>--allow-script-in-comments</additionalparam>
-              <header>
-                <![CDATA[
-                  <script type="text/javascript">
-                    var _gaq = _gaq || [];
-                    _gaq.push(['_setAccount', 'UA-1149868-7']);
-                    _gaq.push(['_trackPageview']);
-                    (function() {
-                      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-                    })();
-                 </script>
-              ]]>
-              </header>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
     <profile>
       <id>release-sign-artifact</id>
       <activation>

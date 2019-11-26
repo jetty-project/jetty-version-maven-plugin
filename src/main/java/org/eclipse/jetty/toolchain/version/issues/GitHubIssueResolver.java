@@ -18,17 +18,16 @@
 
 package org.eclipse.jetty.toolchain.version.issues;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
-import okhttp3.OkUrlFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.kohsuke.github.GHIssue;
@@ -37,7 +36,7 @@ import org.kohsuke.github.GHMilestone;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
-import org.kohsuke.github.extras.OkHttp3Connector;
+import org.kohsuke.github.extras.okhttp3.OkHttpConnector;
 
 // TODO turn it as a component
 public class GitHubIssueResolver
@@ -56,7 +55,7 @@ public class GitHubIssueResolver
     {
 
         this.log = log;
-        Path userHome = new File(System.getProperty("user.home")).toPath();
+        Path userHome = Paths.get(System.getProperty("user.home"));
         cacheDirectory = userHome.resolve(".cache/github/jetty");
         if (!Files.exists(cacheDirectory))
         {
@@ -65,8 +64,8 @@ public class GitHubIssueResolver
 
         Cache cache = new Cache(cacheDirectory.toFile(), 10 * 1024 * 1024); // 10MB cache
 
-        this.github = GitHubBuilder.fromCredentials()
-            .withConnector(new OkHttp3Connector(new OkUrlFactory(new OkHttpClient.Builder().cache(cache).build())))
+        this.github = GitHubBuilder.fromPropertyFile()
+            .withConnector(new OkHttpConnector(new OkHttpClient.Builder().cache(cache).build()))
             .build();
 
         // Test access
@@ -117,7 +116,7 @@ public class GitHubIssueResolver
         return ghMilestone;
     }
 
-    public void assignMillestone(GHMilestone ghMilestone, GHIssue ghIssue)
+    public void assignMilestone(GHMilestone ghMilestone, GHIssue ghIssue)
     {
         // edit("milestone",milestone.getNumber());
         // new Requester( root)._with( key, value).method( "PATCH").to( getIssuesApiRoute());

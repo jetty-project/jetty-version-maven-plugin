@@ -20,6 +20,8 @@ package org.eclipse.jetty.toolchain.version;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoFailureException;
@@ -47,12 +49,6 @@ public abstract class AbstractVersionMojo extends AbstractMojo
      */
     @Parameter(property = "version.text.output.classifier", defaultValue = "version")
     protected String classifier = "version";
-
-    /**
-     * Credentials directory for github issue resolver
-     */
-    @Parameter(property = "version.text.credential.file", defaultValue = "${user.home}/.github")
-    protected File credentialsFile;
 
     /**
      * The type to use for the attaching the generated VERSION.txt artifact
@@ -128,10 +124,13 @@ public abstract class AbstractVersionMojo extends AbstractMojo
 
     protected boolean hasCredentialsFile(String goal)
     {
-        if (credentialsFile == null || !credentialsFile.exists())
+        Path homeDir = Paths.get(System.getProperty("user.home"));
+        Path propertyFile = homeDir.resolve(".github");
+
+        if (!Files.exists(propertyFile))
         {
             getLog().warn("Skipping :" + goal + " - the ${user.home}/.github (property) file not found.");
-            getLog().warn("See https://github-api.kohsuke.org/ for details on this Property File.");
+            getLog().warn("See https://github-api.kohsuke.org/ for details on how to configure this Property File.");
             return false; // skipping build
         }
 
