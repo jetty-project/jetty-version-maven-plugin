@@ -128,15 +128,10 @@ public abstract class AbstractVersionMojo extends AbstractMojo
 
     protected boolean hasCredentialsFile(String goal)
     {
-        if (credentialsFile == null)
+        if (credentialsFile == null || !credentialsFile.exists())
         {
-            getLog().warn("Skipping :" + goal + " - the ${user.home}/.github file was not specified.");
-            return false; // skipping build
-        }
-
-        if (!credentialsFile.exists())
-        {
-            getLog().warn("Skipping :" + goal + " - file not found: " + credentialsFile.getAbsolutePath());
+            getLog().warn("Skipping :" + goal + " - the ${user.home}/.github (property) file not found.");
+            getLog().warn("See https://github-api.kohsuke.org/ for details on this Property File.");
             return false; // skipping build
         }
 
