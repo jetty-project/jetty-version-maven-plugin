@@ -33,7 +33,8 @@ public class GitCommitTest
         commit.parseAuthorDate(rawdate);
 
         String actual = DateUtil.formatRfc2822(commit.getAuthorDate());
-        Assert.assertEquals("Author date","Thu, 12 May 2011 09:02:36 +0000",actual);
+        String expected = "Thu, 12 May 2011 09:02:36 +0000";
+        Assert.assertEquals("Author date '" + actual + "',expected:'" + expected + "'",expected,actual);
     }
 
     @Test
