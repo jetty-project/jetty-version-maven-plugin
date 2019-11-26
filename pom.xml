@@ -82,7 +82,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.6.2</version>
+        <version>3.8.1</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
@@ -91,7 +91,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
-        <version>3.5</version>
+        <version>3.6.0</version>
         <executions>
           <execution>
             <id>create-help-mojo</id>
@@ -104,7 +104,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>3.0.1</version>
+        <version>3.1.0</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -145,15 +145,11 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <version>3.1.1</version>
           <configuration>
             <docfilessubdirs>true</docfilessubdirs>
             <detectLinks>false</detectLinks>
             <detectJavaApiLink>true</detectJavaApiLink>
-            <links>
-              <link>http://docs.oracle.com/javase/7/docs/api/</link>
-              <link>http://junit.org/junit4/javadoc/latest/</link>
-            </links>
             <tags>
               <tag>
                 <name>phase</name>
