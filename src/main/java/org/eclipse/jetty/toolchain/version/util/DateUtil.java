@@ -18,9 +18,11 @@
 
 package org.eclipse.jetty.toolchain.version.util;
 
+import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public final class DateUtil
@@ -61,6 +63,7 @@ public final class DateUtil
     public static String formatRfc2822(Date date)
     {
         SimpleDateFormat formatter = createRfc2822Format();
+        formatter.setDateFormatSymbols( DateFormatSymbols.getInstance( Locale.US ) );
         formatter.setTimeZone(UTC);
         return formatter.format(date);
     }

@@ -18,11 +18,13 @@
 
 package org.eclipse.jetty.toolchain.version;
 
+import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -194,6 +196,7 @@ public class Release
         for (String format : RELEASED_ON_FORMATS)
         {
             sdf = new SimpleDateFormat(format);
+            sdf.setDateFormatSymbols( DateFormatSymbols.getInstance( Locale.US ) );
             try
             {
                 releasedOn = sdf.parse(rawdate);
