@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version;
 
 import org.apache.maven.plugin.MojoExecutionException;
@@ -27,7 +28,7 @@ import org.apache.maven.plugins.annotations.Mojo;
  * <p>Will only attach the VERSION.txt if it exists.</p>
  */
 @SuppressWarnings("unused")
-@Mojo( name = "attach-version-text", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
+@Mojo(name = "attach-version-text", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
 public class AttachVersionMojo extends AbstractVersionMojo
 {
     public void execute() throws MojoExecutionException, MojoFailureException
@@ -37,6 +38,6 @@ public class AttachVersionMojo extends AbstractVersionMojo
             return; // skip
         }
 
-        projectHelper.attachArtifact(project,type,classifier,versionTextInputFile);
+        projectHelper.attachArtifact(project, type, classifier, versionTextInputFile);
     }
 }

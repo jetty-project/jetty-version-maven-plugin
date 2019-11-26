@@ -34,7 +34,7 @@ import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
  * that would be applied to the VERSION.txt
  */
 @SuppressWarnings("unused")
-@Mojo( name = "effective", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
+@Mojo(name = "effective", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
 public class EffectiveMojo extends UpdateVersionTextMojo
 {
     @Override
@@ -44,17 +44,17 @@ public class EffectiveMojo extends UpdateVersionTextMojo
         {
             return; // skip
         }
-    
+
         // List issues
         List<Issue> issues = new ArrayList<>();
         issues.addAll(rel.getIssues());
         Collections.sort(issues, new IssueComparator());
-    
+
         System.out.printf("Update Version: %s%n", updateVersionText);
         System.out.printf("Changes from %s [%s]%n", priorTagId, priorCommitId);
         System.out.printf("          to %s%n", currentCommitId);
         System.out.println();
 
-        issues.stream().forEach( issue -> System.out.println(issue) );
+        issues.stream().forEach(issue -> System.out.println(issue));
     }
 }

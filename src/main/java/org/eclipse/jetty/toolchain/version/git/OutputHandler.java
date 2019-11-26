@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version.git;
 
 import java.io.BufferedReader;
@@ -24,7 +25,6 @@ import java.io.InputStreamReader;
 import java.text.ParseException;
 
 import org.apache.maven.plugin.logging.Log;
-import org.codehaus.plexus.util.IOUtil;
 
 public class OutputHandler extends Thread
 {
@@ -44,13 +44,14 @@ public class OutputHandler extends Thread
     {
         int linenum = 0;
         parser.parseStart();
-        try(InputStreamReader reader = new InputStreamReader(in);BufferedReader buf = new BufferedReader(reader))
+        try (InputStreamReader reader = new InputStreamReader(in);
+             BufferedReader buf = new BufferedReader(reader))
         {
             String line;
             while ((line = buf.readLine()) != null)
             {
                 linenum++;
-                parser.parseLine(linenum,line);
+                parser.parseLine(linenum, line);
             }
         }
         catch (ParseException e)

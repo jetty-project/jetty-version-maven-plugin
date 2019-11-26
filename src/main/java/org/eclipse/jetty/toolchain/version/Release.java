@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version;
 
 import java.text.ParseException;
@@ -25,11 +26,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import edu.emory.mathcs.backport.java.util.Collections;
 import org.codehaus.plexus.util.StringUtils;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
 import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
-
-import edu.emory.mathcs.backport.java.util.Collections;
 
 public class Release
 {
@@ -81,19 +81,18 @@ public class Release
         }
     }
 
-    public void dropIssue( Issue issue )
+    public void dropIssue(Issue issue)
     {
         this.issues.remove(issue);
     }
 
-    public void dropIssues( List<Issue> dropIssues)
+    public void dropIssues(List<Issue> dropIssues)
     {
-        for (Issue issue : dropIssues )
+        for (Issue issue : dropIssues)
         {
             dropIssue(issue);
         }
     }
-
 
     @Override
     public boolean equals(Object obj)
@@ -137,7 +136,7 @@ public class Release
 
     public List<Issue> getSortedIssues()
     {
-        Collections.sort(issues,new IssueComparator());
+        Collections.sort(issues, new IssueComparator());
         return issues;
     }
 
@@ -151,7 +150,7 @@ public class Release
     {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((version == null)?0:version.hashCode());
+        result = prime * result + ((version == null) ? 0 : version.hashCode());
         return result;
     }
 
@@ -175,8 +174,7 @@ public class Release
         }
 
         // Strip Ordinals
-        String ordinals[] = new String[]
-        { "st", "nd", "rd", "th" };
+        String[] ordinals = new String[]{"st", "nd", "rd", "th"};
         String simp;
         Pattern ordPat;
         Matcher mat;
@@ -186,7 +184,7 @@ public class Release
             mat = ordPat.matcher(rawdate);
             if (mat.find())
             {
-                simp = rawdate.substring(0,mat.start()) + rawdate.charAt(mat.start()) + rawdate.substring(mat.end());
+                simp = rawdate.substring(0, mat.start()) + rawdate.charAt(mat.start()) + rawdate.substring(mat.end());
                 rawdate = simp;
             }
         }
@@ -212,7 +210,7 @@ public class Release
 
         if (releasedOn == null)
         {
-            System.err.printf("ERROR: Unable to parse raw date string [%s] on line #%d%n",rawdate,linenum);
+            System.err.printf("ERROR: Unable to parse raw date string [%s] on line #%d%n", rawdate, linenum);
         }
     }
 

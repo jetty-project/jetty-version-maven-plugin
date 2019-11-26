@@ -15,12 +15,8 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
-package org.eclipse.jetty.toolchain.version.git;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
+package org.eclipse.jetty.toolchain.version.git;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,6 +41,11 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
 
 public class GitLogParserTest extends AbstractGitTestCase
 {

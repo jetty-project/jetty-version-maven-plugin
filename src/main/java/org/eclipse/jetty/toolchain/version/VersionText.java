@@ -15,11 +15,8 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
-package org.eclipse.jetty.toolchain.version;
 
-import org.codehaus.plexus.util.StringUtils;
-import org.eclipse.jetty.toolchain.version.issues.Issue;
-import org.eclipse.jetty.toolchain.version.issues.IssueParser;
+package org.eclipse.jetty.toolchain.version;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,12 +32,17 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.codehaus.plexus.util.StringUtils;
+import org.eclipse.jetty.toolchain.version.issues.Issue;
+import org.eclipse.jetty.toolchain.version.issues.IssueParser;
+
 public class VersionText
 {
     private boolean sortExisting = false;
     private VersionPattern versionPattern;
     private List<String> headers = new ArrayList<>();
-    private final LinkedList<Release> releases = new LinkedList<>();
+    private final LinkedList<Release> releases = new LinkedList<>();// Always write with UNIX line endings
+    public static final String LN = "\n";
 
     public VersionText(VersionPattern pat)
     {
@@ -121,12 +123,12 @@ public class VersionText
 
     public void prepend(Release rel)
     {
-        releases.add(0,rel);
+        releases.add(0, rel);
     }
 
     public void read(File versionTextFile) throws IOException
     {
-        try (BufferedReader buf = Files.newBufferedReader( versionTextFile.toPath() ))
+        try (BufferedReader buf = Files.newBufferedReader(versionTextFile.toPath()))
         {
             Pattern patBullet = Pattern.compile(IssueParser.REGEX_ISSUE_BULLET);
             Matcher mat;
@@ -173,7 +175,7 @@ public class VersionText
                     release.setExisting(true);
 
                     String on = versionPattern.getRemainingText();
-                    release.parseReleasedOn(linenum,on);
+                    release.parseReleasedOn(linenum, on);
                     continue;
                 }
 
@@ -212,11 +214,11 @@ public class VersionText
         int indexExisting = releases.indexOf(rel);
         if (indexExisting == (-1))
         {
-            releases.add(0,rel); // prepend
+            releases.add(0, rel); // prepend
         }
         else
         {
-            releases.set(indexExisting,rel); // replace
+            releases.set(indexExisting, rel); // replace
         }
     }
 
@@ -232,10 +234,10 @@ public class VersionText
 
     public void write(File versionTextFile) throws IOException
     {
-        String LN = "\n"; // Always write with UNIX line endings
         // TODO use BufferedWriter
         //try(BufferedWriter bufferedWriter = Files.newBufferedWriter( versionTextFile.toPath() ))
-        try(FileWriter writer = new FileWriter(versionTextFile); PrintWriter out = new PrintWriter(writer))
+        try (FileWriter writer = new FileWriter(versionTextFile);
+             PrintWriter out = new PrintWriter(writer))
         {
             if (!headers.isEmpty())
             {

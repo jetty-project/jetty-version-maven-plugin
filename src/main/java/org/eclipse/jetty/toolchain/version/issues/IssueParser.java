@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version.issues;
 
 import java.util.Collection;
@@ -26,65 +27,71 @@ import org.codehaus.plexus.util.StringUtils;
 public class IssueParser
 {
     public static final String REGEX_ISSUE_BULLET = "^ [\\*\\+-] ";
-    private final IssuePatterns issue_id_patterns;
-    
-    public IssueParser()
+    private static final IssuePatterns ISSUE_ID_PATTERNS;
+
+    static
     {
         // Possible delimitors between issue id and text
-        String DELIM = "[-\\[\\]: ]*";
-        
-        issue_id_patterns = new IssuePatterns();
+        final String DELIM = "[-\\[\\]: ]*";
+
+        ISSUE_ID_PATTERNS = new IssuePatterns();
         // Github Based
-        issue_id_patterns.add(IssueSyntax.GITHUB, "^[\\[\\s]*Issue #?([0-9]{2,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.GITHUB, "^[\\[\\s]*#?([0-9]{2,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.GITHUB, "^[\\[\\s]*Issue #?([0-9]{2,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.GITHUB, "^[\\[\\s]*#?([0-9]{2,})" + DELIM);
         // Github recommended - https://help.github.com/articles/closing-issues-via-commit-messages/
-        issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Close #([0-9]{2,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Close[sd]* #([0-9]{2,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Fix #([0-9]{1,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Fixe[sd]* #([0-9]{2,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Resolve #([0-9]{2,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Resolve[sd]* #([0-9]{2,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Close #([0-9]{2,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Close[sd]* #([0-9]{2,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Fix #([0-9]{1,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Fixe[sd]* #([0-9]{2,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Resolve #([0-9]{2,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.GITHUB_RECOMMENDED, "^[\\[\\s]*Resolve[sd]* #([0-9]{2,})" + DELIM);
         // Bugzilla Based
-        issue_id_patterns.add(IssueSyntax.BUGZILLA, "^[\\[\\s]*Bug ([0-9]{6,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.BUGZILLA, "^([0-9]{6,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.BUGZILLA, "^[\\[\\s]*Bug ([0-9]{6,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.BUGZILLA, "^([0-9]{6,})" + DELIM);
         // Jira Based
-        issue_id_patterns.add(IssueSyntax.JIRA, "^[\\[\\s]*Bug (JETTY-[0-9]{2,})" + DELIM);
-        issue_id_patterns.add(IssueSyntax.JIRA, "(JETTY-[0-9]{2,})[^0-9]");
+        ISSUE_ID_PATTERNS.add(IssueSyntax.JIRA, "^[\\[\\s]*Bug (JETTY-[0-9]{2,})" + DELIM);
+        ISSUE_ID_PATTERNS.add(IssueSyntax.JIRA, "(JETTY-[0-9]{2,})[^0-9]");
         // Bad
-        issue_id_patterns.add(IssueSyntax.BAD, "#([0-9]{2,})");
+        ISSUE_ID_PATTERNS.add(IssueSyntax.BAD, "#([0-9]{2,})");
     }
-    
+
+    public IssueParser()
+    {
+    }
+
     /**
      * Parse a known issue (such as " + 341235 Bug Text Goes Here")
+     *
      * @param rawissue the raw issue to parse
      * @return the issue (or null if raw issue is blank)
      */
     public Issue parseKnownIssue(String rawissue)
     {
         String raw = rawissue;
-        
+
         // Eliminate known bullet types
         raw = raw.replaceFirst(REGEX_ISSUE_BULLET, "");
         if (StringUtils.isBlank(raw))
         {
             return null;
         }
-        
+
         Issue issue = parsePossibleIssue(raw);
         if (issue != null)
         {
             return issue;
         }
-        
+
         raw = raw.trim();
-        
+
         String badId = raw.substring(0, Math.min(raw.length(), 70)).toLowerCase();
         issue = new Issue(badId, raw, IssueSyntax.BAD);
         return issue;
     }
-    
+
     /**
      * Parse a possible issue, if provided line has no Issue ID pattern match, a null is returned.
+     *
      * @param rawissue the raw issue text to parse
      * @return the parsed issue (or null if blank, or not matching a known issue pattern)
      */
@@ -94,15 +101,15 @@ public class IssueParser
         {
             return null;
         }
-        
+
         String subject = rawissue.trim();
-        
-        IssuePatterns.Match match = issue_id_patterns.find(subject);
+
+        IssuePatterns.Match match = ISSUE_ID_PATTERNS.find(subject);
         if (match == null)
         {
             return null;
         }
-        
+
         String id = match.group(1);
         if (match.syntax != IssueSyntax.BAD)
         {
@@ -116,6 +123,7 @@ public class IssueParser
 
     /**
      * Parse a line, looking for possible issue ids.
+     *
      * @param line the raw line of text to parse.
      * @param foundIssueIds the collection to store found issue Ids into.
      */
@@ -126,30 +134,30 @@ public class IssueParser
             return;
         }
 
-        foundIssueIds.addAll(issue_id_patterns.findAllIds(line.trim()));
+        foundIssueIds.addAll(ISSUE_ID_PATTERNS.findAllIds(line.trim()));
     }
-    
+
     private String cleanSubjectLine(String subject)
     {
         if (subject.startsWith("- "))
         {
             subject = subject.substring(2);
         }
-        
+
         Pattern endPunctuation = Pattern.compile("^(.*)\\s*[\\.!,]+\\s*$");
         Matcher mat = endPunctuation.matcher(subject);
         if (mat.matches())
         {
             subject = mat.group(1);
         }
-        
+
         Pattern parenWrapped = Pattern.compile("^\\s*\\((.*)\\)\\s*$");
         mat = parenWrapped.matcher(subject);
         if (mat.matches())
         {
             subject = mat.group(1);
         }
-        
+
         return subject.trim();
     }
 }

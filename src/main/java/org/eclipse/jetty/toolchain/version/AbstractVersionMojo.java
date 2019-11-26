@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version;
 
 import java.io.File;
@@ -38,31 +39,31 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     /**
      * The existing VERSION.txt file.
      */
-    @Parameter(property="version.text.file", defaultValue="${project.basedir}/VERSION.txt")
+    @Parameter(property = "version.text.file", defaultValue = "${project.basedir}/VERSION.txt")
     protected File versionTextInputFile;
 
     /**
      * The classifier to use for attaching the generated VERSION.txt artifact
      */
-    @Parameter(property="version.text.output.classifier", defaultValue="version")
+    @Parameter(property = "version.text.output.classifier", defaultValue = "version")
     protected String classifier = "version";
 
     /**
      * Credentials directory for github issue resolver
      */
-    @Parameter(property="version.text.credential.file", defaultValue="${user.home}/.github")
+    @Parameter(property = "version.text.credential.file", defaultValue = "${user.home}/.github")
     protected File credentialsFile;
 
     /**
      * The type to use for the attaching the generated VERSION.txt artifact
      */
-    @Parameter(property="version.text.output.type", defaultValue="txt")
+    @Parameter(property = "version.text.output.type", defaultValue = "txt")
     protected String type = "txt";
 
     /**
      * The git commit filename exclusions (regex form)
      */
-    @Parameter(property="version.text.filename.excludes")
+    @Parameter(property = "version.text.filename.excludes")
     protected String[] filenameExcludes;
 
     /**
@@ -74,7 +75,7 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     /**
      * The github repository name.
      */
-    @Parameter(property="version.github.repoName", defaultValue="eclipse/jetty.project")
+    @Parameter(property = "version.github.repoName", defaultValue = "eclipse/jetty.project")
     protected String repoName;
 
     /**
@@ -86,18 +87,18 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     /**
      * The version key to use in the VERSION.txt file.
      */
-    @Parameter(required = true, property="version.text.key", defaultValue="jetty-VERSION")
+    @Parameter(required = true, property = "version.text.key", defaultValue = "jetty-VERSION")
     protected String versionTextKey;
 
     /**
      * The version key to use when looking up a git tag ref.
      */
-    @Parameter(required = true, property="version.tag.key", defaultValue="jetty-VERSION")
+    @Parameter(required = true, property = "version.tag.key", defaultValue = "jetty-VERSION")
     protected String versionTagKey;
 
     protected void ensureDirectoryExists(File dir) throws MojoFailureException
     {
-        if (Files.exists( dir.toPath() ) && Files.isDirectory(dir.toPath()))
+        if (Files.exists(dir.toPath()) && Files.isDirectory(dir.toPath()))
         {
             return; // done
         }

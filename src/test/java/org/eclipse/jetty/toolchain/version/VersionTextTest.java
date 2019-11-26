@@ -15,13 +15,8 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
-package org.eclipse.jetty.toolchain.version;
 
-import static org.hamcrest.Matchers.lessThanOrEqualTo;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+package org.eclipse.jetty.toolchain.version;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -39,6 +34,12 @@ import org.eclipse.jetty.toolchain.version.issues.Issue;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class VersionTextTest
 {

@@ -15,8 +15,16 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version.issues;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.Optional;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -31,14 +39,6 @@ import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
 import org.kohsuke.github.extras.OkHttp3Connector;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
-import java.util.Optional;
-
 // TODO turn it as a component
 public class GitHubIssueResolver
 {
@@ -47,12 +47,12 @@ public class GitHubIssueResolver
     private Path cacheDirectory;
     private GitHub github;
 
-    public GitHubIssueResolver( String repoName )
+    public GitHubIssueResolver(String repoName)
     {
         this.repoName = repoName;
     }
 
-    public GitHubIssueResolver init( Log log) throws IOException
+    public GitHubIssueResolver init(Log log) throws IOException
     {
 
         this.log = log;
@@ -63,11 +63,11 @@ public class GitHubIssueResolver
             Files.createDirectories(cacheDirectory);
         }
 
-        Cache cache = new Cache( cacheDirectory.toFile(), 10 * 1024 * 1024); // 10MB cache
+        Cache cache = new Cache(cacheDirectory.toFile(), 10 * 1024 * 1024); // 10MB cache
 
         this.github = GitHubBuilder.fromCredentials()
-                .withConnector(new OkHttp3Connector( new OkUrlFactory( new OkHttpClient.Builder().cache( cache).build())))
-                .build();
+            .withConnector(new OkHttp3Connector(new OkUrlFactory(new OkHttpClient.Builder().cache(cache).build())))
+            .build();
 
         // Test access
         if (!this.github.isCredentialValid())
@@ -81,7 +81,7 @@ public class GitHubIssueResolver
         return this;
     }
 
-    public GHIssue getIssue( String issueRef) throws IOException
+    public GHIssue getIssue(String issueRef) throws IOException
     {
         int issueNum = Integer.parseInt(issueRef);
 
@@ -89,31 +89,29 @@ public class GitHubIssueResolver
         {
             return github.getRepository(repoName).getIssue(issueNum);
         }
-        catch (FileNotFoundException fnfe )
+        catch (FileNotFoundException fnfe)
         {
-            log.warn( "error find issue with ref: " + issueRef, fnfe );
+            log.warn("error find issue with ref: " + issueRef, fnfe);
             return null;
         }
     }
 
     /**
-     *
-     * @param millestone
      * @return <code>null</code> if the millestone has not been created
      */
-    public GHMilestone createMillestone(String millestone ) throws IOException
+    public GHMilestone createMillestone(String millestone) throws IOException
     {
-        GHRepository ghRepository = github.getRepository( repoName );
-        List<GHMilestone> ghMilestones = ghRepository.listMilestones( GHIssueState.ALL ).asList();
+        GHRepository ghRepository = github.getRepository(repoName);
+        List<GHMilestone> ghMilestones = ghRepository.listMilestones(GHIssueState.ALL).asList();
         Optional<GHMilestone> ghMilestoneOptional = ghMilestones.stream() //
-            .filter( ghMilestone -> StringUtils.equalsIgnoreCase( millestone, ghMilestone.getTitle() ) ) //
+            .filter(ghMilestone -> StringUtils.equalsIgnoreCase(millestone, ghMilestone.getTitle())) //
             .findFirst();
-        if(ghMilestoneOptional.isPresent())
+        if (ghMilestoneOptional.isPresent())
         {
             return ghMilestoneOptional.get();
         }
         GHMilestone ghMilestone = ghRepository
-            .createMilestone( millestone, "Milestone for version " + millestone );
+            .createMilestone(millestone, "Milestone for version " + millestone);
         return ghMilestone;
     }
 

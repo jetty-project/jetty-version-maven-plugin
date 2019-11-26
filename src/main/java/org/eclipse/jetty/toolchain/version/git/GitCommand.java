@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version.git;
 
 import java.io.File;
@@ -57,7 +58,7 @@ public class GitCommand
         try
         {
             in = process.getInputStream();
-            OutputHandler handler = new OutputHandler(getLog(),in,outputParser);
+            OutputHandler handler = new OutputHandler(getLog(), in, outputParser);
             handler.start();
             int exitCode = process.waitFor();
             getLog().debug("Exit code: " + exitCode);
@@ -66,7 +67,7 @@ public class GitCommand
         }
         catch (InterruptedException e)
         {
-            getLog().error("Git Process didn't complete",e);
+            getLog().error("Git Process didn't complete", e);
             throw new IOException("Git Process did not complete");
         }
         finally
@@ -77,8 +78,8 @@ public class GitCommand
 
     public boolean fetchTags() throws IOException
     {
-        Git2LogParser logout = new Git2LogParser(this.log,"fetch tags");
-        int exitCode = execGitCommand(logout,"git","fetch","--tags");
+        Git2LogParser logout = new Git2LogParser(this.log, "fetch tags");
+        int exitCode = execGitCommand(logout, "git", "fetch", "--tags");
         return (exitCode == 0);
     }
 
@@ -102,7 +103,7 @@ public class GitCommand
     public List<GitCommit> getCommitLog(String fromCommitId) throws IOException
     {
         GitLogParser logs = new GitLogParser();
-        execGitCommand(logs,"git","log",logs.getFormat(),"--name-only",fromCommitId + "..HEAD");
+        execGitCommand(logs, "git", "log", logs.getFormat(), "--name-only", fromCommitId + "..HEAD");
         return logs.getGitCommitLogs();
     }
 
@@ -154,7 +155,7 @@ public class GitCommand
         getLog().info("Captured " + rawcommits.size() + " git log entries");
 
         List<GitCommit> filtered = new ArrayList<>();
-        if(filter != null)
+        if (filter != null)
         {
             filtered = filter.filter(rawcommits);
         }
@@ -162,14 +163,14 @@ public class GitCommand
         getLog().info("Found " + rawcommits.size() + " git log entries (excluded " + (rawcommits.size() - filtered.size()) + " entries)");
 
         Set<String> uniqueIssueIds = new HashSet<>();
-        for (GitCommit commit: filtered)
+        for (GitCommit commit : filtered)
         {
             uniqueIssueIds.addAll(commit.getIssueIds());
         }
         getLog().info("Found " + uniqueIssueIds.size() + " issues in git log");
 
         List<Issue> issues = new ArrayList<>();
-        for(String issueId: uniqueIssueIds)
+        for (String issueId : uniqueIssueIds)
         {
             issues.add(new Issue(issueId));
         }

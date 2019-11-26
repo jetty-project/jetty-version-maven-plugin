@@ -15,7 +15,10 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version;
+
+import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -26,18 +29,16 @@ import org.eclipse.jetty.toolchain.version.issues.GitHubIssueResolver;
 import org.eclipse.jetty.toolchain.version.issues.IssueSyntax;
 import org.kohsuke.github.GHMilestone;
 
-import java.util.Optional;
-
 /**
  * Add comment in all github issues found in VERSION.txt which says
  * This issue is now available for testing in staged release [jetty-version] available in staging repository [url]
  */
-@Mojo( name = "stage-released", threadSafe = true)
+@Mojo(name = "stage-released", threadSafe = true)
 public class StageReleasedMojo
     extends AbstractVersionMojo
 {
 
-    @Parameter( required = true, property = "version.jettyVersion", defaultValue = "${project.version}" )
+    @Parameter(required = true, property = "version.jettyVersion", defaultValue = "${project.version}")
     private String jettyVersion;
 
     @Override
@@ -46,41 +47,41 @@ public class StageReleasedMojo
     {
         try
         {
-            getLog().debug( "jettyVersion:" + jettyVersion );
-            VersionPattern verTextPattern = new VersionPattern( versionTextKey );
+            getLog().debug("jettyVersion:" + jettyVersion);
+            VersionPattern verTextPattern = new VersionPattern(versionTextKey);
 
-            VersionText versionText = new VersionText( verTextPattern );
-            versionText.read( versionTextInputFile );
+            VersionText versionText = new VersionText(verTextPattern);
+            versionText.read(versionTextInputFile);
 
-            getLog().debug( "versionList:" + versionText.getVersionList() );
+            getLog().debug("versionList:" + versionText.getVersionList());
 
-            GitHubIssueResolver gitHubIssueResolver = new GitHubIssueResolver( repoName )
-                .init( getLog() );
+            GitHubIssueResolver gitHubIssueResolver = new GitHubIssueResolver(repoName)
+                .init(getLog());
 
-            GHMilestone ghMilestone = gitHubIssueResolver.createMillestone( jettyVersion );
-            getLog().info( "ghMilestone: " + ghMilestone );
+            GHMilestone ghMilestone = gitHubIssueResolver.createMillestone(jettyVersion);
+            getLog().info("ghMilestone: " + ghMilestone);
 
             Optional<Release> releaseOptional = versionText.getReleases().stream()
-                .filter( release -> StringUtils.equalsIgnoreCase( release.getVersion(), jettyVersion ))
+                .filter(release -> StringUtils.equalsIgnoreCase(release.getVersion(), jettyVersion))
                 .findFirst();
 
-            if(!releaseOptional.isPresent())
+            if (!releaseOptional.isPresent())
             {
-                getLog().info( "cannot find any release in VERSION.TXT with version " + jettyVersion );
+                getLog().info("cannot find any release in VERSION.TXT with version " + jettyVersion);
                 return;
             }
 
             releaseOptional.get().getIssues().stream() //
-                .filter( issue -> issue.getSyntax() == IssueSyntax.GITHUB ) //
-                .forEach( issue -> {
+                .filter(issue -> issue.getSyntax() == IssueSyntax.GITHUB) //
+                .forEach(issue ->
+                {
                     //GHIssue ghIssue = gitHubIssueResolver.getIssue( issue.getId() );
 
-                } );
-
+                });
         }
-        catch ( Exception e )
+        catch (Exception e)
         {
-            throw new MojoExecutionException( e.getMessage(), e );
+            throw new MojoExecutionException(e.getMessage(), e);
         }
     }
 }

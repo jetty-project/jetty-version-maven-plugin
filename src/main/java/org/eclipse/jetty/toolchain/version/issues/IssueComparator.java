@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version.issues;
 
 import java.text.CollationKey;
@@ -38,14 +39,14 @@ public class IssueComparator implements Comparator<Issue>
         {
             return collator.getCollationKey("");
         }
-        
+
         String id = issue.getId();
-    
+
         if (issue.getId().startsWith("JETTY-"))
         {
             id = issue.getId().substring("JETTY-".length());
         }
-    
+
         try
         {
             Long numId = Long.parseLong(id);

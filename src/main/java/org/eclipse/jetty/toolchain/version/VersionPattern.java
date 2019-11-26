@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version;
 
 import java.util.regex.Matcher;
@@ -33,8 +34,8 @@ public class VersionPattern
     public VersionPattern(String key)
     {
         this.key = key;
-        String regex = key.replace("-","[- ]").replace("VERSION","([1-9][0-9]{0,2}\\.[0-9]{1,}[^ ]*)");
-        this.pat = Pattern.compile("^" + regex,Pattern.CASE_INSENSITIVE);
+        String regex = key.replace("-", "[- ]").replace("VERSION", "([1-9][0-9]{0,2}\\.[0-9]{1,}[^ ]*)");
+        this.pat = Pattern.compile("^" + regex, Pattern.CASE_INSENSITIVE);
     }
 
     public String getLastVersion()
@@ -43,7 +44,7 @@ public class VersionPattern
         {
             return null;
         }
-        return key.replace("VERSION",lastVersion);
+        return key.replace("VERSION", lastVersion);
     }
 
     public String getLastVersion(String altkey)
@@ -52,7 +53,7 @@ public class VersionPattern
         {
             return null;
         }
-        return altkey.replace("VERSION",lastVersion);
+        return altkey.replace("VERSION", lastVersion);
     }
 
     public String getRemainingText()
@@ -79,6 +80,6 @@ public class VersionPattern
 
     public String toVersionId(String rawversion)
     {
-        return key.replace("VERSION",rawversion);
+        return key.replace("VERSION", rawversion);
     }
 }

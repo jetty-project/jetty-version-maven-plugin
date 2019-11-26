@@ -39,21 +39,21 @@ import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
  * message body, in tagging the release.
  */
 @SuppressWarnings("unused")
-@Mojo( name = "tag", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
+@Mojo(name = "tag", defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
 public class TagMojo extends UpdateVersionTextMojo
 {
     /**
      * The generated version-tag.txt file.
      */
-    @Parameter(property="version.tag.output.file", defaultValue="${project.build.directory}/version-tag.txt")
+    @Parameter(property = "version.tag.output.file", defaultValue = "${project.build.directory}/version-tag.txt")
     protected File versionTagOutputFile;
-    
+
     /**
      * The generated version-tag.txt header text
      */
-    @Parameter(property="version.tag.header", defaultValue="Tag for release.")
+    @Parameter(property = "version.tag.header", defaultValue = "Tag for release.")
     protected String versionTagHeader;
-    
+
     @Override
     protected void updateVersionText(VersionText versionText, Release rel, String updateVersionText, String priorTagId, String priorCommitId, String currentCommitId) throws MojoFailureException, IOException
     {
@@ -61,19 +61,19 @@ public class TagMojo extends UpdateVersionTextMojo
         {
             return; // skip
         }
-        
+
         // List issues
         List<Issue> issues = new ArrayList<>();
         issues.addAll(rel.getIssues());
         Collections.sort(issues, new IssueComparator());
-        
+
         try (FileWriter writer = new FileWriter(versionTagOutputFile);
              PrintWriter out = new PrintWriter(writer))
         {
             out.println(versionTagHeader);
             out.println();
-            
-            issues.stream().forEach( issue -> out.println(issue) );
+
+            issues.stream().forEach(issue -> out.println(issue));
         }
     }
 }

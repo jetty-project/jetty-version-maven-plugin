@@ -15,6 +15,7 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
+
 package org.eclipse.jetty.toolchain.version.issues;
 
 import org.apache.commons.lang3.text.WordUtils;
@@ -33,14 +34,14 @@ public class Issue
     {
         this.id = id;
     }
-    
+
     public Issue(String id, String subject, IssueSyntax syntax)
     {
         this.id = id;
         this.text = subject;
         this.syntax = syntax;
     }
-    
+
     public void appendText(String line)
     {
         line = line.trim();
@@ -55,7 +56,7 @@ public class Issue
             text += " " + line;
         }
     }
-    
+
     @Override
     public boolean equals(Object obj)
     {
@@ -71,7 +72,7 @@ public class Issue
         {
             return false;
         }
-        Issue other = (Issue) obj;
+        Issue other = (Issue)obj;
         if (id == null)
         {
             if (other.id != null)
@@ -85,17 +86,17 @@ public class Issue
         }
         return true;
     }
-    
+
     public String getId()
     {
         return id;
     }
-    
+
     public String getText()
     {
         return text;
     }
-    
+
     @Override
     public int hashCode()
     {
@@ -104,22 +105,22 @@ public class Issue
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
-    
+
     public IssueSyntax getSyntax()
     {
         return syntax;
     }
-    
+
     public void setId(String id)
     {
         this.id = id;
     }
-    
+
     public void setText(String text)
     {
         this.text = text;
     }
-    
+
     @Override
     public String toString()
     {
