@@ -58,7 +58,7 @@ public class StageReleasedMojo
             GitHubIssueResolver gitHubIssueResolver = new GitHubIssueResolver(repoName)
                 .init(getLog());
 
-            GHMilestone ghMilestone = gitHubIssueResolver.createMillestone(jettyVersion);
+            GHMilestone ghMilestone = gitHubIssueResolver.createMilestone(jettyVersion);
             getLog().info("ghMilestone: " + ghMilestone);
 
             Optional<Release> releaseOptional = versionText.getReleases().stream()

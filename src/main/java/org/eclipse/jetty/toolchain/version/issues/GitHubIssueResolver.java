@@ -97,21 +97,23 @@ public class GitHubIssueResolver
     }
 
     /**
-     * @return <code>null</code> if the millestone has not been created
+     * @param milestone the milestone to create (if not present)
+     * @return <code>null</code> if the milestone has not been created
+     * @throws IOException if unable to create milestone
      */
-    public GHMilestone createMillestone(String millestone) throws IOException
+    public GHMilestone createMilestone(String milestone) throws IOException
     {
         GHRepository ghRepository = github.getRepository(repoName);
         List<GHMilestone> ghMilestones = ghRepository.listMilestones(GHIssueState.ALL).asList();
         Optional<GHMilestone> ghMilestoneOptional = ghMilestones.stream() //
-            .filter(ghMilestone -> StringUtils.equalsIgnoreCase(millestone, ghMilestone.getTitle())) //
+            .filter(ghMilestone -> StringUtils.equalsIgnoreCase(milestone, ghMilestone.getTitle())) //
             .findFirst();
         if (ghMilestoneOptional.isPresent())
         {
             return ghMilestoneOptional.get();
         }
         GHMilestone ghMilestone = ghRepository
-            .createMilestone(millestone, "Milestone for version " + millestone);
+            .createMilestone(milestone, "Milestone for version " + milestone);
         return ghMilestone;
     }
 
