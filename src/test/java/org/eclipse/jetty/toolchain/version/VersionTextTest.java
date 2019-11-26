@@ -150,7 +150,7 @@ public class VersionTextTest
     @Test
     public void testGetPriorVersion_Top() throws IOException
     {
-        assertPriorVersion("jetty-7.5.0-SNAPSHOT", "jetty-7.4.4.v20110707");
+        assertPriorVersion("jetty-7.5.0-v20110808", "jetty-7.4.4.v20110707");
     }
     
     @Test

@@ -42,7 +42,7 @@ public class VersionPatternTest
     @Parameters
     public static List<Object[]> data()
     {
-        List<Object[]> data = new ArrayList<Object[]>();
+        List<Object[]> data = new ArrayList<>();
         // Eclipse Format
         data.add(new Object[]
         { ECLIPSE_ID, ECLIPSE_KEY, "jetty-7.5.0.RC2", "jetty-7.5.0.RC2" });

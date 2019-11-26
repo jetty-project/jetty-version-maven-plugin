@@ -1,4 +1,10 @@
-jetty-7.5.0-SNAPSHOT
+jetty-10.0.0-SNAPSHOT
+ + 1298502 Handle 200 Connect responses with no content-length
+
+jetty-10.0.0-alpha0 - 18 November 2019
+ + 1485 Add systemd service file
+
+jetty-7.5.0-v20110808 August 8th 2011
  + 298502 Handle 200 Connect responses with no content-length
  + 351516 Refactored sessions to better support nosql session managers
  + 351576 Do not use deprecated method File.toURL()
