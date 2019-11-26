@@ -81,7 +81,7 @@ public abstract class AbstractVersionMojo extends AbstractMojo
     /**
      * Maven Project.
      */
-    @Component
+    @Parameter(defaultValue = "${project}", readonly = true)
     protected MavenProject project;
 
     /**
