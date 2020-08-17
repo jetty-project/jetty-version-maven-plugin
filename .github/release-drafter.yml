@@ -1,4 +1,2 @@
-template: |
-  ## What’s Changed
-
-  $CHANGES
+_extends: .github
+tag-template: jetty-version-maven-plugin-$NEXT_PATCH_VERSION
