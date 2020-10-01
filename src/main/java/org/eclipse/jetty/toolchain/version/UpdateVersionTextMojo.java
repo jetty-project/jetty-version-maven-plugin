@@ -110,7 +110,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
             VersionPattern verTagPattern = new VersionPattern(versionTagKey);
 
             VersionText versionText = new VersionText(verTextPattern);
-            versionText.read(versionTextInputFile);
+            versionText.read(versionTextInputFile.toPath());
             versionText.setSortExisting(sortExisting);
 
             String updateVersionText = verTextPattern.toVersionId(version);
@@ -352,7 +352,7 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
     private void generateVersion(VersionText versionText) throws MojoFailureException, IOException
     {
         ensureDirectoryExists(versionTextOutputFile.getCanonicalFile().getParentFile());
-        versionText.write(versionTextOutputFile);
+        versionText.write(versionTextOutputFile.toPath());
         getLog().debug("New VERSION.txt written at " + versionTextOutputFile.getAbsolutePath());
 
         if (attachArtifact)

@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.StrSubstitutor;
+import org.apache.commons.text.StringSubstitutor;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -63,7 +63,7 @@ public class StageClosedMojo
             VersionPattern verTextPattern = new VersionPattern(versionTextKey);
 
             VersionText versionText = new VersionText(verTextPattern);
-            versionText.read(versionTextInputFile);
+            versionText.read(versionTextInputFile.toPath());
 
             getLog().debug("versionList:" + versionText.getVersionList());
 
@@ -82,7 +82,7 @@ public class StageClosedMojo
             interpolatedValues.put("jettyVersion", jettyVersion);
             interpolatedValues.put("stageRepositoryUrl", stageRepositoryUrl);
 
-            String resolvedComment = StrSubstitutor.replace(comment, interpolatedValues);
+            String resolvedComment = StringSubstitutor.replace(comment, interpolatedValues);
 
             GitHubIssueResolver gitHubIssueResolver = new GitHubIssueResolver(repoName).init(getLog());
 

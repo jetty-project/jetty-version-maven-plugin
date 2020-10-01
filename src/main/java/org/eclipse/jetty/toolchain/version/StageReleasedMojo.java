@@ -51,7 +51,7 @@ public class StageReleasedMojo
             VersionPattern verTextPattern = new VersionPattern(versionTextKey);
 
             VersionText versionText = new VersionText(verTextPattern);
-            versionText.read(versionTextInputFile);
+            versionText.read(versionTextInputFile.toPath());
 
             getLog().debug("versionList:" + versionText.getVersionList());
 

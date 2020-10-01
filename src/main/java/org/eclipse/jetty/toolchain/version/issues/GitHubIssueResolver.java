@@ -103,7 +103,7 @@ public class GitHubIssueResolver
     public GHMilestone createMilestone(String milestone) throws IOException
     {
         GHRepository ghRepository = github.getRepository(repoName);
-        List<GHMilestone> ghMilestones = ghRepository.listMilestones(GHIssueState.ALL).asList();
+        List<GHMilestone> ghMilestones = ghRepository.listMilestones(GHIssueState.ALL).toList();
         Optional<GHMilestone> ghMilestoneOptional = ghMilestones.stream() //
             .filter(ghMilestone -> StringUtils.equalsIgnoreCase(milestone, ghMilestone.getTitle())) //
             .findFirst();

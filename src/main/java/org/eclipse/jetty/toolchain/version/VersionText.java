@@ -20,7 +20,6 @@ package org.eclipse.jetty.toolchain.version;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -40,8 +39,8 @@ import org.eclipse.jetty.toolchain.version.issues.IssueParser;
 public class VersionText
 {
     private boolean sortExisting = false;
-    private VersionPattern versionPattern;
-    private List<String> headers = new ArrayList<>();
+    private final VersionPattern versionPattern;
+    private final List<String> headers = new ArrayList<>();
     private final LinkedList<Release> releases = new LinkedList<>();// Always write with UNIX line endings
     public static final String LN = "\n";
 
@@ -127,12 +126,6 @@ public class VersionText
         releases.add(0, rel);
     }
 
-    @Deprecated
-    public void read(File versionTextFile) throws IOException
-    {
-        read(versionTextFile.toPath());
-    }
-
     public void read(Path versionTextFile) throws IOException
     {
         try (BufferedReader buf = Files.newBufferedReader(versionTextFile))
@@ -178,7 +171,7 @@ public class VersionText
 
                     // Build a clean and consistent version string
                     String cleanVersion = versionPattern.getLastVersion();
-                    release = new Release(cleanVersion.toString());
+                    release = new Release(cleanVersion);
                     release.setExisting(true);
 
                     String on = versionPattern.getRemainingText();
@@ -237,12 +230,6 @@ public class VersionText
     public void setSortExisting(boolean allowExistingResort)
     {
         this.sortExisting = allowExistingResort;
-    }
-
-    @Deprecated
-    public void write(File versionTextFile) throws IOException
-    {
-        write(versionTextFile.toPath());
     }
 
     public void write(Path versionTextFile) throws IOException

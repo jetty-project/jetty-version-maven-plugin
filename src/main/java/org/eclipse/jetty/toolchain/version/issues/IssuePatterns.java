@@ -30,7 +30,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class IssuePatterns
 {
-    public class Match
+    public static class Match
     {
         private Matcher matcher;
         public IssueSyntax syntax;
@@ -46,13 +46,13 @@ public class IssuePatterns
         }
     }
 
-    private class Entry
+    private static class Entry
     {
         IssueSyntax syntax;
         Pattern pattern;
     }
 
-    private List<Entry> list;
+    private final List<Entry> list;
 
     public IssuePatterns()
     {
@@ -89,7 +89,7 @@ public class IssuePatterns
     {
         if (StringUtils.isBlank(line))
         {
-            return Collections.EMPTY_SET;
+            return Collections.emptySet();
         }
 
         Set<String> ids = new HashSet<>();

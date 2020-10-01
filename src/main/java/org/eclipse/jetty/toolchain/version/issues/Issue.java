@@ -18,7 +18,7 @@
 
 package org.eclipse.jetty.toolchain.version.issues;
 
-import org.apache.commons.lang3.text.WordUtils;
+import org.apache.commons.text.WordUtils;
 
 /**
  * A Generic Issue
