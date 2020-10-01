@@ -15,26 +15,32 @@
  *  You may elect to redistribute this code under either of these licenses.
  *  ========================================================================
  */
-package org.eclipse.jetty.toolchain.version.git;
 
+package org.eclipse.jetty.toolchain.version;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.text.ParseException;
 
-import org.eclipse.jetty.toolchain.test.MavenTestingUtils;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.eclipse.jetty.toolchain.test.IO;
 
-public class GitTagParserTest extends AbstractGitTestCase
+public final class FsUtil
 {
-    @Test
-    public void testGitTagParse() throws IOException, ParseException
+    public static boolean existsAsFile(Path path)
     {
-        Path sampleFile = MavenTestingUtils.getTestResourcePathFile("git-tag.txt");
-        GitTagParser parser = new GitTagParser();
-        parseSampleFile(parser, sampleFile);
+        return Files.exists(path) && Files.isRegularFile(path);
+    }
 
-        Assertions.assertNotNull(parser.getTagIds(), "parser.tagIds");
-        Assertions.assertEquals(121, parser.getTagIds().size(), "parser.tagIds.size");
+    public static String toString(Path path) throws IOException
+    {
+        try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
+             StringWriter writer = new StringWriter())
+        {
+            IO.copy(reader, writer);
+            return writer.toString();
+        }
     }
 }

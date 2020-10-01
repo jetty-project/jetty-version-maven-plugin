@@ -19,11 +19,12 @@
 package org.eclipse.jetty.toolchain.version;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -126,9 +127,15 @@ public class VersionText
         releases.add(0, rel);
     }
 
+    @Deprecated
     public void read(File versionTextFile) throws IOException
     {
-        try (BufferedReader buf = Files.newBufferedReader(versionTextFile.toPath()))
+        read(versionTextFile.toPath());
+    }
+
+    public void read(Path versionTextFile) throws IOException
+    {
+        try (BufferedReader buf = Files.newBufferedReader(versionTextFile))
         {
             Pattern patBullet = Pattern.compile(IssueParser.REGEX_ISSUE_BULLET);
             Matcher mat;
@@ -232,11 +239,17 @@ public class VersionText
         this.sortExisting = allowExistingResort;
     }
 
+    @Deprecated
     public void write(File versionTextFile) throws IOException
+    {
+        write(versionTextFile.toPath());
+    }
+
+    public void write(Path versionTextFile) throws IOException
     {
         // TODO use BufferedWriter
         //try(BufferedWriter bufferedWriter = Files.newBufferedWriter( versionTextFile.toPath() ))
-        try (FileWriter writer = new FileWriter(versionTextFile);
+        try (BufferedWriter writer = Files.newBufferedWriter(versionTextFile);
              PrintWriter out = new PrintWriter(writer))
         {
             if (!headers.isEmpty())

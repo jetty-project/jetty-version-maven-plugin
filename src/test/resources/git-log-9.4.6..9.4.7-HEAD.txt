@@ -1867,7 +1867,7 @@ jetty-servlets/src/test/java/org/eclipse/jetty/servlets/ThreadStarvationTest.jav
 jetty-spring/pom.xml
 jetty-start/pom.xml
 jetty-start/src/test/java/org/eclipse/jetty/start/BaseHomeTest.java
-jetty-start/src/test/java/org/eclipse/jetty/start/ConfigurationAssert.java
+jetty-start/src/test/java/org/eclipse/jetty/start/ConfigurationAssertions.java
 jetty-start/src/test/resources/dist-home/modules/alpn-impl/alpn-1.8.0_131.mod
 jetty-start/src/test/resources/dist-home/modules/alpn-impl/alpn-1.8.0_144.mod
 jetty-util-ajax/pom.xml

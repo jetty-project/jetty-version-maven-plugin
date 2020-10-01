@@ -20,8 +20,8 @@ package org.eclipse.jetty.toolchain.version.git;
 import java.text.ParseException;
 
 import org.eclipse.jetty.toolchain.version.util.DateUtil;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class GitCommitTest
 {
@@ -34,7 +34,7 @@ public class GitCommitTest
 
         String actual = DateUtil.formatRfc2822(commit.getAuthorDate());
         String expected = "Thu, 12 May 2011 09:02:36 +0000";
-        Assert.assertEquals("Author date '" + actual + "',expected:'" + expected + "'",expected,actual);
+        Assertions.assertEquals(expected, actual, "Author date '" + actual + "',expected:'" + expected + "'");
     }
 
     @Test
@@ -45,6 +45,6 @@ public class GitCommitTest
         commit.parseCommitterDate(rawdate);
 
         String actual = DateUtil.formatRfc2822(commit.getCommitterDate());
-        Assert.assertEquals("Committer date","Wed, 27 Jul 2011 01:16:03 +0000",actual);
+        Assertions.assertEquals("Wed, 27 Jul 2011 01:16:03 +0000", actual, "Committer date");
     }
 }

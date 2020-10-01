@@ -18,38 +18,23 @@
 
 package org.eclipse.jetty.toolchain.version.git;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.ParseException;
-
-import org.codehaus.plexus.util.IOUtil;
 
 public abstract class AbstractGitTestCase
 {
-    protected void parseSampleFile(GitOutputParser parser, File sampleFile) throws IOException, ParseException
+    protected void parseSampleFile(GitOutputParser parser, Path sampleFile) throws IOException, ParseException
     {
-        FileReader reader = null;
-        BufferedReader buf = null;
-        try
+        int linenum = 0;
+        parser.parseStart();
+        for (String line : Files.readAllLines(sampleFile, StandardCharsets.UTF_8))
         {
-            reader = new FileReader(sampleFile);
-            buf = new BufferedReader(reader);
-            int linenum = 0;
-            String line;
-            parser.parseStart();
-            while ((line = buf.readLine()) != null)
-            {
-                linenum++;
-                parser.parseLine(linenum,line);
-            }
-            parser.parseEnd();
+            linenum++;
+            parser.parseLine(linenum, line);
         }
-        finally
-        {
-            IOUtil.close(buf);
-            IOUtil.close(reader);
-        }
+        parser.parseEnd();
     }
 }
