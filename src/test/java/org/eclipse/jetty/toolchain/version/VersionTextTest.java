@@ -197,6 +197,27 @@ public class VersionTextTest
     }
 
     @Test
+    public void testReadEclipseVersion11Text() throws IOException
+    {
+        Path sampleVerText = MavenTestingUtils.getTestResourcePathFile("VERSION-11.0.x.txt");
+        VersionText vt = new VersionText(VersionPattern.ECLIPSE);
+        vt.read(sampleVerText);
+
+        List<String> actualVersions = vt.getVersionList();
+        List<String> expectedVersions = getExpectedVersions("expected-versions-11.0.x-eclipse.txt");
+
+        assertVersionList(expectedVersions, actualVersions);
+
+        Release r31rc9 = vt.findRelease("jetty-3.1.rc9");
+        assertNotNull(r31rc9, "Should have found release");
+        assertEquals(10, r31rc9.getIssues().size(), "[3.1.rc9].issues.size");
+
+        Release r20a2 = vt.findRelease("jetty-2.0Alpha2");
+        assertNotNull(r20a2, "Should have found release");
+        assertEquals(9, r20a2.getIssues().size(), "[2.0Alpha1].issues.size");
+    }
+
+    @Test
     public void testReadVersion20Alpha2Text() throws IOException
     {
         Path sampleVerText = MavenTestingUtils.getTestResourcePathFile("version-2.0Alpha2.txt");
