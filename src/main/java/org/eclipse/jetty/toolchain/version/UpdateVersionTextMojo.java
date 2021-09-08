@@ -326,25 +326,18 @@ public class UpdateVersionTextMojo extends AbstractVersionMojo
 
     private boolean hasLabel(GHIssue ghissue, String labelText)
     {
-        try
+        Collection<GHLabel> labels = ghissue.getLabels();
+        if (labels == null)
         {
-            Collection<GHLabel> labels = ghissue.getLabels();
-            if (labels == null)
-            {
-                return false;
-            }
-
-            for (GHLabel ghlabel : labels)
-            {
-                if (ghlabel.getName().equalsIgnoreCase(labelText))
-                {
-                    return true;
-                }
-            }
+            return false;
         }
-        catch (IOException ignore)
+
+        for (GHLabel ghlabel : labels)
         {
-            // ignore
+            if (ghlabel.getName().equalsIgnoreCase(labelText))
+            {
+                return true;
+            }
         }
         return false;
     }
