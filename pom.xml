@@ -11,7 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <github-api.version>1.135</github-api.version>
     <okhttp3.version>4.9.3</okhttp3.version>
-    <okio.version>2.10.0</okio.version>
+    <okio.version>3.0.0</okio.version>
   </properties>
   <url>http://www.eclipse.org/jetty/</url>
   <inceptionYear>1995</inceptionYear>
