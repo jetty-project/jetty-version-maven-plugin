@@ -9,7 +9,7 @@
   <packaging>maven-plugin</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <github-api.version>1.318</github-api.version>
+    <github-api.version>1.319</github-api.version>
     <okhttp3.version>4.11.0</okhttp3.version>
     <okio.version>3.8.0</okio.version>
   </properties>
