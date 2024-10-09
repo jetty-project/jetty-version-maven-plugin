@@ -1,4 +1,4 @@
-jetty-6.1.5rc0 - 15 July 0200
+jetty-6.1.5rc0 - 15 July 2007
  + JETTY-253 Improved graceful shutdown
  + JETTY-373 Stop all dependent lifecycles
  + JETTY-374 HttpTesters handles large requests/responses
