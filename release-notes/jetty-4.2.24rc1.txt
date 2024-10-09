@@ -1,2 +1,2 @@
-jetty-4.2.24rc1
+jetty-4.2.24rc1 - 11 March 2005
  + Fixed principal naming in FormAuthenticator

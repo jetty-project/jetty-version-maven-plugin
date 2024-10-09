@@ -1,4 +1,4 @@
-jetty-1.2.0
+jetty-1.2.0 - 22 January 1998
  + Alternate look and feel for Jetty
  + Better Debug configuration
  + DebugServlet

@@ -1,2 +1,2 @@
-jetty-1.1.1
+jetty-1.1.1 - 13 January 1998
  + Improved documentation

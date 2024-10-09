@@ -1,4 +1,4 @@
-jetty-7.4.0.RC0
+jetty-7.4.0.RC0 - 07 April 2011
  + JETTY-1245 Pooled Buffers implementation
  + JETTY-1354 Added jetty-nested
  + 324110 Added test harnesses for merging of QueryStrings

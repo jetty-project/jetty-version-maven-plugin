@@ -1,4 +1,4 @@
-jetty-7.1.4.v20100610
+jetty-7.1.4.v20100610 - 10 June 2010
  + JETTY-547 Delay close after shutdown until request read
  + JETTY-1231 Support context request log handler
  + 292326 Stop continuations if server is stopped

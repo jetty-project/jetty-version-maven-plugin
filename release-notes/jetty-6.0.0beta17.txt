@@ -1,4 +1,4 @@
-jetty-6.0.0beta17 - 01 June 2006
+jetty-6.0.0beta17 - 02 June 2006
  + Added clover reports and enough tests to get >50% coverage
  + Added config to disable file memory mapped buffers for windows
  + Added Request.isHandled()

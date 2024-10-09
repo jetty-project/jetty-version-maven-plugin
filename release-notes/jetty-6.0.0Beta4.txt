@@ -1,4 +1,4 @@
-jetty-6.0.0Beta4
+jetty-6.0.0beta4 - 22 November 2005
  + Fixed JSP visibility security issue (CVE-2006-2758)
  + Improved jetty-web.xml access to org.mortbay classes.
  + Jasper 5.5.12

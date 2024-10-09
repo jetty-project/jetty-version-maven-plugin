@@ -1,2 +1,2 @@
-jetty-5.1.13
+jetty-5.1.13 - 07 April 2005
  + Sourceforge 1648335: problem setting version for AJP13

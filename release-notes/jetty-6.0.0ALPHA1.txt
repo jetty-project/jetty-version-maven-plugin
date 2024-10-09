@@ -1,3 +1,3 @@
-jetty-6.0.0ALPHA1
+jetty-6.0.0ALPHA1 - 20 August 2006
  + Filters
  + web.xml handling

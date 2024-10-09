@@ -1,4 +1,4 @@
-jetty-6.0.0Beta5
+jetty-6.0.0beta5 - 05 December 2005
  + Added management module for mbeans
  + Fixed writer char[] creations
  + Moved to SVN

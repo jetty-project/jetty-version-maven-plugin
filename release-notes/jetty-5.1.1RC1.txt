@@ -1,4 +1,4 @@
-jetty-5.1.1RC1
+jetty-5.1.1RC1 - 24 November 2004
  + Allow double // within URIs
  + Applied patch for MD5 hashed credentials for MD5
  + Fixed ordering of filters with multiple interleaved mappings.

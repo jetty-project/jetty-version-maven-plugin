@@ -1,4 +1,4 @@
-jetty-6.0.0Beta3
+jetty-6.0.0beta3 - 17 November 2005
  + Fixed classloader issue with server classes
  + Fixed error in block read
  + Named dispatch.

@@ -1,4 +1,4 @@
-jetty-7.4.2.v20110526
+jetty-7.4.2.v20110526 - 26 May 2011
  + JETTY-1146 Encode jsessionid in sendRedirect
  + JETTY-1342 Recreate selector if wakeup throws JVM bug
  + 334443 Improve the ability to specify extra class paths using the Jetty

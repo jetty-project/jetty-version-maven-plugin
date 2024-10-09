@@ -1,4 +1,4 @@
-jetty-1.3.1
+jetty-1.3.1 - 12 February 1998
  + Better handling of InvocationTargetException in debug
  + ForwardHandler only forwards as http/1.0 (from Tobias.Miller)
  + Improved parsing of stack traces

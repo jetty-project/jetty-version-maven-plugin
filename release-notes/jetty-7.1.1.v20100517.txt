@@ -1,4 +1,4 @@
-jetty-7.1.1.v20100517
+jetty-7.1.1.v20100517 - 17 May 2010
  + 302344 Make the list of available contexts if root context is not configured
    optional
  + 304803 Remove TypeUtil Integer and Long caches

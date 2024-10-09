@@ -1,5 +1,5 @@
-jetty-6.0.0beta8 - 24 January 2006
- + conveniance addHandler removeHandler methods
+jetty-6.0.0beta8 - 25 January 2006
+ + convenience addHandler removeHandler methods
  + fixed bug in overloaded write method on HttpConnection (reported against
    Tapestry4.0)
  + fixed dispatch of new session problem. sf:1407090

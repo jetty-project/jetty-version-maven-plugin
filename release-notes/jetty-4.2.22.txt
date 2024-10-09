@@ -1,4 +1,4 @@
-jetty-4.2.22
+jetty-4.2.22 - 24 August 2004
  + Added parameters for acceptQueueSize and lowResources level.
  + fixed deployment of ejb-link elements in web.xml for jboss
  + fixed jaas logout for jetty-jboss integration

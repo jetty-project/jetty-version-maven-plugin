@@ -1,4 +1,4 @@
-jetty-6.0.0Beta0
+jetty-6.0.0beta0 - 27 February 2006
  + Dispatcher parameters
  + Fixed blocking read
  + Maven 2 build

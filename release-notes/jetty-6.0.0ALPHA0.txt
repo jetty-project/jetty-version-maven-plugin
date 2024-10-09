@@ -1,4 +1,4 @@
-jetty-6.0.0ALPHA0
+jetty-6.0.0ALPHA0 - 20 August 2006
  + file may be sent as sent is a single operation.
  + Improved "dependancy injection" and "inversion of control" design of
    components

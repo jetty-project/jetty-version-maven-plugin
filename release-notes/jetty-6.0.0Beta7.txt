@@ -1,4 +1,4 @@
-jetty-6.0.0Beta7
+jetty-6.0.0beta7 - 10 January 2006
  + Faster header name lookup
  + Fixed infinite loop with chunk handling
  + maven-jetty6-plugin added tmpDirectory property

@@ -1,4 +1,4 @@
-jetty-7.1.6.v20100715
+jetty-7.1.6.v20100715 - 15 July 2010
  + JETTY-1247 synchronize recylcing of SSL NIO buffers
  + JETTY-1248 fix parsing of bad multiparts
  + JETTY-1249 Apply max idle time to all connectors

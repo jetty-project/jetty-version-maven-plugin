@@ -1,4 +1,4 @@
-jetty-6.0.0Beta2
+jetty-6.0.0beta2 - 14 November 2005
  + Improved buffer return
  + Improved reuse of HttpField values and cookies.
  + loosely coupled with JSP servlet

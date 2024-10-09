@@ -1,4 +1,4 @@
-jetty-6.0.0beta9 - 09 February 2006
+jetty-6.0.0beta9 - 14 February 2006
  + Added CGI servlet.
  + Added request log.
  + Added TLD tag listener handling.
