@@ -25,11 +25,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.attribute.FileTime;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-
-import org.eclipse.jetty.toolchain.version.issues.Issue;
 
 /**
  * Command line utility to split the VERSION.txt into separate
@@ -81,25 +76,7 @@ public class SplitVersionText
                 try (BufferedWriter writer = Files.newBufferedWriter(outputFile, StandardCharsets.UTF_8);
                      PrintWriter out = new PrintWriter(writer))
                 {
-                    out.print(release.getVersion());
-                    if (release.getReleasedOn() != null)
-                    {
-                        SimpleDateFormat sdf = new SimpleDateFormat(" - dd MMMM yyyy");
-                        out.print(sdf.format(release.getReleasedOn()));
-                    }
-                    out.print('\n');
-
-                    for (Issue issue: release.getSortedIssues())
-                    {
-                        out.print(issue.toString());
-                        out.print('\n');
-                    }
-                }
-                // update date/time-stamp?
-                if (release.getReleasedOn() != null)
-                {
-                    Instant instant = release.getReleasedOn().toInstant();
-                    Files.setLastModifiedTime(outputFile, FileTime.from(instant));
+                    release.writeAsText(out);
                 }
             }
         }

@@ -18,6 +18,7 @@
 
 package org.eclipse.jetty.toolchain.version;
 
+import java.io.PrintWriter;
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -236,6 +237,23 @@ public class Release
     public void setVersion(String version)
     {
         this.version = version;
+    }
+
+    public void writeAsText(PrintWriter out)
+    {
+        out.print(getVersion());
+        if (getReleasedOn() != null)
+        {
+            SimpleDateFormat sdf = new SimpleDateFormat(" - dd MMMM yyyy");
+            out.print(sdf.format(getReleasedOn()));
+        }
+        out.print('\n');
+
+        for (Issue issue: getSortedIssues())
+        {
+            out.print(issue.toString());
+            out.print('\n');
+        }
     }
 
     @Override
