@@ -18,11 +18,17 @@
 
 package org.eclipse.jetty.toolchain.version;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -33,6 +39,8 @@ import edu.emory.mathcs.backport.java.util.Collections;
 import org.codehaus.plexus.util.StringUtils;
 import org.eclipse.jetty.toolchain.version.issues.Issue;
 import org.eclipse.jetty.toolchain.version.issues.IssueComparator;
+import org.eclipse.jetty.toolchain.version.issues.IssueParser;
+import org.eclipse.jetty.toolchain.version.util.VersionUtil;
 
 public class Release
 {
@@ -82,6 +90,21 @@ public class Release
         {
             addIssue(issue);
         }
+    }
+
+    public void addIssueIfNotExists(Issue incomingIssue)
+    {
+        Issue existingIssue = null;
+        for (Issue issue : issues)
+        {
+            if (issue.getId().equals(incomingIssue.getId()))
+            {
+                existingIssue = issue;
+            }
+        }
+
+        if (existingIssue == null)
+            addIssue(incomingIssue);
     }
 
     public void dropIssue(Issue issue)
@@ -137,6 +160,22 @@ public class Release
         return releasedOn;
     }
 
+    public String getReleasedOnString()
+    {
+        if (releasedOn == null)
+            return "";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        return sdf.format(releasedOn);
+    }
+
+    public String getReleasedOnISOString()
+    {
+        if (releasedOn == null)
+            return "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(releasedOn);
+    }
+
     public List<Issue> getSortedIssues()
     {
         Collections.sort(issues, new IssueComparator());
@@ -146,6 +185,11 @@ public class Release
     public String getVersion()
     {
         return version;
+    }
+
+    public int getMajorVersion()
+    {
+        return VersionUtil.parseMajorVersion(version);
     }
 
     @Override
@@ -160,6 +204,14 @@ public class Release
     public boolean isExisting()
     {
         return existing;
+    }
+
+    public void mergeIssues(List<Issue> incomingIssues)
+    {
+        for (Issue incomingIssue : incomingIssues)
+        {
+            addIssueIfNotExists(incomingIssue);
+        }
     }
 
     public void parseReleasedOn(int linenum, String rawdateStr)
@@ -239,13 +291,76 @@ public class Release
         this.version = version;
     }
 
+    public static Release readAsText(Path file) throws IOException
+    {
+        try (BufferedReader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8))
+        {
+            return readAsText(reader);
+        }
+    }
+
+    public static Release readAsText(BufferedReader reader) throws IOException
+    {
+        VersionPattern versionPattern = VersionPattern.ECLIPSE;
+        Pattern patBullet = Pattern.compile(IssueParser.REGEX_ISSUE_BULLET);
+        Matcher mat;
+
+        Release release = null;
+        String line = reader.readLine();
+
+        // First line should always be the release version & date
+        if (versionPattern.isMatch(line))
+        {
+            // Build a clean and consistent version string
+            String cleanVersion = versionPattern.getLastVersion();
+            release = new Release(cleanVersion);
+            release.setExisting(true);
+
+            String on = versionPattern.getRemainingText();
+            release.parseReleasedOn(1, on);
+        }
+        else
+        {
+            throw new IOException("Not a valid Release notes (missing release version & date)");
+        }
+
+        Issue issue = null;
+        IssueParser issueParser = new IssueParser();
+
+        // All other lines are the changes.
+        while ((line = reader.readLine()) != null)
+        {
+            if (StringUtils.isBlank(line))
+                continue; // skip
+
+            mat = patBullet.matcher(line);
+            if (mat.find())
+            {
+                if (issue != null)
+                    release.addIssue(issue);
+                // Start of an issue text.
+                issue = issueParser.parseKnownIssue(line);
+            }
+            else // handle multi-line issue text
+            {
+                if (issue == null)
+                    issue = issueParser.parseKnownIssue(line);
+                else
+                    issue.appendText(line);
+            }
+        }
+        if (issue != null)
+            release.addIssue(issue);
+        return release;
+    }
+
     public void writeAsText(PrintWriter out)
     {
         out.print(getVersion());
         if (getReleasedOn() != null)
         {
-            SimpleDateFormat sdf = new SimpleDateFormat(" - dd MMMM yyyy");
-            out.print(sdf.format(getReleasedOn()));
+            out.print(" - ");
+            out.append(getReleasedOnString());
         }
         out.print('\n');
 
@@ -269,10 +384,26 @@ public class Release
         }
         else
         {
-            buf.append(new SimpleDateFormat("MMM yyyy").format(releasedOn));
+            buf.append(getReleasedOnString());
         }
         buf.append(",issues.size=").append(issues.size());
         buf.append("]");
         return buf.toString();
+    }
+
+    public static class ReleaseDateComparator implements Comparator<Release>
+    {
+        @Override
+        public int compare(Release r1, Release r2)
+        {
+            if (r1.getVersion().contains("SNAPSHOT"))
+                return 1;
+            if (r2.getVersion().contains("SNAPSHOT"))
+                return -1;
+            int diff = r1.getReleasedOnISOString().compareTo(r2.getReleasedOnISOString());
+            if (diff != 0)
+                return diff;
+            return r1.getVersion().compareTo(r2.getVersion());
+        }
     }
 }

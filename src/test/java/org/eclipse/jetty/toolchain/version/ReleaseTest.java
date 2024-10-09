@@ -17,9 +17,12 @@
  */
 package org.eclipse.jetty.toolchain.version;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.eclipse.jetty.toolchain.test.MavenTestingUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -132,5 +135,13 @@ public class ReleaseTest
         String rawdate = "29 Sep 1998"; // USA Format
         String expected = "1998-09-29";
         assertParseReleasedOn(expected, rawdate);
+    }
+
+    @Test
+    public void testReadAsTextOneChange() throws IOException
+    {
+        Path path = MavenTestingUtils.getBasePath().resolve("release-notes/jetty-9.4.56.v20240826.txt");
+        Release release = Release.readAsText(path);
+        assertEquals(1, release.getIssues().size());
     }
 }

@@ -232,6 +232,11 @@ public class VersionText
         this.sortExisting = allowExistingResort;
     }
 
+    public void sortReleases()
+    {
+        releases.sort(new Release.ReleaseDateComparator().reversed());
+    }
+
     public void write(Path versionTextFile) throws IOException
     {
         // TODO use BufferedWriter
