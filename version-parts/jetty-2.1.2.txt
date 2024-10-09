@@ -1,0 +1,6 @@
+jetty-2.1.2 - 09 March 1999
+ + API documentation for JSDK 2.1.1
+ + Cascading style sheet HTML element added.
+ + Converted most servlets to HttpServlets using do Methods.
+ + Fixed trailing / bug in FileHandler (again!).
+ + JSDK 2.1.1

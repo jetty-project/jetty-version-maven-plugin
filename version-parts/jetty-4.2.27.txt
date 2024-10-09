@@ -1,0 +1,3 @@
+jetty-4.2.27 - 22 November 2006
+ + AJP protected against bad requests from mod_jk
+ + Upgraded session ID generation to use SecureRandom

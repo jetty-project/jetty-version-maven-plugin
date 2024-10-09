@@ -1,0 +1,5 @@
+jetty-6.0.0Beta4
+ + CVE-2006-2758 Fixed JSP visibility security issue.
+ + Improved jetty-web.xml access to org.mortbay classes.
+ + Jasper 5.5.12
+ + System property support in plugin

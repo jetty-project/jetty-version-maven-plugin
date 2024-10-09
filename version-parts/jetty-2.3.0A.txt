@@ -1,0 +1,8 @@
+jetty-2.3.0A - 22 September 1999
+ + Added "Powered by Jetty" button.
+ + Added BuildJetty.java file.
+ + Added GNUJSP 1.0 for the JSP 1.0 API.
+ + Expanded tabs to spaces in source.
+ + Made session IDs less predictable and removed race.
+ + ServerContext available to HtmlFilters via context param
+ + Use javax.servlet classes from JWSDK1.0

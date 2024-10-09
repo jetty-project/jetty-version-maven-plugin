@@ -1,0 +1,11 @@
+jetty-7.0.0pre1 - 03 May 2008
+ + JETTY-440 allow file name patterns for jsp compilation for jspc plugin
+ + JETTY-529 CNFE when deserializing Array from session resolved
+ + JETTY-558 optional handling of X-Forwarded-For/Host/Server
+ + JETTY-559 ignore unsupported shutdownOutput
+ + JETTY-566 allow for non-blocking behavior in jetty maven plugin
+ + address osgi bundling issue relating to build resources
+ + Allow annotations example to be built regularly, copy to contexts-available
+ + Improved suspend examples
+ + Make annotations example consistent with servlet 3.0
+ + Refactor JNDI impl to simplify

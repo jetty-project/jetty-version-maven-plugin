@@ -1,0 +1,5 @@
+jetty-6.1.4 - 15 June 2007
+ + JETTY-370 ensure idleTimeout<=0 means connections never expire
+ + JETTY-371 Fixed chunked HEAD response
+ + JETTY-372 make test for cookie caching more rigorous
+ + fixed early open() call in NIO connectors

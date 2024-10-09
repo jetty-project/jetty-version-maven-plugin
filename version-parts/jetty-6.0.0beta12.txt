@@ -1,0 +1,9 @@
+jetty-6.0.0beta12 - 16 March 2006
+ + Added JSP2.0 demos to test webapp
+ + Added provider support to SslListener
+ + Fixed error handling in error page
+ + Fixed JettyPlus for root contexts
+ + Fixed maven plugin JNDI for redeploys
+ + Fixed tld discovery for plugin (search dependencies)
+ + Log ERROR for runtimeExceptions
+ + Upgraded jasper to 5.5.15

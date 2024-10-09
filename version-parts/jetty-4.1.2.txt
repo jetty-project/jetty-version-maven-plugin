@@ -1,0 +1,15 @@
+jetty-4.1.2 - 13 October 2002
+ + 404 instead of 403 for WEB-INF requests
+ + Allow %3B encoded ; in URLs
+ + Allow anonymous realm
+ + Build without jmx
+ + Fixed bad log dir detection
+ + Fixed caching of directories to avoid shared buffers.
+ + Fix Session invalidation bug
+ + FORM authentication sets 403 error page
+ + getNamedDispatcher(null) returns containers default servlet.
+ + Some AJP13 optimizations.
+ + Stop/Start filters in declaration order.
+ + unquote charset in content type
+ + Update jasper to 4.1.12 tag
+ + Use "standard" names for default,jsp & invoker servlets.

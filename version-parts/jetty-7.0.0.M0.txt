@@ -1,0 +1,95 @@
+jetty-7.0.0.M0 - 27 March 2009
+ + JETTY-496 Support inetd/xinetd through use of System.inheritedChannel()
+ + JETTY-540 Merged 3.0 Public Review changes
+ + JETTY-567 Delay in initial TLS Handshake With FireFox 3 beta5 and
+   SslSelectChannelConnector
+ + JETTY-600 Automated tests of WADI integration + upgrade to WADI 2.0
+ + JETTY-691 System.getProperty() calls ... wrap them in doPrivileged
+ + JETTY-713 Expose additional AbstractConnector methods via MBean
+ + JETTY-731 Completed DeliverListener for cometd
+ + JETTY-748 RandomAccessFileBuffer for hadoop optimization
+ + JETTY-749 Improved ArrayQueue
+ + JETTY-765 ensure stop mojo works for all execution phases
+ + JETTY-774 Improved caching of mime types with charsets
+ + JETTY-775 AbstractSessionTest remove timing related test
+ + JETTY-778 handle granular windows timer in lifecycle test
+ + JETTY-779 Fixed line feed in request log
+ + JETTY-781 Add "mvn jetty:deploy-war" for deploying a pre-assembled war
+ + JETTY-782 Implement interval advice for BayeuxClient
+ + JETTY-783 Update jetty self-signed certificate
+ + JETTY-784 TerracottaSessionManager leaks sessions scavenged in other nodes
+ + JETTY-786 Allow DataSourceUserRealm to create tables
+ + JETTY-787 Handle MSIE7 mixed encoding
+ + JETTY-788 Fix jotm for scoped jndi naming
+ + JETTY-790 WaitingContinuations can change mutex if not pending
+ + JETTY-792 TerracottaSessionManager does not unlock new session with
+   requested id
+ + JETTY-793 Fixed DataCache millisecond rounding
+ + JETTY-794 WADI integration tests fail intermittently
+ + JETTY-795 NullPointerException in SocketConnector.java
+ + JETTY-801 Bring back 2 arg EnvEntry constructor
+ + JETTY-802 Modify the default error pages to make association with Jetty
+   clearer
+ + JETTY-804 HttpClient timeout does not always work
+ + JETTY-805 Fix jetty-jaas.xml for new UserRealm package
+ + JETTY-806 Timeout related Deadlocks in HTTP Client
+ + JETTY-807 HttpTester to handle charsets
+ + JETTY-808 cometd client demo run.sh
+ + JETTY-809 Need a way to customize WEB-INF/lib file extensions that are added
+   to the classpath
+ + JETTY-811 Allow configuration of system properties for the maven plugin
+   using a file
+ + JETTY-813 Simplify NCSARequestLog.java
+ + JETTY-814 Add org.eclipse.jetty.client.Address.toString()
+ + JETTY-816 Implement reconnect on java bayeux client
+ + JETTY-817 Aborted SSL connections may cause jetty to hang with full cpu
+ + JETTY-818 Support javax.servlet.request.ssl_session_id
+ + JETTY-821 Allow lazy loading of persistent sessions
+ + JETTY-822 Commit when autocommit=true causes error with mysql
+ + JETTY-823 Extend start.config profiles
+ + JETTY-824 Access to inbound byte statistics
+ + JETTY-825 URL decoding of spaces (+) fails for encoding not utf8
+ + JETTY-830 Add ability to reserve connections on http client
+ + JETTY-831 Add ability to stop java bayeux client
+ + JETTY-832 More UrlDecoded handling in relation to JETTY-825
+ + JETTY-834 Configure DTD does not allow <Map> children
+ + JETTY-837 Response headers set via filter are ignored for static resources
+ + JETTY-840 add default mime types to *.htc and *.pps
+ + JETTY-841 Duplicate messages when sending private message to yourself with
+   cometd chat demo
+ + JETTY-842 NPE in jetty client when no path component
+ + JETTY-843 META-INF/MANIFEST.MF is not present in unpacked webapp
+ + JETTY-844 Replace reflection with direct invocation in Slf4jLog
+ + JETTY-848 Temporary folder not fully cleanup after stop (via Sweeper)
+ + JETTY-854 JNDI scope does not work with applications in a .war
+ + JETTY-859 MultiPartFilter ignores the query string parameters
+ + JETTY-861 switched buffer pools to ThreadLocal implementation
+ + JETTY-862 EncodedHttpURI ignores given encoding in constructor
+ + JETTY-866 jetty-client test case fix
+ + JETTY-869 NCSARequestLog locale config
+ + JETTY-870 NullPointerException in Response when performing redirect to wrong
+   relative URL
+ + JETTY-871 jetty-client expires() NPE race condition fixed
+ + JETTY-876 Added new BlockingArrayQueue and new QueuedThreadPool
+ + JETTY-890 merge jaspi branch to trunk
+ + JETTY-894 Add android .apk to mime types
+ + JETTY-897 Remove swing dependency in GzipFilter
+ + JETTY-898 Allow jetty debs to start with custom java args provided by users
+ + JETTY-899 Standardize location and build process for configuration files
+   which go into etc
+ + JETTY-909 Update useragents cache
+ + JETTY-917 Change for JETTY-811 breaks systemProperties config parameter in
+   maven-jetty-plugin
+ + JETTY-922 Fixed NPE on getRemoteHost when socket closed
+ + JETTY-923 Client supports attributes
+ + JETTY-926 default location for generatedClasses of jspc plugin is incorrect
+ + JETTY-938 Deadlock in the TerracottaSessionManager
+ + JETTY-939 NPE in AbstractConfiguration.callPreDestroyCallbacks
+ + JETTY-946 Redeploys with maven jetty plugin of webapps with overlays don't
+   work
+ + JETTY-950 Fix double-printing of request URI in request log
+ + JETTY-953 SSL keystore file input stream is not being closed directly
+ + JETTY-956 SslSelectChannelConnector - password should be the default value
+   of keyPassword if not specified
+ + moved to org.eclipse packages
+ + simplified HandlerContainer API

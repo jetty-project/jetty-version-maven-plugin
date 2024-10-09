@@ -1,0 +1,6 @@
+jetty-3.0.B01 - 21 August 2000
+ + Implemented more webapp configuration
+ + Partial implementation of webapp securitycontraints
+ + SSL implemented with JsseListener
+ + Switched to the aelfred XML parser from microstar, which is only partially
+   validating, but small and lightweight

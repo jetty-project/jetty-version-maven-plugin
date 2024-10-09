@@ -1,0 +1,4 @@
+jetty-5.1.5 - 10 November 2005
+ + Improved mapping of JSP files.
+ + Improved shutdown hook
+ + Improved URL Decoding

@@ -1,0 +1,16 @@
+jetty-4.2.10pre2 - 04 July 2003
+ + Addition of mail service for JettyPlus
+ + Allow multiple security-role-ref elements per servlet.
+ + Cleaned up alias handling.
+ + Confidential redirection includes query
+ + Fixed cookie handling for old cookies and safari
+ + handle multiple security role references
+ + Handle Proxy-Connection better
+ + Improvement to JettyPlus config of datasources and connection pools
+ + Many improvements in JettyPlus java:comp handling
+ + Move to Service-based architecture for JettyPlus features
+ + Re-implementation of JNDI
+ + Restricted ports in ProxyHandler.
+ + Session statistics
+ + URI always encodes %
+ + XmlConfiguration can get/set fields.

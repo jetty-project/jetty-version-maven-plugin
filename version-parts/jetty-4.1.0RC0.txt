@@ -1,0 +1,7 @@
+jetty-4.1.0RC0 - 31 July 2002
+ + Added DigestAuthenticator
+ + Added ExpiryHandler which can set a default Expires header.
+ + Added link to a Jetty page in Korean.
+ + Changed URI default charset back to ISO_8859_1
+ + Fixed getRealPath for packed war files.
+ + Restructured Password into Password and Credentials

@@ -1,0 +1,4 @@
+jetty-6.0.0ALPHA2
+ + Continuations - way cool way to suspend a request and retry later.
+ + Dispatchers
+ + Security

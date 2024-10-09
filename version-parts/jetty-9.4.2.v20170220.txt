@@ -1,0 +1,23 @@
+jetty-9.4.2.v20170220 - 20 February 2017
+ + 612 Support HTTP Trailer
+ + 1047 ReadPendingException and then thread death
+ + 1226 Undefined JETTY_LOGS breaks jetty.sh
+ + 1284 IllegalStateException updating session inactive interval
+ + 1290 http2-hpack not visible in OSGi
+ + 1292 jetty-home has unresolvable dependencies
+ + 1296 Introduce HTTP parser "content complete" event
+ + 1298 Generate gcloud-datastore.mod
+ + 1300 Update to gcloud-datastore 0.8.2
+ + 1307 Session scavenge needs to invalidate session
+ + 1309 HttpClient GZIPContentDecoder should use the clients ByteBufferPool
+ + 1313 Insufficient Bytes behavior change in jetty 9.4.x due to HTTP Trailers
+   support?
+ + 1315 Update to gcloud datastore 0.8.3-beta
+ + 1326 Jetty shutdown command got NullPointerException (http2 module added to
+   start)
+ + 1328 Response.setBufferSize(int) ISE should be more clear on reason
+ + 1329 Update to gcloud-datastore 0.9.2-beta
+ + 1331 NPE in ClasspathPattern.add when using module logging-log4j2.mod and
+   other logging modules
+ + 1342 Improve ByteBufferPool scalability
+ + Allow application to hint that chunking should be used

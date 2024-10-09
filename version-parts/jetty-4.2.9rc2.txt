@@ -1,0 +1,7 @@
+jetty-4.2.9rc2 - 16 March 2003
+ + Added X-Forwarded-For header in ProxyHandler
+ + Allow dispatch to j_security_check
+ + Defaults descriptor has context classloader set.
+ + Fixed build.xml for source release
+ + Made rfc2068 PUT/POST Continues support optional.
+ + Updated included jmx jars

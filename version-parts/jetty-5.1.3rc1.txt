@@ -1,0 +1,5 @@
+jetty-5.1.3rc1 - 13 March 2005
+ + Fixed principal naming in FormAuthenticator
+ + Fixed typo in context-param handling.
+ + JettyPlus updated to JOTM 2.0.5, XAPool 1.4.2
+ + update to demo site look and feel.

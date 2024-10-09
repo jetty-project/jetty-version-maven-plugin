@@ -1,0 +1,17 @@
+jetty-3.1.rc8 - 22 August 2001
+ + Added HttpServer statistics
+ + Allow contextpaths without leading /
+ + Allow per context log files.
+ + Buffer allocation
+ + Don't add notfound context.
+ + Fixed handling of default mime types
+ + ISO8859 conversion
+ + Many major and minor optimizations:
+ + OutputStreamLogSink replaces WriterLogSink
+ + Removed race from dynamic servlet initialization.
+ + Separation of URL params in HttpHandler API.
+ + StringMap
+ + Support WEB-INF/web-jetty.xml configuration extension for webapps
+ + Updated sponsors page
+ + URI canonicalPath
+ + URI pathAdd

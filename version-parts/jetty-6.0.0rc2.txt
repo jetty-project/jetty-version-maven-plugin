@@ -1,0 +1,13 @@
+jetty-6.0.0rc2 - 25 August 2006
+ + added org.apache.commons.logging package to system classes that can't be
+   overridden by a webapp classloader
+ + Destroy HttpConnection to improve buffer pooling
+ + Direct buffer useage is optional
+ + Fixed NPE when no resource cache
+ + Moved more utility packagtes to the util jar
+ + mvn -Djetty.port=x jetty:run uses port number given for the default
+   connector
+ + Refactored WebXmlConfiguration to allow custom web.xml resource
+ + Timestamp in StdErrLog
+ + use mvn -Dslf4j=false jetty:run to disable use of slf4j logging with
+   jdk1.4/jsp2.0

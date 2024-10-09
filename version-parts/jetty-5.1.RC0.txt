@@ -1,0 +1,13 @@
+jetty-5.1.RC0 - 11 October 2004
+ + Added filter chain cache
+ + Added JSR77 servlet statistic support
+ + Added LifeCycle events and generic container.
+ + Added LogStream to capture stderr and stdout to logging
+ + Fixed HTAccessHandler
+ + Fixed many minor issues from J2EE 1.4 TCK testing See sf.net bugs 1031520 -
+   1032205
+ + JBoss 4.0.0 support
+ + LineInput handles readers with small internal buffer
+ + Refactored, simplified and optimized HttpOutputStream
+ + Refactored webapp context configurations
+ + Upgraded to ant-1.6 for jasper

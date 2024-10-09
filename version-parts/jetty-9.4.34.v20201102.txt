@@ -1,0 +1,8 @@
+jetty-9.4.34.v20201102 - 02 November 2020
+ + 5320 Using WebSocketClient with jetty-websocket-httpclient.xml in a Jetty
+   web application causes ClassCastException
+ + 5488 jetty-dir.css not found when using JPMS
+ + 5498 ServletHolder lifecycle correctness
+ + 5521 ResourceCollection NPE in list()
+ + 5535 Support regex in SslContextFactory include/exclude of protocols
+ + 5555 NPE for servlet with no mapping

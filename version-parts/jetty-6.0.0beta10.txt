@@ -1,0 +1,13 @@
+jetty-6.0.0beta10 - 25 February 2006
+ + added getLocalPort() to connector
+ + Added support for java:comp/env
+ + Added support for pluggable transaction manager
+ + Additional accessors for request logging
+ + Fixed content-type for range requests
+ + Fixed default servlet handling of includes
+ + Fix for myfaces and include with close
+ + Fix for sf1435795 30sec delay from c taylor
+ + Fix http://jira.codehaus.org/browse/JETTY-6. hi byte reader
+ + Fix sf1431936 don't chunk the chunk
+ + Forward masks include attributes and vice versa
+ + Updates javax to MR2 release

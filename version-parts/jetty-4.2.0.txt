@@ -1,0 +1,14 @@
+jetty-4.2.0 - 16 November 2002
+ + Added definitions for RFC2518 WebDav response codes.
+ + Added upload demo to dump servlet.
+ + Fixed AJP13 buffer size.
+ + Fixed include of Invoker servlet.
+ + Fixed remove listener bug.
+ + Lowercase jsessionid for URLs only.
+ + Made NCSARequestLog easier to extend.
+ + Many more optimizations.
+ + Removed jasper source and just include jars from 4.1.12
+ + Removed remaining non portable getBytes() calls
+ + Restrict 304 responses to seconds time resolution.
+ + Use IE date formatting for speed.
+ + Worked around JVM1.3 bug for JSPs

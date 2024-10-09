@@ -1,0 +1,68 @@
+jetty-7.0.0.pre4 - 28 October 2008
+ + JETTY-241 Support for web application overlays in rapid application
+   development (jetty:run)
+ + JETTY-319 improved passing of exception when webapp unavailable
+ + JETTY-331 SecureRandom hangs on systems with low entropy (connectors slow to
+   start)
+ + JETTY-591 No server classes for jetty-web.xml
+ + JETTY-604 AbstractSession.setSessionURL
+ + JETTY-670 $JETTY_HOME/bin/jetty.sh not worked in Solaris, because of
+   /usr/bin/which has no error-code
+ + JETTY-676 ResourceHandler doesn't support HTTP HEAD requests
+ + JETTY-677 GWT serialization issue
+ + JETTY-680 Can't configure the ResourceCollection with maven
+ + JETTY-681 JETTY-692 MultiPartFilter is slow for file uploads
+ + JETTY-682 Added listeners and queue methods to cometd
+ + JETTY-686 LifeCycle.Listener
+ + JETTY-687 Issue with servlet-mapping in dynamic servlet invoker
+ + JETTY-688 Cookie causes NumberFormatException
+ + JETTY-689 processing of non-servlet related annotations
+ + JETTY-690 Updated XBean dependencies to XBean version 3.4.3 and Spring
+   2.0.5.
+ + JETTY-696 jetty.sh restart not working
+ + JETTY-698 org.eclipse.resource.JarResource.extract does not close
+   JarInputStream jin
+ + JETTY-699 Optimized cometd sending of 1 message to many many clients
+ + JETTY-700 unit test for unread request data
+ + JETTY-703 maxStopTimeMs added to QueuedThreadPool
+ + JETTY-708 allow 3 scopes for jndi resources: jvm, server or webapp
+ + JETTY-709 Jetty plugin's WebAppConfig configured properties gets overridden
+   by AbstractJettyRunMojo even when already set
+ + JETTY-710 Worked around poor implementation of File.toURL()
+ + JETTY-711 DataSourceUserRealm implementation
+ + JETTY-712 HttpClient does not handle request complete after response
+   complete
+ + JETTY-715 AJP Key size as Integer
+ + JETTY-716 Fixed NPE on empty cometd message
+ + JETTY-718 during ssl unwrap, return true if some bytes were read, even if
+   underflow
+ + JETTY-720 fix HttpExchange.waitForStatus
+ + JETTY-721 Support wildcard in VirtualHosts configuration
+ + JETTY-723 jetty.sh does not check if TMP already is set
+ + JETTY-724 better handle EBCDIC default JVM encoding
+ + JETTY-728 Improve Terracotta integration and performances
+ + JETTY-730 Set SAX parse features to defaults
+ + JETTY-731 DeliverListener for cometd
+ + JETTY-732 Case Sensitive Basic Authentication Response Header
+   Implementations
+ + JETTY-733 Expose ssl connectors with xbean
+ + JETTY-735 Wrong default jndi name on DataSourceUserRealm
+ + JETTY-736 Client Specific cometd advice
+ + JETTY-737 refactored jetty.jar into jetty, xml, security, ssl, webapp and
+   deploy jars
+ + JETTY-738 If jetty.sh finds a pid file is does not check to see if a process
+   with that pid is still running
+ + JETTY-739 Race in QueuedThreadPool
+ + JETTY-741 HttpClient connects slowly due to reverse address lookup by
+   InetAddress.getHostName()
+ + JETTY-742 Private messages in cometd chat demo
+ + JETTY-747 Handle HttpClient exceptions better
+ + JETTY-755 Optimized HttpParser and buffers for few busy connections
+ + JETTY-757 Unhide JAAS classes
+ + JETTY-758 Update JSP to glassfish tag SJSAS-9_1_1-B51-18_Sept_2008
+ + JETTY-759 Fixed JSON small negative real numbers
+ + JETTY-760 Handle wildcard VirtualHost and normalize hostname in
+   ContextHandlerCollection
+ + JETTY-762 improved QueuedThreadPool idle death handling
+ + JETTY-763 Fixed AJP13 constructor
+ + JETTY-766 Ensure SystemProperties set early on jetty-maven-plugin

@@ -1,0 +1,17 @@
+jetty-3.1.2 - 13 October 2001
+ + Added run target to ant
+ + Added ServletHandler.sessionCount()
+ + Added short delay to shutdown hook for JVM bug.
+ + Changed 304 responses for Opera browser.
+ + Changed JSESSIONID to jsessionid
+ + Changed unsatisfiable range warnings to debug.
+ + Fixed attr handling in XmlParser.toString
+ + Fixed authentication role handling in FORM auth.
+ + Fixed double entry on PathMap.getMatches
+ + Fixed FORM Authentication username.
+ + Fixed NotFoundHandler handling of unknown methods
+ + Fixed request log date formatting
+ + Fixed servlet handling of non session url params.
+ + FORM authentication passes query params.
+ + Further improvements in handling of shutdown.
+ + Log OK state after thread low warnings.

@@ -1,0 +1,8 @@
+jetty-6.1.0 - 05 January 2007
+ + JETTY-206 fixed AJP getServerPort and getRemotePort
+ + Added extras/win32service
+ + Added WebAppContext.setCopyWebDir to avoid JVM jar caching issues.
+ + GERONIMO-2677 refactor of session id handling for clustering
+ + Improved config of java5 threadpool
+ + Protect context deployer from Errors
+ + ServletTester sets content length

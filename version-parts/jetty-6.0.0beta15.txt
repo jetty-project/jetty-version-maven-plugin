@@ -1,0 +1,27 @@
+jetty-6.0.0beta15 - 11 May 2006
+ + Added <scanTargets> parameter to allow other locations to scan for plugin
+ + Added automatic scan of all WEB-INF/jetty-*.xml files for plugin
+ + Added embedded examples
+ + Added Server attribute org.mortbay.jetty.Request.maxFormContentSize
+ + Added taglib resources to 2.1 jsp api jar
+ + Added ThrottlingFilter and fixed race in Continuations
+ + Added --version to start.jar
+ + ContextHandler.setContextPath can be called after start.
+ + don't accept partial authority in request line.
+ + enforce 204 and 304 have no content
+ + Fixed handling of params after forward
+ + Improved HttpException
+ + improved MBeanContainer object removal
+ + improved MBean names
+ + improved support for java5 jconsole
+ + Major refactor to simplify Server and handler hierarchy
+ + Moved more resources to resources
+ + readded BoundedThreadPool shrinking (and then fixed resulting deadlock)
+ + removed SelectBlockingChannelConnector (unmaintained)
+ + Renamed NotFoundHandler to DefaultHandler
+ + Reset of timer task clears expiry
+ + Session scavenger threads from threadpool
+ + setSendServerVersion method added to Server to control sending of Server:
+   http header
+ + Simplified DefaultServlet static content buffering
+ + Thread names include URI if debug set

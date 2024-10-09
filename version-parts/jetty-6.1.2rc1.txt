@@ -1,0 +1,29 @@
+jetty-6.1.2rc1 - 08 March 2007
+ + JETTY-157 make CGI handle binary data
+ + JETTY-175 JDBCUserRealm use getInt instead of getObject
+ + JETTY-188 Use timer for session scavaging
+ + JETTY-235 default realm name
+ + JETTY-242 fix race condition with scavenging sessions when stopping
+ + JETTY-243 FULL
+ + JETTY-244 Fixed UTF-8 buffer overflow
+ + JETTY-245 Client API improvements
+ + JETTY-246 spaces in cookies
+ + JETTY-248 setContentLength after content written
+ + JETTY-250 protect attribute enumerations from modification
+ + JETTY-252 Fixed stats handling of close connection
+ + JETTY-254 prevent close of jar file by bad JVMs
+ + add ajp connector jar to jetty-jboss sar
+ + Added option to allow null pathInfo within context
+ + Added support for lowResourcesIdleTime to SelectChannelConnector
+ + BoundedThreadPool queues rather than blocks excess jobs.
+ + call preDestroy() after servlet/filter destroy()
+ + Ensure jetty/jboss uses servlet-spec classloading order
+ + Fix constructor for Constraint to detect wildcard role
+ + fix Dump servlet to handle primitive array types
+ + handle comma separated values for the Connection: header
+ + Improved Context setters for wadi support
+ + Improved handling of early close in AJP
+ + Support null pathInfo option for webservices deployed to jetty/jboss
+ + TagLibConfiguration uses resource input stream
+ + Workaround to call SecurityAssocation.clear() for jboss webservices calls to
+   ejbs

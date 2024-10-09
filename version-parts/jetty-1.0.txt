@@ -1,0 +1,20 @@
+jetty-1.0 - 01 January 1998
+ + Basic authentication
+ + Better configuration and setup for embedding in other Java applications.
+ + Faster HTTP server
+ + First release in com.mortbay package structure
+ + HTTP Server
+ + Included Util, JDBC, HTML, HTTP, Jetty MBServler-V4.5Beta + Using It
+   JSDK1.0Beta API + Improved HTML package. + Filter mechanism inspired by
+   JigSaw MBServler-V4
+ + Issue tracking application
+ + JDBC module IssueTracker-2.0
+ + JeevesA1.2 servlet API
+ + MBServlerV5 renamed to Jetty
+ + The IssueTracker HTTP server has been separated from the Issue Tracker
+   application and updated to the java.servlet interface. It is now called
+   MBServler
+ + User management IssueTracker-1.0 - Jan 1995
+ + Util classes from Intelligent Switched Systems. MBServler-V1 / IssueTracker
+   3.1
+ + Won the Australian Java Programming Contest!

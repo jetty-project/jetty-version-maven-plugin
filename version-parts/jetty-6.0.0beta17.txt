@@ -1,0 +1,15 @@
+jetty-6.0.0beta17 - 01 June 2006
+ + Added clover reports and enough tests to get >50% coverage
+ + Added config to disable file memory mapped buffers for windows
+ + Added Request.isHandled()
+ + BoundedThreadPool.doStop waits for threads to complete
+ + Connector lowResourceMaxIdleTime  implemented.
+ + ContextHandler.setConnectors replace setHosts
+ + Default servlet checks for aliases resources
+ + don't reset headers during forward
+ + Fixed IE SSL issue.
+ + Flush will flush all bytes rather than just some.
+ + Implemented runAs on servlets
+ + Protected WEB-INF and META-INF
+ + Recovered repository from Codehaus crash
+ + Refactored Synchronization of SelectChannelConnector

@@ -1,0 +1,62 @@
+jetty-7.0.2.RC0
+ + JETTY-776 Make new session-tests module to concentrate all reusable session
+   clustering test code
+ + JETTY-910 Allow request listeners to access session
+ + JETTY-983 Range handling cleanup
+ + JETTY-1133 Handle multiple URL ; parameters
+ + JETTY-1151 JETTY-1098 allow UTF-8 with 0 carry bits
+ + JETTY-1153 System property for UrlEncoded charset
+ + JETTY-1155 HttpConnection.close notifies HttpExchange
+ + JETTY-1156 SSL blocking close with JVM Bug busy key fix
+ + JETTY-1157 Don't hold array passed in write(byte[])
+ + JETTY-1163 AJP13 forces 8859-1 encoding
+ + JETTY-1174 Close rather than finish Gzipstreams to avoid JVM leak
+ + JETTY-1177 Allow error handler to set cacheControl
+ + JETTY-1179 Persistant session tables created on MySQL use wrong datatype
+ + JETTY-1184 shrink thread pool even with frequent small jobs
+ + JETTY-1192 Fixed Digested POST
+ + JETTY-1199 FindBugs cleanups
+ + 290765 Reset input for HttpExchange retry
+ + 292799 WebAppDeployer - start a started context?
+ + 292800 ContextDeployer - recursive setting is undone by FilenameFilter
+ + 294799 when configuring a webapp, don't look for WEB-INF/jetty6-web.xml
+ + 296569 removeLifeCycleListener() has no effect
+ + 296765 JMX Connector Server and ShutdownThread
+ + 297421 Hide server/system classes from WebAppClassLoader.getResources
+ + 297783 Handle HEAD reponses in HttpClient
+ + 298144 Unit test for jetty-client connecting to a server that uses Basic
+   Auth
+ + 298145 Reorganized test harness to separate the HTTP PUT and HTTP GET test
+   URLs
+ + 298234 Unit test for jetty-client handling different HTTP error codes
+ + 298667 DeploymentManager uses ContextProvider and WebAppProvider
+ + 299455 Enum support in JSONPojoConvertor
+ + 300178 HttpClients opens too many connections that are immediately closed
+ + 300733 Jars from lib/ext are not visible for my web application
+ + 300933 AbstractConnector uses concurrent objects for stats
+ + 301089 Improve statistics available in StatisticsHandler and
+   AbstractConnector
+ + 302018 Improve statistics available in AbstractSessionHandler
+ + 302198 Rename HttpClient authorization classes to Authentication
+ + 302244 invalid configuration boolean conversion in FormAuthenticator
+ + 302246 redirect loop using form authenticator
+ + 302556 CrossOriginFilter does not work correctly when
+   Access-Control-Request-Headers header is not present
+ + 302669 WebInfConfiguration.unpack() unpacks WEB-INF/* from a
+   ResourceCollection, breaking JSP reloading with ResourceCollections
+ + 303526 Added include cyphers
+ + 304307 Handle ;jsessionid in FROM Auth
+ + 304532 Skip some tests on IBM JVMs until resolved
+ + 304658 Inconsistent Expires date format in Set-Cookie headers with maxAge=0
+ + 304698 org.eclipse.jetty.http.HttpFields$DateGenerator.formatCookieDate()
+   uses wrong (?) date format
+ + 304781 Reset HttpExchange timeout on slow request content
+ + 304801 SSL connections FULL fix
+ + 305997 Coalesce buffers in ChannelEndPoint.flush()
+ + 306028 Enable TCP_NODELAY by default in client connectors
+ + 306330 Flush filter chain cache after Invoker servlet
+ + 306331 Session manager is kept after call to doScope
+ + Added IPAccessHandler
+ + COMETD-46 reset ContentExchange response content on resend
+ + JSON parses NaN as null
+ + Updated Servlet3Continuation to final 3.0.20100224

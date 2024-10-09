@@ -1,0 +1,20 @@
+jetty-6.0.0ALPHA0
+ + file may be sent as sent is a single operation.
+ + Improved "dependancy injection" and "inversion of control" design of
+   components
+ + Improved "interceptor" design of handlers
+ + Missing Request Dispatchers
+ + Missing Security
+ + Missing war support
+ + Missing web.xml based configuration
+ + Optional use of NIO Buffering so that efficient direct buffers and memory
+   mapped files can be used.
+ + Optional use of NIO gather writes, so that for example a HTTP header and a
+   memory mapped
+ + Optional use of NIO non-blocking scheduling so that threads are not
+   allocated per connection.
+ + Smart split buffer design allows large buffers to only be allocated to
+   active connections. The resulting memory savings allow very large buffers to
+   be used, which increases the chance of efficient asynchronous flushing and
+   of avoiding chunking.
+ + Totally rearchitected and rebuilt, so 10 years of cruft could be removed!

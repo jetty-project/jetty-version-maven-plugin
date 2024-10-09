@@ -1,0 +1,22 @@
+jetty-3.0.B03 - 09 October 2000
+ + Added append mode in RolloverFileLogSink
+ + Added release script
+ + Catch stop and destroy exceptions in HttpServer.stop()
+ + Expanded import package.*; lines
+ + Expanded leading tabs to spaces
+ + Handle ignorable spaces in WebApplication
+ + Handle ignorable spaces in XmlConfiguration
+ + Implemented request dispatching.
+ + Improved Context to Handler contract.
+ + Improved handler toString
+ + Improved Log rollover.
+ + Made LogSink a Lifecycle interface
+ + Parse but not handler startup ordering in web applications.
+ + Pass object to LogSink
+ + Redirect context only paths.
+ + Redo dynamic servlets handling
+ + Remove 411 checks as IE breaks this rule after redirect.
+ + Removed last remnants JDK 1.1 support
+ + Send request log via a LogSink
+ + Simplified path translation and real path calculation.
+ + Warn about explicit sets of WebApplication

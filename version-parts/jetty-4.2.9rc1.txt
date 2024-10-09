@@ -1,0 +1,15 @@
+jetty-4.2.9rc1 - 06 March 2003
+ + Added requestlog to HttpContext.
+ + Added support for client certs to AJP13.
+ + Added trust manager support to SunJsseListener.
+ + Allow delegated creation of WebApplication derivations.
+ + Check Data contraints before Auth constraints
+ + Cleaned up includes
+ + Dump servlet can load resources for testing now.
+ + Optional 2.4 behaviour for sessionDestroyed notification.
+ + ProxyHandler has black and white host list.
+ + Reduced default context cache sizes (Total 1MB file 100KB).
+ + Removed checking for single valued headers.
+ + Stop proxy url from doing user interaction.
+ + Turn request log buffering off by default.
+ + Work around URLClassloader not handling leading /

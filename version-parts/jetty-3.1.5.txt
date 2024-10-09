@@ -1,0 +1,10 @@
+jetty-3.1.5 - 11 December 2001
+ + Allow POSTs to static resources.
+ + Branched at Jetty_3_1
+ + cookies with maxage==0 expired 1 jan 1970
+ + Fixed ChunableInputStream.resetStream bug.
+ + Fixed formatting of redirectURLs for NS4.08
+ + Ignore IO errors when trying to persist connections.
+ + setCookie always has equals for cookie value
+ + stopJob/killStop in ThreadPool to improve stopping ThreadedServer on some
+   platforms.

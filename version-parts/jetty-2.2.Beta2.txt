@@ -1,0 +1,9 @@
+jetty-2.2.Beta2 - 12 June 1999
+ + Added all write methods to HttpOutputStream$SwitchOutputStream
+ + Added com.mortbay.Jetty.Server.shutdown() for gentler shutdown of server.
+   Called from Exit servlet
+ + Handle  path info of a dynamic loaded servlets and correctly set the servlet
+   path.
+ + HttpRequest.getParameterNames() no longer alters the order returned by
+   getQueryString().
+ + Standardized date format in persistent cookies.

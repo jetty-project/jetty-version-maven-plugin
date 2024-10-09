@@ -1,0 +1,17 @@
+jetty-2.2.Alpha0 - 06 May 1999
+ + Added reload method to ServletHolder, but no way to call it yet.
+ + Added ServletLoader implementation if ClassLoader.
+ + Changed options for FileServer
+ + Dynamic loading of servlets.
+ + Fixed date overflow in Cookies
+ + HttpHandlers given setProperties method to configure via Properties.
+ + HttpListener class can be configured
+ + HttpResponse.sendError avoids IllegalStateException
+ + Implemented ServletServer
+ + Improved PropertyTree implementation
+ + Improved SessionDump servlet
+ + Mime suffix mapping can be configured.
+ + New Server class using PropertyTree for configuration
+ + Old Jetty.Server class renamed to Jetty.Server21
+ + Removed historic API from sessions
+ + Removed SimpleServletServer

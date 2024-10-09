@@ -1,0 +1,10 @@
+jetty-7.0.0.RC3 - 07 August 2009
+ + JETTY-1074 JMX thread manipulation
+ + 277403 remove system properties
+ + 282447 concurrent destinations in HttpClient
+ + 283172 fix Windows build, broken on directory creation with the
+   DefaultServlet
+ + 283375 additional error-checking on SSL connector passwords to prevent NPE
+ + 283513 Check endp.isOpen when blocking read
+ + 285697 extract parameters if dispatch has query
+ + Improved deferred authentication handling

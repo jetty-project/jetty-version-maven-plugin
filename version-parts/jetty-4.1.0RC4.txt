@@ -1,0 +1,5 @@
+jetty-4.1.0RC4 - 30 August 2002
+ + Created statsLock sync objects to avoid deadlock when stopping.
+ + Included IbmJsseListener in the contrib directory.
+ + Reverted to 302 for all redirections as all clients do not understand 303
+ + Updated jasper2 to 4.1.10 tag.

@@ -1,0 +1,7 @@
+jetty-4.0.1RC2 - 14 May 2002
+ + 3DES Keylength was being reported as 0. Now reports 168 bits.
+ + Added confidential and integral redirections to HttpListener
+ + Better error for jre1.3 with 1.4 classes
+ + Cleaned up RD query string regeneration.
+ + Fixed ServletResponse.reset() to resetBuffer.
+ + Implemented the run-as servlet tag.

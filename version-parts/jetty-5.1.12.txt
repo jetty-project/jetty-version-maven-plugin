@@ -1,0 +1,6 @@
+jetty-5.1.12 - 22 November 2006
+ + JETTY-154 Cookies ignore single quotes
+ + Added support for TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+ + AJP protected against bad requests from mod_jk
+ + Quote single quotes in cookies
+ + Upgraded session ID generation to use SecureRandom

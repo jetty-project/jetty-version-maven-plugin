@@ -1,0 +1,16 @@
+jetty-7.0.0.M3 - 20 June 2009
+ + 274251 Allow dispatch to welcome files that are servlets (configurable)
+ + 276545 Quoted cookie paths
+ + 277403 Cleanup system property usage
+ + 277798 Denial of Service Filter
+ + 279725 Support 100 and 102 expectations
+ + 280707 client.HttpConnection does not catch and handle non-IOExceptions
+ + 281470 Handle the case where request.PathInfo() should be "/*"
+ + Added ContinuationThrowable
+ + added WebAppContext.setConfigurationDiscovered for servlet 3.0 features
+ + fixed race with expired async listeners
+ + Numerous cleanups from static code analysis
+ + Portable continuations for jetty6 and servlet3
+ + Refactored AbstractBuffers to HttpBuffers for performance
+ + refactored configuration mechanism
+ + Refactored continuations to only support response wrapping

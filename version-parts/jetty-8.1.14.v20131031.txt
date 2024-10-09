@@ -1,0 +1,6 @@
+jetty-8.1.14.v20131031 - 31 October 2013
+ + 417772 fixed low resources idle timeout
+ + 418636 Name anonymous filter and holders with classname-hashcode
+ + 419432 Allow to override the SslContextFactory on a per-destination basis
+ + 420048 DefaultServlet alias checks configured resourceBase
+ + 420530 AbstractLoginModule never fails a login

@@ -1,0 +1,5 @@
+jetty-3.1.8 - 06 June 2002
+ + Fixed /foo/../bar// bug in canonical path.
+ + Fixed no slash context redirection.
+ + Fixed singled threaded dynamic servlets
+ + Made SecurityConstraint.addRole() require authentication.

@@ -1,0 +1,15 @@
+jetty-6.1.0pre1 - 19 November 2006
+ + JETTY-151 Idle timeout only applies to blocking operations
+ + JETTY-171 Fixed filter mapping
+ + JETTY-172 use getName() instead of toString
+ + JETTY-173 restore servletpath after dispatch
+ + Added extras/jboss
+ + Added hierarchical destroy of mbeans
+ + Added override descriptor for deployment of RO webapps
+ + alternate optimizations of writer (use -Dbuffer.writers=true)
+ + Fixed NPE in bio.SocketEndPoint.getRemoteAddr()
+ + Major refactor of SelectChannel EndPoint for client selector
+ + release resource lookup in Default servlet
+ + Reverted UnixCrypt to use coersions (that effected results)
+ + Simplified ResourceCache and Default servlet
+ + Use ContextDeployer as main deployer in jetty.xml

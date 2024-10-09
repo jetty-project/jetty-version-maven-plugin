@@ -1,0 +1,7 @@
+jetty-2.1.0 - 22 February 1999
+ + Deprecated com.mortbay.Util.STF
+ + getServlet methods return null.
+ + image/jpg -> image/jpeg
+ + PropertyTrees (see new Demo page)
+ + ServletDispatch (see new Demo page)
+ + Session URL Encoding

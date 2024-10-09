@@ -1,0 +1,34 @@
+jetty-7.0.0pre2 - 30 June 2008
+ + JETTY-336 413 error for header buffer full
+ + JETTY-425 race in stopping SelectManager
+ + JETTY-568 Avoid freeing DirectBuffers. New locking NIO ResourceCache
+ + JETTY-569 Stats for suspending requests
+ + JETTY-572 Unique cometd client ID
+ + JETTY-576 servlet dtds and xsds not being loaded locally
+ + JETTY-578 OSGI Bundle-RequiredExcutionEnvironment set to J2SE-1.5
+ + JETTY-579 OSGI resolved management and servlet.resources import error
+ + JETTY-580 Fixed SSL shutdown
+ + JETTY-581 ContextPath constructor
+ + JETTY-582 final ISO_8859_1
+ + JETTY-584 handle null contextPath
+ + JETTY-587 persist sessions to database
+ + JETTY-588 handle Retry in ServletException
+ + JETTY-589 Added Statistics Servlet
+ + JETTY-590 Digest auth domain for root context
+ + JETTY-592 expired timeout callback without synchronization
+ + JETTY-595 SessionHandler only deals with base request session
+ + JETTY-596 proxy support in HttpClient
+ + JETTY-598 Added more reliable cometd message flush option
+ + JETTY-599 handle buffers consistently handle invalid index for poke
+ + JETTY-603 Handle IPv6 in HttpURI
+ + JETTY-605 Added optional threadpool to BayeuxService
+ + JETTY-606 better writeTo impl for BIO
+ + JETTY-607 Add GigaSpaces session clustering
+ + JETTY-609 jetty-client improvements for http conversations
+ + JETTY-610 jetty.class.path not being interpreted
+ + JETTY-611 make general purpose jar scanning mechanism
+ + JETTY-612 scan for web.xml fragments
+ + JETTY-613 various distribution related changes
+ + JETTY-614 scanner allocates hashmap on every iteration
+ + JETTY-615 Replaced CDDL servlet.jar with Apache-2.0 licensed version
+ + JETTY-623 ServletContext.getServerInfo() non compliant

@@ -1,0 +1,7 @@
+jetty-2.2.4 - 02 August 1999
+ + Better help on Jetty.Server
+ + Fixed bugs in HtmlFilter parser and added TestHarness.
+ + HtmlFilter blanks IfModifiedSince headers on construction
+ + HttpRequests may be passed to HttpFilter constructors.
+ + Improved cfg RCS script.
+ + ThreadedServer can use subclasses of Thread.

@@ -1,0 +1,6 @@
+jetty-7.6.15.v20140411 - 11 April 2014
+ + 422137 Added maxQueued to QueuedThreadPool MBean
+ + 425038 WebSocketClient leaks file handles when exceptions are thrown from
+   open()
+ + 425551 Memory Leak in SelectConnector$ConnectTimeout.expired
+ + 432452 ConnectHandler does not timeout sockets in FIN_WAIT2

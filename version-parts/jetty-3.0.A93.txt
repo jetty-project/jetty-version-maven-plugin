@@ -1,0 +1,3 @@
+jetty-3.0.A93 - 14 June 2000
+ + Lots of changes and probably unstable
+ + Major rethink! Moved to 2.2 servlet API

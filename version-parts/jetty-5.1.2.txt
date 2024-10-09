@@ -1,0 +1,5 @@
+jetty-5.1.2 - 18 January 2005
+ + Apply patch #1103953
+ + Added id and ref support to XmlConfiguration
+ + Cleaned up AbstractSessionManager synchronization.
+ + Fixed potential concurrent login problem with JAAS

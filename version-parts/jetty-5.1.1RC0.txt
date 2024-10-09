@@ -1,0 +1,5 @@
+jetty-5.1.1RC0 - 17 November 2004
+ + added new contributed shell start/stop script
+ + excluded ErrorPageHandler from standard build in extra/jdk1.2 build
+ + fix commons logging imports to IbmJsseListener
+ + fix for adding recognized EventListeners

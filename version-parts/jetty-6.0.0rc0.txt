@@ -1,0 +1,42 @@
+jetty-6.0.0rc0 - 07 July 2006
+ + add ability to have a lib/ext dir from which to recursively add all jars and
+   zips to the classpath
+ + Added 8 random letters&digits to Jetty-generated tmp work dir name to ensure
+   uniqueness
+ + added html module from jetty 5 - but deprecated until maintainer found
+ + Added maximum limit to filter chain cache.
+ + added setters and getters on SessionManager API for session related config:
+   cookie name, url parameter name, domain, max age and path.
+ + added StatisticsHandler and statistics on Connector.
+ + Added WebAppContextClassLoader.newInstance to better support exensible
+   loaders.
+ + allow <key> or <name> in <systemProperty> for plugin
+ + changed ServletContext.getResourcePaths()  to not return paths containing
+   double slashes
+ + change name of generated tmp directory to be
+   "Jetty_"+host+"_"+port+"_"+contextpath+"_"+virtualhost
+ + change prefix from "jetty6" to just "jetty" for plugin: eg is now mvn
+   jetty:run
+ + Cleaned up idle expiry.
+ + ContextHandlerCollection addContext and setContextClass
+ + Discard excess bytes in header buffer if connection is closing
+ + Do not wrap EofException with EofException
+ + ensure explicitly set tmp directory called "work" is not deleted on exit
+ + Ensure mvn clean cleans the build
+ + ensure war is only unpacked if war is newer than "work" directory
+ + fixed classesDirectory param for maven plugin to be configurable
+ + fixed HttpGenerator convertion of non UTF-8: JETTY-82
+ + immutable getParameterMap()
+ + patch to allow Jetty to use JSP2.1 from Glassfish instead of Jasper from
+   Tomcat
+ + refactor HttpChannelEndPoint in preparation for SslEngine
+ + reverse order for destroy event listeners
+ + simplified jetty.xml with new constructor injections
+ + Simplified Servlet Context API
+ + Simplify runtime resolution of JSP library for plugin
+ + Ssl algorithm taken from system property
+ + support <load-on-startup> for SingleThreadModel
+ + support graceful shutdown
+ + Threadpool does not need to be a LifeCycle
+ + Updated javax code from
+   http://svn.apache.org/repos/asf/tomcat/tc6.0.x/trunk/java/javax@417727

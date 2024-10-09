@@ -1,0 +1,9 @@
+jetty-4.0.3 - 20 June 2002
+ + Allow comma separated cookies and headers
+ + Allow session manager to be initialized when set.
+ + Better recycling of HttpRequests.
+ + Fixed close propagation of on-chunked output streams
+ + Fixed japanese locale
+ + Force security disassociation.
+ + Protect session.getAttributeNames from concurrent modifications.
+ + WebapplicationContext.start sets context loader

@@ -1,0 +1,7 @@
+jetty-5.0.alpha1 - 12 August 2003
+ + Implemented locale encoding mapping.
+ + Improve combinations of Security Constraints
+ + Server javadoc from war
+ + Switched to mx4j
+ + Synced with 4.2.12
+ + Updated to Jasper 5.0.7

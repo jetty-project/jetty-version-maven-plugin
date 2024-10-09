@@ -1,0 +1,2 @@
+jetty-5.1.8 - 07 December 2005
+ + Fixed space in URL issued created in 5.1.6

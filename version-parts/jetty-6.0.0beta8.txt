@@ -1,0 +1,16 @@
+jetty-6.0.0beta8 - 24 January 2006
+ + conveniance addHandler removeHandler methods
+ + fixed bug in overloaded write method on HttpConnection (reported against
+   Tapestry4.0)
+ + fixed dispatch of new session problem. sf:1407090
+ + Handle pipeline requests without hangs
+ + hid org.apache.commons.logging and org.slf4j packages from webapp
+ + improve buffer return mechanism.
+ + improved caching of content types
+ + maven-jetty6-plugin: ensure compile is done before invoking jetty
+ + maven-jetty6-plugin: support all types of artifact dependencies
+ + maven-jetty6-plugin stopped transitive inclusion of log4j and
+   commons-logging from commons-el for jasper
+ + patch to remove spurious ; in HttpFields
+ + reinstated rfc2616 test harness
+ + Removed queue from thread pool.

@@ -1,0 +1,2 @@
+jetty-3.0.4 - 23 February 2001
+ + Fixed LineInput bug with split CRLF.

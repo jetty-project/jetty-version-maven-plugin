@@ -1,0 +1,13 @@
+jetty-4.1.D2 - 24 June 2002
+ + Added AJP13 listener for apache integration.
+ + Allow comma separated cookies and headers
+ + Back out Don't chunk 30x empty responses.
+ + Better recycling of HttpRequests.
+ + Conditional header tested against welcome file not directory.
+ + Fixed ChunkableOutputStream close propagation
+ + Improved ThreadedServer stopping on bad networks
+ + Moved jmx classes from JettyExtra to here.
+ + Protect session.getAttributeNames from concurrent modifications.
+ + Set contextloader during webapplicationcontext.start
+ + Support trusted external authenticators.
+ + Use ThreadLocals to avoid unwrapping in Dispatcher.

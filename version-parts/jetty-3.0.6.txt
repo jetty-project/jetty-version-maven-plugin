@@ -1,0 +1,7 @@
+jetty-3.0.6 - 26 April 2001
+ + Fixed EOF handlding in MultiPartRequest.
+ + Fixed forwarding to null pathInfo requests.
+ + Fixed handling of empty responses at header commit.
+ + Fixed ResourceHandler handling of ;JSESSIONID
+ + Fixed sync of ThreadPool idleSet.
+ + Load-on-startup the JspServlet so that precompiled servlets work.

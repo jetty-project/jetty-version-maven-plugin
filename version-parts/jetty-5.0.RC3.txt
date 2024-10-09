@@ -1,0 +1,12 @@
+jetty-5.0.RC3 - 28 August 2004
+ + Added parameters for acceptQueueSize and lowResources level.
+ + Always say close for HTTP/1.0 non keep alive.
+ + Changed default URI encoding to UTF-8
+ + DIGEST auth handles qop, stale and maxNonceAge.
+ + fixed deployment of ejb-link elements in web.xml with jboss
+ + fixed jaas logout for jetty-jboss
+ + Fixes to work with java 1.5
+ + JettyPlus addition of pluggable DataSources
+ + JettyPlus upgrade to XAPool 1.3.3. and HSQLDB 1.7.2
+ + Less verbose warning for non validating xml parser.
+ + Update to jasper 5.0.27

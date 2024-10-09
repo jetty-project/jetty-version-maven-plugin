@@ -1,0 +1,4 @@
+jetty-2.3.0 - 05 October 1999
+ + Added SetUID class with native Unix call to set the effective User ID.
+ + FTP closes files after put/get.
+ + FTP uses InetAddress of command socket for data socket.

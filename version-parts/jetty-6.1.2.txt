@@ -1,0 +1,9 @@
+jetty-6.1.2 - 01 May 2007
+ + JETTY-322 fix ajp cpong response and close handling
+ + JETTY-324 fix ant plugin
+ + JETTY-328 updated jboss
+ + Added static member definition in WadiSessionManager
+ + Fixed session invalidation error in WadiSessionManager
+ + Improved unavailabile handling
+ + sendError resets output state
+ + Updated Wadi to version 2.0-M3

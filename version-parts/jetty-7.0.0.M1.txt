@@ -1,0 +1,12 @@
+jetty-7.0.0.M1 - 22 April 2009
+ + JETTY-695 Handler dump
+ + JETTY-983 DefaultServlet generates accept-ranges for cached/gzip content
+ + 271258 FORM Authentication dispatch handling avoids caching
+ + 271536 Add support to IO for quietly closing Readers / Writers
+ + 273011 JETTY-980 JETTY-992 Security / Directory Listing XSS present
+ + 273101 Fix DefaultServletTest XSS test case
+ + 273153 Test for Nested references in DispatchServlet
+ + Initial support for LoginService.logout
+ + Removed HTTPConnection specifics from connection dispatching
+ + Reworked authentication for deferred authentication
+ + Reworked JMX for new layout

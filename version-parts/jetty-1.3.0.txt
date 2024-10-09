@@ -1,0 +1,3 @@
+jetty-1.3.0
+ + Added DbAdaptor to JDBC wrappers
+ + Beta release of Tracker

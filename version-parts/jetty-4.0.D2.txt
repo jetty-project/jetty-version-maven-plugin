@@ -1,0 +1,18 @@
+jetty-4.0.D2 - 02 December 2001
+ + added addWebApplications auto discovery
+ + Allow POSTs to static resources.
+ + Better handling of charset in form encoding.
+ + Disabled last forwarding by setPath()
+ + Fixed ChunableInputStream.resetStream bug.
+ + Fixed formatting of redirect URLs.
+ + Ignore IO errors when trying to persist connections.
+ + Made the root context a webapplication.
+ + Moved demo docroot/servlets to demo directory
+ + New event model to decouple from beans container.
+ + Removed Demo.java (until updated).
+ + Removed ForwardHandler.
+ + Removed most of the old doco, which needs to be rewritten and added again.
+ + Removed Request set methods (will be replaced)
+ + Restructured for demo and test hierarchies
+ + stopJob/killStop in ThreadPool to improve stopping ThreadedServer on some
+   platforms.

@@ -1,0 +1,10 @@
+jetty-4.2.6 - 24 January 2003
+ + Added HttpContext.setHosts to restrict context by real interface.
+ + Added MBeans for session managers
+ + Added version to HttpServerMBean.
+ + Allow AJP13 buffers to be resized.
+ + ClientCertAuthentication updates request.
+ + Fixed LineInput problem with expanded buffers.
+ + Fixed rel sendRedirects for root context.
+ + Improved SocketChannelListener contributed.
+ + Improved synchronization on AbstractSessionManager.

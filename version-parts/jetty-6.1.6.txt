@@ -1,0 +1,8 @@
+jetty-6.1.6 - 18 November 2007
+ + JETTY-455 Optional cometd id
+ + JETTY-459 Unable to deploy from Eclipse into the root context
+ + JETTY-461 fixed cometd unknown channel
+ + JETTY-464 typo in ErrorHandler
+ + JETTY-465 System.exit() in constructor exception for MultiPartOutputStream
+ + rudimentary debian packaging
+ + updated grizzly connector to 1.6.1

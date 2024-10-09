@@ -1,0 +1,13 @@
+jetty-6.0.0beta9 - 09 February 2006
+ + Added CGI servlet.
+ + Added request log.
+ + Added TLD tag listener handling.
+ + Continuation cleanup
+ + Fixed dispatch of wrapped requests.
+ + Fixed double flush of short content.
+ + fixed setLocale bug sf1426940
+ + Fixed unraw decoding of query string
+ + Force a tempdir to be set.
+ + Force jasper scratch dir.
+ + PathMap for direct context mapping.
+ + Refactored chat demo and upgraded prototype.js

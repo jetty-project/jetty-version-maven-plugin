@@ -1,0 +1,18 @@
+jetty-7.2.0.v20101020 - 20 October 2010
+ + JETTY-1288 Info statement when atypical classloader set on WebAppContext
+ + JETTY-1289 LRU cache for filter chains
+ + 289540 added javadoc into distribution
+ + 297154 add source distribution artifact
+ + 323985 Xmlconfiguration pulls start.jar config properties
+ + 324369 Improved handling of multiple versions of
+   draft-ietf-hybi-thewebsocketprotocol
+ + 326734 Configure Digest maxNonceAge with Security handler init param
+ + 327109 Fixed AJP handling of empty packets
+ + 327183 Allow better configurability of HttpClient for TLS/SSL
+ + 327469 removed needless java6 dependencies
+ + 327562 Implement all X-Forwarded headers in ProxyServlet
+ + 327601 Multipart Filter handles quoted tokens
+ + 327725 Nested ResourceCaches
+ + 328199 Ensure blocking connectors always close socket
+ + 328205 Improved SelectManager stopping
+ + 328273 Added serializable to default user identity

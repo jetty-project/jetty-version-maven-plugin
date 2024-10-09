@@ -1,0 +1,9 @@
+jetty-9.3.11.M0 - 22 June 2016
+ + 425 Incorrect @ServerEndpoint Encoder/Decoder lifecycle
+ + 624 AsyncContext.onCompleted called twice
+ + 645 jetty-requestlog.xml default log path
+ + 654 Jetty 9.3 ServletContext.getResourceAsStream("/") returns an unusable
+   stream
+ + 659 CONNECT request fails spuriously
+ + 660 NullPointerException in Request.getParameter: _parameters is null
+ + 661 JsrExtension is missing hashCode() and equals()

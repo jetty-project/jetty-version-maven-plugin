@@ -1,0 +1,11 @@
+jetty-2.2.5 - 19 August 1999
+ + Always close connection after a bad request.
+ + Better default handling of ServletExceptions
+ + Close loaded class files so Win32 can overwrite them before GC (what a silly
+   file system!).
+ + Don't override the cookie as parameter option.
+ + Fixed bug with closing connections in ThreadedServer
+ + Improved error messages from Jetty.Server.
+ + Limited growth in MultiPartResponse boundary.
+ + Made start and stop non final in ThreadedServer
+ + Set Expires header in HtmlFilter.

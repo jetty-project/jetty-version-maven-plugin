@@ -1,0 +1,7 @@
+jetty-3.0.A8 - 04 May 2000
+ + addCookie takes an int maxAge rather than a expires date.
+ + Added LogSink extensible log architecture.
+ + Added Tenlet class for reverse telnet.
+ + Code.ignore only outputs when debug is verbose.
+ + Moved Sevlet2_1 handler to com.mortbay.Servlet2_1
+ + Servlet2_1 class loading re-acrchitected. See README.

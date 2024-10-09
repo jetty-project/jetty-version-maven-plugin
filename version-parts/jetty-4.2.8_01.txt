@@ -1,0 +1,11 @@
+jetty-4.2.8_01 - 18 February 2003
+ + Added a SetResponseHeadersHandler, can set P3P headers etc.
+ + Added MBeans for Servlets and Filters
+ + Added option to resolve remote hostnames.  Defaults to off.
+ + Default servlet can have own resourceBase.
+ + Fixed AdminServlet to handle changed getServletPath better.
+ + Fixed CGI servlet to handle multiple headers.
+ + Moved ProxyHandler to the src1.4 tree
+ + Patched first release of 4.2.8 with correct version number
+ + ProxyHandler can handle multiple cookies.
+ + Rolled back SocketChannelListener to 4.2.5 version

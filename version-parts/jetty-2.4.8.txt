@@ -1,0 +1,4 @@
+jetty-2.4.8 - 23 October 2000
+ + Fixed bug with 304 replies with bodies.
+ + Fixed closing socket problem
+ + Improved win32 make files.

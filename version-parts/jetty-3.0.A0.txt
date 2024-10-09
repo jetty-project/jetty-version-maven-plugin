@@ -1,0 +1,25 @@
+jetty-3.0.A0 - 09 October 1999
+ + Added generalized HTTP Connection.
+ + Added support for servlet 2.2 outbut buffer control.
+ + Added support for transfer and content encoding filters.
+ + Cleaned up chunking code to use LineInput and reduce buffering.
+ + Cleanup and abstraction of ThreadPool.
+ + Cleanup of HttpRequest and decoupled from Servlet API
+ + Cleanup of HttpResponse and decoupled from Servlet API
+ + Cleanup of LineInput, using 1.2 Collections.
+ + Cleanup of URI, using 1.2 Collections.
+ + Cleanup of UrlEncoded, using 1.2 Collections.
+ + Created RFC2616 test harness.
+ + Extended URI to handle absolute URLs
+ + Generalized notification of outputStream events.
+ + gzip and deflate request transfer encodings
+ + HttpExceptions now produce error pages with specific detail of the
+   exception.
+ + HttpMessage supports chunked trailers.
+ + HttpMessage supports message states.
+ + Moved com.mortbay.Base classes to com.mortbay.Util
+ + Moved HttpInput/OutputStream to ChunkableInput/OutputStream.
+ + Split HttpHeader into HttpFields and HttpMessage.
+ + Started fresh repository in CVS
+ + TE field coding and trailer handler
+ + ThreadedServer based on ThreadPool.

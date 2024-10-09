@@ -1,0 +1,16 @@
+jetty-4.0.B2 - 25 February 2002
+ + Accept jetty-web.xml or web-jetty.xml in WEB-INF
+ + Added LoggerLogSink to direct Jetty Logs to JDK1.4 Log.
+ + Added optional JDK 1.4 src tree
+ + Added org.mortbay.http.JDBCUserRealm
+ + Added String constructor to XmlConfiguration.
+ + Adjust servlet facades for welcome redirection
+ + Improved default jetty.xml
+ + Improve handling of unknown URL protocols.
+ + Init classloader for JspServlet
+ + Minor Jasper updates
+ + o.m.u.Frame uses JDK1.4 stack frame handling
+ + Simplified addWebApplication
+ + Slightly more agressive eating unused input from non persistent connection.
+ + Start ServletHandler as part of the FilterHandler start.
+ + User / mapping rather than /* for servlet requests to static content

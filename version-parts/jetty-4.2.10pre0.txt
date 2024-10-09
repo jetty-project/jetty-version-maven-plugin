@@ -1,0 +1,22 @@
+jetty-4.2.10pre0 - 05 May 2003
+ + Added ability to override jetty startup class by using -Djetty.server on
+   runline
+ + Allow params in form auth URLs
+ + Allow query params in error page URL.
+ + Apply the append flag of RolloverFileOutputStream constructor.
+ + Fixed CRLF bug in MultiPartRequest
+ + Fixed table refs in JDBCUserRealm.
+ + FORM Authentication is serializable for session distribution.
+ + getAuthType maps the HttpServletRequest final strings.
+ + getAuthType returns CLIENT_CERT instead of CLIENT-CERT.
+ + Incorporate jetty extra and plus into build
+ + Incorporate JettyPlus jotm etc into build.
+ + Integrate with JAAS
+ + Massive reorg of the CVS tree.
+ + Merge multivalued parameters in dispatcher.
+ + Moved Log4JLogSink into JettyPlus
+ + New look and feel for www site.
+ + ProxyHandler checks black and white lists for Connect.
+ + RolloverFileOutputStream manages Rollover thread.
+ + Updated to jasper jars from tomcat 4.1.24
+ + Warn if max form content size is reached.

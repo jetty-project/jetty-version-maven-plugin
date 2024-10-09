@@ -1,0 +1,6 @@
+jetty-4.0.1 - 22 May 2002
+ + Fixed "null" return from getRealPath
+ + Fixed contextclassloader on ServletContextEvents.
+ + OutputStreamLogSink config improvements
+ + Support graceful stopping of context and server.
+ + Updated jasper to 16 May snapshot

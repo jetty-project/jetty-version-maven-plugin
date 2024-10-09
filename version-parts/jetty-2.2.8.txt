@@ -1,0 +1,7 @@
+jetty-2.2.8 - 15 September 1999
+ + Added disableLog() to turn off logging.
+ + Allow default table attributes to be overriden.
+ + Fixed bug in Element.attribute with empty string values.
+ + Improved quoting in HTML element values
+ + Made translation of getRequestURI() optional.
+ + Removed recursion from TranslationHandler

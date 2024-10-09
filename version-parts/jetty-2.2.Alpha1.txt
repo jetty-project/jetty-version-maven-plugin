@@ -1,0 +1,7 @@
+jetty-2.2.Alpha1 - 07 May 1999
+ + Call destroy on old servlets when reloading.
+ + Dynamic servlets can have autoReload configured
+ + Fixed bug in SessionDump
+ + Made capitalization of config file more consistent(ish)
+ + ServletHolder can auto reload servlets
+ + Wait for requests to complete before reloading.

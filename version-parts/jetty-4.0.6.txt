@@ -1,0 +1,7 @@
+jetty-4.0.6 - 24 October 2002
+ + Clear interrupted status in ThreadPool
+ + fixed forward attribute handling for jsp-file servlets
+ + Fixed forward query string handling
+ + Fixed handling of relative sendRedirect after forward.
+ + Fixed setCharacterEncoding to work with getReader
+ + Fixed virtual hosts temp directories.

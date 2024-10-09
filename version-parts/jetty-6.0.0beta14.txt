@@ -1,0 +1,22 @@
+jetty-6.0.0beta14 - 09 April 2006
+ + added configurability for webdefault.xml in maven plugin
+ + Added Jasper 2.1 as jesper (jasper without JCL)
+ + added jetty-util.jar module
+ + Added JSP 2.1 APIs from apache
+ + added ProxyServlet
+ + added reset to Continuation
+ + added support for stopping jetty using "java -jar start.jar --stop"
+ + adding InvokerServlet
+ + Change tmp dir of plugin to work to be in line with jetty convention
+ + fixed forward bug (treated as include)
+ + fixed HttpField iterator
+ + fixed priority of port from url over host header
+ + ignore dirs and files that don't exist in plugin scanner
+ + implemented request.isUserInRole
+ + improved contentType handling and test harness
+ + Modify plugin to select JSP impl at runtime
+ + moved test webapps to examples directory
+ + securityHandler removed if not used.
+ + Started readding logging to jesper using jdk logging
+ + stop JDBCUserRealm coercing all credentials to String
+ + Use start.config to select which JSP impl at runtime based on jdk version

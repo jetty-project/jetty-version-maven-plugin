@@ -1,0 +1,15 @@
+jetty-5.0.alpha2 - 19 September 2003
+ + Correctly setup context classloader in cross context dispatch.
+ + Fixed error page handling of IO and Servlet exceptions.
+ + Implemented ServletRequestListeners as optional filter.
+ + Improved JMX start.
+ + minor doco updates.
+ + Moved error page mechanism to be webapp only.
+ + moved mailing lists to sourceforge.
+ + MultipartRequest supports multi value headers.
+ + Put a semi busy loop into proxy tunnels for IE problems
+ + Turn off validation without non-xerces errors
+ + Update jakarta examples
+ + Use commons logging.
+ + Use log4j if extra is present.
+ + XML entity resolution uses URLs not Resources

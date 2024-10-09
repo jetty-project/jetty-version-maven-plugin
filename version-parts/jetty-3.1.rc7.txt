@@ -1,0 +1,18 @@
+jetty-3.1.rc7 - 09 August 2001
+ + Added doco for Linux port redirection.
+ + Added FORM authentication.
+ + Added method handling to HTAccessHandler.
+ + Added shutdown hooks to Jetty.Server to trap Ctl-C
+ + Added UML diagrams to Jetty architecture documentation.
+ + Added utility methods to ServletHandler for wrapping req/res pairs.
+ + Don't persist connections if low on threads.
+ + Dump Servlet displays cert chains
+ + Fix bug in sendRedirect for HTTP/1.1
+ + Fixed bug with session ID generation.
+ + Fixed redirect handling by the CGI Servlet.
+ + Fixed request.getPort for redirections from 80
+ + Optimized HttpField handling to reduce object creatiyon.
+ + Remove old context path specs
+ + ServletRequest SSL attributes in line with 2.2 and 2.3 specs.
+ + ServletResponse.sendRedirect puts URLs into absolute format.
+ + Use Enumerations to reduce conversions for servlet API.

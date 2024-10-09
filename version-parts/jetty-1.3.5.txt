@@ -1,0 +1,5 @@
+jetty-1.3.5 - 01 May 1998
+ + Added date format to Log
+ + Correct handling of multiple parameters
+ + Debug triggers added to com.mortbay.Base.Code
+ + Fixed socket inet bug in FTP

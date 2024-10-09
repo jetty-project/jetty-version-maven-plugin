@@ -1,0 +1,17 @@
+jetty-3.1.0 - 21 September 2001
+ + Added HandlerContext.registerHost
+ + Added long overdue Tutorial documentation.
+ + Fix .. handling in URI
+ + Fix flush on stop bug in logs.
+ + Fix FORM authentication on exact patterns
+ + Fix Jetty.bat for spaces.
+ + Fix param reading on CGI servlet
+ + Fix REFFERER in CGI
+ + Fix ResourceHandler cache invalidate.
+ + Fix reuse of Resource
+ + Fix ServletResponse.setLocale()
+ + Improved closing of listeners.
+ + Improved some other documentation.
+ + New simplified jetty.bat
+ + Optimized List creation
+ + Removed win32 service.exe

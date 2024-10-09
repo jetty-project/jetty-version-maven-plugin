@@ -1,0 +1,10 @@
+jetty-2.3.4 - 18 January 2000
+ + Cookie map keyed on domain as well as name and path.
+ + DictionaryConverter handles null values.
+ + Fixed IllegalStateException handling in DefaultExceptionHandler
+ + Fixed interaction with resourcePaths and proxy demo.
+ + Improved HtmlFilter.activate header modifications.
+ + include from linux rather than genunix for native builds
+ + MethodTag.invoke() is now public.
+ + Servlet properties allow objects to be stored.
+ + URI decodes applies URL decoding to the path.

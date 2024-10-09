@@ -1,0 +1,13 @@
+jetty-7.0.0.RC2 - 29 June 2009
+ + 283375 improved extensibility of SSL connectors
+ + 283818 fixed merge of forward parameters
+ + 283844 Webapp / TLD errors are not clear
+ + 284475 update jetty.sh for new OPTIONS syntax
+ + 284510 Enhance jetty-start for diagnosis and unit testing
+ + 284981 Implement a cross-origin filter
+ + 285006 fix AbstractConnector NPE during shutdown
+ + Added DebugHandler
+ + Added JavaUtilLog for Jetty logging to java.util.logging framework
+ + backport jetty-8 annotation parsing to jetty-7
+ + Disassociate method on IdentityService
+ + Improved handling of overlays and resourceCollections

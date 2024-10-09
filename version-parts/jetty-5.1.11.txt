@@ -1,0 +1,7 @@
+jetty-5.1.11 - 08 October 2006
+ + Default servlet only uses setContentLength on wrapped responses
+ + Fixed AJP chunk header (1507377)
+ + Fixed AJP handling of certificate length (1494939)
+ + fixed ByteBufferOutputStream capacity calculation
+ + Fixed order of destruction event calls
+ + Fix to HttpOutputStream from M.Traverso

@@ -1,0 +1,8 @@
+jetty-2.1.6 - 21 April 1999
+ + Added additional date formats for HttpHeader.getDateHeader
+ + New simpler version of PropertyTree
+ + Reduced initial size of most hashtables to reduce default memory overheads.
+ + Return EOF from HttpInputStream that has a content length.
+ + Throw IllegalStateException as required from gets of
+   input/output/reader/writer in requests/responses.
+ + Updated PropertyTreeEditor

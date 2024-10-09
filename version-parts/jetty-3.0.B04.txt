@@ -1,0 +1,11 @@
+jetty-3.0.B04 - 12 October 2000
+ + Added modified version of JasperB3.2 for JSP
+ + Added webdefault.xml for web applications.
+ + Do not try multiple servlets for a request.
+ + Filthy hack to teach jasper JspServer Jetty classpath
+ + Fixed problem with session ID in paths
+ + Implemented Context.getContext(uri)
+ + Merged and renamed third party jars.
+ + Moved FileBase to docroot
+ + Redirect to index files, so index.jsp works.
+ + Restricted context mapping to simple model for servlets.

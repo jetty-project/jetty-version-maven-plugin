@@ -1,0 +1,5 @@
+jetty-3.1.rc4 - 14 April 2001
+ + Added idle thread getter to ThreadPool.
+ + Include full versions of JAXP and Crimson
+ + Load-on-startup the JspServlet so that precompiled servlets work.
+ + Removed stray debug println from the Frame class.

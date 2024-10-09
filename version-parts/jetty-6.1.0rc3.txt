@@ -1,0 +1,9 @@
+jetty-6.1.0rc3 - 02 January 2007
+ + JETTY-195 fixed ajp ssl_cert handling
+ + JETTY-197 fixed getRemoteHost
+ + JETTY-203 initialize ServletHandler if no Context instance
+ + JETTY-204 setuid fix
+ + extras/servlet-tester
+ + implement resource injection and lifecycle callbacks declared in web.xml
+ + setLocale does not use default content type
+ + Use standard releases of servlet and jsp APIs.

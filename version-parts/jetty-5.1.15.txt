@@ -1,0 +1,4 @@
+jetty-5.1.15 - 18 May 2009
+ + JETTY-418 synchronized load class
+ + JETTY-1004 CERT VU402580 Canonical path handling includes ? in path segment
+ + Fixes for CERT438616-CERT237888-CERT21284

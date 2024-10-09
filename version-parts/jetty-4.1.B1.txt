@@ -1,0 +1,13 @@
+jetty-4.1.B1 - 19 July 2002
+ + Added 2.4 Filter dispatching support.
+ + Added PUT,DELETE,MOVE support to webapps.
+ + CGI Servlet, catch and report program invocation failure status.
+ + CGI Servlet, fixed suffix mapping problem.
+ + CGI Servlet, pass all HTTP headers through.
+ + CGI Servlet, set working directory for exec
+ + Moved dynamic servlet handling to Invoker servlet.
+ + Moved webapp resource handling to Default servlet.
+ + Reversed order of ServletContextListener.contextDestroyed calls
+ + Sessions create attribute map lazily.
+ + Support HTTP/0.9 requests again
+ + Updated mini.http.jar target

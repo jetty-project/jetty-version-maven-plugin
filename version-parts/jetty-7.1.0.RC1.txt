@@ -1,0 +1,26 @@
+jetty-7.1.0.RC1 - 05 May 2010
+ + JETTY-1030 Improve jetty.sh script
+ + JETTY-1142 Replace Set-Cookies with same name
+ + 286889 Allow System and Server classes to be set on Server instance and when
+   applied to all webapps
+ + 291448 SessionManager has isCheckingRemoteSessionIdEncoding
+ + 296650 JETTY-1198 reset idle timeout on request body chunks
+ + 297104 HTTP CONNECT does not work correct with SSL destinations
+ + 306782 Close connection when expected 100 continues is not sent
+ + 308848 Update test suite to JUnit4 - Module jetty-ajp
+ + 308861 Update test suite to JUnit4 - Module jetty-security
+ + 308864 Update test suite to JUnit4 - Module jetty-servlets
+ + 308865 Update test suite to JUnit4 - Module jetty-start
+ + 308868 Update test suite to JUnit4 - Module jetty-websocket
+ + 308869 Update test suite to JUnit4 - Module jetty-xml
+ + 309153 Hide extracted WEB-INF/lib when running a non-extracted war
+ + 309369 Added WebSocketLoadTest
+ + 309686 Fixed response buffers usage
+ + 310094 Improved start.jar options handling and configs
+ + 310382 NPE protection when WAR is not a file
+ + 310562 SslSocketConnector fails to start if excludeCipherSuites is set
+ + 310634 Get the localport when opening a server socket
+ + 310703 Update test suite to JUnit4 - Module tests/test-integration
+ + 310918 Synchronize content exchange
+ + 311154 Use Appendable in preference to StringBuilder/StringBuffer in APIs
+ + 311362 Optional org.eclipse.jetty.util.log.stderr.SOURCE

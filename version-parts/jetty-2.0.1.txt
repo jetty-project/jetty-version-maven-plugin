@@ -1,0 +1,2 @@
+jetty-2.0.1 - 27 October 1998
+ + Released under an Open Source license.

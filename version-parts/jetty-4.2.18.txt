@@ -1,0 +1,7 @@
+jetty-4.2.18 - 01 March 2004
+ + Added log4j context repository to jettyplus
+ + Default servlet respectes servlet path
+ + Fixed j2se 1.3 problem with HttpFields
+ + Improved log performance
+ + NPE guard for no-listener junit deployment
+ + Suppress some more IOExceptions

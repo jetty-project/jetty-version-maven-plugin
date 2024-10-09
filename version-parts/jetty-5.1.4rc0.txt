@@ -1,0 +1,7 @@
+jetty-5.1.4rc0 - 19 April 2005
+ + Allow ServletHandler in normal HttpContext again.
+ + HttpServer delegates component handling to Container.
+ + More protection from null classloaders.
+ + ServletHttpContext correctly calls super.doStop.
+ + Stop start.jar putting current directory on classpath.
+ + Turn off web.xml validation for JBoss.

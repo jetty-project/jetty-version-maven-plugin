@@ -1,0 +1,12 @@
+jetty-4.1.D0 - 05 June 2002
+ + Added OptimizeIt plug.
+ + Added TypeUtil to reduce Integer creation.
+ + BRAND NEW WebApplicationHandler & WebApplicationContext
+ + Experimental CLIENT-CERT Authenticator
+ + Fixed handler/context start order.
+ + Fixed web.dtd references.
+ + General clean up of the API for for MBean getters/setters.
+ + Removed the HttpMessage facade mechanism
+ + Restructured ResourceHandler into ResourceBase
+ + The 4.1 Series started looking for even more performance within the 2.3
+   specification.

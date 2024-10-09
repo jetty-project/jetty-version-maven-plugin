@@ -1,0 +1,6 @@
+jetty-2.4.9 - 12 November 2000
+ + HtmlFilter handles non default encodings
+ + HttpListener default max idle time = 20s
+ + HttpListener ignore InterruptedIOExceptions
+ + HttpRequest.write uses ISO8859_1 encoding.
+ + Writing HttpRequests encodes path

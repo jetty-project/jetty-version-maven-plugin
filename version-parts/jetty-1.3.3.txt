@@ -1,0 +1,4 @@
+jetty-1.3.3
+ + Closed exception window in HttpListener.java
+ + Fixed TableForm.addButtonArea bug.
+ + TableForm.extendRow() uses existing cell

@@ -1,0 +1,5 @@
+jetty-2.2.7 - 09 September 1999
+ + Added default row, head and cell elements to Table.
+ + Added GzipFilter for content encoding.
+ + FileHandler passes POST request through if the file does not exist.
+ + Reverted semantics of getRequestURI() to return untranslated URI.

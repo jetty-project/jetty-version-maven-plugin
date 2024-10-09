@@ -1,0 +1,26 @@
+jetty-6.1.0rc0 - 08 December 2006
+ + JETTY-123 fix improved
+ + JETTY-181 Allow injection of a java:comp Context
+ + JETTY-182 Optionally set JSP classpath initparameter
+ + JETTY-184 cometd connect non blocking
+ + JETTY-185 tmp filename generation
+ + JETTY-189 ProxyConnection
+ + 403 for BASIC authorization failure
+ + Added extras/gwt
+ + Added org.mortbay.thread.concurrent.ThreadPool
+ + Added spring ejb3 demo example
+ + DefaultHandler links virtual hosts.
+ + Dispatcher does not protect javax.servlet attributes
+ + Fixed cachesize on invalidate
+ + Fixed idle timeout
+ + flush if content-length written
+ + forward query attribute fix
+ + Handle request content encodings
+ + null for unknown named dispatches
+ + Optimization of writers
+ + ServletHandler allows non REQUEST exceptions to propogate
+ + Servlet role ref
+ + session attribute listener
+ + Support for RFC2518 102-processing response
+ + TCK fixes from Sybase:
+ + update jasper to glassfish SJSAS-9_1-B27-EA-07_Dec_2006

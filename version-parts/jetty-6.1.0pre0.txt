@@ -1,0 +1,53 @@
+jetty-6.1.0pre0 - 21 October 2006
+ + (re)make JAAS classes available to webapp classloader
+ + JETTY-112 ContextHandler checks if started
+ + JETTY-113 support optional query char encoding on requests
+ + JETTY-114 removed utf8 characters from code
+ + JETTY-115 Fixed addHeader
+ + JETTY-118 ignore extra content after close
+ + JETTY-119 cleanedup Security optimizatoin
+ + JETTY-121 init not called on externally constructed servlets
+ + JETTY-123 handle windows UNC paths
+ + JETTY-124 always initialize filter caches
+ + JETTY-126 handle content > Integer.MAX_VALUE
+ + JETTY-129 ServletContextListeners called after servlets are initialized
+ + add <Property> replacement in jetty xml config files
+ + add a maven-jetty-jspc-plugin to do jspc precompilation
+ + added cometd chat demo
+ + Added concept of bufferred endpoint
+ + Added conversion Object -> ObjectName for the result of method calls made on
+   MBeans
+ + Added DataFilter configuration to cometd
+ + added examples/test-jaas-webapp
+ + Added extras/setuid to support start as root
+ + Added ID constructor to AbstractSessionManager.Session
+ + added isStopped() in LifeCycle and AbstractLifeCycle
+ + add hot deployment capability
+ + AJP Connector
+ + Allow session cookie to be refreshed
+ + Apply queryEncoding to getQueryString
+ + CGI example in test webapp
+ + change examples/test-jndi-webapp so it can be regularly built
+ + Default soLinger is -1 (disabled)
+ + ensure "" returned for ServletContext.getContextPath() for root context
+ + ensure sessions nulled out on request recycle; ensure session null after
+   invalidate
+ + ensure setContextPath() works when invoked from jetty-web.xml
+ + Factored ErrorPageErrorHandler out of WebAppContext
+ + fixed ClassCastException in JAASUserRealm.setRoleClassNames(String[])
+ + fixed isUserInRole checking for JAASUserRealm
+ + Fixed tld parsing for maven plugin
+ + HttpGenerator can generate requests
+ + Improved *-mbean.properties files and specialized some MBean
+ + Improved charset handling in URLs
+ + JETYY-120 SelectChannelConnector closes all connections on stop
+ + make .tag files work in packed wars
+ + minor optimization of bytes to UTF8 strings
+ + Plugin shutdown context before stopping it.
+ + Ported HtAccessHandler
+ + Refactored ErrorHandler to avoid statics
+ + Refactored session lifecycle and additional tests
+ + Session IDs can change worker ID
+ + SocketConnector closes all connections in doStop
+ + Start of a client API
+ + Transforming classloader does not transform resources.

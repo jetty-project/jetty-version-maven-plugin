@@ -1,0 +1,2 @@
+jetty-4.2.25 - 04 January 2006
+ + Fixed aliasing of // for win32

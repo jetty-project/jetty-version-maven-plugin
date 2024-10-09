@@ -1,0 +1,11 @@
+jetty-7.0.0.RC4 - 18 August 2009
+ + JETTY-1057 XSS error page
+ + JETTY-1079 ResourceCollection.toString
+ + JETTY-1080 Ignore files that would be extracted outside the destination
+   directory when unpacking WARs
+ + 279820 Fixed HotSwapHandler
+ + 285891 SessionAuthentication is serializable
+ + 286185 Implement ability for JSON implementation to automatically register
+   convertors
+ + 286535 ContentExchange status code
+ + Added discoverable start options

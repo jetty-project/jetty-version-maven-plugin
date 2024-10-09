@@ -1,0 +1,5 @@
+jetty-4.2.7 - 04 February 2003
+ + Changed PathMap to conform to / getServletPath handling.
+ + Fixed proxy tunnel for non persistent connections.
+ + Relative sendRedirect handles trailing / correctly.
+ + Upgraded to JSSE 1.0.3_01 to fix security problem.

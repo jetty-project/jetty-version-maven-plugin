@@ -1,0 +1,42 @@
+jetty-7.3.0.v20110203 - 03 February 2011
+ + JETTY-1259 NullPointerException in JDBCSessionIdManager when invalidating
+   session (further update)
+ + 296978 standardizing various Testing Util Classes to jetty-test-helper
+ + 319178 test failure fix in jetty-util on windows
+ + 320457 add SPNEGO support
+ + 324505 Implement API login
+ + 328872 Multi Jetty xml files not loading if directory is referenced in
+   jetty.conf
+ + 329746 client option to set just truststore and use strict ssl context
+ + 331803 Update XML configuration files to use proper arguments for startup
+   command in examples
+ + 332179 Fixed formatting of negative dates
+ + 332432 Scanner.java now always scanning the canonical form of File
+ + 332517 Improved DefaultServlet debug
+ + 332703 Cleanup context scope JNDI at stop
+ + 332796 Annotations inheritance does not work with jetty7
+ + 332799 100% CPU on redeploy session invalidation
+ + 332937 Added Destroyable Dumpable interfaces and reworked dependent
+   lifecycles, specially of JNDI
+ + 333247 fix api compat issue in ConstraintSecurityHandler
+ + 333415 wired up HttpInput.available and added test harnesses
+ + 333481 Handle UTF-32 codepoints in decode and encode
+ + 333608 tlds defined in web.xml are not picked up
+ + 333679 Refactored jetty-jmx. Moved mbeans to modules
+ + 333717 HttpExchange able to return local address used
+ + 333771 System properties are not available inside XML configuration file by
+   using the 'property' tag
+ + 333875 Monitor public constructor
+ + 333892 Improved JVM bug detection
+ + 334062 It should be possible to embed in the jetty.home.bundle the ssl
+   keystore files
+ + 334229 javax-security needs to import the package javax.security.cert in its
+   OSGi manifest
+ + 334311 fix buffer reuse issue in CachedExchange
+ + 335329 Stop SSL spin during handshake and renogotiate
+ + 335361 Fixed 'jetty.sh check' to show current PID when JETTY_PID env
+   variable is set
+ + 335641 Cleaned up dispatch handling to avoid key.interestOps==0 when
+   undispatched
+ + 335681 Improve ChannelEndPoint.close() to avoid spinning
+ + 335836 Race when updating SelectChannelEndPoint._dispatched

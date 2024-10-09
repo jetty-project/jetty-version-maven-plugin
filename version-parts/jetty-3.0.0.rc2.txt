@@ -1,0 +1,9 @@
+jetty-3.0.0.rc2 - 29 October 2000
+ + Accept HTTP/1. as HTTP/1.0 (for netscape bug).
+ + Accept public DTD for XmlConfiguration (old style still supported).
+ + Cleaned up non persistent connection close.
+ + ErlEncoding treats params without values as empty rather than null.
+ + Fixed thread name problem in ThreadPool
+ + Pass file based classpath to JspServlet (see README).
+ + Prevented multiple init of ServletHolder
+ + Replaced ISO-8859-1 literals with StringUtil static

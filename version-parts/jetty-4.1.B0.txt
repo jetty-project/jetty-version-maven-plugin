@@ -1,0 +1,12 @@
+jetty-4.1.B0 - 13 July 2002
+ + Added work around of JDK1.4 bug with NIO listener
+ + Allow filter init to access servlet context methods.
+ + close rather than disable stream after forward
+ + Fixed close problem with load balancer.
+ + Fixed ThreadPool bug when minThreads <= CPUs
+ + Keep notFoundContext out of context mapping lists.
+ + mod_jk FAQ
+ + Moved 3rd party jars to $JETTY_HOME/ext
+ + NCSARequestLog can log to stderr
+ + RD.forward changes getRequestURI.
+ + Stopped RD.includes closing response.

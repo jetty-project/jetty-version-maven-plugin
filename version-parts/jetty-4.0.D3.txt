@@ -1,0 +1,15 @@
+jetty-4.0.D3 - 31 December 2001
+ + cookies with maxAge==0 expire on 1 jan 1970
+ + Corrected name to HTTP_REFERER in CGI Servlet.
+ + DateCache handles misses better.
+ + Fixed cached filter wrapping.
+ + Fixed ContextLoader lib handling.
+ + Fixed getLocale again
+ + Fixed UrlEncoding for % + combination.
+ + Generalized temp file handling
+ + HttpFields uses DateCache more.
+ + Made Frame members private and fixed test harness
+ + Moved admin port to 8081 to avoid JBuilder
+ + Patch jasper to 20011229101000
+ + Removed limits on mark in LineInput.
+ + setCookie always has equals

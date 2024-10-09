@@ -1,0 +1,11 @@
+jetty-3.0.0.rc1 - 22 October 2000
+ + Added CGI to demo
+ + Added HashUserRealm and cleaned up security constraints
+ + Added Multipart request and response classes from Jetty2
+ + Added simple admin servlet.
+ + All attributes in javax. java. and com.mortbay. name spaces to be set.
+ + Cleaned up exception handling.
+ + Initialize JSP with classloader.
+ + Moved and simplified ServletLoader to ContextLoader.
+ + Partial handling of 0.9 requests.
+ + removed Thread.destroy() calls.

@@ -1,0 +1,13 @@
+jetty-3.0.A2 - 13 October 1999
+ + Added cookie support and demo.
+ + Cleaned up Util TestHarness.
+ + Fixed LineInput problem with repeated CRs
+ + HEAD handling.
+ + HTTP/1.0 Keep-alive (about time!)
+ + NotFound Handler
+ + OPTION * Handling.
+ + Prevent entity content for responses 100-199,203,304
+ + Reduced flushing on writing response.
+ + TRACE handling.
+ + UTF8 handling on raw output stream.
+ + Virtual Hosts.

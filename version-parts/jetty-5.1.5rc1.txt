@@ -1,0 +1,9 @@
+jetty-5.1.5rc1 - 23 August 2005
+ + Encoded full path in ResourceHandler directory listing
+ + Fixed 100-continues with chunking and early commit
+ + Fixed illegal state with chunks and 100 continue - Tony Seebregts
+ + Fixed merge of Dispatcher parameters
+ + Fixed PKCS12Import input string method
+ + handle extra params after charset in header
+ + Release commons logging factories when stopping context.
+ + upgraded to commons logging 1.0.4

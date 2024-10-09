@@ -1,0 +1,3 @@
+jetty-1.1
+ + Improved connection caching in java.mortbay.JDBC
+ + Moved HttpCode to com.mortbay.Util

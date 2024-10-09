@@ -1,0 +1,14 @@
+jetty-2.4.0 - 24 March 2000
+ + Absolute URIs are returned by getRequestURI (if sent by browser).
+ + Added doc directory with a small start
+ + Added per servlet resourceBase configuration.
+ + Added VirtualHostHandler for virtual host handling
+ + Fixed bug with RequestDispatcher.include()
+ + Fixed caste problem in UrlEncoded
+ + Fixed null pointer in ThreadedServer with stopAll
+ + Form parameters only decoded for POSTs
+ + Implemented full handling of cookie max age.
+ + Improved parsing of stack trace in debug mode.
+ + Moved SetUID native code to contrib hierarchy
+ + RequestDispatcher handles URI parameters
+ + Upgraded to gnujsp 1.0.0

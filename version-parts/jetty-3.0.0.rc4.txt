@@ -1,0 +1,5 @@
+jetty-3.0.0.rc4 - 06 November 2000
+ + Fixed mime type mapping bug introduced in RC3
+ + Fixed mis-synchronization in ThreadPool.stop()
+ + Ignore more IOExceptions (still visible with debug).
+ + Provide default JettyIndex.properties

@@ -1,0 +1,14 @@
+jetty-2.3.1 - 14 October 1999
+ + Added assert with no message to Code
+ + Added Oracle DB adapter
+ + Changed demo servlets to use writers in preference to outputstreams
+ + Fixed GNUJSP 1.0 resource bug.
+ + Force UTF8 for FTP commands
+ + Force UTF8 for HTML
+ + HTTP/1.0 Keep-Alive (about time!).
+ + NullHandler/Server default name.name.PROPERTIES to load
+   prefix/name.name.properties
+ + Prevented thread churn on idle server.
+ + ThreadedServer calls setSoTimeout(_maxThreadIdleMs) on accepted sockets.
+   Idle reads will timeout.
+ + Use UTF8 in HTTP headers

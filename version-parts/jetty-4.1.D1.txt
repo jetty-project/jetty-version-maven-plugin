@@ -1,0 +1,9 @@
+jetty-4.1.D1 - 08 June 2002
+ + Added simple buffer pool.
+ + Don't chunk 30x empty responses.
+ + Fixed /foo/../bar// bug in canonical path.
+ + Fixed "" contextPaths in Dispatcher.
+ + Merged ResourceBase and SecurityBase into HttpContext
+ + Recycle servlet requests and responses
+ + Removed race for the starting of session scavaging
+ + Reworked output buffering to keep constant sized buffers.

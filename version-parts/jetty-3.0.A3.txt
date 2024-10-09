@@ -1,0 +1,6 @@
+jetty-3.0.A3 - 14 October 1999
+ + Added LifeCycle interface to Utils implemented by ThreadPool,
+   ThreadedServer, HttpListener & HttpHandler
+ + Added service method to HttpConnection for specialization.
+ + MaxReadTimeMs added to ThreadedServer.
+ + StartAll, stopAll and destroyAll methods added to HttpServer.

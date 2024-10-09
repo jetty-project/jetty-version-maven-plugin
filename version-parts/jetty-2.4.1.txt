@@ -1,0 +1,4 @@
+jetty-2.4.1 - 09 April 2000
+ + Fixed bug in HtmlFilter for tags split between writes.
+ + Removed debug println from ServletHolder.
+ + Set encoding before exception in FileHandler.

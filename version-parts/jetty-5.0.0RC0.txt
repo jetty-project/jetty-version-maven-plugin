@@ -1,0 +1,16 @@
+jetty-5.0.0RC0 - 07 April 2004
+ + Changed dist naming convention to lowercase
+ + Default servlet respectes servlet path
+ + Factored out XML based config from WebApplicationContext
+ + Fixed Default servlet for non empty servlet paths
+ + Fixed DOS problem
+ + Fixed j2se 1.3 problem with HttpFields
+ + Fixed setCharacterEncoding for parameters.
+ + Forced close of connections over stop/start
+ + Improved RequestLog performance
+ + ProxiedFor field support added to NCSARequestLog
+ + ServletContext attributes wrap HttpContext attributes.
+ + Updated jasper to 5.0.19
+ + Updated JettyPlus to JOTM 1.4.3 (carol-1.5.2, xapool-1.3.1)
+ + Updated mx4j to V2
+ + Worked around bad jboss URL handler in XMLParser

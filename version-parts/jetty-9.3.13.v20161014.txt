@@ -1,0 +1,6 @@
+jetty-9.3.13.v20161014 - 14 October 2016
+ + 295 Ensure Jetty Client use of Deflater / Inflater calls .end() to avoid
+   memory leak
+ + 926 No LSB Tags on jetty.sh script cause warning on Ubuntu 16.04
+ + 999 Create a Flight Recorder module
+ + 1000 Allow legacy behaviour if 2 servlets map to same path

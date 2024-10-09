@@ -1,0 +1,25 @@
+jetty-4.0.B0 - 04 February 2002
+ + Added AbstractSessionManager
+ + Added Array element to XMLConfiguration
+ + Added hack for compat tests in watchdog for old tomcat stuff
+ + Added index links to tutorial
+ + Allow listener schemes to be set.
+ + Common handling of TRACE
+ + Factor out RolloverFileOutputStream from OutputStreamLogSink
+ + Fixed HttpFields remove bug
+ + Handle special characters in resource file names better.
+ + HttpContext destroy
+ + Implemented 2.3 security constraint semantics PLEASE REVIEW YOUR SECURITY
+   CONSTRAINTS (see README).
+ + Reduce object count and add hash width to StringMap
+ + Release process builds JettyExtra
+ + Removed triggers from Code.
+ + Remove request logSink and replace with RequestLog using
+   RolloverFileOutputStream
+ + Renamed getHttpServers and added setAnonymous
+ + Stop and remove NotFound context for HttpServer
+ + Support Random Session IDs in HashSessionManager.
+ + Updated crimson to 1.1.3
+ + Updated tutorial and FAQ
+ + Welcome file dispatch sets requestURI.
+ + Welcome files may be relative

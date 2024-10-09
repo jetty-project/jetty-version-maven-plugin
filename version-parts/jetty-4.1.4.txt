@@ -1,0 +1,7 @@
+jetty-4.1.4 - 16 November 2002
+ + Fixed ContextLoader parent delegation bug
+ + Fixed Invoker servlet for RD.include
+ + Fixed remove SocketListener bug.
+ + Last modified handling uses second resolution.
+ + Made NCSARequestLog simpler to extend.
+ + Use IE date formatting for last-modified efficiency

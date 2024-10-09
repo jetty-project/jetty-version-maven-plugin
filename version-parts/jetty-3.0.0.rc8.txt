@@ -1,0 +1,18 @@
+jetty-3.0.0.rc8 - 13 December 2000
+ + Added ForwardHandler
+ + Change PathMap handling of /* to give precedence over suffix mapping.
+ + Default log options changed if in debug mode.
+ + Forward to welcome pages rather than redirect.
+ + getSecurityHandler creates handler at position 0.
+ + Improved exit admin handling
+ + Jetty.Server catches init exceptions per server
+ + Mapped *.jsp,*.jsP,*.jSp,*.jSP,*.Jsp,*.JsP,*.JSp,*.JSP
+ + Optional alias checking added to FileResource.  Turned on by default on all
+   platforms without the "/" file separator.
+ + Patched jasper to tomcat 3.2.1
+ + Protected META-INF as well as WEB-INF in web applications.
+ + Removed security constraint on demo admin server.
+ + Removed some unused variables.
+ + Removed special characters from source.
+ + SysV unix init script
+ + Tidied handling of ".", ".." and "//" in resource paths

@@ -1,0 +1,10 @@
+jetty-6.0.0rc3 - 01 September 2006
+ + JETTY-68 Complete request after sendRedirect
+ + JETTY-104 (raised glassfish ISSUE-1044) hide JSP forced path attribute
+ + Avoid double error handling of Bad requests
+ + don't warn for content length on head requests
+ + JETTY-103
+ + Less verbose handling of BadResources from bad URLs
+ + Move MailSessionReference to org.mortbay.naming.factories
+ + pulled 6.0.0 branch
+ + Transferred the sslengine patch from the patches directory to extras

@@ -1,0 +1,16 @@
+jetty-2.1.5 - 15 April 1999
+ + Added setType methods to com.mortbay.FTP.Ftp
+ + Fixed alignment bug in TableForm
+ + Fixed bug in ServletDispatch for null pathInfo
+ + Fixed bugs with invalid sessions
+ + Form parameters protected against multiple decodes when redirected.
+ + HtmlFilter now expands <!=SESSION> to the URL encoded session if required.
+ + Implemented HttpRequest.getReader()
+ + Instrumented most of the demo to support URL session encoding.
+ + Moved SessionHandler to front of stacks
+ + Page factory requires response for session encoding
+ + Reduced session memory overhead of sessions
+ + Removed RFCs from package
+ + Servlet log has been diverted to com.mortbay.Base.Log.event() Thus debug
+   does not need to be turned on to see servlet logs.
+ + Session URL encoding fixed for relative URLs.

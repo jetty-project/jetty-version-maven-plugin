@@ -1,0 +1,4 @@
+jetty-4.0.4 - 23 June 2002
+ + Back out change: Don't chunk 30x empty responses.
+ + Conditional header tested against welcome file not directory.
+ + Improved ThreadedServer stopping on bad networks

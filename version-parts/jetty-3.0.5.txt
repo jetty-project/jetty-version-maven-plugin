@@ -1,0 +1,11 @@
+jetty-3.0.5 - 14 April 2001
+ + Branched from 3.1 trunk to fix major errors
+ + Created better random session ID
+ + Don't chunk if content length is known.
+ + fixed getLocales handling of quality params
+ + Fixed LineInput bug EOF
+ + Fixed session invalidation unbind notification to conform with spec
+ + Improved flush ordering for forwarded requests.
+ + Load-on-startup the JspServlet so that precompiled servlets work.
+ + Resource handler strips URL params like JSESSION.
+ + Turned off range handling by default until bugs resolved

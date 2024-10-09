@@ -1,0 +1,12 @@
+jetty-7.0.2.v20100331 - 31 March 2010
+ + 297552 Don't call Continuation timeouts from acceptor tick
+ + 298236 Additional unit tests for jetty-client
+ + 306782 httpbis interpretation of 100 continues. Body never skipped
+ + 306783 NPE in StdErrLog when Throwable is null
+ + 306840 Suppress content-length in requests with no content
+ + 306880 Support for UPGRADE in HttpClient
+ + 306884 Suspend with timeout <=0 never expires
+ + 307589 updated servlet 3.0 continuations for final API
+ + Allow Configuration array to be set on Server instance for all web apps
+ + Ensure webapps with no WEB-INF don't scan WEB-INF/lib
+ + Take excess logging statements out of startup

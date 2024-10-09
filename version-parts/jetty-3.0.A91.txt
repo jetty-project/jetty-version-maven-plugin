@@ -1,0 +1,7 @@
+jetty-3.0.A91 - 03 June 2000
+ + Abstracted ServletHandler
+ + Added HTML classes from Jetty2
+ + Implemented realPath and getResource methods for servlets.
+ + Improved LogSink mechanism
+ + Simplified class loading
+ + Simplified HttpServer configuration methods and arguments

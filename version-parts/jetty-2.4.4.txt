@@ -1,0 +1,12 @@
+jetty-2.4.4 - 03 June 2000
+ + Added build-win32.mak
+ + Added HTML.Composite.replace
+ + Added RolloverFileLogSink
+ + Added uk.org.gosnell.Servlets.CgiServlet to contrib
+ + BasicAuthHandler uses getResourcePath so it can be used behind request
+   dispatching
+ + FileHandler implements IfModifiedSince on index files.
+ + HttpRequest.setRequestPath does not null pathInfo.
+ + Improved LogSink configuration
+ + Many debug call optimizations
+ + Support System.property expansions in PropertyTrees.

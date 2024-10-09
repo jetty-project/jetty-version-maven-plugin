@@ -1,0 +1,29 @@
+jetty-7.1.4.v20100610
+ + JETTY-547 Delay close after shutdown until request read
+ + JETTY-1231 Support context request log handler
+ + 292326 Stop continuations if server is stopped
+ + 292814 Make QoSFilter and DoSFilter JMX manageable
+ + 293222 Improve request log to handle/show asynchronous latency
+ + 294212 Can not customize session cookie path
+ + 295715 AbstractSessionManager decoupled from Context
+ + 298551 SslSocketConnector does not need keystore stream
+ + 301608 Deregister shutdown hooks
+ + 302350 org.eclipse.jetty.server.NCSARequestLog is missing JavaDoc
+ + 303661 jetty.sh failes if JETTY_HOME is not writeable
+ + 304100 Better document JMX setup in jetty-jmx.xml
+ + 305300 AsyncContext.start dispatches runnable
+ + 314299 Create test harness for JDBCLoginService
+ + 314581 Implement the Sec-Websocket handshake
+ + 315190 CrossOriginFilter avoid headers not understood by WebSocket
+ + 315687 included init script fails to test for JETTY_HOME as empty
+ + 315715 Improved Cookie version handling. Server.setMaxCookieVersion
+ + 315744 Fixed STOP.PORT and STOP.KEY in start.jar
+ + 315748 Removed --fromDaemon from start.jar (replaced with --daemon)
+ + 315925 Improved context xml configuration handling
+ + 315995 Incorrect package name in system classes list
+ + 316119 Fixed idleTimeout for SocketEndPoint
+ + 316254 Implement @DeclareRoles
+ + 316334 Breaking change on org.eclipse.jetty.client.HttpExchange
+ + 316399 Debug output in MultiPartFilter
+ + 316413 Restarting webapp for packed war fails
+ + 316557 OSGi HttpService failure due to undeployed context handlers

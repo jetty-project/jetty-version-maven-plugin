@@ -1,0 +1,10 @@
+jetty-2.0Alpha2 - 01 May 1998
+ + Added date format to Log
+ + Added timezone to Log
+ + Handle params in getIntHeader and getDateHeader
+ + Handle Single Threaded servlets with servlet pool
+ + JDK1.2 javax.servlet API
+ + Removed HttpRequest.getByteContent
+ + Use javax.servlet.http.Cookie
+ + Use javax.servlet.http.HttpSession
+ + Use javax.servlet.http.HttpUtils.parsePostData

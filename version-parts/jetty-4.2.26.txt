@@ -1,0 +1,2 @@
+jetty-4.2.26 - 08 October 2006
+ + Backport of AJP fixes

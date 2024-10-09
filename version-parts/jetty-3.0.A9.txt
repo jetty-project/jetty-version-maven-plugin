@@ -1,0 +1,5 @@
+jetty-3.0.A9 - 07 May 2000
+ + File handler checks modified headers on directory indexes.
+ + Fixed double chunking bug in SocketListener.
+ + Improvided finally handling of output end game.
+ + ServletLoader tries unix then platform separator for zip separator.

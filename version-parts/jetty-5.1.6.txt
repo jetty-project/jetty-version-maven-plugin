@@ -1,0 +1,3 @@
+jetty-5.1.6 - 18 November 2005
+ + CVE-2006-2758 Fixed JSP visibility security issue.
+ + Improved jetty-web.xml access to org.mortbay classes.

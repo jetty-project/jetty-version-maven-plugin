@@ -1,0 +1,13 @@
+jetty-5.1.3rc0 - 08 March 2005
+ + Added logCookie and logLatency support to NCSARequestLog
+ + Added new JAAS callback to allow extra login form fields in authentication
+ + Added simple xpath support to XmlParser
+ + Added SslListener for 1.4 JSSE API.
+ + Added TagLibConfiguration to search for listeners in TLDs.
+ + Allow system and server classes to be configured for context loader.
+ + Fixed HTAccess crypt salt handling.
+ + Fixed JSR154 error dispatch with explicit pass of type.
+ + Fixed moderate load preventing ThreadPool shrinking.
+ + Fixed rollover filename format bug
+ + Flush filter chain caches on servlet/filter change
+ + IOException if EOF read during chunk.

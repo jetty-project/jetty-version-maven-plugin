@@ -1,0 +1,7 @@
+jetty-9.4.26.v20200117 - 17 January 2020
+ + 2620 Exception from user endpoint onClose results in unclosed
+   WebSocketSession
+ + 4383 Errors deleting multipart tmp files java.lang.NullPointerException
+   under heavy load
+ + 4444 TLS Connection Timeout Intermittently
+ + 4461 IllegalStateException in HttpOutput with Jersey

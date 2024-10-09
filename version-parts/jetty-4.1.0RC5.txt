@@ -1,0 +1,6 @@
+jetty-4.1.0RC5 - 08 September 2002
+ + Added commandPrefix init param to CGI
+ + AJP13Listener caught up with HttpConnection changes.
+ + Implemented security-role-ref for isUserInRole.
+ + Improved errors for misconfigured realms.
+ + More cleanup in ThreadPool for idle death.

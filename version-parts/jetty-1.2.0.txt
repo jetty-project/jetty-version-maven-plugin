@@ -1,0 +1,6 @@
+jetty-1.2.0
+ + Alternate look and feel for Jetty
+ + Better Debug configuration
+ + DebugServlet
+ + Fixed install bug for nested classes
+ + Reintroduced STF

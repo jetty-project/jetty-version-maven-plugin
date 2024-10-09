@@ -1,0 +1,10 @@
+jetty-5.1.RC1 - 24 October 2004
+ + Allow JSSE listener to be just confidential or just integral.
+ + Allow multiple accepting threads
+ + Build unsealed jars
+ + default / mapping does not apply to Filters
+ + Fixed NPE for null contenttype
+ + improved clean targets
+ + many minor cleanups suggested from figbug utility
+ + Partially flush writers on every write so content length can be detected.
+ + when committed setHeader is a noop rather than IllegalStateException

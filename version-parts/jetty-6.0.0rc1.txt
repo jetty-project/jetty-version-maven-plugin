@@ -1,0 +1,27 @@
+jetty-6.0.0rc1 - 16 August 2006
+ + JETTY-85 JETTY-86 (TrustManager and SecureRandom are now configurable;
+   better handling of null/default values)
+ + add <requestLog> config param to jetty plugin
+ + added modules/spring with XmlBeanFactory configuration
+ + Added simple ResourceHandler and FileServer example
+ + added start of cometd implementation (JSON only)
+ + added start of grizzly connector
+ + Added TransformingWebAppClassLoader for spring 2.0 byte code modification
+   support
+ + Allow direct filling of buffers for uncached static content.
+ + Change path mapping so that a path spec of /foo/* does not match /foo.bar :
+   JETTY-88
+ + -DSTOP.PORT must be specified.
+ + fixed bug that caused Response.setStatus to ignore the provided message
+ + Fixed FD leak for bad TCP acks. JETTY-63
+ + JETTY-87
+ + JETTY-90
+ + JETTY-91
+ + moved optional modules to extras
+ + parse jsp-property-group in web.xml for additional JSP servlet mappings
+ + protected setContentType from being set during include
+ + refactored resource cache
+ + removed org.mortbay. from context system classes configuration
+ + removed support for lowResources from SelectChannelConnector
+ + Support for binding References and Referenceables and javax.mail.Sessions in
+   JNDI

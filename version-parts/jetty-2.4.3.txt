@@ -1,0 +1,3 @@
+jetty-2.4.3 - 04 May 2000
+ + Allow CRLF in UrlEncoded
+ + Pass Cookies with 0 max age to browser.

@@ -1,0 +1,9 @@
+jetty-3.1.4 - 06 November 2001
+ + Added RequestLogFormat to allow extensible request logs.
+ + Default PathMap separator changed to ":,"
+ + Generate session unbind events on a context.stop()
+ + getRealPath accepts \ URI separator on platforms using \ file separator.
+ + HTAccessHandler made stricter on misconfiguration
+ + PathMap now ignores paths after ; or ? characters.
+ + Remove old stuff from contrib that had been moved to extra
+ + Support the ZZZ timezone offset format in DateCache

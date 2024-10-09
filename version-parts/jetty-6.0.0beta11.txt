@@ -1,0 +1,12 @@
+jetty-6.0.0beta11 - 14 March 2006
+ + Added HttpURI and improved UTF-8 parsing.
+ + added JAAS
+ + added missing Configurations for maven plugin
+ + added patch to use joda-time
+ + added webapp-specific JNDI entries
+ + fixed ; decoding in URIs
+ + fixed FORM authentication
+ + moved dtd and xsd to standard javax location
+ + refactored configuration files and start()
+ + refactored session ID management
+ + refactored writers and improved UTF-8 generation.

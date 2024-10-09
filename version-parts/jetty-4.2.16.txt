@@ -1,0 +1,8 @@
+jetty-4.2.16 - 30 January 2004
+ + FileResource better handles non sun JVM
+ + Fixed HttpTunnel for JDK 1.2
+ + Fixed setDate multi-cpu race
+ + Improved low thread handling
+ + Monitor closes socket before exit
+ + RequestDispatcher uses request encoding for query params
+ + Update jasper to 4.1.29

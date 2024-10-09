@@ -1,0 +1,40 @@
+jetty-6.1.8 - 28 February 2008
+ + JETTY-350 log ssl errors on SslSocketConnector
+ + JETTY-417 JETTY_LOGS environment variable not queried by jetty.sh
+ + JETTY-433 ContextDeployer constructor fails unnecessarily when using a
+   security manager if jetty.home not set
+ + JETTY-434 ContextDeployer scanning of sub-directories should be optional
+ + JETTY-481 Handle empty Bayeux response
+ + JETTY-489 Improve doco on the jetty.port property for plugin
+ + JETTY-490 Fixed JSONEnumConvertor
+ + JETTY-491 opendocument mime types
+ + JETTY-492 Null pointer in HashSSORealm
+ + JETTY-493 JSON handles BigDecimals
+ + JETTY-498 Improved cookie parsing
+ + JETTY-507 Fixed encoding from JETTY-388 and test case
+ + JETTY-508 Extensible cometd handlers
+ + JETTY-509 Fixed JSONP transport for changing callback names
+ + JETTY-511 jetty.sh mishandled JETTY_HOME when launched from a relative path
+ + JETTY-512 add slf4j as optional to manifest
+ + JETTY-513 Terracotta session replication does not work when the initial page
+   on each server does not set any attributes
+ + JETTY-515 Timer is missing scavenging Task in HashSessionManager
+ + Add "mvn jetty:stop"
+ + Added BayeuxService
+ + Added JSON.Convertor and non static JSON instances
+ + Added QueuedThreadPool
+ + add removeHandler(Handler) method to HandlerContainer interface
+ + AJP handles bad mod_jk methods
+ + Allow code ranges on ErrorPageErrorHandler
+ + allow sessions to be periodically persisted to disk
+ + Cookie support in BayeuxClient
+ + Fixed JSON negative numbers
+ + further Optimizations and improvements of Cometd
+ + grizzly fixed for posts
+ + Improved Bayeux API
+ + Improved Cometd timeout handling
+ + JSON unquotes /
+ + Long cache for JSON
+ + Optimizations and improvements of Cometd, more pooled objects
+ + Optimized QuotedStringTokenizer.quote()
+ + Remove duplicate commons-logging jars and include sslengine in jboss sar

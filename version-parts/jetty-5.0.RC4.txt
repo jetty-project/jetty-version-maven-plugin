@@ -1,0 +1,4 @@
+jetty-5.0.RC4 - 05 September 2004
+ + Fixed configuration of URL alias checking
+ + JettyJBoss: Use realm-name from web.xml if present, otherwise use
+   security-domain from jboss-web.xml

@@ -1,0 +1,10 @@
+jetty-3.0.A99 - 10 August 2000
+ + Added Resource abstraction
+ + Added Xmlconfiguration utility
+ + Implemented jetty.xml configuration
+ + Make it compile cleanly with jikes.
+ + Re-added commented out imports for JDK-1.1 compile
+ + Removed FileBase. Now use ResourceBase instead
+ + Replaced FileHandler with ResourceHandler
+ + ServletLoader simplied and uses ResourcePath
+ + Use SAX XML parsing instead of DOM for space saving.

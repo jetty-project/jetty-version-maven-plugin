@@ -1,0 +1,62 @@
+jetty-9.4.1.v20170120 - 20 January 2017
+ + 486 JDK 9 ALPN implementation
+ + 592 Support no-value Host header in HttpParser
+ + 612 Support HTTP Trailer
+ + 1044 Unix socket connector blocks for 30 seconds on stopping the server
+ + 1073 JDK9 support in Jetty 9.3.x
+ + 1138 Ensure xml validation works on web descriptors
+ + 1139 Support configuration of properties during --add-to-start
+ + 1146 jetty.server.HttpInput deadlock
+ + 1161 HttpClient and WebSocketClient should not remove all cookies on stop
+ + 1162 Make request.changeSessionId() work with NullSessionCache
+ + 1163 Start error results in NPE
+ + 1167 NPE while completing a reset HTTP/2 stream
+ + 1169 HTTP/2 reset on a stalled write does not unblock writer thread
+ + 1171 jetty-client throws NPE for request to IDN hosts only when
+   `HttpClient#send(...)` is called
+ + 1175 Reading HttpServletRequest InputStream from a Filter then accessing
+   getParameterNames() results in java.io.IOException: Missing content for
+   multipart request
+ + 1181 Review buffer underflow cases in SslConnection
+ + 1184 IllegalStateException for HEAD requests responded with 404
+ + 1185 Connection abruptly closed for HEAD requests
+ + 1188 Cannot --add-to-start=logback-access due to logback-core dependancy
+ + 1195 Problem using STOP.PORT and STOP.KEY with --exec
+ + 1197 WebSocketClient not sending `Authorization` request header
+ + 1200 Context path not set for symlink from root
+ + 1201 X-Forwarded-For incorrectly set in jetty-http-forwarded.xml
+ + 1202 NPE in JsrSession when dealing with a response missing the
+   `Sec-WebSocket-Extensions` header
+ + 1203 HttpSessionBindingListener#valueUnbound not called consistently in
+   9.4.0
+ + 1207 WebSocketPolicy configuration inconsistent when using JSR
+ + 1209 IllegalStateException when HTTP/2 push is disabled
+ + 1214 Accepted subprotocol is not provided when @OnWebSocketConnect method is
+   invoked
+ + 1216 Can't stop/start a WebAppContext with websocket
+ + 1218 ReadPendingException is thrown when using
+   o.e.j.websocket.api.Session.suspend
+ + 1220 PushCacheFilter does not add the context path to pushed resources
+ + 1222 Authenticated sessions throw exception on invalidate
+ + 1223 Allow session workername to be null
+ + 1224 HttpSessionListener.sessionDestroyed can no longer access session
+ + 1226 Undefined JETTY_LOGS breaks jetty.sh
+ + 1228 Internal error during SSL handshake
+ + 1229 ClassLoader constraint issue when using NativeWebSocketConfiguration
+   with WEB-INF/lib/jetty-http.jar present
+ + 1234 onBadMessage called from with handled message
+ + 1254 9.4.x Server resource handler welcome files forwarding not working
+ + 1260 Expand system properties in start
+ + 1262 BufferUtil.isMappedBuffer() uses reflection on private JDK fields
+ + 1265 JAXB not available in JDK 9
+ + 1267 Request.getRemoteUser can throw undeclared IllegalStateException via
+   DeferredAuthentication & FormAuthenticator
+ + 1268 <jsp-file>incorrectly handled when the jsp is at the top directory
+ + 1269 Extensible assumed charset for mimetypes
+ + 1270 GzipHandler rework on dispatches
+ + 1271 Update to apache jasper 8.5.9
+ + 1272 Update ALPN versions for 8u111
+ + 1274 Distinguish no tlds vs no MetaInfConfiguration tld scanning for
+   quickstart
+ + 1276 Remove org.eclipse.jetty.websocket.server.WebSocketServerFactory from
+   SPI

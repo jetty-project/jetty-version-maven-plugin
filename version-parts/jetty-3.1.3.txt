@@ -1,0 +1,16 @@
+jetty-3.1.3 - 26 October 2001
+ + Allow a per context UserRealm instance.
+ + Correct dispatch to error pages with javax attributes set.
+ + Fixed binary files in CVS
+ + Fixed several problems with external role authentication. Role
+   authentication in JBoss was not working correctly and there were possible
+   object leaks. The fix required an API change to UserPrinciple and UserRealm.
+ + Fixed Virtual hosts to case insensitive.
+ + Fix security problem with trailing special characters. Trailing %00 enabled
+   JSP source to be viewed or other servlets to be bypassed.
+ + Improved FORM auth handling of role failure.
+ + Improved Jasper debug output.
+ + Improved ThreadedServer timeout defaults
+ + PathMap spec separator changed from ',' to ':'. May be set with
+   org.mortbay.http.PathMap.separators system property.
+ + Upgraded JSSE to 1.0.2

@@ -1,0 +1,15 @@
+jetty-5.0.beta0 - 22 November 2003
+ + Added MsieSslHandler to handle browsers that don't grok persistent SSL (msie
+   5)
+ + Added org.mortbay.http.ErrorHandler for error pages.
+ + Allow per listener handlers
+ + Expire pages that contain set-cookie as per RFC2109 recommendation
+ + Fixed init race in HttpFields cache
+ + JBoss integration uses writer rather than stream for XML config handling
+ + PathMap uses own Map.Entry impl for IBM JVMs
+ + Protect ThreadPool.run() from interrupted exceptions
+ + Removed support for HTTP trailers
+ + Removed the CMR/CMP distributed session implementation
+ + Respect content length when decoding form content.
+ + Updated jasper to 5.0.14beta
+ + Use ${jetty.home}/work or WEB-INF/work for temp directories if present

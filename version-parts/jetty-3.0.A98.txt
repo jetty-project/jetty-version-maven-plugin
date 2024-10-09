@@ -1,0 +1,8 @@
+jetty-3.0.A98 - 20 July 2000
+ + Allow HttpRequest.toString() handles bad requests.
+ + Fixed constructor to RolloverFileLogSink
+ + Implemented Jetty demos and Site as Web Application.
+ + Implemented WebApplicationContext
+ + Improved synchronization on LogSink
+ + ServletRequest.getServerPort() returns 80 rather than 0
+ + Switched to JDK1.2 only

@@ -1,0 +1,12 @@
+jetty-3.1.rc3 - 09 April 2001
+ + Added ContentHandler Observer to XmlParser.
+ + Allow webapp XmlParser to be observed for ejb-ref tags etc.
+ + Cleaned up handling of exceptions thrown by servlets.
+ + Created better random session ID
+ + Frame handles more JIT stacks.
+ + Handle zero length POSTs
+ + Implemented multi-part ranges so that acrobat is happy.
+ + Improved flush ordering for forwarded requests.
+ + Improved ThreadPool stop handling
+ + Simplified multipart response class.
+ + Start session scavenger if needed.

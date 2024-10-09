@@ -1,0 +1,11 @@
+jetty-3.0.A1 - 12 October 1999
+ + Added HttpHandler interface with start/stop/destroy lifecycle
+ + Added MultiMap for common handling of multiple valued parameters.
+ + Added parameters to HttpRequest
+ + Added PathMap implementing mapping as defined in the 2.2 API specification
+   (ie. /exact, /prefix/*, *.extention & default ).
+ + Implemented simple extension architecture in HttpServer.
+ + LineInput uses own buffering and uses character encodings.
+ + Quick port of FileHandler
+ + Setup demo pages.
+ + Updated HttpListener is start/stop/destroy lifecycle.

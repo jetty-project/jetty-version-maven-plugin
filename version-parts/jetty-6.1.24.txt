@@ -1,0 +1,11 @@
+jetty-6.1.24 - 21 April 2010
+ + JETTY-903 Stop both caches
+ + JETTY-1198 reset idle timeout on request body chunks
+ + JETTY-1200 SSL NIO Endpoint wraps non NIO buffers
+ + JETTY-1211 SetUID loadlibrary name and debug
+ + 308925 Protect the test webapp from remote access
+ + COMETD-100 ClientImpl logs "null" as clientId
+ + COMETD-107 Reloading the application with reload extension does not fire
+   /meta/connect handlers until long poll timeout expires
+ + COMETD-99 ClientImpl logs exceptions in listeners with "debug" level
+ + Upgraded to cometd 1.1.1 client

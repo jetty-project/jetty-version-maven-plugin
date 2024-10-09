@@ -1,0 +1,12 @@
+jetty-4.1.0 - 22 September 2002
+ + Added LimitedNCSARequestLog
+ + ClientCertAuthenticator protected from null subjectDN
+ + Context Initparams to control session cookie domain, path and age.
+ + Fixed AJP13 handling of mod_jk loadbalancing.
+ + Fixed CGI+windows security hole.
+ + Handle unremovable tempdir.
+ + NCSARequest log buffered default
+ + Sorted directory listings.
+ + Stop servlets in opposite order to start.
+ + Use javac -target 1.2 for normal classes
+ + WEB-INF/classes before WEB-INF/lib

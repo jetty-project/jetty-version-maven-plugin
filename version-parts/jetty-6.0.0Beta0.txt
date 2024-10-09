@@ -1,0 +1,5 @@
+jetty-6.0.0Beta0
+ + Dispatcher parameters
+ + Fixed blocking read
+ + Maven 2 build
+ + UTF-8 encoding for URLs

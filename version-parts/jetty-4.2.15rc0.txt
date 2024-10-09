@@ -1,0 +1,9 @@
+jetty-4.2.15rc0 - 22 November 2003
+ + Added org.mortbay.http.ErrorHandler for error pages.
+ + JsseListener checks UserAgent for browsers that can't grok persistent SSL
+   (msie5)
+ + PathMap uses own Map.Entry impl for IBM JVMs
+ + Protect ThreadPool.run() from interrupted exceptions
+ + Race in HttpFields cache
+ + Removed the CMR/CMP distributed session implementation
+ + Use ${jetty.home}/work or WEB-INF/work for temp directories if present

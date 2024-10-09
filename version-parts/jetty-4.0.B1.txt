@@ -1,0 +1,10 @@
+jetty-4.0.B1 - 13 February 2002
+ + Added setClassLoader and moved getFileClassPath to HttpContext
+ + getRequestURI returns encoded path
+ + HttpConnection always eats unused bodies
+ + LineInput waits for LF after CF if seen CRLF before.
+ + Merged HttpMessage and Message
+ + Servlet request destined for static content returns paths as default servlet
+ + Suppress error only for IOExceptions not derivitives.
+ + Updated examples webapp from tomcat
+ + WriterOutputStream so JSPs can include static resources.

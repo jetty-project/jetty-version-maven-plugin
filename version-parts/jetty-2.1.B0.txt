@@ -1,0 +1,8 @@
+jetty-2.1.B0 - 30 January 1999
+ + Added plug gateway classes com.mortbay.Util.Gateway
+ + Added support for PUT, MOVE, DELETE in FileHandler
+ + FileHandler now sets content length.
+ + Fixed command line bug with SimpleServletConfig
+ + Minor changes to support MS J++ and its non standard language extensions -
+   MMMmmm should have left it unchanged!
+ + Uses JSDK2.1 API, but not all methods implemented.

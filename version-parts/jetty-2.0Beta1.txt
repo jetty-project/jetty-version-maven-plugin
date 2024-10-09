@@ -1,0 +1,10 @@
+jetty-2.0Beta1 - 01 June 1998
+ + Fixed bug with calls to service during initialization of servlet
+ + Handle full URLs in HTTP requests (to some extent)
+ + Improved performance of Code.debug() calls, significantly in the case of non
+   matching debug patterns.
+ + Improved performance with special asciiToLowerCase
+ + Provided addSection on com.mortbay.HTML.Page
+ + Provided reset on com.mortbay.HTML.Composite.
+ + Proxy demo in different server instance
+ + Warn if MSIE used for multi part MIME.

@@ -1,0 +1,11 @@
+jetty-4.2.12 - 12 August 2003
+ + Added missing S to some OPTIONS strings
+ + Added open method to threaded server.
+ + Fixed MIME types for chemicals
+ + Fixed parameter ordering for a forward request.
+ + Fixed up HTAccessHandler
+ + FORMAuthenticator does 403 with empty error page.
+ + Improved error messages from ProxyHandler
+ + Padding for IE in RootNotFoundHandler
+ + Removed protection of org.mortbay.http attributes
+ + Restore max inactive interval for session manager

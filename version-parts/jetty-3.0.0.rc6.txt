@@ -1,0 +1,31 @@
+jetty-3.0.0.rc6 - 20 November 2000
+ + Added ServletWriter that can be disabled.
+ + Added Win32 service support
+ + Admin servlet uses unique links for IE.
+ + Allow HttpMessage state to be manipulated.
+ + Allow load-on-startup with no content.
+ + Allow multiple set cookies.
+ + Corrected a few of the many spelling mistakes.
+ + don't include classes in release.
+ + Don't set connection:close for normal HTTP/1.0 responses.
+ + Don't start HttpServer log sink on add.
+ + Fixed RollOverFileLogSink bug with extra log files.
+ + Implemented customizable error pages.
+ + Implemented resource aliases in HandlerContext - used by Servlet Context
+ + Improved Log defaults
+ + Javadoc improvements.
+ + Map tablib configuration to resource aliases.
+ + Prevent reloading dynamic servlets at different paths.
+ + Put extra server and servlet info in header.
+ + Reduced risk of double null check sync problem.
+ + RequestDispatcher.forward() only resets buffer, not headers.
+ + RequestDispatcher new queries params replace old.
+ + Resource gets systemresources from it's own classloader.
+ + Servlet init order may be negative.
+ + Session cookies are given context path
+ + Sessions try version 1 cookies in set-cookie2 header.
+ + Simple stats in ContextLoader.
+ + Version details in header can be suppressed with System property
+   java.com.mortbay.HTTP.Version.paranoid
+ + Warn for missing WEB-INF or web.xml
+ + Webapps serve dynamics servlets by default.

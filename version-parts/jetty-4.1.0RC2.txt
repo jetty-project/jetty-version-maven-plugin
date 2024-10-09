@@ -1,0 +1,9 @@
+jetty-4.1.0RC2 - 20 August 2002
+ + Added HttpListener.bufferReserve
+ + Build ant, src and zip versions with the release
+ + Clear interrupted status in ThreadPool
+ + Conveninace setClassLoaderJava2Compliant method.
+ + Fixed HttpFields cache overflow
+ + Improved ByteArrayPool to handle multiple sizes.
+ + Updated to Jasper2 (4_1_9 tag)
+ + Use system line separator for log files.

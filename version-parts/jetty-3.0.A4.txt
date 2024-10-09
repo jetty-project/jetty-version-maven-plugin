@@ -1,0 +1,5 @@
+jetty-3.0.A4 - 16 October 1999
+ + Added LF wait after CR to LineInput.
+ + Basic Authentication Handler.
+ + Request attributes
+ + UTF8 in UrlDecoded.decodeString.

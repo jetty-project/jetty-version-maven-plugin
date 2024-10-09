@@ -1,0 +1,12 @@
+jetty-4.0.D4 - 14 January 2002
+ + Added BlueRibbon campaign.
+ + Added isAuthenticated to UserPrincipal
+ + Extract WAR files to standard temp directory
+ + Fixed noaccess auth demo.
+ + FORM auth caches UserPrincipal
+ + Handle ServletRequestWrappers for Generic Servlets
+ + Improved handling of UnavailableException
+ + Improved HttpResponsse.sendError error page matching.
+ + Prevent output after forward
+ + RequestDispatcher uses cached resources for include
+ + URI uses UTF8 for % encodings.

@@ -1,0 +1,19 @@
+jetty-7.1.1.v20100517
+ + 302344 Make the list of available contexts if root context is not configured
+   optional
+ + 304803 Remove TypeUtil Integer and Long caches
+ + 306226 HttpClient should allow changing the keystore and truststore type
+ + 308850 Update test suite to JUnit4 - Module jetty-annotations
+ + 308853 Update test suite to JUnit4 - Module jetty-deploy
+ + 308854 Update test suite to JUnit4 - Module jetty-http
+ + 308855 Update test suite to JUnit4 - Module jetty-io
+ + 308856 Update test suite to JUnit4 - Module jetty-jmx
+ + 308857 Update test suite to JUnit4 - Module jetty-jndi
+ + 308858 Update test suite to JUnit4 - Module jetty-plus
+ + 308859 Update test suite to JUnit4 - Module jetty-policy
+ + 308860 Update test suite to JUnit4 - Module jetty-rewrite
+ + 308862 Update test suite to JUnit4 - Module jetty-server
+ + 308863 Update test suite to JUnit4 - Module jetty-servlet
+ + 308867 Update test suite to JUnit4 - Module jetty-webapp
+ + 310918 Fixed write blocking for client HttpConnection
+ + 312526 Protect shutdown thread initialization during shutdown

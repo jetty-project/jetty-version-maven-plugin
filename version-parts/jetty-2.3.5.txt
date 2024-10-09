@@ -1,0 +1,9 @@
+jetty-2.3.5 - 25 January 2000
+ + Added configuration option to turn off Keep-Alive in HTTP/1.0
+ + Added contrib/com/kiwiconsulting/jetty JSSE SSL adaptor to release.
+ + Allow configured servlets to be auto reloaded.
+ + Allow properties to be configured for dynamic servlets.
+ + Fixed expires bug in Cookies
+ + Fixed nasty bug with HTTP/1.1 redirects.
+ + Force locale of date formats to US.
+ + ProxyHandler sends content for POSTs etc.

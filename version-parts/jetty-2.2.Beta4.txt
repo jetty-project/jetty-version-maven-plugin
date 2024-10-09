@@ -1,0 +1,17 @@
+jetty-2.2.Beta4 - 29 June 1999
+ + Added comments to configuration files.
+ + Added getGlobalProperty to Jetty.Server and used this to configure default
+   page type.
+ + Added JettyMinimalDemo.prp as an example of an abbreviated configuration.
+ + Added property handling to ServletHandler to read JRUN servlet configuration
+   files.
+ + Altered meaning of * in PropertyTree to assist in abbreviated configuration
+   files.
+ + Expanded Mime.prp file
+ + FileHandler flushes files from cache in DELETE method.
+ + Made ServerSocket and accept call generic in ThreadedServer for SSL
+   listeners.
+ + Options "allowDir" added to FileHandler.
+ + Restructured com.mortbay.Jetty.Server for better clarity and documentation.
+ + ThreadedServer.stop() now waits until all threads are stopped.
+ + Updated README.txt

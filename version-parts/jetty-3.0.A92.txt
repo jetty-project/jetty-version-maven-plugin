@@ -1,0 +1,3 @@
+jetty-3.0.A92 - 07 June 2000
+ + Added HTML classes to jar
+ + Fixed redirection bug in FileHandler

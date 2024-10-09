@@ -1,0 +1,8 @@
+jetty-3.0.A94 - 19 June 2000
+ + Added HandlerContext to allow grouping of handlers into units with the same
+   file, resource and class configurations.
+ + Cleaned up commit() and added complete() to HttpResponse
+ + Implemented Sessions.
+ + PathMap exact matches can terminate with ; or # for URL sessions and
+   targets.
+ + Updated license to clarify that commercial usage IS OK!

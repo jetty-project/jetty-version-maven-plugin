@@ -1,0 +1,11 @@
+jetty-4.0.1RC0 - 18 April 2002
+ + AbstractSessionManager sets contextClassLoader for scavanging
+ + Added extract arg to addWebApplications
+ + DTD allows static "Get" and "Set" methods to be invoked.
+ + Extended facade interfaces to HttpResponse.sendError
+ + Fixed delayed response bug: Stopped HttpConnection consuming input from
+   timedout connection.
+ + Moved basic auth handling to HttpRequest
+ + Pass pathParams via welcome file forward for jsessionid
+ + Set thread context classloader for webapp load-on-startup inits
+ + Updated Jasper to CVS snapshot from Apr 18 18:50:59 BST 2002

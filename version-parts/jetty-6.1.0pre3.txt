@@ -1,0 +1,9 @@
+jetty-6.1.0pre3 - 22 November 2006
+ + JETTY-154 Cookies are double quotes only
+ + JETTY-180 XBean support for context deploy
+ + CVE-2006-6969 Upgraded session ID generation to use SecureRandom
+ + Expose isResumed on Continuations
+ + fixed NIO endpoint flush. Avoid duplicate sends
+ + Refactored AJP generator
+ + Support TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+ + updated glassfish jasper to tag SJSAS-9_1-B25-EA-08_Nov_2006

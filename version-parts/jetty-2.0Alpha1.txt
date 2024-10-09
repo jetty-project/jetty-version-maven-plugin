@@ -1,0 +1,18 @@
+jetty-2.0Alpha1 - 08 April 1998
+ + accept chunked data
+ + Add HTTP/1.1 Date: header
+ + Correct formatting of Date HTTP headers
+ + Debug triggers added to com.mortbay.Base.Code
+ + Fixed forward bug with no port number
+ + handle extra spaces in HTTP headers
+ + Handle file requests with If-Modified-Since: or If-Unmodified-Since:
+ + Handle HEAD properly
+ + Handle HTTP/1.1 Host: header
+ + HttpTests test harness
+ + persistent connections
+ + Really fixed handling of multiple parameters
+ + Removed HttpRequestHeader class
+ + Requires Host: header for 1.1 requests
+ + Send 100 Continue for HTTP/1.1 requests (concerned about push???)
+ + Send Connection: close
+ + Sends chunked data for 1.1 responses of unknown length.

@@ -1,0 +1,18 @@
+jetty-6.1.2pre0 - 01 February 2007
+ + JETTY-213 request.isUserInRole(String) fixed
+ + JETTY-215 exclude more transitive dependencies from tomcat jars for jsp-2.0
+ + JETTY-216 handle AJP packet fragmentation
+ + JETTY-218 handle AJP ssl key size and integer
+ + JETTY-219 fixed trailing encoded chars in cookies
+ + JETTY-220 fixed AJP content
+ + JETTY-222 fix problem parsing faces-config.xml
+ + Added cometd jsonp transport from aabeling
+ + Added terracotta cluster support for cometd
+ + add support for Annotations in servlet, filter and listener sources
+ + enable SslSelectChannelConnector to modify the SslEngine's client
+   authentication settings
+ + Fixed 1.4 method in jetty plus
+ + Fixed generation of errors during jsp compilation for jsp-2.1
+ + handle virtual hosts in ContextHandlerCollection
+ + improved writer buffering
+ + moved JSON parser to util to support reuse

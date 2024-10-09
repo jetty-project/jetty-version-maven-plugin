@@ -1,0 +1,15 @@
+jetty-5.0.RC2 - 02 July 2004
+ + add JMX support for JettyPlus
+ + add listing of java:comp/env for webapp with JMX
+ + Default servlet may use only pathInfo for resource
+ + Error dispatchers are always GET requests.
+ + Fixed DIGEST challenge delimiters
+ + Fixed JAAS logout
+ + Fixed no-role security constraint combination.
+ + Fixed session leak in j2ee
+ + Fix to use runas roles during servlet init and destroy
+ + HTAccess calls UnixCrypt correctly
+ + HttpContext sendError for authentication errors
+ + integrated jetty-jboss with jboss-3.2.4
+ + make choice of override of JNDI ENC entries: config.xml or web.xml
+ + OPTIONS works for all URLs on default servlet

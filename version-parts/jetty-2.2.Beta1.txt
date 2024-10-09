@@ -1,0 +1,20 @@
+jetty-2.2.Beta1 - 07 June 1999
+ + Allow configuration of MinListenerThreads, MaxListenerThreads,
+   MaxListenerThreadIdleMs
+ + Close files after use to avoid "file leak" under heavy load.
+ + Defined abstract ServletLoader, derivations of which can be specified in
+   HttpConfiguration properties.
+ + Destroy requests and responses to help garbage collector.
+ + Don't warn about IOExceptions unless Debug is on.
+ + Fixed cache in FileJarServletLoader
+ + Fixed incorrect version numbers in a few places.
+ + Fixed missing copyright messages from some contributions
+ + HtmlFilter optimized for being called by a buffered writer.
+ + Implemented all HttpServer attribute methods by mapping to the
+   HttpConfiguration properties.  Dynamic reconfiguration is NOT supported by
+   these methods (but we are thinking about it).
+ + Improved ThreadPool synchronization and added minThreads.
+ + Included GNUJSP 0.9.9
+ + Limit the job queue only grow to the max number of threads.
+ + Optional use of DateCache in log file format
+ + Restructure ThreadedServer to reduce object creation.

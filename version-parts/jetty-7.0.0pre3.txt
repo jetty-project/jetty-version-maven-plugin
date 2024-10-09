@@ -1,0 +1,50 @@
+jetty-7.0.0pre3 - 06 August 2008
+ + JETTY-30 Externalize servlet-api to own project
+ + JETTY-182 Support setting explicit system classpath for jasper
+   Jsr199JavaCompiler
+ + JETTY-319 Get unavailable exception and added startWithUnavailable option
+ + JETTY-381 JETTY-622 Multiple Web Application Source Directory
+ + JETTY-442 Accessors for mimeType on ResourceHandler
+ + JETTY-502 forward of an include should hide include attributes
+ + JETTY-562 RewriteHandler support for virtual hosts
+ + JETTY-563 JETTY-482 OpenRemoteServiceServlet for GWT1.5M2+
+ + JETTY-564 Consider optionally importing org.apache.jasper.servlet
+ + JETTY-571 SelectChannelConnector throws Exception on close on Windows
+ + JETTY-608 Suspend/Resume/Complete request listeners
+ + JETTY-621 Improved LazyList javadoc
+ + JETTY-626 Null protect reading the dtd resource from classloader
+ + JETTY-628 Rewrite rule for rewriting scheme
+ + JETTY-629 Don't hold timeout lock during expiry call
+ + JETTY-632 OSGi tags for Jetty client
+ + JETTY-633 Default form encoding 8859_1 rather than utf-8
+ + JETTY-635 Correctly merge request parameters when doing forward
+ + JETTY-636 Separate lifeycle of jsp build
+ + JETTY-637 empty date headers throw IllegalArgumentException
+ + JETTY-641 JDBC Realm purge cache problem
+ + JETTY-642 NPE in LdapLoginModule
+ + JETTY-644 LdapLoginModule uses proper filters when searching
+ + JETTY-645 Do not provide jetty-util to the webapps
+ + JETTY-646 Should set Cache-Control header when sending errors to avoid
+   caching
+ + JETTY-647 suspended POSTs with binary data do too many resumes
+ + JETTY-650 Parse "*" URI for HTTP OPTIONS request
+ + JETTY-651 Release resources during destroy
+ + JETTY-653 Upgrade jta api specs to more recent version
+ + JETTY-654 Allow Cometd Bayeux object to be JMX manageable
+ + JETTY-655 Support parsing application/x-www-form-urlencoded parameters via
+   http PUT
+ + JETTY-656 HttpClient defaults to async mode
+ + JETTY-659 ContentExchange and missing headers in HttpClient
+ + JETTY-663 AbstractDatabaseLoginModule handle not found UserInfo and userName
+ + JETTY-665 Support merging class directories
+ + JETTY-666 scanTargetPatterns override the values already being set by
+   scanTarget
+ + JETTY-667 HttpClient handles chunked content
+ + JETTY-669 Http methods other than GET and POST should not have error page
+   content
+ + JETTY-671 Configure DTD does not allow <Property> children
+ + JETTY-672 Utf8StringBuffer doesn't properly handle null characters (char
+   with byte value 0)
+ + JETTY-675 ServletContext.getRealPath("") returns null instead of returning
+   the root dir of the webapp
+ + Upgrade jsp 2.1 to SJSAS-9_1_02-B04-11_Apr_2008

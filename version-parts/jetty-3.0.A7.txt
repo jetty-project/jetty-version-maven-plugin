@@ -1,0 +1,6 @@
+jetty-3.0.A7 - 15 April 2000
+ + Added InetGateway to help debug IE5 problems
+ + added removeValue method to MultiMap
+ + fixed flush problem with chunked output for IE5
+ + Include java 1.2 source hierarchy
+ + removed excess ';' from source

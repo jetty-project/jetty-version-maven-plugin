@@ -1,0 +1,2 @@
+jetty-5.1.9 - 07 December 2005
+ + Fixed wantClientAuth(false) overriding netClientAuth(true)

@@ -1,0 +1,20 @@
+jetty-2.2.6 - 05 September 1999
+ + Added destroy() method on all HttpHandlers.
+ + Added ServletRunnerHandler to the contrib directories.
+ + Allow the handling of getPathTranslated to be configured in ServletHandler.
+ + class StyleLink added.
+ + Cookies always available from getCookies.
+ + Cookies parameter renamed to CookiesAsParameters
+ + cssClass, cssID and style methods added to element.
+ + FileHandler does not server files ending in '/'
+ + Fixed Cookie max age order of magnitude bug.
+ + HttpRequest.getSession() always returns a session as per the latest API
+   spec.
+ + Ignore duplicate single valued headers, rather than reply with bad request,
+   as IE4 breaks the rules.
+ + media added to Style
+ + New implementation of ThreadPool, avoids a thread leak problem.
+ + Removed JRUN options from ServletHandler configuration.
+ + ServletHandler.destroy destroys all servlets.
+ + SPAN added to Block
+ + Updated HTML package to better support CSS:

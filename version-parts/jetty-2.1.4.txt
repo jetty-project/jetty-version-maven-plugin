@@ -1,0 +1,11 @@
+jetty-2.1.4 - 26 March 1999
+ + fixed bug in getRealPath
+ + Fixed problem compiling PathMap under some JDKs.
+ + getPathTranslated now call getRealPath with pathInfo (as per spec).
+ + HttpRequest attributes implemented.
+ + pathInfo returns null for zero length pathInfo (as per spec). Sorry if this
+   breaks your servlets - it is a pain!
+ + Reduced HTML dependence in HTTP package to allow minimal configuration
+ + Session max idle time implemented.
+ + Tightened license agreement so that binary distributions are required to
+   include the license file.

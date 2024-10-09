@@ -1,0 +1,11 @@
+jetty-4.1.1 - 30 September 2002
+ + Avoid setting sotimeout for optimization.
+ + Cache directory listings.
+ + Deprecated maxReadTime.
+ + Fixed client scripting vulnerability with jasper2.
+ + Fixed infinite recursion in JDBCUserRealm
+ + Fixed space in resource name handling for jdk1.4
+ + Merged LimitedNCSARequestLog into NCSARequestLog
+ + Moved launcher/src to src/org/mortbay/start
+ + String comparison of If-Modified-Since headers.
+ + Touch files when expanding jars

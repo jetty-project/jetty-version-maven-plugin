@@ -1,0 +1,7 @@
+jetty-2.2.0 - 01 July 1999
+ + Added Protekt SSL HttpListener
+ + Exit servlet improved (a little).
+ + Fixed some of the javadoc formatting.
+ + Improved feature description page.
+ + Moved GNUJSP and Protekt listener to a contrib hierarchy.
+ + ThreadedServer.stop() closes socket before interrupting threads.

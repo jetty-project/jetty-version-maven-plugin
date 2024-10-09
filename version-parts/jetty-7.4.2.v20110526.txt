@@ -1,0 +1,24 @@
+jetty-7.4.2.v20110526
+ + JETTY-1146 Encode jsessionid in sendRedirect
+ + JETTY-1342 Recreate selector if wakeup throws JVM bug
+ + 334443 Improve the ability to specify extra class paths using the Jetty
+   Maven Plugin
+ + 336220 tmp directory is not set if you reload a webapp with
+   jetty-maven-plugin
+ + 338364 Fixed expires header for set cookies
+ + 345615 Enable SSL Session caching
+ + 345729 binding for managing server and system classes globally
+ + 345763 Source file is updated during the build
+ + 345873 Update jetty-ssl.xml to new style
+ + 345900 Handle IPv6 with default port
+ + 346014 Fixed full HttpGenerator
+ + 346124 ServletContext resources paths not resolved correctly when using UNC
+   shares
+ + 346179 o.e.j.util.ScannerTest fails on MacOS X platform
+ + 346181 o.e.j.server.StressTest stalls on MacOS X platform
+ + 346614 HttpConnection.handle() spins in case of SSL truncation attacks
+ + 346764 OrderedGroupBinding deployment binding
+ + 346998 AbstractLifeCycle.isRunning() returns false if state changes from
+   STARTING to STARTED during call
+ + 347137 Allow SSL renegotiations by default in HttpClient
+ + 374174 Consistent mbean names

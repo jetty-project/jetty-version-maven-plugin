@@ -1,0 +1,18 @@
+jetty-6.1.4rc1 - 10 June 2007
+ + JETTY-310 better exception when no filter file for cometd servlet
+ + JETTY-323 handle htaccess without a user realm
+ + JETTY-346 add wildcard support to extra scan targets for maven plugin
+ + JETTY-355 extensible SslSelectChannelConnector
+ + JETTY-357 cleaned up ssl buffering
+ + JETTY-360 allow connectors, userRealms to be added from a <jettyConfig> for
+   maven plugin
+ + JETTY-361 prevent url encoding of dir listings for non-link text
+ + JETTY-362 More object locks
+ + JETTY-365 make needClientAuth work on SslSelectChannelConnector
+ + JETTY-366 JETTY-368 Improved bayeux disconnect
+ + async client improvements
+ + fixed handling of large streamed files
+ + Fixed synchronization conflict SslSelectChannel and SelectChannel
+ + moved documentation for jetty and jspc maven plugins to wiki
+ + Optional static content cache
+ + Work around IBM JVM socket close issue

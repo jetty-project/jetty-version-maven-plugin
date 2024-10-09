@@ -1,0 +1,5 @@
+jetty-2.0.0 - 25 October 1998
+ + Added multipart/form-data demo.
+ + Fixed Code.formatObject handling of null objects.
+ + Removed Chat demo (too many netscape dependencies).
+ + Removed exceptional case from FileHandler redirect.

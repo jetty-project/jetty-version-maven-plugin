@@ -1,0 +1,34 @@
+jetty-6.1.2rc2 - 27 March 2007
+ + JETTY-125 maven plugin: ensure test dependencies on classpath for
+   <useTestClasspath>
+ + JETTY-246 path encode cookies rather than quote
+ + JETTY-254 prevent close of jar entry by bad JVMs
+ + JETTY-256 fixed isResumed and work around JVM bug
+ + JETTY-258 duplicate log message in ServletHandler
+ + JETTY-260 Close connector before stop
+ + JETTY-262 Allow acceptor thread priority to be adjusted
+ + JETTY-263 Added implementation for authorizationType Packets
+ + JETTY-265 Only quote cookie values if needed
+ + JETTY-266 Fix deadlock with shutdown
+ + JETTY-271 ResourceHandler uses resource for MimeType mapping
+ + JETTY-272 Activate and Passivate events for sessions
+ + JETTY-274 Improve flushing at end of request for blocking
+ + JETTY-276 Partial fix for reset/close race
+ + JETTY-277 Improved ContextHandlerCollection
+ + JETTY-278 Session invalidation delay until no requests
+ + JETTY-280 Fixed deadlock with two flushing threads
+ + JETTY-284 Fixed stop connector race
+ + JETTY-286 isIntegral and isConfidential methods overridden in
+   SslSelectChannelConnector
+ + Added RestFilter for PUT and DELETE from Aleksi Kallio
+ + AJP13 CPING request and CPONG response implemented
+ + AJP13 remoteUser, contextPath, servletPath requests implemented
+ + AJP13 Shutdown Request from peer implemented
+ + Change some JNDI logging to debug level instead of info
+ + Enable the SharedStoreContextualiser for the WadiSessionManager(Database
+   store for clustering)
+ + Make annotations work for maven plugin
+ + Optimized multi threaded init on startup servlets
+ + Refactor Scanner to increase code reuse with maven/ant plugins
+ + Removed unneeded specialized TagLibConfiguration class from maven plugin
+ + Update jasper to glassfish tag SJSAS-9_1-B39-RC-14_Mar_2007

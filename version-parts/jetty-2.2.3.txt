@@ -1,0 +1,9 @@
+jetty-2.2.3 - 27 July 1999
+ + Added stop call to HttpServer, used by Exit Servlet.
+ + FileHandler defaults to allowing directory access.
+ + Fixed parser bug in HtmlFilter
+ + Improved performance of com.mortbay.HTML.Heading
+ + JDBC tests modified to use cloudscape as DB.
+ + Made setInitialize public in ServletHolder
+ + Simplified JDBC connection handling so that it works with Java1.2 - albeit
+   less efficiently.

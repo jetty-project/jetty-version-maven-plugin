@@ -1,0 +1,7 @@
+jetty-4.2.11 - 12 July 2003
+ + Branched for Jetty 5 development.
+ + Cookie params all in lower case.
+ + Fixed race in servlet initialization code.
+ + Prevent AJP13 from reordering query.
+ + Simplified AJP13 connection handling.
+ + Support separate Monitor class for start

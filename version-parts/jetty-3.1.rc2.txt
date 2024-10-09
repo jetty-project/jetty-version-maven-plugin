@@ -1,0 +1,12 @@
+jetty-3.1.rc2 - 30 March 2001
+ + Added MultiException to throw multiple nested exceptions.
+ + added options to turn off ranges and chunking to support acrobat requests.
+ + fixed getLocales handling of quality params
+ + fixed getParameter(name) handling for multiple values.
+ + Improved handling of Primitive classes in XmlConfig
+ + Improved logging of nested exceptions.
+ + Lifecycle.start() may throw Exception
+ + Only one instance of default MIME map.
+ + Renamed getConnection to getHttpConnection
+ + Use reference JAXP1.1 for XML parsing.y
+ + Version 1.1 of configuration dtd supports New objects.

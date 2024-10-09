@@ -1,0 +1,4 @@
+jetty-2.1.7 - 22 April 1999
+ + Fixed showstopper bug with getReader and getWriter in requests and
+   responses.
+ + HttpFilter uses package interface to get HttpOutputStream

@@ -1,0 +1,5 @@
+jetty-4.2.14 - 04 November 2003
+ + Expire pages that contain set-cookie as per RFC2109 recommendation
+ + Fixed NPE in SSO
+ + JBoss integration uses writer rather than stream for XML config handling
+ + respect content length when decoding form content.

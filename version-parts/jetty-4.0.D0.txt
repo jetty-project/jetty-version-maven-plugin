@@ -1,0 +1,8 @@
+jetty-4.0.D0 - 06 November 2001
+ + 1.2 JSP API
+ + 2.3 Servlet API
+ + Added examples webapp from tomcat4
+ + Branched at Jetty_3_1
+ + Branched from Jetty_3_1 == Jetty_3_1_4
+ + Jasper from tomcat4
+ + Start SessionManager abstraction.

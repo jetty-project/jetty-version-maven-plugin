@@ -1,0 +1,26 @@
+jetty-3.1.rc6 - 10 July 2001
+ + Added Client authentication to the JsseListener
+ + Added debug and logging config example to demo.xml
+ + Added Get element to the XmlConfiguration class.
+ + Added getResource to HandleContext.
+ + Added Static calls to the XmlConfiguration class.
+ + Avoid script vulnerability in error pages.
+ + Cleaned up destroy handling of listeners and contexts.
+ + Cleaned up Win32 Service server creation.
+ + Close persistent HTTP/1.0 connections on missing Content-Length
+ + Fixed a problem with Netscape and the acrobat plugin.
+ + Fixed bug in B64Code. Optimised B64Code.
+ + Fixed XmlParser to handle xerces1.3 OK
+ + Improved debug output for IOExceptions.
+ + Improved SSL debugging information.
+ + KeyPairTool can now load cert chains.
+ + KeyPairTool is more robust to provider setup.
+ + Moved gimp image files to Jetty3Extra
+ + Moved mime types and encodings to property bundles.
+ + Removed getConfiguration from LifeCycleThread to avoid JMX clash.
+ + RequestDispatch.forward() uses normal HandlerContext.handle() path if
+   possible.
+ + Updated to JSSE-1.0.2, giving full strength crypto.
+ + Use exec for jetty.sh run
+ + WebApps initialize resourceBase before start.
+ + Win32 Service uses Jetty.Server instead of HttpServer.

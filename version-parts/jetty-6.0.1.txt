@@ -1,0 +1,14 @@
+jetty-6.0.1 - 24 September 2006
+ + JETTY-112 ContextHandler checks if started
+ + JETTY-113 support optional query char encoding on requests
+ + JETTY-114 removed utf8 characters from code
+ + JETTY-115 Fixed addHeader
+ + JETTY-121 init not called on externally constructed servlets
+ + JETTY-124 always initialize filter caches
+ + Factored ErrorPageErrorHandler out of WebAppContext
+ + fixed ClassCastException in JAASUserRealm.setRoleClassNames(String[])
+ + fixed isUserInRole checking for JAASUserRealm
+ + Improved charset handling in URLs
+ + JETYY-120 SelectChannelConnector closes all connections on stop
+ + minor optimization of bytes to UTF8 strings
+ + Refactored ErrorHandler to avoid statics

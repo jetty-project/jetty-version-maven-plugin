@@ -1,0 +1,16 @@
+jetty-2.2.Beta0 - 31 May 1999
+ + Added "Initialize" attribute to servlet configuration to allow servlet to be
+   initialized when loaded.
+ + Added HttpResponse.requestHandled() method to avoid bug with servlet doHead
+   method.
+ + Added Page.rewind() method to allow a page to be written multiple times
+ + Handle malformed % characters in URLs.
+ + HttpRequest.getCookies returns empty array rather than null for no cookies.
+ + Included and improved version of ThreadPool for significant performance
+   improvement under high load.
+ + Included contributed com.mortbay.Jetty.StressTester class
+ + LogHandler changed to support only a single outfile and optional append.
+ + Removed support for STF
+ + Servlet loader handles jar files with different files separator.
+ + ThreadedServer gently shuts down.
+ + Token effort to keep test files out of the jar

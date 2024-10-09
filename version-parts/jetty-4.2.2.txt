@@ -1,0 +1,6 @@
+jetty-4.2.2 - 20 November 2002
+ + Added EOFException to reduce log verbosity on closed connections.
+ + Avoided bad buffer status after closed connection.
+ + Fixed handling of empty headers
+ + Fixed sendRedirect for non http URLS
+ + Fixed URI query recycling for persistent connections

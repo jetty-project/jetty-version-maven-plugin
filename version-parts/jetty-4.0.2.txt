@@ -1,0 +1,8 @@
+jetty-4.0.2 - 06 June 2002
+ + Added OptimizeIt plug
+ + Don't chunk 30x empty responses.
+ + Fixed /foo/../bar// bug in canonical path.
+ + Fixed "" contextPaths in Dispatcher.
+ + Fixed handler/context start order.
+ + Fixed web.dtd references.
+ + Removed race for the starting of session scavaging

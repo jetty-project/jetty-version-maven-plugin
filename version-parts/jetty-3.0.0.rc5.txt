@@ -1,0 +1,14 @@
+jetty-3.0.0.rc5 - 12 November 2000
+ + Added debug form to Admin servlet.
+ + Allow null cookie values
+ + Avoid jprobe race warnings in DateCache
+ + Default writer encoding set by mime type if not explicitly set.
+ + Implemented servlet load ordering.
+ + Many javadoc cleanups.
+ + Merged DynamicHandler into ServletHandler.
+ + Moved JSP classpath hack to ServletHolder
+ + Pass flush through ServletOut
+ + Relax webapp rules, accept no web.xml or no WEB-INF
+ + Removed Makefile build system.
+ + RequestDispatcher can dispatch static resources.
+ + Servlet exceptions cause 503 unavailable rather than 500 server error

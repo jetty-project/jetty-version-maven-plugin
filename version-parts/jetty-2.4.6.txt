@@ -1,0 +1,6 @@
+jetty-2.4.6 - 16 August 2000
+ + Added passive mode methods to FTP
+ + com.mortbay.Util.KeyPairTool added to handle openSSL SSL keys.
+ + JsseListener & SunJsseListener added and documented
+ + Minor changes to compile with jikes.
+ + Turn Linger off before closing sockets, to allow restart.

@@ -1,0 +1,5 @@
+jetty-6.0.0 - 10 September 2006
+ + Conveniance builder methods for listeners and filters
+ + Plugin shutdown context before stopping it.
+ + SocketConnector closes all connections in doStop
+ + Transforming classloader does not transform resources.

@@ -1,0 +1,18 @@
+jetty-2.2.Beta3 - 22 June 1999
+ + Added alternate constructors to HTML.Include for InputStream.
+ + Added file cache to FileHandler
+ + Applied contributed patch of spelling and typo corrections
+ + Fixed bug in HttpResponse flush.
+ + Fixed file and socket leaks in Include and Embed tags.
+ + Implemented efficient version of ServletContext.getResourceAsStream() that
+   does not open a new socket connection (as does getResource()).
+ + Improved Block.write.
+ + LookAndFeelServlet uses getResourceAsStream to get the file to wrap. This
+   allows it to benefit from any caching done and to wrap arbitrary content
+   (not just files).
+ + Ran dos2unix on all text files
+ + Re-implemented ThreadedServer to improve and balance performance.
+ + Restructure demo so that LookAndFeel content comes from simple handler
+   stack.
+ + Server.shutdown() clears configuration so that server may be restarted in
+   same virtual machine.

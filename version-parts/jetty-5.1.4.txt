@@ -1,0 +1,7 @@
+jetty-5.1.4 - 05 June 2005
+ + Change JAAS impl to be more flexible on finding roles
+ + Fixed FTP close issue.
+ + ModelMBean handles null signatures
+ + NPE protection in ThreadedServer
+ + set classloader during webapp doStop
+ + setup MX4J with JDK1.5 in start.config

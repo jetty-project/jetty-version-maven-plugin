@@ -1,0 +1,24 @@
+jetty-6.1.15.rc4 - 19 February 2009
+ + JETTY-496 Support inetd/xinetd through use of System.inheritedChannel()
+ + JETTY-713 Expose additional AbstractConnector methods via MBean
+ + JETTY-749 Improved ack extension
+ + JETTY-802 Modify the default error pages to make association with Jetty
+   clearer
+ + JETTY-811 Allow configuration of system properties for the maven plugin
+   using a file
+ + JETTY-815 Add comet support to jQuery javascript library
+ + JETTY-840 add default mime types to *.htc and *.pps
+ + JETTY-848 Temporary folder not fully cleanup after stop (via Sweeper)
+ + JETTY-869 NCSARequestLog locale config
+ + JETTY-870 NullPointerException in Response when performing redirect to wrong
+   relative URL
+ + JETTY-872 Handshake handler calls wrong extension callback
+ + JETTY-878 Removed printStackTrace from WaitingContinuation
+ + JETTY-879 Support extra properties in jQuery comet implementation
+ + JETTY-882 ChannelBayeuxListener called too many times
+ + JETTY-884 Use hashcode for threadpool ID
+ + JETTY-887 Split configuration and handshaking in jquery comet
+ + JETTY-888 Fix abort in case of multiple outstanding connections
+ + JETTY-894 Add android .apk to mime types
+ + JETTY-898 Allow jetty debs to start with custom java args provided by users
+ + JETTY-909 Update useragents cache

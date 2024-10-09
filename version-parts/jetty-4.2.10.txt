@@ -1,0 +1,3 @@
+jetty-4.2.10 - 07 July 2003
+ + Updates to JettyPlus documentation
+ + Updates to Jetty tutorial for start.jar, jmx etc

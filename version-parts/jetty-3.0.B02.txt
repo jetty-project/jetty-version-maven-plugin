@@ -1,0 +1,7 @@
+jetty-3.0.B02 - 24 August 2000
+ + Added CGI servlet
+ + Fixed bug in TestRFC2616
+ + Fixed HTTP/1.0 input close bug
+ + Fixed LineInput bug with SSL giving CR pause LF.
+ + Improved ThreadedServer stop and destroy
+ + Use resources in WebApplication

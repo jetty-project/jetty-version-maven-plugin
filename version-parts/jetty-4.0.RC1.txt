@@ -1,0 +1,17 @@
+jetty-4.0.RC1 - 06 March 2002
+ + Added ContentEncodingHandler for compression.
+ + Call response.flushBuffer after service to flush wrappers.
+ + contextDestroyed event sent before destruction.
+ + Contributors list as an image to prevent SPAM!
+ + Empty suffix for temp directory.
+ + FileResource depends less on FilePermissions.
+ + Fixed filter vs forward bug.
+ + Fixed recursive DEBUG loop in Logging.
+ + Improved efficiency of quality list handling
+ + Minor changes to make HttpServer work on J2ME CVM
+ + Simplified filter API to chunkable streams
+ + Updated jetty.sh to always respect arguments.
+ + Warn if jdk 1.4 classes used on JVM <1.4
+ + WebApplication will use ContextLoader even without WEB-INF directory.
+ + XmlParser is validating by default. use o.m.x.XmlParser.NotValidating
+   property to change.

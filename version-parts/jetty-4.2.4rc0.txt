@@ -1,0 +1,27 @@
+jetty-4.2.4rc0 - 12 December 2002
+ + Added gzip content encoding support to Default and ResourceHandler
+ + Added HttpContext.flushCache
+ + Allow empty host header.
+ + Avoid optional 100 continues.
+ + Better access to session manager.
+ + Character encoding handling for GET requests.
+ + Cheap clear for HttpFields
+ + Cleaned up some unused listener throws.
+ + Code logs objects rather than strings.
+ + Configurable root context.
+ + Dir listings in UTF8
+ + Fixed dir listing from jars.
+ + Fixed isSecure and getScheme for SSL over AJP13
+ + Fixed setBufferSize NPE.
+ + Handle = in param values.
+ + Handle chunked form data.
+ + Implemented RFC2817 CONNECT in ProxyHandler
+ + Improved ProxyHandler to the point is works well for non SSL.
+ + Improved setBufferSize handling
+ + Limit form content size.
+ + Removed container transfer encoding handling.
+ + RootNotFoundHandler to help when no context found.
+ + Simplified ThreadedServer
+ + Update jasper to 4.1.16beta
+ + Use ThreadLocals for ByteArrayPool to avoid synchronization.
+ + Use Version to reset HttpFields

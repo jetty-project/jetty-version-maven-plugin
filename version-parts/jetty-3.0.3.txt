@@ -1,0 +1,7 @@
+jetty-3.0.3 - 03 February 2001
+ + Allow Log to be disabled before initialization.
+ + Fixed handling of directories without trailing /
+ + Fixed pipelined request buffer bug.
+ + Handle empty form content without exception.
+ + Implemented web.xml servlet mapping to a JSP
+ + Included new Jetty Logo

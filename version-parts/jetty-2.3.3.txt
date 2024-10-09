@@ -1,0 +1,5 @@
+jetty-2.3.3 - 19 October 1999
+ + Do our own URL encoding with ISO-8859-1
+ + HTTP.HTML.EmbedUrl uses contents encoding.
+ + Replaced UTF8 encoding with ISO-8859-1 for headers.
+ + Use UrlEncoded for form parameters.

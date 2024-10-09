@@ -1,0 +1,12 @@
+jetty-3.1.rc9 - 02 September 2001
+ + Added bin/orgPackage.sh script to change package names.
+ + Added handlerContext.setClassPaths
+ + Added lowResourcePersistTimeMs for more graceful degradation when we run out
+   of threads.
+ + Added support for Nonblocking listener.
+ + Changed to org.mortbay domain names.
+ + Fixed bug with non cookie sessions.
+ + Fixed handling of rel form authentication URLs
+ + Format cookies in HttpFields.
+ + Form auth login and error pages relative to context path.
+ + Patched Jasper to 3.2.3.

@@ -1,0 +1,9 @@
+jetty-6.0.0Beta7
+ + Faster header name lookup
+ + Fixed infinite loop with chunk handling
+ + maven-jetty6-plugin added tmpDirectory property
+ + maven-jetty6-plugin stopped throwing an error if there is no target/classes
+   directory
+ + null dispatch attributes not in names
+ + reduced info verbosity
+ + removed singleton Container

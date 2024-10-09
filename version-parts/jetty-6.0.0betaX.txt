@@ -1,0 +1,2 @@
+jetty-6.0.0betaX
+ + See http://jetty.mortbay.org/jetty6 for 6.0 releases

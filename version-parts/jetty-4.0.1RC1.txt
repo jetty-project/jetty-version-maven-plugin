@@ -1,0 +1,8 @@
+jetty-4.0.1RC1 - 29 April 2002
+ + Avoid flushes during RequestDispatcher.includes
+ + Better handling if no realm configured.
+ + Expand ByteBuffer full limit with capacity.
+ + Fixed double filtering of welcome files.
+ + Fixed FORM authentication auth of login page bug.
+ + Fixed setTempDirectory creation bug
+ + Improved flushing of chunked responses

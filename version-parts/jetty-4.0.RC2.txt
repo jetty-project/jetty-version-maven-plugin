@@ -1,0 +1,12 @@
+jetty-4.0.RC2 - 12 March 2002
+ + Added experimental nio SocketChannelListener
+ + Added skeleton load balancer
+ + Disabled the Password EXEC mechanism by default
+ + Dont try to extract directories
+ + Fixed column name in JDBCUserRealm
+ + Fixed empty referrer in NCSA log.
+ + Fixed security constraint problem with //
+ + Fixed version for String XmlConfigurations
+ + Removed redundant sessionID check.
+ + Remove last of the Class.forName calls.
+ + Security FAQ

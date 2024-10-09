@@ -1,0 +1,7 @@
+jetty-5.0.beta1 - 24 December 2003
+ + Added patch for JBoss realm single sign on
+ + Env variables for CGI
+ + Fixed UnixCrypt handling in HTAccessHandler
+ + Removed support for old JBoss clustering
+ + Reorganized FAQ
+ + SecurityConstraints not reset by stop() on custom context

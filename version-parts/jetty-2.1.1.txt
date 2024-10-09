@@ -1,0 +1,9 @@
+jetty-2.1.1 - 05 March 1999
+ + com.mortbay.Base.DateCache class added and used to speed date handling.
+ + Fast char buffer handling in HttpInputStream
+ + Faster version of HttpHeader.read()
+ + Faster version of HttpInputStream.readLine().
+ + Faster version of HttpRequest
+ + Handle '.' in configured paths (temp fix until PropertyTrees)
+ + Reduced number of calls to getRemoteHost for optimization
+ + Size all StringBuffers

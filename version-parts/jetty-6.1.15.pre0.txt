@@ -1,0 +1,41 @@
+jetty-6.1.15.pre0 - 20 January 2009
+ + JETTY-600 Automated tests of WADI integration + upgrade to WADI 2.0
+ + JETTY-749 Reliable message delivery
+ + JETTY-781 Add "mvn jetty:deploy-war" for deploying a pre-assembled war
+ + JETTY-794 WADI integration tests fail intermittently
+ + JETTY-795 NullPointerException in SocketConnector.java
+ + JETTY-798 Jboss session manager incompatible with LifeCycle.Listener
+ + JETTY-801 Bring back 2 arg EnvEntry constructor
+ + JETTY-802 Modify the default error pages to make association with Jetty very
+   clear
+ + JETTY-804 HttpClient timeout does not always work
+ + JETTY-806 Timeout related Deadlocks in HTTP Client
+ + JETTY-807 HttpTester to handle charsets
+ + JETTY-808 cometd client demo run.sh
+ + JETTY-809 Need a way to customize WEB-INF/lib file extensions that are added
+   to the classpath
+ + JETTY-814 Add org.eclipse.jetty.client.Address.toString()
+ + JETTY-816 Implement reconnect on java bayeux client
+ + JETTY-817 Aborted SSL connections may cause jetty to hang with full cpu
+ + JETTY-819 Jetty Plus no more jre 1.4
+ + JETTY-821 Allow lazy loading of persistent sessions
+ + JETTY-824 Access to inbound byte statistics
+ + JETTY-825 URL decoding of spaces (+) fails for encoding not utf8
+ + JETTY-827 Externalize servlet api
+ + JETTY-830 Add ability to reserve connections on http client
+ + JETTY-831 Add ability to stop java bayeux client
+ + JETTY-832 More UrlDecoded handling in relation to JETTY-825
+ + JETTY-833 Update debian and rpm packages for new jsp-2.1-glassfish jars and
+   servlet-api jar
+ + JETTY-834 Configure DTD does not allow <Map> children
+ + JETTY-837 Response headers set via filter are ignored for static resources
+ + JETTY-841 Duplicate messages when sending private message to yourself with
+   cometd chat demo
+ + JETTY-842 NPE in jetty client when no path component
+ + JETTY-843 META-INF/MANIFEST.MF is not present in unpacked webapp
+ + JETTY-852 Ensure handshake and connect retried on failure for jquery-cometd
+ + JETTY-854 JNDI scope does not work with applications in a .war
+ + JETTY-855 jetty-client uber assembly support
+ + JETTY-858 ContentExchange provides bytes
+ + JETTY-859 MultiPartFilter ignores the query string parameters
+ + JETTY-862 EncodedHttpURI ignores given encoding in constructor

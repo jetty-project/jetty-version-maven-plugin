@@ -1,0 +1,8 @@
+jetty-5.1.11RC0 - 05 April 2006
+ + Added provider support to SslListener
+ + Fixed AJP handling of ;jsessionid.
+ + force close with shutdownOutput for win32
+ + improved contentType param handling
+ + logging improvements for servlet and runtime exceptions
+ + NPE protection if desirable client certificates
+ + stop JDBCUserRealm forcing all credentials to be String

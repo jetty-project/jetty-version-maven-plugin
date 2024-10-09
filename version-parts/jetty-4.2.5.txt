@@ -1,0 +1,5 @@
+jetty-4.2.5 - 14 January 2003
+ + Added Log4jSink in the contrib directory.
+ + Don't process conditional headers and ranges for includes
+ + Fixed pathParam bug for ;jsessionid
+ + Fixed requestedSessionId null bug.

@@ -1,0 +1,25 @@
+jetty-7.5.0.RC0 - 15 August 2011
+ + 298502 Handle 200 Connect responses with no content-length
+ + 347484 / - > ${/} in some paths in grant codebases
+ + 349005 add javadoc detailing the convenience hack of removing leading /'s
+ + 351516 Refactored sessions to better support nosql session managers
+ + 351576 Do not use deprecated method File.toURL()
+ + 352046 Need try/catch around features set in XmlParser
+ + 352133 Generally resolve java 1.5isms
+ + 352176 xml parsing on startElement should be more flexible on using qName or
+   localName
+ + 352421 HttpURI paths beginning with '.'
+ + 352684 Implemented spinning thread analyzer
+ + 352786 GzipFilter fails to pass parameters to GzipResponseWrapper
+ + 352999 ExpireTest running too long
+ + 353073 WebSocketClient
+ + 353095 maven-jetty-plugin: PermGen leak due to javax.el.BeanELResolver
+ + 353165 addJars can follow symbolic link jar files
+ + 353210 Bundle-Version in o.e.j.o.boot.logback fix
+ + 353465 JAASLoginService ignores callbackHandlerClass
+ + 353563 HttpDestinationQueueTest too slow
+ + 353862 Improve performance of QuotedStringTokenizer.quote()
+ + 354014 Content-Length is passed to wrapped response in GZipFilter
+ + 354204 Charset encodings property file not used
+ + 354397 RewriteRegexRule handles special characters in regex group
+ + 354466 Typo in example config of jetty-plus.xml

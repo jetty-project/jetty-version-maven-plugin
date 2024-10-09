@@ -1,0 +1,3 @@
+jetty-4.2.24rc0 - 08 March 2005
+ + Added logCookie and logLatency support to NCSARequestLog
+ + Back ported Jetty 5 ThreadedServer and ThreadPool

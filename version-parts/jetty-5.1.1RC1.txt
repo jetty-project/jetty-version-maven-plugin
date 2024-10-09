@@ -1,0 +1,6 @@
+jetty-5.1.1RC1
+ + Allow double // within URIs
+ + Applied patch for MD5 hashed credentials for MD5
+ + Fixed ordering of filters with multiple interleaved mappings.
+ + Made more WebApplicationHandle configuration methods public.
+ + Some minor findbugs code cleanups

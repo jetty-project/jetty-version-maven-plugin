@@ -1,0 +1,2 @@
+jetty-7.0.0.v20091005 - 05 October 2009
+ + 291340 Race condition in onException() notifications

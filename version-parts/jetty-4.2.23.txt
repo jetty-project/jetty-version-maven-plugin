@@ -1,0 +1,3 @@
+jetty-4.2.23 - 16 January 2005
+ + Cleaned up AbstractSessionManager synchronization.
+ + Fixed potential concurrent login problem with JAAS

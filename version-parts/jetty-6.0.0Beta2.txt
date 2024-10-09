@@ -1,0 +1,7 @@
+jetty-6.0.0Beta2
+ + Improved buffer return
+ + Improved reuse of HttpField values and cookies.
+ + loosely coupled with JSP servlet
+ + loosely coupled with SLF4J
+ + merged util jar back into jetty jar
+ + Simpler continuation API

@@ -1,0 +1,12 @@
+jetty-6.1.1rc0 - 10 January 2007
+ + JETTY-209 Added ServletTester.createSocketConnector
+ + JETTY-210 Build servlet-api-2.5 for java 1.4
+ + JETTY-211 fixed jboss build
+ + CGI servlet fails without exception
+ + ensure response headers on AjaxFilter messsages turn off caching
+ + extras/win32service download only if no JavaServiceWrapper exist
+ + Fixed unpacking WAR
+ + MultiPartFilter deleteFiles option
+ + simplified chat demo
+ + start webapps on deployment with jboss, use isDistributed() method from
+   WebAppContext

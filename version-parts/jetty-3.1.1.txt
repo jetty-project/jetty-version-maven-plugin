@@ -1,0 +1,9 @@
+jetty-3.1.1 - 27 September 2001
+ + Correctly ignore auth-constraint descriptions.
+ + Fixed jar manifest format - patched 28 Sep 2001
+ + Fixed ServletRequest.getLocale().
+ + Handle requestdispatcher during init.
+ + Reduced verbosity of bad URL errors from IIS virus attacks
+ + Removed incorrect warning for WEB-INF/lib jar files.
+ + Removed JDK 1.3 dependancy
+ + Use lowercase tags in html package to be XHTML-like.

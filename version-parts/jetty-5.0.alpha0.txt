@@ -1,0 +1,8 @@
+jetty-5.0.alpha0 - 16 July 2003
+ + Compiled against 2.4 servlet spec.
+ + Implemented Dispatcher forward attributes.
+ + Implemented filter-mapping <dispatcher> element
+ + Implemented remote/local addr/port methods
+ + Implemented setCharaterEncoding
+ + Updated authentication so that a normal Principal is used.
+ + updated to jasper 5.0.3

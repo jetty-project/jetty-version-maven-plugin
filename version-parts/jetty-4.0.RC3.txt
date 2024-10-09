@@ -1,0 +1,7 @@
+jetty-4.0.RC3 - 20 March 2002
+ + Changed html attribute order for mozilla quirk.
+ + ContextInitialized notified before load-on-startup servlets.
+ + Fixed ZZZ offset format to +/-HHMM
+ + JDBCUserRealm instantiates JDBC driver
+ + Suppress WriterOutputStream warning.
+ + Updated history

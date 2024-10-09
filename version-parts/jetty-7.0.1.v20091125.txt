@@ -1,0 +1,46 @@
+jetty-7.0.1.v20091125 - 25 November 2009
+ + JETTY-937 More JVM bug work arounds. Insert pause if all else fails
+ + JETTY-983 Send content-length with multipart ranges
+ + JETTY-1114 unsynchronised WebAppClassloader.getResource(String)
+ + JETTY-1121 Merge Multipart query parameters
+ + JETTY-1122 Handle multi-byte utf that causes buffer overflow
+ + JETTY-1125 TransparentProxy incorrectly configured for test webapp
+ + JETTY-1129 Filter control characters out of StdErrLog
+ + JETTY-1135 Handle connection closed before accepted during JVM bug work
+   around
+ + JETTY-1144 fixed multi-byte character overflow
+ + JETTY-1148 Reset partially read request reader
+ + 274251 DefaultServlet supports exact match mode
+ + 288401 HttpExchange.cancel() Method Unimplemented
+ + 289027 deobfuscate HttpClient SSL passwords
+ + 289265 Test harness for async input
+ + 289959 Improved ContextDeployer configuration
+ + 289960 start.jar assumes command line args are configs
+ + 291019 Fix default DEBUG option; "-D.DEBUG=true" now works
+ + 291340 Race condition in onException() notifications
+ + 291543 make bin/*.sh scripts executable in distribution
+ + 291589 Update jetty-rewrite demo
+ + 292546 Proactively enforce HttpClient idle timeout
+ + 292642 Fix errors in embedded Jetty examples
+ + 292825 Continuations ISE rather than ignore bad transitions
+ + 293222 Improved StatisticsHandler for async
+ + 293506 Unable to use jconsole with Jetty when running with security manager
+ + 293557 Add "jad" mime mapping
+ + 294154 Patched jetty-osgi
+ + 294224 HttpClient timeout setting has no effect when connecting to host
+ + 294345 Support for HTTP/301 + HTTP/302 response codes
+ + 294563 Initial websocket implementation
+ + 295421 Cannot reset() a newly created HttpExchange: IllegalStateException 0
+   => 0
+ + 295562 CrossOriginFilter does not work with default values in Chrome and
+   Safari
+ + COMETD-34 Support Baeyux MBean
+ + CQ-3581 jetty OSGi contribution
+ + CVE-2009-3555 Prevent SSL renegotiate for SSL vulnerability
+ + Fixed client abort asocciation
+ + Fixed XSS issue in CookieDump demo servlet.
+ + Improved start.jar usage text for properties
+ + Moved centralized logging and verifier back to sandbox
+ + Promoted Jetty Centralized Logging from Sandbox
+ + Promoted Jetty WebApp Verifier from Sandbox
+ + Refactored continuation test harnessess

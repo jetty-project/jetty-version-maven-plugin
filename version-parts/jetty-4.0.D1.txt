@@ -1,0 +1,12 @@
+jetty-4.0.D1 - 14 November 2001
+ + Added Context and Session Event Handling
+ + Added FilterHandler
+ + Added FilterHolder
+ + Changed HandlerContext to HttpContext
+ + Fixed bug with request dispatcher parameters
+ + Fixed ServletHandler with no servlets
+ + New ContextLoader implementation.
+ + New Dispatcher implementation
+ + Removed destroy methods
+ + Simplified MultiMap
+ + Simplified ServletHandler

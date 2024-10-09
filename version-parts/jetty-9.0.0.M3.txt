@@ -1,0 +1,10 @@
+jetty-9.0.0.M3 - 20 November 2012
+ + 391623 Add option to --stop to wait for target jetty to stop
+ + 392237 Port test-integration to jetty-9
+ + 392492 expect headers only examined for requests>=HTTP/1.1
+ + 392850 ContextLoaderListener not called in 9.0.0.M1 and M2
+ + 393075 1xx, 204, 304 responses ignore headers that suggest content
+ + 393832 start connectors last
+ + 393947 additional tests
+ + 394143 add jetty-all aggregate via release profile
+ + 394144 add jetty-jaspi

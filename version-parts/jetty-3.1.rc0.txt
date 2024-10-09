@@ -1,0 +1,11 @@
+jetty-3.1.rc0 - 23 February 2001
+ + Added JMX management framework.
+ + Changed getter and setter methods that did not conform to beans API.
+ + Dynamic servlets may be restricted to Context classloader.
+ + Fixed init order for unnamed servlets.
+ + Fixed session invalidation unbind notification to conform with spec
+ + Improved handling of primitives in utilities.
+ + Improved InetAddrPort and ThreadedServer to reduce DNS lookups.
+ + Reoganized packages to allowed sealed Jars
+ + Socket made available via HttpConnection.
+ + Use Thread context classloader as default context loader parent.

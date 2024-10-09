@@ -1,0 +1,30 @@
+jetty-9.3.9.v20160517 - 17 May 2016
+ + 436 Migrate Jetty Documentation
+ + 437 updates to NPE prevention
+ + 501 clear continuation initial on undispatch
+ + 510 Module [depend] property expansion should support eg
+   foo/${bar}/${bar}-xxx
+ + 514 Allow ExecutionStrategy to be configurable
+ + 518 jarfile fix for springboot
+ + 519 Disable SSL session caching
+ + 521 Separate usage of the Server and the ServerConnector Executors
+ + 525 Spin in HttpInputOverHttp.blockForContent with malformed HTTP-Request
+ + 526 Headers set from RequestDispatcher.include() not showing up in response
+ + 529 Start property for non standard JRE versions
+ + 533 Do not hide file resource exception
+ + 534 Deadlock in MongoSessionManager
+ + 546 Guard concurrent calls to ExecutionStrategy.execute()
+ + 547 ExecuteProduceConsume (EWYK) does not exit low threads mode
+ + 552 Improve HTTP/2 idle timeout handling
+ + 553 Abort HttpChannel if response has wrong content-length
+ + 556 Improve Resource.getAlias() checks on Windows
+ + 557 Review ThreadPool.isLowOnThreads()
+ + 558 HTTP/2 server hangs when thread pool is low on threads
+ + 560 Jetty Client Proxy Authentication does not work with HTTP Proxy
+   tunneling
+ + 561 Fixed test timer
+ + 567 NPE in ErrorPageErrorHandler debug
+ + 570 URIUtil.encodePath does not always encode utf8 chars
+ + 571 AbstractAuthentication.matchesURI() fails to match scheme
+ + 572 Don't reject HTTP/2 requests without body in low threads mode
+ + 486530 Handler added to WebAppContext prevents ServletContext initialization

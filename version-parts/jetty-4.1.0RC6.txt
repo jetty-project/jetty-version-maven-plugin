@@ -1,0 +1,11 @@
+jetty-4.1.0RC6 - 14 September 2002
+ + Added logon.jsp for no cookie form authentication.
+ + Added redirect to welcome file option.
+ + Cleaned up old debug.
+ + Don't URL encode FileURLS.
+ + Encode URLs of Authentication redirections.
+ + Extended Session API to pass request for jvmRoute handling
+ + Fixed problem with AJP 304 responses.
+ + FormAuthenticator uses normal redirections now.
+ + Improved HashUserRealm doco
+ + Improved look and feel of demo

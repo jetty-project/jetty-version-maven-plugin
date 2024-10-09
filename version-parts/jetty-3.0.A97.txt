@@ -1,0 +1,14 @@
+jetty-3.0.A97 - 13 July 2000
+ + Added error handling to LifeCycleThread
+ + Added WML mappings
+ + Better tuned SocketListener parameters
+ + Fixed makefiles for BSD ls
+ + Fixed persistent commits with no content (eg redirect+keep-alive).
+ + Formatted version in server info string.
+ + implemented removeAttribute on requests
+ + Implemented servlet getLocale(s).
+ + Implemented servlet isSecure().
+ + Less verbose debug
+ + Protect setContentLength from a late set in default servlet HEAD handling.
+ + Started RequestDispatcher implementation.
+ + Tempory request log implementation

@@ -1,0 +1,6 @@
+jetty-4.2.21 - 02 July 2004
+ + add JMX support for JettyPlus
+ + add listing of java:comp/env for webapp with JMX
+ + Fixed JAAS logout
+ + integrated jetty-jboss with jboss-3.2.4
+ + make choice of override of JNDI ENC entries: config.xml or web.xml

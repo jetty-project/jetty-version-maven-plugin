@@ -1,0 +1,5 @@
+jetty-2.4.5 - 09 July 2000
+ + Added HtmlExpireFilter and removed response cache revention from HtmlFilter.
+ + Don't mark a session invalid until after values unbound.
+ + Fixed transaction handling in JDBC wrappers
+ + Formatted version in server info.

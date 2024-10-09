@@ -1,0 +1,7 @@
+jetty-4.2.20RC0 - 07 April 2004
+ + Changed dist naming convention to lowercase
+ + Fixed Default servlet for non empty servlet paths
+ + Forced close of connections over stop/start
+ + HttpFields protected headers
+ + ProxiedFor field support added to NCSARequestLog
+ + Worked around bad jboss URL handler in XMLParser

@@ -1,0 +1,33 @@
+jetty-7.3.1.v20110307 - 07 March 2011
+ + JETTY-1304 Allow quoted boundaries in Multipart filter
+ + JETTY-1317 More elegent handling of bad URIs in requests
+ + JETTY-1331 Allow alternate XML configuration processors (eg spring)
+ + JETTY-1333 HttpClient _timeout and _soTimeout is messed up
+ + JETTY-1335 HttpClient's SelectConnector clean-up
+ + JETTY-1337 Workname cannot contain '.'
+ + JETTY-1338 Trust default SecureRandom seed
+ + 316382 Support a more strict SSL option with certificates
+ + 333481 Handle UCS-4 codepoints in decode and encode
+ + 335329 Moved blocking timeout handling to outside try catch
+ + 336668 policy supports cert validation
+ + 336691 Possible wrong length returned by ChannelEndPoint.flush() in case of
+   RandomAccessFileBuffer
+ + 336781 If xml parser is not validating, turn off external dtd resolution
+ + 336793 Tee data filled and flushed from endpoint
+ + 337258 Scanner start and end cycle notification
+ + 337268 Allow specifying alias of a certificate to be used by SSL connector
+ + 337270 Shared Timer for session management
+ + 337271 Flush SSL endpoint when dispatch thread held forever
+ + 337678 Readded optional async connection mode for HttpClient
+ + 337685 Work in progress on draft 6 websockets
+ + 337746 Fixed Session deIdle recursion
+ + 337784 Improve HashSessionManager for session migrations
+ + 337878 Extra tests of security constraints
+ + 337896 HttpExchange.timeout does not override HttpClient.timeout
+ + 337898 set client HttpConnection max idle time from exchange timeout
+ + 338035 Default acceptors 0.25*CPUs and improved selector/acceptor thread
+   names.
+ + 338068 Leaking ConstraintMappings on redeploy
+ + 338092 ProxyServlet leaks memory
+ + 338607 Removed managed attributes when context is stopped
+ + 338819 Externally control Deployment Manager application lifecycle

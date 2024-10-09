@@ -1,0 +1,18 @@
+jetty-5.0.beta2 - 12 February 2004
+ + Added experimental NIO listeners again.
+ + Added log4j context repository to jettyplus
+ + Added skeleton JMX MBean for jetty plus
+ + FileResource better handles non sun JVM
+ + Fixed busy loop in threadpool run
+ + fixed filter dispatch configuration.
+ + Fixed HEAD with empty chunk bug.
+ + Fixed jetty.home/work handling
+ + fixed lazy authentication with FORMs
+ + Fixed SessionManager init
+ + Fixed setDate thread safety
+ + Improved low thread handling
+ + Monitor closes socket before exit
+ + NPE guard for no-listener junit deployment
+ + Reorganized ServletHolder init
+ + RequestDispatcher uses request encoding for query params
+ + Updated to Japser 5.0.16

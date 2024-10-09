@@ -1,0 +1,17 @@
+jetty-2.2.1 - 18 July 1999
+ + Added optional resourceBase property to HttpConfiguration. This is used as a
+   URL prefix in the getResource API and was suggested by the JSERV and Tomcat
+   implementors.
+ + Added TerseExceptionHandler
+ + Comma separate header fields.
+ + Decoupled ExceptionHandler configuration from Handler stacks. Old config
+   style will produce warning and Default behavior. See new config file format
+   for changes.
+ + Handle continuation lines in HttpHeader.
+ + HtmlFilter resets last-modified and content-length headers.
+ + Ignore IOException in ThreadedServer.run() when closing.
+ + Implemented com.mortbay.Util.IO as a ThreadPool
+ + Less verbose debug in PropertyTree
+ + Limit maximum line length in HttpInputStream.
+ + Protect against duplicate single valued headers.
+ + Response with SC_BAD_REQUEST rather than close in more circumstances

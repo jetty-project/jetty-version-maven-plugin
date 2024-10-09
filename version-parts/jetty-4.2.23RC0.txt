@@ -1,0 +1,5 @@
+jetty-4.2.23RC0 - 17 December 2004
+ + Added LogStream to capture stderr and stdout to logging
+ + Build unsealed jars
+ + LineInput handles readers with small internal buffer
+ + Support Secure and HttpOnly in session cookies

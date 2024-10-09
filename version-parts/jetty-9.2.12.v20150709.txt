@@ -1,0 +1,4 @@
+jetty-9.2.12.v20150709 - 09 July 2015
+ + 469414 Proxied redirects expose upstream server name
+ + 469936 Remove usages of SpinLock
+ + 470184 Send the proxy-to-server request more lazily

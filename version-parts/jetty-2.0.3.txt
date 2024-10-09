@@ -1,0 +1,8 @@
+jetty-2.0.3 - 13 November 1998
+ + Fix bug with index files for Jetty.Server. Previously servers configured
+   with com.mortbay.Jetty.Server would not handle index.html files.  Need to
+   make this configurable in the prp file.
+ + Fixed errors in README file: com.mortbay.Jetty.Server was called
+   com.mortbay.HTTP.Server
+ + Limit threads in ThreadedServer and low priority listener option greatly
+   improve performance under worse case loads.

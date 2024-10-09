@@ -1,0 +1,5 @@
+jetty-7.4.5.v20110725 - 25 July 2011
+ + 347484 / - > ${/} in some paths in grant codebases
+ + 352133 resolve some 1.5isms
+ + 352421 HttpURI paths beginning with '.'
+ + 352786 GzipFilter fails to pass parameters to GzipResponseWrapper

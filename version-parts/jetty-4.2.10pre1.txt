@@ -1,0 +1,13 @@
+jetty-4.2.10pre1 - 02 June 2003
+ + Added SSO implementation for FORM authentication.
+ + Added stop.jar
+ + Deprecated forced chunking.
+ + Fixed AJP13 protocol so that request/response header enums are correct.
+ + Fixed form auth success redirect after retry, introduced in 4.2.9rc1
+ + Fixed JSP code visibility problem introduced in Jetty-4.2.10pre0
+ + Fixed problem with shared session for inter context dispatching.
+ + Form authentication remembers URL over 403
+ + ProxyHandler has improved test for request content
+ + Removed support of org.mortbay.http.User role.
+ + Trace support is now optional (in AbstractHttpHandler).
+ + WebApplicationContext does not reassign defaults descriptor value.

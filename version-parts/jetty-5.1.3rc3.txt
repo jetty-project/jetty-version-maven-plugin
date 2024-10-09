@@ -1,0 +1,4 @@
+jetty-5.1.3rc3 - 20 March 2005
+ + fixed "No getter or setter found" mbean errors
+ + removed accidental enablement of DEBUG for JettyPlus jndi in
+   log4j.properties

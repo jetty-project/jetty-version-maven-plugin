@@ -1,0 +1,4 @@
+jetty-4.0.5 - 31 July 2002
+ + Fixed getRealPath for packed war files.
+ + Fixed getRequestURI for RD.forward to return new URI.
+ + Reversed order of ServletContextListener.contextDestroyed calls

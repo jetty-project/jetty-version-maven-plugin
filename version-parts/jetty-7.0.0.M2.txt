@@ -1,0 +1,16 @@
+jetty-7.0.0.M2 - 18 May 2009
+ + JETTY-937 Work around Sun JVM bugs
+ + JETTY-941 Linux chkconfig hint
+ + JETTY-959 CGI servlet doesn't kill the CGI in case the client disconnects
+ + JETTY-980 Fixed ResourceHandler ? handling, and bad URI creation in listings
+ + JETTY-996 Make start-stop-daemon optional
+ + JETTY-1003 java.lang.IllegalArgumentException: timeout can't be negative
+ + JETTY-1004 CERT VU#402580 Canonical path handling includes ? in path segment
+ + JETTY-1013 MySql Error with JDBCUserRealm
+ + JETTY-1014 Enable start-stop-daemon by default on jetty.sh
+   (START_STOP_DAEMON=1)
+ + JETTY-1015 Reduce BayeuxClient and HttpClient lock contention
+ + JETTY-1020 ZipException in org.mortbay.jetty.webapp.TagLibConfiguration
+   prevents all contexts from being loaded
+ + 273767 Update to use geronimo annotations spec 1.1.1
+ + 275396 Added ScopedHandler to set servlet scope before security handler

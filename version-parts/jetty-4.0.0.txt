@@ -1,0 +1,6 @@
+jetty-4.0.0 - 22 March 2002
+ + Added IPAddressHandler for IP restrictions
+ + Jetty.sh cygwin support
+ + Minor documentation updates.
+ + Updated contributors.
+ + Updated tutorial configure version

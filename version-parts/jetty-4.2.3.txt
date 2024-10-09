@@ -1,0 +1,12 @@
+jetty-4.2.3 - 02 December 2002
+ + Added links to Jetty Powered page
+ + added main() to org.mortbay.http.Version
+ + Added PKCS12Import class to import PKCS12 key directly
+ + Check form authentication config for leading /
+ + Cleaner servlet stop to avoid extra synchronization on handle
+ + Clean up of ThreadedServer.stop()
+ + Fixed some typos
+ + org.mortbay.http.HttpContext.FileClassPathAttribute
+ + Removed aggressive threadpool shrinkage to avoid deadlock on SMP machines.
+ + removed old HttpContext.setDirAllowed()
+ + Updated bat scripts

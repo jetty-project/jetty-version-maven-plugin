@@ -1,0 +1,9 @@
+jetty-3.0.0 - 17 December 2000
+ + Fixed rel path handling in default configurations.
+ + Fixed rollover bug in WriterLogSink
+ + Fixed taglib parsing
+ + Fixed WriterLogSink init bug
+ + Improved dtd resolution in XML parser.
+ + Improved jetty.sh logging
+ + Optional extract war files.
+ + Use inner class to avoid double null check sync problems

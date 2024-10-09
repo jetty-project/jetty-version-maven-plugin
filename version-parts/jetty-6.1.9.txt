@@ -1,0 +1,15 @@
+jetty-6.1.9 - 26 March 2008
+ + JETTY-399 update OpenRemoteServiceServlet to gwt 1.4
+ + JETTY-471 LDAP JAAS Realm
+ + JETTY-475 AJP connector in RPMs
+ + JETTY-482 update to JETTY-399
+ + JETTY-519 HttpClient does not recycle closed connection
+ + JETTY-522 Add build profile for macos for setuid
+ + JETTY-525 Fixed decoding for long strings
+ + JETTY-526 Fixed MMBean fields on JMX MBeans
+ + JETTY-532 MBean properties for QueuedThreadPool
+ + JETTY-535 Fixed Bayeux server side client memory leak
+ + JETTY-538 test harness fix for windows
+ + JETTY-541 Cometd per client timeouts
+ + Ensure Jotm tx mgr can be found in jetty-env.xml
+ + Make javax.servlet.jsp optional osgi import for jetty module

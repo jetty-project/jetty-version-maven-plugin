@@ -1,0 +1,9 @@
+jetty-2.4.7 - 06 October 2000
+ + Added encode methods to URI
+ + Allow Objects to be passed to LogSink
+ + fixes to SSL doco
+ + Improved win32 build
+ + Set content length on errors for keep alive.
+ + Support key and keystore passwords
+ + Various improvements to  ServletDispatch, PropertyTree and associated
+   classes.
