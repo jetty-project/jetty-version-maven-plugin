@@ -1,0 +1,19 @@
+jetty-12.0.0.beta3 - 03 July 2023
+ + 9919 Jetty-12 creates two instances of ArrayByteBufferPool
+ + 9925 Bring back Jetty <12 flexibility of "current context / context handler"
+ + 9944 Remove integer for demand in websocket in Jetty-12
+ + 9946 Handler passed to Handler in constructor a parent or child?
+ + 9947 Cannot invoke "org.eclipse.jetty.io.ManagedSelector.getTotalKeys()"
+   because "selector" is null
+ + 9953 Jetty 12.0 Handle HEAD requests in Handler
+ + 9955 Jetty 12.0 beta 2 HttpServletResponse::getStatus returns 0 by default
+ + 9960 Custom logging in Jetty 12 beta2 can fail due to NullPointerException
+   in org.eclipse.jetty.server.Request
+ + 9965 prevent multiple websocket frames from being demanded in Jetty-12
+ + 9966 NullPointerException with default servlet, include and welcome pages
+ + 9972 getResourcePaths fails when a META-INF resource has reserved characters
+   in its filename
+ + 9973 Creating a Resource for an entry in a nested jar file in Jetty 12
+ + 9984 URLResource.isDirectory() throws a NullPointerException when created
+   from a jar:file: URL
+ + 9990 Server rejects certain sizes of streamed request bodies

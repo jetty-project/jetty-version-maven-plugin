@@ -1,0 +1,38 @@
+jetty-12.0.2 - 09 October 2023
+ + 7408 Change scope of maven plugin dependencies
+ + 9665 `HttpCookieStore` incorrectly rejects cookies for domains that are an
+   IPv6 address
+ + 9777 CrossOriginFilter does not return Vary header on no-cors mode
+ + 9928 Backport `Request.getBeginNanoTime()`
+ + 10219 Review HTTP Cookie parsing
+ + 10271 jetty.sh does not stop jetty anymore
+ + 10328 Review `ResourceFactory.newSystemResource(String)` behavior & javadoc
+ + 10361 Introduce QoSHandler
+ + 10388 Jetty10 inetaccess mod started error
+ + 10440 ClassCastException with `<jettyEnvXml>` use in
+   `jetty-ee10-maven-plugin`
+ + 10441 Jetty 12 ee8 jaspi is missing
+ + 10442 Reduce verbosity when JMX finds overloaded setter
+ + 10463 Jetty 12 throws Exception handling static files when using response
+   wrapper
+ + 10466 Review HTTP session documentation
+ + 10473 Startup Script reports `ok` too fast, and doesn't wait for actual
+   start of Jetty
+ + 10474 Jetty 12 default error handler throws IllegalStateException for
+   application/json
+ + 10475 Update Jetty 12 MANIFEST's Bundle-Copyright
+ + 10482 RewriteHandler with multiple HeaderPatternRules
+ + 10490 Jetty 12 Jakarta Websockets user principal is always null
+ + 10498 NullPointerException from call to UpgradeRequest#getUserPrincipal with
+   Jetty 12
+ + 10500 Jetty 12 HTTP SPI does not preserve double-quotes on valid request
+   headers
+ + 10508 Jetty 12 IllegalArgumentExeption when setting a HTTP header to null
+ + 10513 Lockup processing POST request body with Jetty 12.0.1 using http/2
+ + 10543 Review HttpStream.consumeAvailable() implementations
+ + 10547 Cannot customize Executor on WebSocketClient
+ + 10557 Update quiche to 0.18.0
+ + 10558 NPE when forwarding a request to default servlet which should redirect
+   to a subdirectory with trailing slash
+ + 10665 Wrong BREE in Jetty jars
+ + 10679 Review HTTP/2 rate control (CVE-2023-44487)

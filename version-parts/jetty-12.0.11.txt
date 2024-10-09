@@ -1,0 +1,21 @@
+jetty-12.0.11 - 27 June 2024
+ + 11803 Follow Reactive Stream TCK for ContentSourcePublisher implementation
+ + 11811 getHeaderNames should return header name once also when request has it
+   in different case
+ + 11847 replacement for GlobalWebappConfigBinding
+ + 11873 Server resources are not found if the server is subclassed in a
+   different package
+ + 11892 mtls not working with http/3
+ + 11902 Un-deprecate WebAppClassLoading.addHiddenClasses(Attributes
+   attributes, String... patterns) method
+ + 11909 Start throws ConcurrentModificationException if an `eeX-webapp.ini`
+   exists in `start.d` with a command line like: `java -jar
+   ../jetty-home/start.jar --module=server,http,ee8-webapp,ee8-deploy`
+ + 11911 11 -> 12 Migration guide wrongly suggests Request.getHttpURI as
+   replacement for HttpServletRequest.getRequestURL
+ + 11917 Update XML configure.dtd locations to new jetty.org website
+ + 11925 java.lang.NullPointerException: Cannot invoke
+   "String.startsWith(String)" because "etag" is null
+ + 11932 Review HttpSender.ContentSender (and other ICB) to remove overridden
+   succeeded method
+ + 11944 Jetty Part#delete() implementation throws IOException

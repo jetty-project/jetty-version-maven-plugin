@@ -1,0 +1,44 @@
+jetty-12.0.0.beta0 - 23 February 2023
+ + 7650 QueuedThreadPool: Stopped without executing or closing null
+ + 8069 Jetty 12 is missing a way to record server latencies
+ + 8984 Jetty 12 - Attributes dump is not working
+ + 8991 Review naming of FrameHandler.isDemanding() in Jetty 12
+ + 8993 `Content.Chunk.isTerminal()` cannot discriminate `EOF` from chunks
+   containing a pooled empty buffer
+ + 9038 Jetty 12 - Review EE10 Http[Input|Output].Interceptor APIs
+ + 9046 Fix jetty-12 tck tests
+   com.sun.ts.tests.servlet.api.jakarta_servlet_http.httpsessionx.URLClient.invalidateHttpSessionTest
+   and
+   com.sun.ts.tests.servlet.api.jakarta_servlet_http.httpsessionx.URLClient.invalidateHttpSessionxTest
+ + 9051 Review Jetty-12 DelayedHandler
+ + 9059 IteratingCallback not serializing close() and failed()
+ + 9066 TCK multipart not set as request parameter
+ + 9067 TCK DefaultServlet handling of dispatch include incorrect
+ + 9078 Header image for Jetty demo page fails on hard refresh
+ + 9119 Wrong value of javax.servlet.forward.context_path attribute
+ + 9141 Thread-safe Content.Chunk#slice
+ + 9145 Failure when running `add-module` for openid, websocket, and stats
+   modules
+ + 9166 Jetty 12: review/remove ByteBufferPool
+ + 9173 Configuring SameSite on a per-cookie basis in Jetty 12
+ + 9181 NPE in SessionHandler.checkRequestedSessionId()
+ + 9182 Jetty 12 - Public version of JakartaWebSocketServerContainer
+ + 9183 ConnectHandler may close the connection instead of sending 200 OK
+ + 9210 Jetty 12 - Review Pool and Pool.Entry
+ + 9240 Jetty 12 - `AbstractConnectionPool.toString()` can trigger NPE
+ + 9275 Jetty-12 H3 tests passing after 30s timeout
+ + 9285 ContextHandler sends redirect on BaseResponse instead of Wrapped
+   Response object from Handler chain
+ + 9288 Jetty 12 - Use oej.http.HttpCookie in jetty-client
+ + 9293 Jetty 12 - Relax JPMS dependencies
+ + 9301 JSTL fails in JPMS
+ + 9322 404 handler not working in jetty-12
+ + 9326 Jetty 12 - Rename DecryptedEndPoint to SslEndPoint
+ + 9334 Better support for Cookie RFC 2965 compliance (CVE-2023-26049)
+ + 9336 Review LifeCycle of Parts in Jetty 12
+ + 9337 LowResourceMonitor.getReasons should include detailed reason instead of
+   hard-coded message
+ + 9387 Remove Request.__defaultLocale
+ + 9398 DefaultHandler does not list contexts
+ + 9403 TCK failure: DefaultServlet only sets status 404 instead of sending 404
+   response

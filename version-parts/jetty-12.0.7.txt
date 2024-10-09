@@ -1,0 +1,35 @@
+jetty-12.0.7 - 29 February 2024
+ + 6140 Report total number of keys in SelectorManager
+ + 7750 HttpURI.toURI() does not copy fragment
+ + 8887 Jetty-12 client calls onDataAvailable with producing thread
+ + 8979 Jetty 12 - HttpClientTransport network "modes"
+ + 10805 Jetty response with an invalid HTTP2 packet if the client set the
+   hpack table size as 0
+ + 11278 500 response when trying to display symlinked directory
+ + 11310 Uploading big multipart files via jetty 12.0.5 with spring boot 3.2.1
+   cause problems
+ + 11353 The default virtual thread executor should created named threads
+ + 11356 Allow ServerWebSocketContainer to be created without ContextHandler
+ + 11361 Update UriCompliance.checkUriCompliance
+ + 11363 ContentSourcePublisher throws from request
+ + 11370 IllegalStateException when last write fails
+ + 11371 Review ArrayByteBufferPool eviction
+ + 11372 Scheduler queue in the HTTP client grows infinitely when a server
+   times out
+ + 11377 Jetty 12 fails to start WebApp Bundle with OSGi Boot bundle (or when
+   packaged)
+ + 11387 Reintroduce MultiPartCompliance.LEGACY (not as default) too allow for
+   parsing of non-compliant `multipart/form-data`
+ + 11396 NullPointerException when getting parts from HttpServletRequest
+ + 11398 WebSocket ClosedChannelException when demanding frames in onOpen
+ + 11401 Replace StringBuffer with StringBuilder
+ + 11403 Expose `SslEndPoint` in `SslHandshakeListener`
+ + 11410 PathMappingsHandler does not start ResourceHandler properly
+ + 11414 When producing URI/URL strings follow spec and produce lowercase
+   schemes and drop default ports
+ + 11424 What is the `jetty.deploy.scanInterval` default?  module, ini, code
+   and documentation do not agree.
+ + 11432 Review number of acceptor threads
+ + 11441 Quote escaping in HTML file
+ + 11448 UriCompliance.Violation ignored despite being set
+ + 11465 HttpURI.toURI() sets userInfo to null
