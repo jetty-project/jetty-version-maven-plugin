@@ -1,0 +1,39 @@
+jetty-11.0.3 - 20 May 2021
+ + 3764 DeprecationWarning Decorator
+ + 5306 Default jetty.*.acceptors should be 1
+ + 5684 Review disabled tests
+ + 5798 jetty-runner startup error with jetty-10
+ + 5817 Provide more filtering for CustomRequestLog
+ + 6049 Default provider [files] section always executed
+ + 6084 GzipHandler: NPE in setDeflaterPoolCapacity and setInflaterPoolCapacity
+ + 6098 jetty-cdi is missing from jetty-bom
+ + 6099 Cipher preference may break SNI if certificates have different key
+   types
+ + 6105 HttpConnection.getBytesIn() incorrect for requests with chunked content
+ + 6106 WebSocket/CDI integration is broken in Jetty 10
+ + 6125 Do not allow override of jakarta.* container classes by webapps per
+   Servlet 5.0 Section 15.2.1
+ + 6132 Ambiguous segment in URI in DELETE
+   /a/projects/foo/branches/refs%2Fheads%2Ftest request after upgrade from
+   10.0.0 to 10.0.2
+ + 6153 jetty-maven-plugin does not correctly pass JVM arguments for external
+   deployMode
+ + 6159 Jetty with Conscrypt unable to handle any HTTPS requests when connected
+   by IP rather than hostname.
+ + 6166 WebSocket MessageInputStream.read() spends a lot of time in
+   ByteBuffer.compact()
+ + 6205 OpenIdAuthenticator may use incorrect redirect
+ + 6207 Make ALPN optional in HTTP2Client over TLS
+ + 6208 HTTP/2 max local stream count exceeded
+ + 6224 make jetty-jspc-maven-plugin @threadSafe
+ + 6227 Better resolve race between `AsyncListener.onTimeout` and
+   `AsyncContext.dispatch`
+ + 6238 jetty-keystore Invalid manifest header Bundle-SymbolicName: ""
+ + 6250 Lazily allocate HTTP2Stream data queue
+ + 6251 Use CyclicTimeout for HTTP2Streams
+ + 6254 Total timeout not enforced for queued requests
+ + 6263 Review URI encoding in ConcatServlet & WelcomeFilter
+ + 6272 Reduce allocation in HttpClient when notifying content listeners
+ + 6277 Better handle exceptions thrown from session destroy listener
+ + 6280 Copy ServletHolder class/instance properly during startWebapp
+ + 6287 Class loading broken for WebSocketClient used inside webapp

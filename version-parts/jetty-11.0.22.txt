@@ -1,0 +1,2 @@
+jetty-11.0.22 - 27 June 2024
+ + 11917 Update XML configure.dtd locations to new jetty.org website

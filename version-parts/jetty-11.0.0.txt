@@ -1,0 +1,24 @@
+jetty-11.0.0 - 02 December 2020
+ + 1923 GCThreadLeakPreventer won't work with Java 9
+ + 4711 Reset trailers on recycled response
+ + 5086 Review Scanner locking
+ + 5272 The UserStore and PropertyUserStore classes are hard to re-use for
+   caching eg JDBC data
+ + 5310 Jetty Http2 client discards the response fames when there is GOAWAY and
+   sends RST_STREAM
+ + 5320 Using WebSocketClient with jetty-websocket-httpclient.xml in a Jetty
+   web application causes ClassCastException
+ + 5486 PropertyFileLoginModule retains PropertyUserStores
+ + 5488 jetty-dir.css not found when using JPMS
+ + 5493 StatisticsHandler broken for async applications
+ + 5521 ResourceCollection NPE in list()
+ + 5535 Support regex in SslContextFactory include/exclude of protocols
+ + 5539 StatisticsServlet output is not valid
+ + 5555 NPE for servlet with no mapping
+ + 5562 ArrayTernaryTrie consumes too much memory
+ + 5575 Add SEARCH as a known HttpMethod
+ + 5605 java.io.IOException: unconsumed input during http request parsing
+ + 5633 Allow to configure HttpClient request authority
+ + 5679 Distro argument --list-all-modules does not work
+ + 5680 No way to see which modules are enabled for the distro
+ + 5691 HttpInput may skip setting fill interest
