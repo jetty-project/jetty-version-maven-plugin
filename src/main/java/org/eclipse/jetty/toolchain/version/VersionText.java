@@ -41,8 +41,8 @@ public class VersionText
     private boolean sortExisting = false;
     private final VersionPattern versionPattern;
     private final List<String> headers = new ArrayList<>();
-    private final LinkedList<Release> releases = new LinkedList<>();// Always write with UNIX line endings
-    public static final String LN = "\n";
+    private final LinkedList<Release> releases = new LinkedList<>();
+    public static final String LN = "\n"; // Always write with UNIX line endings
 
     public VersionText(VersionPattern pat)
     {

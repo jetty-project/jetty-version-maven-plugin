@@ -66,12 +66,6 @@
       <groupId>org.kohsuke</groupId>
       <artifactId>github-api</artifactId>
       <version>${github-api.version}</version>
-      <!--exclusions>
-        <exclusion>
-          <groupId>commons-lang</groupId>
-          <artifactId>commons-lang</artifactId>
-        </exclusion>
-      </exclusions-->
     </dependency>
     <dependency>
       <groupId>com.squareup.okio</groupId>
