@@ -1,0 +1,13 @@
+jetty-10.0.4 - 04 June 2021
+ + 5379 Better handling for wrong SNI
+ + 5931 SslConnection should implement getBytesIn()/getBytesOut()
+ + 6112 Jetty logging service file leaking to web applications
+ + 6114 Jetty Deploy scan / symlink behavior is broken
+ + 6118 Display a warning when Hazelcast configuration does not contain Jetty
+   session serializer
+ + 6276 Support non-standard domains in SNI and X509
+ + 6305 Optimise `ContextHandler.isProtectedTarget`
+ + 6323 HttpClient gets stuck/never calls onComplete() when multiple requests
+   with timeouts are sent
+ + 6347 session-store-gcloud module broken logging dependency
+ + 6354 org.slfj osgi dependency imports packages at 2.0

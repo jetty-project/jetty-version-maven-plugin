@@ -22,6 +22,7 @@ jetty-6.1.6rc0 - 03 October 2007
  + Added jetty.lib system property to start.config
  + Added JPackage RPM support
  + Added JSON.Convertable
+ + Added protection for response splitting with bad headers (CVE-2007-5615)
  + Adding setUsername,setGroupname to setuid and mavenizing native build
  + Add jetty.host system property
  + AJP13 Fix on chunked post
@@ -29,7 +30,6 @@ jetty-6.1.6rc0 - 03 October 2007
  + Allow scan interval to be set after Scanner started
  + Avoid FULL exception in window between blockForOutput and remote close
  + Cached user agents strings in the /org/mortbay/jetty/useragents resource
- + CVE-2007-5615 Added protection for response splitting with bad headers.
  + Ensure session is completed only when leaving context.
  + Fix cached header optimization for extra characters
  + Fix Host header for async client

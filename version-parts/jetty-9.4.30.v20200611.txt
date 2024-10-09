@@ -16,5 +16,4 @@ jetty-9.4.30.v20200611 - 11 June 2020
  + 4923 SecureRequestCustomizer.SslAttributes does not cache cert chain like
    before
  + 4929 HttpClient: HttpCookieStore.Empty prevents sending cookies
- + 4936 Response header overflow leads to buffer corruptions - Resolves
-   CVE-2019-17638
+ + 4936 Response header overflow leads to buffer corruptions (CVE-2019-17638)

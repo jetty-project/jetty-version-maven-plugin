@@ -1,0 +1,8 @@
+jetty-10.0.5 - 11 June 2021
+ + 4772 Jetty WebSocket API onMessage annotation does not support partial
+   messages.
+ + 6302 Treat empty path segments are ambiguous
+ + 6329 Regression on graceful shutdown default in Jetty 10
+ + 6354 org.slf4j dependency imports osgi packages at 2.0
+ + 6379 Reduce contention in all `ByteBufferPool` implementations
+ + 6392 Review accidental xml config changes

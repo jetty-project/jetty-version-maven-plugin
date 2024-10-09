@@ -36,11 +36,11 @@ jetty-7.0.1.v20091125 - 25 November 2009
    Safari
  + COMETD-34 Support Baeyux MBean
  + CQ-3581 jetty OSGi contribution
- + CVE-2009-3555 Prevent SSL renegotiate for SSL vulnerability
  + Fixed client abort asocciation
  + Fixed XSS issue in CookieDump demo servlet.
  + Improved start.jar usage text for properties
  + Moved centralized logging and verifier back to sandbox
+ + Prevent SSL renegotiate for SSL vulnerability (CVE-2009-3555)
  + Promoted Jetty Centralized Logging from Sandbox
  + Promoted Jetty WebApp Verifier from Sandbox
  + Refactored continuation test harnessess

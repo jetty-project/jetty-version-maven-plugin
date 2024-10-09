@@ -4,8 +4,7 @@ jetty-9.4.16.v20190411 - 11 April 2019
  + 3159 WebSocket permessage-deflate RSV1 validity check
  + 3274 OSGi versions of java.base classes in
    org.apache.felix:org.osgi.foundation:jar conflicts with new rules on Java 9+
- + 3319 Modernize Directory Listing: HTML5 and Sorting - Resolves
-   CVE-2019-10241
+ + 3319 Modernize Directory Listing: HTML5 and Sorting (CVE-2019-10241)
  + 3361 HandlerCollection.addHandler is lacking synchronization
  + 3373 OutOfMemoryError: Java heap space in GZIPContentDecoder
  + 3389 Websockets jsr356 willDecode not invoked during decoding
