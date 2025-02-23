@@ -27,6 +27,26 @@ pipeline {
             }
           }
         }
+        stage( "Build Jdk17" ) {
+          agent { node { label 'linux-light' } }
+          steps {
+            timeout( time: 120, unit: 'MINUTES' ) {
+              withMaven( maven: 'maven3', jdk: 'jdk17' ) {
+                sh "mvn -B -V clean install"
+              }
+            }
+          }
+        }
+        stage( "Build Jdk21" ) {
+          agent { node { label 'linux-light' } }
+          steps {
+            timeout( time: 120, unit: 'MINUTES' ) {
+              withMaven( maven: 'maven3', jdk: 'jdk21' ) {
+                sh "mvn -B -V clean install"
+              }
+            }
+          }
+        }
       }
     }
   }
