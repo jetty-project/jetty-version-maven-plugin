@@ -1,14 +1,14 @@
 #!groovy
 
 pipeline {
-  agent any
+  agent none
   // save some io during the build
   options { durabilityHint( 'PERFORMANCE_OPTIMIZED' ) }
   stages {
     stage("Parallel Stage") {
       parallel {
         stage( "Build Jdk8" ) {
-          agent { node { label 'linux' } }
+          agent { node { label 'linux-light' } }
           steps {
             timeout( time: 120, unit: 'MINUTES' ) {
               withMaven( maven: 'maven3', jdk: 'jdk8' ) {
@@ -18,7 +18,7 @@ pipeline {
           }
         }
         stage( "Build Jdk11" ) {
-          agent { node { label 'linux' } }
+          agent { node { label 'linux-light' } }
           steps {
             timeout( time: 120, unit: 'MINUTES' ) {
               withMaven( maven: 'maven3', jdk: 'jdk11' ) {
